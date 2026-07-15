@@ -31,9 +31,9 @@ pnpm site:build</code></pre>
   </p>
 
   <h2>发布 npm</h2>
-  <p>在登录 npm 后发布 packages：</p>
-  <pre><code>pnpm --filter create-xhs-minitool publish --access public
-pnpm --filter xhs-minitool-vite-config publish --access public
-pnpm --filter xhs-minitool-validate publish --access public
-pnpm --filter xhs-minitool-pack publish --access public</code></pre>
+  <p>四个工具包同版本发版，推荐用根目录脚本（会更新 <code>CHANGELOG.md</code>）：</p>
+  <pre><code>pnpm release prepare patch -m "你的变更说明" --commit --tag
+git push && git push --tags
+pnpm release publish --otp=xxxxxx</code></pre>
+  <p>详情见仓库 README「发版」一节。</p>
 </DocsLayout>

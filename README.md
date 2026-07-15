@@ -23,7 +23,30 @@ npx create-xhs-minitool --name my-tool --title '我的工具' --theme-color '#FF
 | `xhs-minitool-pack` | 整理 `xhs-tool` + zip |
 | `xhs-minitool-validate` | 静态校验 |
 
-发布前自检：`pnpm release:check`。登录 npm 后分别 `pnpm --filter <pkg> publish --access public`。
+发布前自检：`pnpm release:check`。
+
+## 发版（版本 + Changelog + npm）
+
+四个工具包**同版本**发布。根目录有自动化脚本：
+
+```bash
+# 1) bump 版本并写入 CHANGELOG（可选自动 commit / tag）
+pnpm release prepare patch -m "Fix phone preview height" --commit --tag
+
+# 2) 推到 GitHub
+git push && git push --tags
+
+# 3) 按依赖顺序发布到 npm（需已 npm login / token；2FA 时加 --otp）
+pnpm release publish --otp=123456
+```
+
+一条龙（本地准备 + 发布）：
+
+```bash
+pnpm release patch -m "Fix phone preview height" --commit --tag --publish --otp=123456
+```
+
+也可用 `minor` / `major` 代替 `patch`。说明文字会进入 [CHANGELOG.md](CHANGELOG.md)。
 
 ## 目录
 

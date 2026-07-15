@@ -13,7 +13,10 @@
     "site:dev": "pnpm --filter website sync-demos && pnpm --filter website dev",
     "site:build": "pnpm build && pnpm --filter website build",
     "site:deploy": "pnpm site:build && pnpm --filter website exec wrangler deploy",
-    "release:check": "pnpm -r --filter \"./packages/**\" exec sh -c 'npm pack --dry-run && rm -f ./*.tgz'"
+    "release:check": "pnpm -r --filter \"./packages/**\" exec sh -c 'npm pack --dry-run && rm -f ./*.tgz'",
+    "release": "node ./scripts/release.mjs",
+    "release:prepare": "node ./scripts/release.mjs prepare",
+    "release:publish": "node ./scripts/release.mjs publish"
   },
   "engines": {
     "node": ">=18.17.0",
