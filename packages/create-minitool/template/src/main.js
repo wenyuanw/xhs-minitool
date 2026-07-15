@@ -10,7 +10,7 @@ page.innerHTML = `
     <p class="slogan">{{slogan}}</p>
   </header>
   <section class="card">
-    <p>从这里开始写你的离线工具。构建后会打成符合容器规范的 zip。</p>
+    <p>从这里开始写你的小红书小工具。构建后会打成符合容器规范的 zip。</p>
     <button type="button" class="btn" id="hello-btn">点一下试试</button>
   </section>
 `;

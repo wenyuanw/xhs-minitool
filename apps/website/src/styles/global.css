@@ -69,21 +69,28 @@ code {
   font-family: var(--font-display);
   font-weight: 800;
   letter-spacing: -0.03em;
+  color: var(--ink);
+}
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  height: 32px;
+  padding: 0 0.7rem;
+  border-radius: 9px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  box-shadow: 0 4px 12px rgb(255 36 66 / 22%);
 }
 
 .brand-text {
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   font-size: 1.05rem;
-}
-
-.brand-logo {
-  width: 30px;
-  height: 30px;
-  border-radius: 8px;
-  flex-shrink: 0;
-  box-shadow: 0 4px 12px rgb(255 36 66 / 22%);
 }
 
 .nav {
@@ -117,8 +124,13 @@ code {
 
 @media (max-width: 720px) {
   .brand-text {
-    font-size: 0.78rem;
-    letter-spacing: -0.02em;
+    display: none;
+  }
+
+  .brand-mark {
+    height: 30px;
+    padding: 0 0.65rem;
+    font-size: 0.72rem;
   }
 
   .nav {
@@ -148,34 +160,9 @@ code {
     gap: 0.5rem;
   }
 
-  .brand {
-    gap: 0.35rem;
-  }
-
-  .brand-text {
-    font-size: 0.72rem;
-    max-width: 6.8rem;
-  }
-
-  .brand-logo {
-    width: 28px;
-    height: 28px;
-  }
-
   .nav {
     gap: 0.35rem;
     font-size: 0.88rem;
-  }
-}
-
-@media (max-width: 380px) {
-  .brand-text {
-    /* Keep logo; drop full name when extremely narrow */
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
   }
 }
 
@@ -216,9 +203,18 @@ code {
 }
 
 .hero-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 88px;
   height: 88px;
   border-radius: 22px;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
   box-shadow: 0 14px 32px rgb(255 36 66 / 24%);
   animation: rise 0.7s ease both;
 }

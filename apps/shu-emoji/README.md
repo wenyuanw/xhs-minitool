@@ -57,4 +57,4 @@ pnpm --filter shu-emoji dev
 
 ## 提交包说明
 
-小红书规范见仓库 `skills/` 与官方小工具指南。
+小红书规范见仓库 `.agents/skills/` 与官方小工具指南。

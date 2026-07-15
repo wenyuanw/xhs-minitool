@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import Icon from '../components/Icon.astro';
 
-const { title = 'XHS MiniTool', description = '小红书离线小工具脚手架：Vite + 原生 JS，一键打包符合容器规范的 zip。' } = Astro.props;
+const { title = 'XHS MiniTool', description = '小红书小工具脚手架：Vite + 原生 JS，一键打包符合容器规范的 zip。' } = Astro.props;
 const pageTitle = title === 'XHS MiniTool' ? title : `${title} · XHS MiniTool`;
 ---
 
@@ -25,8 +25,8 @@ const pageTitle = title === 'XHS MiniTool' ? title : `${title} · XHS MiniTool`;
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="/">
-        <img class="brand-logo" src="/logo.svg" width="32" height="32" alt="" />
+      <a class="brand" href="/" aria-label="XHS MiniTool">
+        <span class="brand-mark">minitool</span>
         <span class="brand-text">XHS MiniTool</span>
       </a>
       <nav class="nav" aria-label="主导航">
@@ -56,7 +56,7 @@ const pageTitle = title === 'XHS MiniTool' ? title : `${title} · XHS MiniTool`;
     </header>
     <slot />
     <footer class="site-footer">
-      <p>离线小工具脚手架 · Vite + 原生 JS · <code>npx create-xhs-minitool</code></p>
+      <p>小红书小工具脚手架 · Vite + 原生 JS · <code>npx create-xhs-minitool</code></p>
       <p class="footer-links">
         <a href="https://github.com/wenyuanw/xhs-minitool" target="_blank" rel="noopener">
           <Icon name="github" />

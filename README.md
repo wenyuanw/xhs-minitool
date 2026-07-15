@@ -28,13 +28,13 @@ npx create-xhs-minitool --name my-tool --title '我的工具' --theme-color '#FF
 ## 目录
 
 ```text
+.agents/skills/       # Agent skills（规范与 reference）
 apps/                 # 各小工具 + website 官网
 packages/
   create-minitool        # = create-xhs-minitool
   minitool-vite-config
   minitool-pack
   minitool-validate
-skills/               # Agent / 人读的规范与 reference
 ```
 
 ## 要求
@@ -86,7 +86,7 @@ pnpm site:deploy   # 需已 wrangler login
 
 ## 开发规范
 
-- `skills/minitool-zip-builder/` — zip 产物规范
-- `skills/xiaohongshu-mini-tool-dev/` — 容器能力与审查清单
+- `.agents/skills/minitool-zip-builder/` — zip 产物规范
+- `.agents/skills/xiaohongshu-mini-tool-dev/` — 容器能力与审查清单
 
 新项目优先 `npx create-xhs-minitool` 或 monorepo 内 `pnpm create-minitool`。

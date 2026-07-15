@@ -126,8 +126,8 @@ async function collectVars(flags) {
     return {
       name,
       title,
-      slogan: String(flags.slogan || `${title} —— 离线小工具`),
-      description: String(flags.description || flags.slogan || `${title} —— 离线小工具`),
+      slogan: String(flags.slogan || `${title} —— 小工具`),
+      description: String(flags.description || flags.slogan || `${title} —— 小工具`),
       themeColor: String(flags['theme-color'] || '#FF2442'),
     };
   }
@@ -143,7 +143,7 @@ async function collectVars(flags) {
     }
 
     const title = await ask(rl, '显示名称', name);
-    const slogan = await ask(rl, 'Slogan', `${title} —— 离线小工具`);
+    const slogan = await ask(rl, 'Slogan', `${title} —— 小工具`);
     const description = await ask(rl, '描述', slogan);
     const themeColor = await ask(rl, 'theme-color', '#FF2442');
 

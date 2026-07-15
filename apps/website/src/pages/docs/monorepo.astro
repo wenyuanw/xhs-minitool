@@ -24,6 +24,12 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
 pnpm site:build</code></pre>
   <p><code>sync-demos</code> 会把各 app 的 <code>xhs-tool</code> 同步到官网 <code>/preview/&lt;name&gt;/</code>。</p>
 
+  <h2>Agent Skills</h2>
+  <p>
+    规范与工作流放在 <code>.agents/skills/</code>（如
+    <code>minitool-zip-builder</code>、<code>xiaohongshu-mini-tool-dev</code>），供 Cursor / Claude Code 等 Agent 加载。
+  </p>
+
   <h2>发布 npm</h2>
   <p>在登录 npm 后发布 packages：</p>
   <pre><code>pnpm --filter create-xhs-minitool publish --access public

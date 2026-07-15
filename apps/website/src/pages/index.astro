@@ -4,9 +4,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout>
   <main class="hero">
-    <img class="hero-logo" src="/logo.svg" width="88" height="88" alt="minitool" />
+    <div class="hero-logo" aria-hidden="true">minitool</div>
     <h1 class="hero-brand">XHS <span>MiniTool</span></h1>
-    <p>用 Vite + 原生 JS 写离线小红书小工具，一条命令脚手架，打包成符合容器规范的 zip。</p>
+    <p>用 Vite + 原生 JS 写小红书小工具，一条命令脚手架，打包成符合容器规范的 zip。</p>
     <div class="cmd" aria-label="创建命令">
       <span aria-hidden="true">$</span>
       <code>npx create-xhs-minitool</code>

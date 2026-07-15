@@ -34,7 +34,7 @@ page.innerHTML = `
     />
     <p class="eyebrow">小红书小工具</p>
     <h1>你好小工具</h1>
-    <p class="slogan">从这里开始写离线小工具</p>
+    <p class="slogan">从这里开始写小红书小工具</p>
   </header>
   <section class="card counter-card">
     <p>点一下数字，计数 +1（本地保存）</p>
