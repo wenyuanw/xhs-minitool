@@ -1,19 +1,29 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import AgentPrompt from '../components/AgentPrompt.astro';
 ---
 
-<BaseLayout>
+<BaseLayout description="一键创建小红书小工具项目，本地开发并打包成可上传到创作服务平台的 zip。">
   <main class="hero">
-    <div class="hero-logo" aria-hidden="true">minitool</div>
-    <h1 class="hero-brand">XHS <span>MiniTool</span></h1>
-    <p>用 Vite + 原生 JS 写小红书小工具，一条命令脚手架，打包成符合容器规范的 zip。</p>
-    <div class="cmd" aria-label="创建命令">
-      <span aria-hidden="true">$</span>
-      <code>npx create-xhs-minitool</code>
-    </div>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="/docs/getting-started/">阅读文档</a>
-      <a class="btn btn-ghost" href="/demos/">查看 Demo</a>
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <div class="hero-logo" aria-hidden="true">minitool</div>
+        <h1 class="hero-brand">XHS <span>MiniTool</span></h1>
+        <p>帮你从零开始做小红书小工具：一条命令创建项目，打包出可直接上传到创作服务平台的 zip。</p>
+        <div class="hero-actions">
+          <div class="cmd" aria-label="创建命令">
+            <span aria-hidden="true">$</span>
+            <code>npx create-xhs-minitool</code>
+          </div>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="/docs/getting-started/">阅读文档</a>
+            <a class="btn btn-ghost" href="/demos/">查看 Demo</a>
+          </div>
+        </div>
+      </div>
+      <aside class="hero-agent" aria-label="AI 创建方式">
+        <AgentPrompt />
+      </aside>
     </div>
   </main>
 </BaseLayout>

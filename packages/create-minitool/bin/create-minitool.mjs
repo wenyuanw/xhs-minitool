@@ -20,6 +20,7 @@ const PKG_META = JSON.parse(readFileSync(join(PKG_ROOT, 'package.json'), 'utf8')
 
 const NAME_RE = /^[a-z][a-z0-9]*(-[a-z0-9]+)*$/;
 const COLOR_RE = /^#[0-9A-Fa-f]{6}$/;
+const DEFAULT_THEME = '#FF2442';
 
 function findRepoRoot(start = process.cwd()) {
   let dir = resolve(start);
@@ -53,9 +54,13 @@ function walkFiles(dir) {
 
 function parseArgs(argv) {
   const flags = {};
+  const positionals = [];
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i];
-    if (!arg.startsWith('--')) continue;
+    if (!arg.startsWith('--')) {
+      positionals.push(arg);
+      continue;
+    }
     const key = arg.slice(2);
     const next = argv[i + 1];
     if (!next || next.startsWith('--')) {
@@ -65,13 +70,26 @@ function parseArgs(argv) {
       i += 1;
     }
   }
-  return flags;
+  return { flags, positionals };
 }
 
 async function ask(rl, question, defaultValue = '') {
   const hint = defaultValue ? ` (${defaultValue})` : '';
   const answer = (await rl.question(`${question}${hint}: `)).trim();
   return answer || defaultValue;
+}
+
+/** 从目录名派生默认文案；可选 flag 覆盖。 */
+function buildVars(name, overrides = {}) {
+  const title = String(overrides.title || name);
+  const slogan = String(overrides.slogan || `${title} —— 小工具`);
+  return {
+    name,
+    title,
+    slogan,
+    description: String(overrides.description || slogan),
+    themeColor: String(overrides.themeColor || overrides['theme-color'] || DEFAULT_THEME),
+  };
 }
 
 function applyPlaceholders(content, vars) {
@@ -110,46 +128,38 @@ function createProject(targetDir, vars) {
 function printHelp() {
   console.log(`Usage:
   npx create-xhs-minitool
-  create-xhs-minitool --name <kebab> --title <str> [--slogan <str>] [--description <str>] [--theme-color #RRGGBB]
+  npx create-xhs-minitool <name>
+  create-xhs-minitool --name <kebab> [--title <str>] [--slogan <str>] [--description <str>] [--theme-color #RRGGBB]
+
+交互时只需输入文件夹名；其余使用默认文案（title=目录名，slogan/description=「<title> —— 小工具」，theme-color=#FF2442）。
+也可直接传目录名跳过提问。
 
 Inside the xiaohongshu-minitool monorepo, creates apps/<name>.
 Elsewhere (npx), creates a standalone project directory.`);
 }
 
-async function collectVars(flags) {
+async function collectVars(flags, positionals) {
   if (flags.help || flags.h) {
     printHelp();
     process.exit(0);
   }
 
-  if (flags.name) {
-    const name = String(flags.name);
-    const title = String(flags.title || name);
-    return {
-      name,
-      title,
-      slogan: String(flags.slogan || `${title} —— 小工具`),
-      description: String(flags.description || flags.slogan || `${title} —— 小工具`),
-      themeColor: String(flags['theme-color'] || '#FF2442'),
-    };
+  const nameFromArgs = flags.name ? String(flags.name) : positionals[0];
+  if (nameFromArgs) {
+    return buildVars(nameFromArgs, flags);
   }
 
   const rl = createInterface({ input, output, terminal: Boolean(input.isTTY) });
   try {
     console.log('创建小红书小工具（Vite + 原生 JS）\n');
 
-    let name = await ask(rl, '工具目录名 (kebab-case)', 'my-minitool');
+    let name = await ask(rl, '文件夹名称 (kebab-case)', 'my-minitool');
     while (!NAME_RE.test(name)) {
       console.log('名称须为 kebab-case，例如: note-helper');
-      name = await ask(rl, '工具目录名 (kebab-case)');
+      name = await ask(rl, '文件夹名称 (kebab-case)');
     }
 
-    const title = await ask(rl, '显示名称', name);
-    const slogan = await ask(rl, 'Slogan', `${title} —— 小工具`);
-    const description = await ask(rl, '描述', slogan);
-    const themeColor = await ask(rl, 'theme-color', '#FF2442');
-
-    return { name, title, slogan, description, themeColor };
+    return buildVars(name);
   } finally {
     rl.close();
   }
@@ -158,7 +168,8 @@ async function collectVars(flags) {
 async function main() {
   const repoRoot = findRepoRoot();
   const mode = repoRoot ? 'workspace' : 'standalone';
-  const vars = await collectVars(parseArgs(process.argv.slice(2)));
+  const { flags, positionals } = parseArgs(process.argv.slice(2));
+  const vars = await collectVars(flags, positionals);
 
   if (!NAME_RE.test(vars.name)) {
     throw new Error('名称须为 kebab-case，例如: note-helper');

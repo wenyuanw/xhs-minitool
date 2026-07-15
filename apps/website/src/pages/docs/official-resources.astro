@@ -5,16 +5,49 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
 <DocsLayout
   slug="official-resources"
   title="官方资源"
-  description="小红书小工具官方规范、操作指南与能力清单。"
+  description="小红书官方提供的小工具说明、能力清单和上传入口。"
 >
   <h1>官方资源</h1>
-  <p>以下为小红书公开的小工具规范与说明，建议在开发 / 打包前阅读。</p>
-
-  <h2>规范 Skill（zip 构建）</h2>
-  <p>官方要求可概括为：</p>
-  <pre><code>从 https://fe-static.xhscdn.com/mini-tool/1.2.0/minitool-zip-builder.zip 下载 skill，解压到工作区（Cursor/Claude Code → .claude/，Codex → .codex/，其余 → .skill/），读取 SKILL.md，对当前工作区产物按指引校验、修复并打包，输出校验摘要和产物路径。</code></pre>
   <p>
-    Skill 下载：
+    这一页汇总了小红书公开的小工具资料。建议在<strong>开始开发前</strong>和<strong>准备上传前</strong>各看一遍，避免做到一半才发现平台不支持。
+  </p>
+
+  <h2>小工具操作指南</h2>
+  <p>小红书官方的入门说明，介绍小工具是什么、怎么创建和提交。</p>
+  <p>
+    <a
+      href="https://fe.xiaohongshu.com/ditto/vincent/0df3caa3417d4c008b2c06689cf1653a?naviHidden=yes&fullscreen=true&source=wowcard"
+      target="_blank"
+      rel="noopener"
+      >打开：小工具操作指南</a
+    >
+  </p>
+
+  <h2>能力清单</h2>
+  <p>官方列出的「能用 / 不能用」能力对照表。做功能设计前建议先看这里。</p>
+  <p>
+    <a
+      href="https://fe.xiaohongshu.com/ditto/vincent/9e60cefbd7024e1cb783383308cb1aa5?naviHidden=yes&fullscreen=true&source=splash"
+      target="_blank"
+      rel="noopener"
+      >打开：小工具能力清单</a
+    >
+  </p>
+
+  <h2>创作服务平台（上传入口）</h2>
+  <p>打包好 zip 后，在这里上传、预览和提交你的小工具。</p>
+  <p>
+    <a href="https://creator.xiaohongshu.com/new/red-app" target="_blank" rel="noopener"
+      >打开：创作服务平台 · 小工具</a
+    >
+  </p>
+
+  <h2>官方打包规范 Skill</h2>
+  <p>
+    小红书还提供了一份「打包规范」指引（Skill），主要给 AI 编程工具或自动化流程使用，用来按官方要求检查并打包 zip。
+  </p>
+  <p>
+    下载：
     <a
       href="https://fe-static.xhscdn.com/mini-tool/1.2.0/minitool-zip-builder.zip"
       target="_blank"
@@ -22,36 +55,6 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
       >minitool-zip-builder.zip</a
     >
   </p>
-  <p>
-    本仓库 / 脚手架已内置对应内容于 <code>.agents/skills/</code>（如
-    <code>minitool-zip-builder</code>），也可直接使用官方 zip 同步最新指引。
-  </p>
-
-  <h2>操作指南</h2>
-  <p>
-    <a
-      href="https://fe.xiaohongshu.com/ditto/vincent/0df3caa3417d4c008b2c06689cf1653a?naviHidden=yes&fullscreen=true&source=wowcard"
-      target="_blank"
-      rel="noopener"
-      >小工具操作指南</a
-    >
-  </p>
-
-  <h2>能力清单</h2>
-  <p>
-    <a
-      href="https://fe.xiaohongshu.com/ditto/vincent/9e60cefbd7024e1cb783383308cb1aa5?naviHidden=yes&fullscreen=true&source=splash"
-      target="_blank"
-      rel="noopener"
-      >小工具能力清单</a
-    >
-  </p>
-
-  <h2>创作服务平台</h2>
-  <p>
-    上传 zip 并部署预览：
-    <a href="https://creator.xiaohongshu.com/new/red-app" target="_blank" rel="noopener"
-      >创作服务平台 · 小工具</a
-    >
-  </p>
+  <p>下载后解压到项目里，按里面的 <code>SKILL.md</code> 操作即可。如果你用 Cursor 或 Claude Code，也可以直接读项目自带的 <code>.agents/skills/minitool-zip-builder/</code>，内容和官方 Skill 一致。</p>
+  <p>普通用户用 <code>pnpm build</code> + <code>pnpm validate</code> 通常就够了，不必手动处理 Skill，除非你想同步官方最新指引。</p>
 </DocsLayout>

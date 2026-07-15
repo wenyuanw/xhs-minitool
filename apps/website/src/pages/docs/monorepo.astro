@@ -4,36 +4,42 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
 
 <DocsLayout
   slug="monorepo"
-  title="在 Monorepo 贡献"
-  description="向本仓库添加 demo 与共享包。"
+  title="参与仓库开发"
+  description="如果你想给脚手架本身贡献代码，可以看这一页。"
 >
-  <h1>在 Monorepo 贡献</h1>
+  <h1>参与仓库开发</h1>
+  <p>
+    这一页面向<strong>维护脚手架源码</strong>的贡献者。如果你只是想用小工具脚手架做项目，看
+    <a href="/docs/getting-started/">快速开始</a> 就够了。
+  </p>
   <p>
     本仓库既是脚手架源码，也是 demo 集合。源码在
-    <a href="https://github.com/wenyuanw/xhs-minitool" target="_blank" rel="noopener"
-      >GitHub</a
-    >
-    。在仓库根目录执行：
+    <a href="https://github.com/wenyuanw/xhs-minitool" target="_blank" rel="noopener">GitHub</a>。
   </p>
-  <pre><code>pnpm create-minitool
-# 会在 apps/&lt;name&gt; 生成工具（workspace 依赖）</code></pre>
 
-  <h2>网站预览 Demo</h2>
-  <p>构建全部工具后：</p>
+  <h2>在仓库里新建一个 demo 工具</h2>
+  <p>克隆仓库后，在根目录运行：</p>
+  <pre><code>pnpm install
+pnpm create-minitool</code></pre>
+  <p>会在 <code>apps/&lt;名称&gt;/</code> 下生成新工具，并自动使用仓库内的共享构建包。</p>
+
+  <h2>本地开发某个工具</h2>
+  <pre><code>pnpm --filter &lt;名称&gt; dev
+pnpm --filter &lt;名称&gt; build
+pnpm --filter &lt;名称&gt; validate</code></pre>
+
+  <h2>更新官网上的 demo 预览</h2>
+  <p>先构建全部工具，再构建网站：</p>
   <pre><code>pnpm build
 pnpm site:build</code></pre>
-  <p><code>sync-demos</code> 会把各 app 的 <code>xhs-tool</code> 同步到官网 <code>/preview/&lt;name&gt;/</code>。</p>
+  <p>构建时会把各工具的预览页同步到官网的 <code>/preview/&lt;名称&gt;/</code> 路径。</p>
 
-  <h2>Agent Skills</h2>
+  <h2>开发规范放在哪里</h2>
   <p>
-    规范与工作流放在 <code>.agents/skills/</code>（如
-    <code>minitool-zip-builder</code>、<code>xiaohongshu-mini-tool-dev</code>），供 Cursor / Claude Code 等 Agent 加载。
+    <code>.agents/skills/</code> 目录里有打包规范和容器能力说明，供 Cursor、Claude Code 等 AI
+    工具读取，也方便人工查阅。
   </p>
 
-  <h2>发布 npm</h2>
-  <p>四个工具包同版本发版，推荐用根目录脚本（会更新 <code>CHANGELOG.md</code>）：</p>
-  <pre><code>pnpm release prepare patch -m "你的变更说明" --commit --tag
-git push && git push --tags
-pnpm release publish --otp=xxxxxx</code></pre>
-  <p>详情见仓库 README「发版」一节。</p>
+  <h2>发布到 npm</h2>
+  <p>四个工具包会一起发版。完整流程（版本号、CHANGELOG、发布命令）见仓库里的 <a href="https://github.com/wenyuanw/xhs-minitool/blob/main/docs/DEVELOPMENT.md" target="_blank" rel="noopener">docs/DEVELOPMENT.md</a>。</p>
 </DocsLayout>

@@ -1,0 +1,67 @@
+---
+const {
+  title = 'Agent 一键创建',
+  description = '把下面这段话复制到 Cursor、Claude Code 等 AI 的对话窗口，把【】里的内容改成你想要的功能即可。',
+  feature = '【在这里描述你想要的功能，例如：番茄钟计时器】',
+} = Astro.props;
+
+const prompt = `我想做一个小红书小工具，功能是${feature}。
+
+请按以下步骤帮我完成：
+1. 运行 npx create-xhs-minitool 创建项目（文件夹名用 kebab-case）
+2. 阅读项目内 .agents/skills/ 中的小红书容器开发规范
+3. 实现上述功能，确保纯离线、符合容器约束
+4. 执行 pnpm build 打包，并执行 pnpm validate 检查
+5. 告诉我 zip 文件路径和上传到创作服务平台的方法`;
+---
+
+<div class="agent-prompt" data-agent-prompt>
+  <div class="agent-prompt__head">
+    <h2 class="agent-prompt__title">{title}</h2>
+    <p class="agent-prompt__desc">{description}</p>
+  </div>
+  <pre class="agent-prompt__text" data-prompt-text>{prompt}</pre>
+  <button class="agent-prompt__btn" type="button" data-copy-prompt aria-label="复制提示词">
+    <svg class="agent-prompt__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+      <path
+        fill="currentColor"
+        d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+      />
+    </svg>
+    <span data-copy-label>复制提示词</span>
+  </button>
+</div>
+
+<script>
+  document.querySelectorAll('[data-agent-prompt]').forEach((root) => {
+    const btn = root.querySelector('[data-copy-prompt]');
+    const textEl = root.querySelector('[data-prompt-text]');
+    const label = root.querySelector('[data-copy-label]');
+    if (!(btn instanceof HTMLButtonElement) || !(textEl instanceof HTMLElement) || !(label instanceof HTMLElement)) {
+      return;
+    }
+
+    btn.addEventListener('click', async () => {
+      const text = textEl.textContent ?? '';
+      try {
+        await navigator.clipboard.writeText(text);
+        label.textContent = '已复制';
+        btn.classList.add('is-copied');
+        window.setTimeout(() => {
+          label.textContent = '复制提示词';
+          btn.classList.remove('is-copied');
+        }, 1600);
+      } catch {
+        const range = document.createRange();
+        range.selectNodeContents(textEl);
+        const selection = window.getSelection();
+        selection?.removeAllRanges();
+        selection?.addRange(range);
+        label.textContent = '请手动复制';
+        window.setTimeout(() => {
+          label.textContent = '复制提示词';
+        }, 1600);
+      }
+    });
+  });
+</script>

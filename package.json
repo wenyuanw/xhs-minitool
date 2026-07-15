@@ -2,7 +2,8 @@
   "name": "xiaohongshu-minitool",
   "version": "0.1.0",
   "private": true,
-  "description": "小红书小工具 monorepo：Vite + 原生 JS，pnpm workspace",
+  "description": "小红书小工具脚手架：Vite + 原生 JS，一键创建并打包可上传的 zip",
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "dev": "pnpm --filter hello-minitool dev",

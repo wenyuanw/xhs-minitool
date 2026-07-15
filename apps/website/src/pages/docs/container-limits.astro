@@ -5,26 +5,57 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
 <DocsLayout
   slug="container-limits"
   title="容器约束"
-  description="离线 H5 容器的能力边界摘要。"
+  description="小红书小工具能做什么、不能做什么，开发前先看这一页。"
 >
   <h1>容器约束</h1>
-  <p>小工具运行在受控 WebView，本质是<strong>纯本地、不联网</strong>的 H5 包。</p>
+  <p>
+    小红书小工具不是普通网站，它运行在一个<strong>受限制的 App 内置浏览器</strong>里。可以把它理解成：一个必须<strong>完全离线、所有文件都打包在 zip 里</strong>的手机网页。
+  </p>
+  <p>设计功能前，先确认你的核心流程在「不能联网」的前提下是否还能跑通。</p>
 
-  <h2>必须遵守</h2>
+  <h2>必须遵守的规则</h2>
   <ul>
-    <li>唯一入口 <code>index.html</code>，资源用相对路径并全部打进包</li>
-    <li>脚本用 <code>&lt;script src&gt;</code> 外链；禁止内联脚本 / 行内事件 / <code>eval</code></li>
-    <li>无 Service Worker / PWA / 远程 CDN</li>
-    <li>允许类型：html / css / js / 常见图片 / woff(2) / json</li>
+    <li>
+      <strong>只有一个入口</strong>：<code>index.html</code>。小红书从这里打开你的小工具。
+    </li>
+    <li>
+      <strong>所有资源都要打进 zip</strong>：图片、样式、脚本等，用相对路径互相引用，不能依赖在线 CDN。
+    </li>
+    <li>
+      <strong>脚本要写在单独的 .js 文件里</strong>，用 <code>&lt;script src="..."&gt;</code>
+      引入。不要写内联脚本、不要在 HTML 标签上直接写 <code>onclick</code> 这类代码。
+    </li>
+    <li>
+      <strong>允许的文件类型有限</strong>：html、css、js、常见图片、字体、json 等。别的格式可能被拒绝。
+    </li>
+    <li><strong>不支持</strong> Service Worker、PWA、后台联网更新这类能力。</li>
   </ul>
 
-  <h2>能力降级</h2>
-  <p>网络请求、下载、外链、iframe、WASM、Worker 等通常不可用；请在设计阶段做可行性判断。</p>
+  <h2>通常做不到的事</h2>
+  <p>下面这些在容器里基本不可用，设计时请提前避开：</p>
+  <ul>
+    <li>访问你自己的服务器 API（需要联网拉数据）</li>
+    <li>打开外部网页、嵌入 iframe</li>
+    <li>下载文件到手机、唤起系统分享</li>
+    <li>使用 WebAssembly、Web Worker 等高级能力</li>
+    <li>实时聊天、多人协作等需要持续联网的功能</li>
+  </ul>
+  <p>如果某个功能只是「锦上添花」，可以砍掉；如果它是产品核心，就需要换成本地能完成的方案。</p>
 
-  <h2>官方说明</h2>
-  <p>
-    更完整的平台约束与能力边界，见
-    <a href="/docs/official-resources/">官方资源</a>
-    （操作指南、能力清单、规范 Skill）。
-  </p>
+  <h2>本地可以用的能力</h2>
+  <p>下面这些在离线容器里通常没问题，适合大多数小工具：</p>
+  <ul>
+    <li>页面展示、按钮交互、表单输入</li>
+    <li>用 <code>localStorage</code> 或 <code>IndexedDB</code> 在本地保存数据</li>
+    <li>Canvas 绘图、简单动画</li>
+    <li>读取 zip 包内的图片、音频等资源</li>
+  </ul>
+
+  <h2>怎么判断「能不能做」</h2>
+  <ol>
+    <li>断网后，你的核心流程还能完成吗？</li>
+    <li>所有素材和代码都在 zip 里吗？</li>
+    <li>有没有依赖登录、实时数据、外部链接？</li>
+  </ol>
+  <p>三个问题都能答「是 / 没有」，一般就可以开始做。拿不准时，先看 <a href="/docs/official-resources/">官方资源</a> 里的能力清单。</p>
 </DocsLayout>

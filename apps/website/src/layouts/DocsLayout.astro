@@ -7,7 +7,7 @@ const docs = [
   { slug: 'packaging', title: '打包与校验' },
   { slug: 'container-limits', title: '容器约束' },
   { slug: 'official-resources', title: '官方资源' },
-  { slug: 'monorepo', title: '在 Monorepo 贡献' },
+  { slug: 'monorepo', title: '参与仓库开发' },
 ];
 
 const { slug, title, description } = Astro.props;
@@ -28,4 +28,52 @@ const { slug, title, description } = Astro.props;
       <slot />
     </article>
   </div>
+  <script>
+    function enhanceDocCodeBlocks() {
+      document.querySelectorAll('.doc > pre').forEach((pre) => {
+        if (!(pre instanceof HTMLPreElement)) return;
+        if (pre.parentElement?.classList.contains('doc-code')) return;
+
+        const wrap = document.createElement('div');
+        wrap.className = 'doc-code';
+        pre.replaceWith(wrap);
+        wrap.appendChild(pre);
+
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'doc-copy';
+        btn.textContent = '复制';
+        btn.setAttribute('aria-label', '复制代码');
+        wrap.appendChild(btn);
+
+        btn.addEventListener('click', async () => {
+          const text = (pre.querySelector('code')?.textContent ?? pre.textContent ?? '').replace(
+            /\n$/,
+            '',
+          );
+          try {
+            await navigator.clipboard.writeText(text);
+            btn.textContent = '已复制';
+            btn.classList.add('is-copied');
+            window.setTimeout(() => {
+              btn.textContent = '复制';
+              btn.classList.remove('is-copied');
+            }, 1600);
+          } catch {
+            const range = document.createRange();
+            range.selectNodeContents(pre.querySelector('code') ?? pre);
+            const selection = window.getSelection();
+            selection?.removeAllRanges();
+            selection?.addRange(range);
+            btn.textContent = '请手动复制';
+            window.setTimeout(() => {
+              btn.textContent = '复制';
+            }, 1600);
+          }
+        });
+      });
+    }
+
+    enhanceDocCodeBlocks();
+  </script>
 </BaseLayout>

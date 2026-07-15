@@ -5,30 +5,59 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
 <DocsLayout
   slug="project-structure"
   title="项目结构"
-  description="独立小工具项目的目录与常用脚本。"
+  description="创建项目后，每个文件夹和命令分别是干什么的。"
 >
   <h1>项目结构</h1>
-  <p>脚手架生成的独立项目大致如下：</p>
+  <p>用脚手架创建项目后，目录大致长这样。不用全记住，知道「改页面看哪里、打包看哪里」就够了。</p>
   <pre><code>my-tool/
-├── index.html
-├── vite.config.js
-├── package.json
-├── public/icons/
-└── src/
-    ├── main.js
-    ├── styles/
-    └── lib/</code></pre>
+├── index.html          # 页面入口（小红书从这里打开）
+├── vite.config.js      # 构建配置（一般不用改）
+├── package.json        # 项目信息和命令
+├── public/icons/       # 图标等资源
+└── src/                # 你主要写代码的地方
+    ├── main.js         # 页面逻辑
+    ├── styles/         # 样式
+    └── lib/            # 可复用的小工具函数</code></pre>
 
-  <h2>常用脚本</h2>
+  <h2>你最常改的文件</h2>
   <ul>
-    <li><code>pnpm dev</code> — 本地开发</li>
-    <li><code>pnpm build</code> — Vite 构建并 <code>minitool-pack</code></li>
-    <li><code>pnpm validate</code> — 对 <code>xhs-tool/</code> 做严格静态检查</li>
+    <li><code>src/main.js</code> — 页面内容、按钮点击、数据保存等逻辑</li>
+    <li><code>src/styles/</code> — 颜色、布局、字号等样式</li>
+    <li><code>index.html</code> — 页面标题、图标等基础信息</li>
+    <li><code>public/</code> — 图片、图标等静态资源</li>
   </ul>
 
-  <h2>产物</h2>
+  <h2>三个常用命令</h2>
   <ul>
-    <li><code>xhs-tool/</code> — 提交目录（根部为 <code>index.html</code>）</li>
-    <li><code>&lt;name&gt;-xhs-tool.zip</code> — 上传用压缩包</li>
+    <li>
+      <code>pnpm dev</code> — <strong>本地预览</strong>。边写代码边看效果，适合开发阶段每天用。
+    </li>
+    <li>
+      <code>pnpm build</code> — <strong>打包</strong>。把项目编译好，并生成可上传的 zip。
+    </li>
+    <li>
+      <code>pnpm validate</code> — <strong>检查</strong>。看看打包结果有没有明显不符合平台要求的问题。
+    </li>
   </ul>
+
+  <h2>打包后会多出什么</h2>
+  <ul>
+    <li>
+      <code>xhs-tool/</code> — 整理好的提交文件夹。打开后第一层就能看到
+      <code>index.html</code>。
+    </li>
+    <li>
+      <code>my-tool-xhs-tool.zip</code> — 直接上传到创作服务平台的压缩包（名称随你的项目名变化）。
+    </li>
+  </ul>
+  <p>
+    简单记：<strong>开发改 <code>src/</code>，上传用 zip</strong>。平时不用手动碰
+    <code>xhs-tool/</code>，它是 <code>pnpm build</code> 自动生成的。
+  </p>
+
+  <h2>项目里还有一份 AI 助手指引</h2>
+  <p>
+    <code>.agents/skills/</code> 里放了小红书小工具的开发规范。如果你用 Cursor、Claude Code
+    等 AI 工具写代码，它会帮你按平台要求来改，减少踩坑。
+  </p>
 </DocsLayout>

@@ -3,10 +3,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import demos from '../../data/demos.json';
 ---
 
-<BaseLayout title="Demos" description="浏览本仓库内置的小红书小工具示例。">
+<BaseLayout title="Demos" description="看看别人做的小红书小工具长什么样。">
   <main class="section">
-    <h1>Demos</h1>
-    <p class="lead">以下为 monorepo 中已构建的小红书小工具，可在浏览器中预览（行为接近容器静态加载）。</p>
+    <h1>示例小工具</h1>
+    <p class="lead">这里展示了一些用本脚手架做出来的小工具。点开可以在浏览器里预览，效果和上传到小红书后接近。</p>
     <div class="demo-grid">
       {
         demos.map((demo) => (

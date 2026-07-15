@@ -81,8 +81,8 @@ description: Design, build, migrate, debug, package, and review Xiaohongshu mini
 
 ```bash
 npx create-xhs-minitool
-# 或非交互：
-npx create-xhs-minitool --name <kebab-name> --title <标题> --theme-color '#FF2442'
+# 或直接传文件夹名（其余用默认文案）：
+npx create-xhs-minitool <kebab-name>
 ```
 
 若当前仓库是本 monorepo（存在根目录 `pnpm-workspace.yaml` 与 `packages/create-minitool`）：

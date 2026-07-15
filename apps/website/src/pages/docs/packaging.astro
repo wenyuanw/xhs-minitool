@@ -5,33 +5,58 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
 <DocsLayout
   slug="packaging"
   title="打包与校验"
-  description="如何产出符合小红书容器规范的 zip。"
+  description="怎么把项目打成可上传的 zip，以及上传前要做哪些检查。"
 >
   <h1>打包与校验</h1>
-  <p><code>pnpm build</code> 会：</p>
-  <ol>
-    <li>用共享 Vite 配置打出 IIFE 单入口 <code>app.js</code></li>
-    <li>清理不允许的文件类型、修正 HTML 相对路径</li>
-    <li>压缩为 zip（保证 <code>index.html</code> 在 zip 根）</li>
-    <li>运行严格静态校验</li>
-  </ol>
-
-  <h2>正确打 zip</h2>
-  <p>必须压缩目录<strong>内容</strong>，不要多套一层文件夹：</p>
-  <pre><code>cd xhs-tool && zip -r ../my-tool-xhs-tool.zip . -x '*.DS_Store'</code></pre>
-  <p>脚手架里的 <code>xhs-minitool-pack</code> 已按此方式处理。</p>
-
-  <h2>官方规范</h2>
   <p>
-    平台侧完整说明见
-    <a href="/docs/official-resources/">官方资源</a>
-    （含
-    <a
-      href="https://fe-static.xhscdn.com/mini-tool/1.2.0/minitool-zip-builder.zip"
-      target="_blank"
-      rel="noopener"
-      >minitool-zip-builder.zip</a
-    >
-    与创作服务平台入口）。
+    开发完成后，你需要把一个<strong>符合小红书要求的 zip 包</strong>上传到创作服务平台。脚手架已经帮你把大部分步骤自动化了。
+  </p>
+
+  <h2>一键打包</h2>
+  <p>在项目根目录运行：</p>
+  <pre><code>pnpm build</code></pre>
+  <p>这条命令会自动完成这些事：</p>
+  <ol>
+    <li>把你的代码编译成小红书容器能加载的单个 JS 文件</li>
+    <li>整理 HTML、CSS、图片等资源，改成相对路径引用</li>
+    <li>去掉平台不允许的文件类型</li>
+    <li>打成 zip，并确保解压后第一层就是 <code>index.html</code></li>
+    <li>跑一遍自动检查，有问题会在终端提示</li>
+  </ol>
+  <p>成功后你会看到 <code>&lt;项目名&gt;-xhs-tool.zip</code>，这就是要上传的文件。</p>
+
+  <h2>上传前再检查一次（推荐）</h2>
+  <pre><code>pnpm validate</code></pre>
+  <p>
+    即使已经 <code>build</code> 过，也建议单独跑一次校验。它会扫描常见问题，比如：用了内联脚本、引用了外链资源、文件类型不允许等。
+  </p>
+  <p>终端里标成 <strong>ERROR</strong> 的必须修掉；<strong>WARNING</strong> 建议逐条确认。</p>
+
+  <h2>zip 包长什么样才算对</h2>
+  <p>打开 zip 后，应该<strong>直接看到</strong> <code>index.html</code>，而不是先看到一层多余的文件夹。</p>
+  <p>正确示意：</p>
+  <pre><code>my-tool-xhs-tool.zip
+├── index.html
+├── app.js
+├── styles/
+└── ...</code></pre>
+  <p>错误示意（多套了一层文件夹，平台可能识别不了）：</p>
+  <pre><code>my-tool-xhs-tool.zip
+└── my-tool/          ← 不要这样
+    └── index.html</code></pre>
+  <p>脚手架会自动按正确方式打包，一般不用你手动打 zip。如果你要手动操作，正确命令是：</p>
+  <pre><code>cd xhs-tool && zip -r ../my-tool-xhs-tool.zip . -x '*.DS_Store'</code></pre>
+
+  <h2>上传到哪里</h2>
+  <p>
+    打开
+    <a href="https://creator.xiaohongshu.com/new/red-app" target="_blank" rel="noopener"
+      >创作服务平台 · 小工具</a
+    >，按页面提示上传 zip，即可在平台里预览效果。
+  </p>
+
+  <h2>想了解更多规范细节</h2>
+  <p>
+    平台侧的完整说明见 <a href="/docs/official-resources/">官方资源</a>，包括官方打包指引 Skill 和创作平台入口。
   </p>
 </DocsLayout>

@@ -1,57 +1,102 @@
 ---
 import DocsLayout from '../../layouts/DocsLayout.astro';
+import AgentPrompt from '../../components/AgentPrompt.astro';
 ---
 
 <DocsLayout
   slug="getting-started"
   title="快速开始"
-  description="用 npx create-xhs-minitool 创建小红书小工具。"
+  description="从零创建你的第一个小红书小工具项目。"
 >
   <h1>快速开始</h1>
-  <p>XHS MiniTool 帮助你用 <strong>Vite + 原生 JS</strong> 开发可提交的小红书小工具包。</p>
+  <p>
+    小红书小工具可以理解成：一个放在小红书 App 里运行的<strong>离线小网页</strong>。你写好页面、打成
+    zip 包，再上传到创作服务平台，就能让用户在小红书里打开使用。
+  </p>
+  <p>XHS MiniTool 帮你把「创建项目 → 本地开发 → 打包上传」这条链路串起来，不用从零搭环境。</p>
 
-  <h2>仓库与链接</h2>
+  <AgentPrompt />
+
+  <h2>开始前请准备</h2>
+  <ul>
+    <li>一台能运行命令行的电脑（macOS / Windows / Linux 都可以）</li>
+    <li>
+      安装 <a href="https://nodejs.org/" target="_blank" rel="noopener">Node.js</a>（建议 18.17 或更高版本）
+    </li>
+    <li>包管理器任选其一：<code>pnpm</code>、<code>npm</code> 或 <code>yarn</code>（下文以 pnpm 为例）</li>
+  </ul>
+
+  <h2>第一步：创建项目</h2>
+  <p>在你想放项目的文件夹里，打开终端，运行：</p>
+  <pre><code>npx create-xhs-minitool</code></pre>
+  <p>按提示输入<strong>文件夹名称</strong>（例如 <code>my-tool</code>）即可。其余文案会自动填好默认值。</p>
+  <p>想跳过提问、直接创建，也可以这样写：</p>
+  <pre><code>npx create-xhs-minitool my-tool</code></pre>
+  <p>创建完成后，你会得到一个完整项目，里面已经带了一个能跑起来的示例页面。</p>
+
+  <h2>第二步：安装依赖并预览</h2>
+  <pre><code>cd my-tool
+pnpm install
+pnpm dev</code></pre>
+  <p><code>pnpm dev</code> 会在本机启动预览。在浏览器里改代码、保存，页面会自动刷新，方便边写边看效果。</p>
+
+  <h2>第三步：打包并上传</h2>
+  <p>功能做好后，执行：</p>
+  <pre><code>pnpm build</code></pre>
+  <p>
+    会生成 <code>my-tool-xhs-tool.zip</code>。把这个 zip 上传到
+    <a href="https://creator.xiaohongshu.com/new/red-app" target="_blank" rel="noopener"
+      >创作服务平台</a
+    >，就能在平台里预览和提交。
+  </p>
+  <p>上传前建议再跑一次检查：</p>
+  <pre><code>pnpm validate</code></pre>
+  <p>它会帮你提前发现「不符合小红书容器要求」的常见问题，减少上传失败。</p>
+
+  <h2>默认会帮你填好的内容</h2>
+  <ul>
+    <li>页面标题：和文件夹名相同</li>
+    <li>一句话介绍 / 描述：「&lt;名称&gt; —— 小工具」</li>
+    <li>主题色：<code>#FF2442</code>（小红书红）</li>
+  </ul>
+  <p>这些都可以在项目里自行修改，创建时不用纠结。</p>
+
+  <h2>脚手架里自带了哪些工具</h2>
+  <p>你不用逐个安装，创建项目时会自动配好：</p>
+  <ul>
+    <li><code>create-xhs-minitool</code> — 用来创建项目的命令</li>
+    <li><code>xhs-minitool-vite-config</code> — 帮你把代码编译成小红书能加载的格式</li>
+    <li><code>xhs-minitool-pack</code> — 整理文件并打成 zip</li>
+    <li><code>xhs-minitool-validate</code> — 上传前的自动检查</li>
+  </ul>
+
+  <h2>常用链接</h2>
   <ul>
     <li>
       官网：
       <a href="https://xhs-minitool.wenyuanw.me" target="_blank" rel="noopener"
-        >https://xhs-minitool.wenyuanw.me</a
+        >xhs-minitool.wenyuanw.me</a
       >
     </li>
     <li>
-      GitHub：
+      源码：
       <a href="https://github.com/wenyuanw/xhs-minitool" target="_blank" rel="noopener"
-        >https://github.com/wenyuanw/xhs-minitool</a
+        >GitHub</a
       >
     </li>
     <li>
-      npm（脚手架）：
+      脚手架 npm 页：
       <a href="https://www.npmjs.com/package/create-xhs-minitool" target="_blank" rel="noopener"
         >create-xhs-minitool</a
       >
     </li>
   </ul>
 
-  <h2>用 npx 创建独立项目</h2>
-  <pre><code>npx create-xhs-minitool
-# 或非交互：
-npx create-xhs-minitool --name my-tool --title '我的工具' --theme-color '#FF2442'</code></pre>
-  <p>然后进入目录安装依赖并启动：</p>
-  <pre><code>cd my-tool
-pnpm install
-pnpm dev</code></pre>
-
-  <h2>依赖的 npm 包</h2>
+  <h2>接下来建议看</h2>
   <ul>
-    <li><code>create-xhs-minitool</code> — 脚手架</li>
-    <li><code>xhs-minitool-vite-config</code> — IIFE / 相对路径构建配置</li>
-    <li><code>xhs-minitool-pack</code> — 整理 <code>xhs-tool</code> 并打 zip</li>
-    <li><code>xhs-minitool-validate</code> — 静态兼容性校验</li>
+    <li><a href="/docs/project-structure/">项目结构</a> — 每个文件夹是干什么的</li>
+    <li><a href="/docs/packaging/">打包与校验</a> — zip 怎么打、怎么检查</li>
+    <li><a href="/docs/container-limits/">容器约束</a> — 哪些功能能做、哪些不能做</li>
+    <li><a href="/docs/official-resources/">官方资源</a> — 小红书平台的完整说明</li>
   </ul>
-
-  <h2>下一步</h2>
-  <p>
-    阅读 <a href="/docs/project-structure/">项目结构</a>、<a href="/docs/packaging/">打包与校验</a>
-    ，以及 <a href="/docs/official-resources/">官方资源</a>。
-  </p>
 </DocsLayout>

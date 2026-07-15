@@ -224,11 +224,47 @@ code {
 
 .hero {
   min-height: calc(100svh - 64px);
-  display: grid;
-  align-content: center;
-  gap: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: clamp(2.5rem, 8vh, 5rem) clamp(1.25rem, 4vw, 3rem);
   max-width: 1100px;
+  margin: 0 auto;
+}
+
+.hero-inner {
+  display: grid;
+  gap: 2rem;
+  width: 100%;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .hero-inner {
+    grid-template-columns: minmax(0, 1.05fr) minmax(340px, 400px);
+    gap: clamp(2rem, 4vw, 3.5rem);
+  }
+}
+
+.hero-copy {
+  display: grid;
+  gap: 1.35rem;
+  min-width: 0;
+}
+
+.hero-actions {
+  display: grid;
+  gap: 1rem;
+}
+
+.hero-agent {
+  min-width: 0;
+}
+
+@media (min-width: 900px) {
+  .hero-agent {
+    align-self: center;
+  }
 }
 
 .hero-logo {
@@ -251,7 +287,7 @@ code {
 .hero-brand {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: clamp(3rem, 10vw, 5.5rem);
+  font-size: clamp(2.6rem, 6vw, 4.6rem);
   line-height: 0.95;
   letter-spacing: -0.04em;
   margin: 0;
@@ -265,9 +301,10 @@ code {
 
 .hero p {
   margin: 0;
-  max-width: 34rem;
+  max-width: 32rem;
   color: var(--muted);
-  font-size: 1.15rem;
+  font-size: clamp(1rem, 2vw, 1.12rem);
+  line-height: 1.65;
   animation: rise 0.7s ease 0.08s both;
 }
 
@@ -276,7 +313,7 @@ code {
   flex-wrap: wrap;
   gap: 0.75rem 1rem;
   align-items: center;
-  animation: rise 0.7s ease 0.16s both;
+  animation: rise 0.7s ease 0.2s both;
 }
 
 .btn {
@@ -317,6 +354,8 @@ code {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  width: fit-content;
+  max-width: 100%;
   padding: 0.85rem 1.1rem;
   border-radius: 12px;
   border: 1px solid var(--line);
@@ -324,7 +363,11 @@ code {
   font-family: ui-monospace, Menlo, monospace;
   font-size: 0.92rem;
   box-shadow: 0 10px 30px rgb(20 24 31 / 6%);
-  animation: rise 0.7s ease 0.24s both;
+  animation: rise 0.7s ease 0.16s both;
+}
+
+.cmd code {
+  overflow-wrap: anywhere;
 }
 
 .section {
@@ -606,6 +649,13 @@ code {
   margin: 0 auto;
 }
 
+@media (max-width: 879px) {
+  .doc-layout {
+    gap: 1.25rem;
+    padding-top: 1.25rem;
+  }
+}
+
 @media (min-width: 880px) {
   .doc-layout {
     grid-template-columns: 200px minmax(0, 1fr);
@@ -618,9 +668,52 @@ code {
   gap: 0.5rem;
   color: var(--muted);
   font-size: 0.95rem;
-  position: sticky;
-  top: 5rem;
   align-self: start;
+}
+
+@media (min-width: 880px) {
+  .doc-nav {
+    position: sticky;
+    top: 5rem;
+  }
+}
+
+@media (max-width: 879px) {
+  .doc-nav {
+    position: static;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 0.45rem;
+    margin: 0 calc(-1 * clamp(1.25rem, 4vw, 3rem));
+    padding: 0 clamp(1.25rem, 4vw, 3rem) 0.25rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 0.85rem;
+  }
+
+  .doc-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .doc-nav a {
+    flex-shrink: 0;
+    padding: 0.38rem 0.8rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--surface);
+    white-space: nowrap;
+    text-decoration: none;
+    transition:
+      border-color 0.15s ease,
+      background 0.15s ease;
+  }
+
+  .doc-nav a[aria-current='page'] {
+    background: rgb(255 36 66 / 10%);
+    border-color: rgb(255 36 66 / 35%);
+  }
 }
 
 .doc-nav a[aria-current='page'] {
@@ -646,20 +739,69 @@ code {
   color: rgb(20 24 31 / 88%);
 }
 
-.doc pre {
+.doc-code {
+  position: relative;
+  margin: 1.1em 0;
+}
+
+.doc-code pre,
+.doc > pre {
   overflow: auto;
-  padding: 1rem 1.1rem;
+  margin: 0;
+  padding: 1rem 4.5rem 1rem 1.1rem;
   border-radius: 12px;
   border: 1px solid var(--line);
   background: #0f1419;
   color: #f4f1ec;
   font-size: 0.88rem;
+  user-select: text;
+  -webkit-user-select: text;
 }
 
-.doc pre code {
+.doc-code pre code,
+.doc > pre code {
   background: transparent;
   color: inherit;
   padding: 0;
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+.doc-copy {
+  position: absolute;
+  top: 0.55rem;
+  right: 0.55rem;
+  z-index: 1;
+  appearance: none;
+  border: 1px solid rgb(244 241 236 / 18%);
+  border-radius: 7px;
+  padding: 0.28rem 0.65rem;
+  background: rgb(15 20 25 / 78%);
+  color: #f4f1ec;
+  font: 500 0.75rem/1.2 var(--font-body);
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.doc-copy:hover {
+  background: rgb(255 36 66 / 88%);
+  border-color: transparent;
+  color: #fff;
+}
+
+.doc-copy:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.doc-copy.is-copied {
+  background: rgb(34 140 90 / 90%);
+  border-color: transparent;
+  color: #fff;
 }
 
 .doc a {
@@ -688,4 +830,96 @@ code {
     opacity: 1;
     transform: none;
   }
+}
+
+.agent-prompt {
+  display: grid;
+  gap: 1rem;
+  padding: 1.35rem 1.4rem 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 12px 36px rgb(20 24 31 / 6%);
+}
+
+.agent-prompt__head {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.agent-prompt__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.agent-prompt__desc {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.agent-prompt__text {
+  margin: 0;
+  padding: 1rem 1.1rem;
+  border-radius: 12px;
+  background: rgb(20 24 31 / 4%);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  line-height: 1.65;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.agent-prompt__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  width: 100%;
+  padding: 0.82rem 1.2rem;
+  border: none;
+  border-radius: 12px;
+  background: var(--ink);
+  color: #fff;
+  font: 600 0.95rem/1.2 var(--font-body);
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    transform 0.15s ease;
+}
+
+.agent-prompt__btn:hover {
+  background: #2a3039;
+}
+
+.agent-prompt__btn:active {
+  transform: scale(0.99);
+}
+
+.agent-prompt__btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.agent-prompt__btn.is-copied {
+  background: #1f6b47;
+}
+
+.agent-prompt__icon {
+  flex-shrink: 0;
+}
+
+.hero .agent-prompt {
+  height: 100%;
+  animation: rise 0.7s ease 0.24s both;
+}
+
+.doc .agent-prompt {
+  margin: 1.5rem 0 2rem;
 }
