@@ -1,6 +1,6 @@
 {
   "name": "xhs-minitool-pack",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "整理小红书小工具 xhs-tool 产物并打 zip",
   "type": "module",
   "license": "MIT",
