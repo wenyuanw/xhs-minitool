@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1 - 2026-07-15
+
+### Patch Changes
+
+- Add Skills
 All notable changes to `create-xhs-minitool` and related packages
 (`xhs-minitool-vite-config`, `xhs-minitool-pack`, `xhs-minitool-validate`) are documented in this file.
 

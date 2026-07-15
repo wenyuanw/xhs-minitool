@@ -1,6 +1,6 @@
 {
   "name": "create-xhs-minitool",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "创建小红书小工具（Vite + 原生 JS）",
   "type": "module",
   "license": "MIT",

@@ -1,6 +1,6 @@
 {
   "name": "xhs-minitool-validate",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "小红书小工具静态兼容性校验（Python validator 的 Node 封装）",
   "type": "module",
   "license": "MIT",

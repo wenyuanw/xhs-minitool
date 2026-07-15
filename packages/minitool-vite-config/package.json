@@ -1,6 +1,6 @@
 {
   "name": "xhs-minitool-vite-config",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "小红书小工具共享 Vite 配置（IIFE / 相对路径 / xhs-tool 产物）",
   "type": "module",
   "license": "MIT",
