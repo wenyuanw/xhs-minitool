@@ -1,0 +1,16 @@
+[
+  {
+    "id": "hello-minitool",
+    "title": "你好小工具",
+    "name": "hello-minitool",
+    "description": "Monorepo 内置可运行示例：展示 Vite + 原生 JS 模板与打包流水线。",
+    "path": "/preview/hello-minitool/index.html"
+  },
+  {
+    "id": "shu-emoji",
+    "title": "薯 Emoji",
+    "name": "shu-emoji",
+    "description": "薯 Emoji - 小红书表情含义与用法离线小工具",
+    "path": "/preview/shu-emoji/index.html"
+  }
+]

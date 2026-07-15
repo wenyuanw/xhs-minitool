@@ -7,18 +7,17 @@
   "scripts": {
     "dev": "pnpm --filter hello-minitool dev",
     "dev:shu-emoji": "pnpm --filter shu-emoji dev",
-    "build": "pnpm -r --filter \"./apps/**\" build",
-    "validate": "pnpm -r --filter \"./apps/**\" validate",
-    "create-minitool": "node ./packages/create-minitool/bin/create-minitool.mjs"
+    "build": "pnpm -r --filter \"./apps/**\" --filter \"!website\" build",
+    "validate": "pnpm -r --filter \"./apps/**\" --filter \"!website\" validate",
+    "create-minitool": "node ./packages/create-minitool/bin/create-minitool.mjs",
+    "site:dev": "pnpm --filter website sync-demos && pnpm --filter website dev",
+    "site:build": "pnpm build && pnpm --filter website build",
+    "site:deploy": "pnpm site:build && pnpm --filter website exec wrangler deploy",
+    "release:check": "pnpm -r --filter \"./packages/**\" exec sh -c 'npm pack --dry-run && rm -f ./*.tgz'"
   },
   "engines": {
     "node": ">=18.17.0",
     "pnpm": ">=9.0.0"
   },
-  "packageManager": "pnpm@10.15.1",
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild"
-    ]
-  }
+  "packageManager": "pnpm@10.15.1"
 }

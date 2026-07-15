@@ -1,9 +1,9 @@
 {
-  "name": "@xhs/minitool-vite-config",
+  "name": "xhs-minitool-vite-config",
   "version": "0.1.0",
-  "private": true,
   "description": "小红书小工具共享 Vite 配置（IIFE / 相对路径 / xhs-tool 产物）",
   "type": "module",
+  "license": "MIT",
   "exports": {
     ".": "./index.js"
   },
@@ -13,7 +13,24 @@
   "peerDependencies": {
     "vite": "^6.0.0"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "engines": {
     "node": ">=18.17.0"
+  },
+  "keywords": [
+    "xiaohongshu",
+    "minitool",
+    "vite"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wenyuanw/xhs-minitool.git",
+    "directory": "packages/minitool-vite-config"
+  },
+  "homepage": "https://github.com/wenyuanw/xhs-minitool#readme",
+  "bugs": {
+    "url": "https://github.com/wenyuanw/xhs-minitool/issues"
   }
 }

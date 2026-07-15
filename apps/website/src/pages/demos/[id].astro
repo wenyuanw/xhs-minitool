@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import demos from '../../data/demos.json';
+
+export function getStaticPaths() {
+  return demos.map((demo) => ({
+    params: { id: demo.id },
+    props: { demo },
+  }));
+}
+
+const { demo } = Astro.props;
+---
+
+<BaseLayout title={demo.title} description={demo.description}>
+  <main class="section">
+    <h1>{demo.title}</h1>
+    <p class="lead">{demo.description}</p>
+    <div class="demo-stage">
+      <div>
+        <p>
+          包名 <code>{demo.name}</code>。完整交互请在真机 / 模拟器中加载 zip；此处为静态资源预览。
+        </p>
+        <p>
+          <a class="btn btn-primary" href={demo.path} target="_blank" rel="noopener">在新标签打开</a>
+        </p>
+      </div>
+      <div class="phone" aria-hidden="false">
+        <div class="phone-btn phone-btn-silent"></div>
+        <div class="phone-btn phone-btn-vol-up"></div>
+        <div class="phone-btn phone-btn-vol-down"></div>
+        <div class="phone-btn phone-btn-power"></div>
+        <div class="phone-bezel">
+          <div class="phone-island"></div>
+          <div class="phone-status">
+            <span class="phone-time">9:41</span>
+            <span class="phone-status-icons" aria-hidden="true">
+              <span class="phone-signal"></span>
+              <span class="phone-wifi"></span>
+              <span class="phone-battery"></span>
+            </span>
+          </div>
+          <div class="phone-screen">
+            <iframe title={`${demo.title} preview`} src={demo.path} loading="lazy"></iframe>
+          </div>
+          <div class="phone-home"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>

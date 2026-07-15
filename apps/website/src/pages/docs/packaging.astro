@@ -1,0 +1,23 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+---
+
+<DocsLayout
+  slug="packaging"
+  title="打包与校验"
+  description="如何产出符合小红书容器规范的 zip。"
+>
+  <h1>打包与校验</h1>
+  <p><code>pnpm build</code> 会：</p>
+  <ol>
+    <li>用共享 Vite 配置打出 IIFE 单入口 <code>app.js</code></li>
+    <li>清理不允许的文件类型、修正 HTML 相对路径</li>
+    <li>压缩为 zip（保证 <code>index.html</code> 在 zip 根）</li>
+    <li>运行严格静态校验</li>
+  </ol>
+
+  <h2>正确打 zip</h2>
+  <p>必须压缩目录<strong>内容</strong>，不要多套一层文件夹：</p>
+  <pre><code>cd xhs-tool && zip -r ../my-tool-xhs-tool.zip . -x '*.DS_Store'</code></pre>
+  <p>脚手架里的 <code>xhs-minitool-pack</code> 已按此方式处理。</p>
+</DocsLayout>

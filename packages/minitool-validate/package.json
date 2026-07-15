@@ -1,11 +1,12 @@
 {
-  "name": "@xhs/minitool-validate",
+  "name": "xhs-minitool-validate",
   "version": "0.1.0",
-  "private": true,
   "description": "小红书小工具静态兼容性校验（Python validator 的 Node 封装）",
   "type": "module",
+  "license": "MIT",
   "bin": {
-    "minitool-validate": "./bin/minitool-validate.mjs"
+    "minitool-validate": "./bin/minitool-validate.mjs",
+    "xhs-minitool-validate": "./bin/minitool-validate.mjs"
   },
   "exports": {
     ".": "./index.js"
@@ -15,7 +16,24 @@
     "scripts",
     "index.js"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "engines": {
     "node": ">=18.17.0"
+  },
+  "keywords": [
+    "xiaohongshu",
+    "minitool",
+    "validate"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wenyuanw/xhs-minitool.git",
+    "directory": "packages/minitool-validate"
+  },
+  "homepage": "https://github.com/wenyuanw/xhs-minitool#readme",
+  "bugs": {
+    "url": "https://github.com/wenyuanw/xhs-minitool/issues"
   }
 }

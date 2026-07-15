@@ -11,10 +11,10 @@
     "validate": "minitool-validate xhs-tool --strict"
   },
   "devDependencies": {
-    "@xhs/minitool-pack": "workspace:*",
-    "@xhs/minitool-validate": "workspace:*",
-    "@xhs/minitool-vite-config": "workspace:*",
-    "vite": "^6.3.5"
+    "vite": "^6.3.5",
+    "xhs-minitool-pack": "{{depVersion}}",
+    "xhs-minitool-validate": "{{depVersion}}",
+    "xhs-minitool-vite-config": "{{depVersion}}"
   },
   "engines": {
     "node": ">=18.17.0"

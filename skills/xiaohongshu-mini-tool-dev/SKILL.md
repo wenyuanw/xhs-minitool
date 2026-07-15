@@ -19,7 +19,7 @@ description: Design, build, migrate, debug, package, and review Xiaohongshu mini
 | `references/release-checklist.md` | 完成人工测试和发布审查。 |
 | `scripts/validate_xhs_tool.py` | 静态扫描项目兼容性。 |
 | `scripts/test_validate_xhs_tool.py` | 修改校验器后运行的无第三方依赖回归测试。 |
-| `templates/starter/` | 无构建管线的离线最小参考模板。在本 monorepo 内新建工具请优先用根目录 `pnpm create-minitool`（Vite + 原生 JS）。 |
+| `templates/starter/` | 无构建管线的离线最小参考模板。新建工具请优先 `npx create-xhs-minitool`，或在本 monorepo 内用 `pnpm create-minitool`。 |
 
 ### 路径约定
 
@@ -77,12 +77,18 @@ description: Design, build, migrate, debug, package, and review Xiaohongshu mini
 
 ### 3. 创建项目
 
-若当前仓库是本 monorepo（存在根目录 `pnpm-workspace.yaml` 与 `packages/create-minitool`），优先：
+优先使用公开发布的脚手架（独立项目）：
+
+```bash
+npx create-xhs-minitool
+# 或非交互：
+npx create-xhs-minitool --name <kebab-name> --title <标题> --theme-color '#FF2442'
+```
+
+若当前仓库是本 monorepo（存在根目录 `pnpm-workspace.yaml` 与 `packages/create-minitool`）：
 
 ```bash
 pnpm create-minitool
-# 或非交互：
-pnpm create-minitool --name <kebab-name> --title <标题> --theme-color '#FF2442'
 ```
 
 否则再复制 skill 起始模板：

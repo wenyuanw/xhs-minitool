@@ -1,10 +1,11 @@
 {
-  "name": "@xhs/create-minitool",
+  "name": "create-xhs-minitool",
   "version": "0.1.0",
-  "private": true,
-  "description": "交互式创建小红书小工具（Vite + 原生 JS）",
+  "description": "创建小红书小工具（Vite + 原生 JS）",
   "type": "module",
+  "license": "MIT",
   "bin": {
+    "create-xhs-minitool": "./bin/create-minitool.mjs",
     "create-minitool": "./bin/create-minitool.mjs"
   },
   "scripts": {
@@ -14,7 +15,25 @@
     "bin",
     "template"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wenyuanw/xhs-minitool.git",
+    "directory": "packages/create-minitool"
+  },
+  "homepage": "https://github.com/wenyuanw/xhs-minitool#readme",
+  "bugs": {
+    "url": "https://github.com/wenyuanw/xhs-minitool/issues"
+  },
   "engines": {
     "node": ">=18.17.0"
-  }
+  },
+  "keywords": [
+    "xiaohongshu",
+    "minitool",
+    "scaffold",
+    "create"
+  ]
 }

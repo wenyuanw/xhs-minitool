@@ -19,7 +19,7 @@ import {
   writeFileSync,
 } from 'node:fs';
 import { dirname, extname, join, relative, resolve } from 'node:path';
-import { validateMinitool } from '@xhs/minitool-validate';
+import { validateMinitool } from 'xhs-minitool-validate';
 
 const ALLOWED = new Set([
   '.html',

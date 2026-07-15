@@ -1,0 +1,33 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+---
+
+<DocsLayout
+  slug="monorepo"
+  title="在 Monorepo 贡献"
+  description="向本仓库添加 demo 与共享包。"
+>
+  <h1>在 Monorepo 贡献</h1>
+  <p>
+    本仓库既是脚手架源码，也是 demo 集合。源码在
+    <a href="https://github.com/wenyuanw/xhs-minitool" target="_blank" rel="noopener"
+      >GitHub</a
+    >
+    。在仓库根目录执行：
+  </p>
+  <pre><code>pnpm create-minitool
+# 会在 apps/&lt;name&gt; 生成工具（workspace 依赖）</code></pre>
+
+  <h2>网站预览 Demo</h2>
+  <p>构建全部工具后：</p>
+  <pre><code>pnpm build
+pnpm site:build</code></pre>
+  <p><code>sync-demos</code> 会把各 app 的 <code>xhs-tool</code> 同步到官网 <code>/preview/&lt;name&gt;/</code>。</p>
+
+  <h2>发布 npm</h2>
+  <p>在登录 npm 后发布 packages：</p>
+  <pre><code>pnpm --filter create-xhs-minitool publish --access public
+pnpm --filter xhs-minitool-vite-config publish --access public
+pnpm --filter xhs-minitool-validate publish --access public
+pnpm --filter xhs-minitool-pack publish --access public</code></pre>
+</DocsLayout>

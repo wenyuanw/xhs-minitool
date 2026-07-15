@@ -1,0 +1,72 @@
+---
+import '../styles/global.css';
+import Icon from '../components/Icon.astro';
+
+const { title = 'XHS MiniTool', description = '小红书离线小工具脚手架：Vite + 原生 JS，一键打包符合容器规范的 zip。' } = Astro.props;
+const pageTitle = title === 'XHS MiniTool' ? title : `${title} · XHS MiniTool`;
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#FF2442" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/logo.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/">
+        <img class="brand-logo" src="/logo.svg" width="32" height="32" alt="" />
+        <span class="brand-text">XHS MiniTool</span>
+      </a>
+      <nav class="nav" aria-label="主导航">
+        <a href="/docs/getting-started/">文档</a>
+        <a href="/demos/">Demo</a>
+        <a
+          class="nav-icon-link"
+          href="https://github.com/wenyuanw/xhs-minitool"
+          target="_blank"
+          rel="noopener"
+          aria-label="GitHub"
+        >
+          <Icon name="github" />
+          <span class="nav-label">GitHub</span>
+        </a>
+        <a
+          class="nav-icon-link nav-cta"
+          href="https://www.npmjs.com/package/create-xhs-minitool"
+          target="_blank"
+          rel="noopener"
+          aria-label="npm"
+        >
+          <Icon name="npm" />
+          <span class="nav-label">npm</span>
+        </a>
+      </nav>
+    </header>
+    <slot />
+    <footer class="site-footer">
+      <p>离线小工具脚手架 · Vite + 原生 JS · <code>npx create-xhs-minitool</code></p>
+      <p class="footer-links">
+        <a href="https://github.com/wenyuanw/xhs-minitool" target="_blank" rel="noopener">
+          <Icon name="github" />
+          <span>GitHub</span>
+        </a>
+        <a href="https://www.npmjs.com/package/create-xhs-minitool" target="_blank" rel="noopener">
+          <Icon name="npm" />
+          <span>npm</span>
+        </a>
+      </p>
+    </footer>
+  </body>
+</html>

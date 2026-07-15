@@ -1,0 +1,23 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+---
+
+<DocsLayout
+  slug="container-limits"
+  title="容器约束"
+  description="离线 H5 容器的能力边界摘要。"
+>
+  <h1>容器约束</h1>
+  <p>小工具运行在受控 WebView，本质是<strong>纯本地、不联网</strong>的 H5 包。</p>
+
+  <h2>必须遵守</h2>
+  <ul>
+    <li>唯一入口 <code>index.html</code>，资源用相对路径并全部打进包</li>
+    <li>脚本用 <code>&lt;script src&gt;</code> 外链；禁止内联脚本 / 行内事件 / <code>eval</code></li>
+    <li>无 Service Worker / PWA / 远程 CDN</li>
+    <li>允许类型：html / css / js / 常见图片 / woff(2) / json</li>
+  </ul>
+
+  <h2>能力降级</h2>
+  <p>网络请求、下载、外链、iframe、WASM、Worker 等通常不可用；请在设计阶段做可行性判断。</p>
+</DocsLayout>

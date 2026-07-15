@@ -11,3 +11,5 @@ xhs-tool/
 .env
 .env.*
 !/*.env.example
+apps/website/public/preview/
+*.tgz

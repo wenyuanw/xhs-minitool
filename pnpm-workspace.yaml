@@ -4,3 +4,8 @@ packages:
 
 onlyBuiltDependencies:
   - esbuild
+  - sharp
+  - workerd
+
+engineStrict: true
+autoInstallPeers: true

@@ -1,0 +1,23 @@
+{
+  "name": "website",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "sync-demos": "node ./scripts/sync-demos.mjs",
+    "prebuild": "node ./scripts/sync-demos.mjs",
+    "build": "astro build",
+    "preview": "astro preview",
+    "deploy": "astro build && wrangler deploy"
+  },
+  "dependencies": {
+    "astro": "^5.10.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.20.0"
+  },
+  "engines": {
+    "node": ">=18.17.0"
+  }
+}

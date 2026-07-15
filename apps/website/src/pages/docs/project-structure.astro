@@ -1,0 +1,34 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+---
+
+<DocsLayout
+  slug="project-structure"
+  title="项目结构"
+  description="独立小工具项目的目录与常用脚本。"
+>
+  <h1>项目结构</h1>
+  <p>脚手架生成的独立项目大致如下：</p>
+  <pre><code>my-tool/
+├── index.html
+├── vite.config.js
+├── package.json
+├── public/icons/
+└── src/
+    ├── main.js
+    ├── styles/
+    └── lib/</code></pre>
+
+  <h2>常用脚本</h2>
+  <ul>
+    <li><code>pnpm dev</code> — 本地开发</li>
+    <li><code>pnpm build</code> — Vite 构建并 <code>minitool-pack</code></li>
+    <li><code>pnpm validate</code> — 对 <code>xhs-tool/</code> 做严格静态检查</li>
+  </ul>
+
+  <h2>产物</h2>
+  <ul>
+    <li><code>xhs-tool/</code> — 提交目录（根部为 <code>index.html</code>）</li>
+    <li><code>&lt;name&gt;-xhs-tool.zip</code> — 上传用压缩包</li>
+  </ul>
+</DocsLayout>

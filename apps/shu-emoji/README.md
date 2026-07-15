@@ -53,7 +53,7 @@ pnpm --filter shu-emoji dev
 | 存储 | IndexedDB：`favorites` / `recent` / `searchHistory` |
 | 字体 | 包内 `ZCOOLKuaiLe.woff2` |
 | 提交目录 | `xhs-tool/` |
-| 共享构建 | `@xhs/minitool-vite-config` / `@xhs/minitool-pack` / `@xhs/minitool-validate` |
+| 共享构建 | `xhs-minitool-vite-config` / `xhs-minitool-pack` / `xhs-minitool-validate` |
 
 ## 提交包说明
 

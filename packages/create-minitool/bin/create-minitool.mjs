@@ -16,6 +16,7 @@ import { stdin as input, stdout as output } from 'node:process';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PKG_ROOT = join(__dirname, '..');
 const TEMPLATE_DIR = join(PKG_ROOT, 'template');
+const PKG_META = JSON.parse(readFileSync(join(PKG_ROOT, 'package.json'), 'utf8'));
 
 const NAME_RE = /^[a-z][a-z0-9]*(-[a-z0-9]+)*$/;
 const COLOR_RE = /^#[0-9A-Fa-f]{6}$/;
@@ -27,7 +28,12 @@ function findRepoRoot(start = process.cwd()) {
       existsSync(join(dir, 'pnpm-workspace.yaml')) &&
       existsSync(join(dir, 'package.json'))
     ) {
-      return dir;
+      try {
+        const pkg = JSON.parse(readFileSync(join(dir, 'package.json'), 'utf8'));
+        if (pkg.name === 'xiaohongshu-minitool') return dir;
+      } catch {
+        /* ignore */
+      }
     }
     const parent = dirname(dir);
     if (parent === dir) return null;
@@ -74,37 +80,38 @@ function applyPlaceholders(content, vars) {
     .replaceAll('{{title}}', vars.title)
     .replaceAll('{{description}}', vars.description)
     .replaceAll('{{slogan}}', vars.slogan)
-    .replaceAll('{{themeColor}}', vars.themeColor);
+    .replaceAll('{{themeColor}}', vars.themeColor)
+    .replaceAll('{{depVersion}}', vars.depVersion);
 }
 
-function createApp(repoRoot, vars) {
-  const target = join(repoRoot, 'apps', vars.name);
-  if (existsSync(target)) {
-    throw new Error(`apps/${vars.name} 已存在`);
+function createProject(targetDir, vars) {
+  if (existsSync(targetDir)) {
+    throw new Error(`目标已存在：${targetDir}`);
   }
   if (!existsSync(TEMPLATE_DIR)) {
     throw new Error(`模板目录不存在: ${TEMPLATE_DIR}`);
   }
 
-  mkdirSync(target, { recursive: true });
-  cpSync(TEMPLATE_DIR, target, { recursive: true });
+  mkdirSync(targetDir, { recursive: true });
+  cpSync(TEMPLATE_DIR, targetDir, { recursive: true });
 
-  for (const file of walkFiles(target)) {
+  for (const file of walkFiles(targetDir)) {
     if (/\.(png|jpe?g|gif|webp|woff2?|ico)$/i.test(file)) continue;
     const raw = readFileSync(file, 'utf8');
     const next = applyPlaceholders(raw, vars);
     if (next !== raw) writeFileSync(file, next);
   }
 
-  return target;
+  return targetDir;
 }
 
 function printHelp() {
   console.log(`Usage:
-  pnpm create-minitool
-  create-minitool --name <kebab> --title <str> [--slogan <str>] [--description <str>] [--theme-color #RRGGBB]
+  npx create-xhs-minitool
+  create-xhs-minitool --name <kebab> --title <str> [--slogan <str>] [--description <str>] [--theme-color #RRGGBB]
 
-Interactive by default. Pass flags to skip prompts.`);
+Inside the xiaohongshu-minitool monorepo, creates apps/<name>.
+Elsewhere (npx), creates a standalone project directory.`);
 }
 
 async function collectVars(flags) {
@@ -125,7 +132,7 @@ async function collectVars(flags) {
     };
   }
 
-  const rl = createInterface({ input, output, terminal: false });
+  const rl = createInterface({ input, output, terminal: Boolean(input.isTTY) });
   try {
     console.log('创建小红书小工具（Vite + 原生 JS）\n');
 
@@ -148,11 +155,7 @@ async function collectVars(flags) {
 
 async function main() {
   const repoRoot = findRepoRoot();
-  if (!repoRoot) {
-    console.error('请在本 monorepo 内运行（需包含 pnpm-workspace.yaml）。');
-    process.exit(1);
-  }
-
+  const mode = repoRoot ? 'workspace' : 'standalone';
   const vars = await collectVars(parseArgs(process.argv.slice(2)));
 
   if (!NAME_RE.test(vars.name)) {
@@ -162,15 +165,33 @@ async function main() {
     throw new Error('theme-color 须为 #RRGGBB');
   }
 
-  const target = createApp(repoRoot, vars);
+  vars.depVersion = mode === 'workspace' ? 'workspace:*' : `^${PKG_META.version || '0.1.0'}`;
 
-  console.log(`\n已创建：${relative(repoRoot, target)}`);
-  console.log(`
+  const target =
+    mode === 'workspace'
+      ? join(repoRoot, 'apps', vars.name)
+      : join(process.cwd(), vars.name);
+
+  createProject(target, vars);
+
+  if (mode === 'workspace') {
+    console.log(`\n已创建（monorepo）：${relative(repoRoot, target)}`);
+    console.log(`
 下一步：
   pnpm install
   pnpm --filter ${vars.name} dev
   pnpm --filter ${vars.name} build
 `);
+  } else {
+    console.log(`\n已创建（独立项目）：${target}`);
+    console.log(`
+下一步：
+  cd ${vars.name}
+  pnpm install   # 或 npm install / yarn
+  pnpm dev
+  pnpm build
+`);
+  }
 }
 
 main().catch((err) => {
