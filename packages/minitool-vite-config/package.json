@@ -1,0 +1,19 @@
+{
+  "name": "@xhs/minitool-vite-config",
+  "version": "0.1.0",
+  "private": true,
+  "description": "小红书小工具共享 Vite 配置（IIFE / 相对路径 / xhs-tool 产物）",
+  "type": "module",
+  "exports": {
+    ".": "./index.js"
+  },
+  "files": [
+    "index.js"
+  ],
+  "peerDependencies": {
+    "vite": "^6.0.0"
+  },
+  "engines": {
+    "node": ">=18.17.0"
+  }
+}

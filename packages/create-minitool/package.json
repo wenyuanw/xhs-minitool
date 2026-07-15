@@ -1,0 +1,20 @@
+{
+  "name": "@xhs/create-minitool",
+  "version": "0.1.0",
+  "private": true,
+  "description": "交互式创建小红书小工具（Vite + 原生 JS）",
+  "type": "module",
+  "bin": {
+    "create-minitool": "./bin/create-minitool.mjs"
+  },
+  "scripts": {
+    "start": "node ./bin/create-minitool.mjs"
+  },
+  "files": [
+    "bin",
+    "template"
+  ],
+  "engines": {
+    "node": ">=18.17.0"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "xiaohongshu-minitool",
+  "version": "0.1.0",
+  "private": true,
+  "description": "小红书小工具 monorepo：Vite + 原生 JS，pnpm workspace",
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm --filter hello-minitool dev",
+    "dev:shu-emoji": "pnpm --filter shu-emoji dev",
+    "build": "pnpm -r --filter \"./apps/**\" build",
+    "validate": "pnpm -r --filter \"./apps/**\" validate",
+    "create-minitool": "node ./packages/create-minitool/bin/create-minitool.mjs"
+  },
+  "engines": {
+    "node": ">=18.17.0",
+    "pnpm": ">=9.0.0"
+  },
+  "packageManager": "pnpm@10.15.1",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
+}

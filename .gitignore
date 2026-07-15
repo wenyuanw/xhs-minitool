@@ -1,0 +1,13 @@
+node_modules/
+dist/
+xhs-tool/
+*-xhs-tool.zip
+.DS_Store
+*.log
+.vite/
+.cache/
+.turbo/
+*.local
+.env
+.env.*
+!/*.env.example

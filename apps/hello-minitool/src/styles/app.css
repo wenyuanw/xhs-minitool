@@ -1,0 +1,102 @@
+:root {
+  --bg: #fff7f9;
+  --ink: #1f1a1c;
+  --muted: #7a6a70;
+  --accent: #FF2442;
+  --card: #ffffff;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'PingFang SC', 'Hiragino Sans GB', 'Noto Sans SC', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  padding: calc(16px + var(--safe-top)) 16px calc(24px + var(--safe-bottom));
+}
+
+#app {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hero h1 {
+  margin: 0 0 8px;
+  font-size: 1.75rem;
+  letter-spacing: 0.02em;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.slogan {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 8px 24px rgb(31 26 28 / 6%);
+}
+
+.card p {
+  margin: 0 0 14px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.btn {
+  appearance: none;
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 18px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(24px + var(--safe-bottom));
+  transform: translateX(-50%);
+  max-width: min(90vw, 360px);
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgb(31 26 28 / 88%);
+  color: #fff;
+  font-size: 0.875rem;
+  z-index: 100;
+}

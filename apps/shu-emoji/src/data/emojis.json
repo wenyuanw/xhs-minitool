@@ -1,0 +1,10466 @@
+[
+  {
+    "emoji": "✨",
+    "name_zh": "闪亮",
+    "name_en": "sparkles",
+    "category": "强调装饰",
+    "tone": [
+      "正面",
+      "高级感"
+    ],
+    "meaning_xhs": "用于突出重点、增加高级感和种草氛围，是小红书标题里出现频率最高的装饰符之一。",
+    "usage_tips": "最适合放在标题结尾或重点句，1–2 个最自然。",
+    "verticals": [
+      "美妆",
+      "穿搭",
+      "好物推荐"
+    ],
+    "position": [
+      "标题结尾",
+      "重点句"
+    ],
+    "common_combinations": [
+      "💖",
+      "🌟"
+    ],
+    "alternatives": [
+      "🌟",
+      "💫",
+      "⭐"
+    ],
+    "examples": [
+      "真实好用✨",
+      "种草成功✨姐妹冲"
+    ],
+    "popularity": 96,
+    "tags": [
+      "种草",
+      "高级",
+      "强调"
+    ]
+  },
+  {
+    "emoji": "💖",
+    "name_zh": "闪亮爱心",
+    "name_en": "sparkling heart",
+    "category": "情感表达",
+    "tone": [
+      "喜欢",
+      "种草"
+    ],
+    "meaning_xhs": "温柔安利的标志符号，强调真心推。",
+    "usage_tips": "与闪亮搭配极经典。",
+    "verticals": [
+      "美妆",
+      "穿搭",
+      "好物推荐"
+    ],
+    "position": [
+      "标题结尾",
+      "推荐句"
+    ],
+    "common_combinations": [
+      "✨",
+      "🥰"
+    ],
+    "alternatives": [
+      "💗",
+      "💕",
+      "💓"
+    ],
+    "examples": [
+      "回购无数次💖",
+      "私藏好物分享💖"
+    ],
+    "popularity": 94,
+    "tags": [
+      "种草",
+      "推荐",
+      "爱心"
+    ]
+  },
+  {
+    "emoji": "🔥",
+    "name_zh": "火焰",
+    "name_en": "fire",
+    "category": "强调装饰",
+    "tone": [
+      "热烈",
+      "高能"
+    ],
+    "meaning_xhs": "表达“超火、超赞、必须冲”，常用于热门好物、爆款清单和强安利语气。",
+    "usage_tips": "适合清单标题和行动号召句；美妆测评谨慎使用以免显得浮夸。",
+    "verticals": [
+      "好物推荐",
+      "美食",
+      "穿搭"
+    ],
+    "position": [
+      "标题",
+      "结尾号召"
+    ],
+    "common_combinations": [
+      "💥",
+      "✨"
+    ],
+    "alternatives": [
+      "💥",
+      "⚡️",
+      "🌟"
+    ],
+    "examples": [
+      "这个真的火！🔥",
+      "闭眼入清单🔥"
+    ],
+    "popularity": 93,
+    "tags": [
+      "热门",
+      "爆款",
+      "强调"
+    ]
+  },
+  {
+    "emoji": "❤️",
+    "name_zh": "红心",
+    "name_en": "red heart",
+    "category": "强调装饰",
+    "tone": [
+      "喜爱",
+      "强调"
+    ],
+    "meaning_xhs": "最经典爱心，既可表喜欢也可作视觉强调。",
+    "usage_tips": "万能但易滥；可与闪亮组合提升精致感。",
+    "verticals": [
+      "美妆",
+      "好物推荐",
+      "生活"
+    ],
+    "position": [
+      "标题结尾",
+      "评价句"
+    ],
+    "common_combinations": [
+      "✨",
+      "🥰"
+    ],
+    "alternatives": [
+      "💖",
+      "💕",
+      "💗"
+    ],
+    "examples": [
+      "真的爱了❤️",
+      "冬日暖心好物❤️"
+    ],
+    "popularity": 92,
+    "tags": [
+      "喜欢",
+      "强调"
+    ]
+  },
+  {
+    "emoji": "✅",
+    "name_zh": "勾选",
+    "name_en": "check mark button",
+    "category": "符号标记",
+    "tone": [
+      "确认",
+      "清单"
+    ],
+    "meaning_xhs": "表示已验证、可执行或通过筛选。",
+    "usage_tips": "与叉号对照写对比测评很清晰。",
+    "verticals": [
+      "测评",
+      "职场",
+      "教程"
+    ],
+    "position": [
+      "列表",
+      "对比"
+    ],
+    "common_combinations": [
+      "❌",
+      "📌"
+    ],
+    "alternatives": [
+      "☑️",
+      "✔️",
+      "📌"
+    ],
+    "examples": [
+      "适合干皮 ✅",
+      "通勤友好 ✅"
+    ],
+    "popularity": 92,
+    "tags": [
+      "清单",
+      "对比",
+      "标记"
+    ]
+  },
+  {
+    "emoji": "🥰",
+    "name_zh": "爱心脸",
+    "name_en": "smiling face with hearts",
+    "category": "情感表达",
+    "tone": [
+      "喜爱",
+      "温柔"
+    ],
+    "meaning_xhs": "表达真心喜欢和被打动，比单用心形更有真人感。",
+    "usage_tips": "好物开箱结尾很好；中立测评少用。",
+    "verticals": [
+      "好物推荐",
+      "生活",
+      "美食"
+    ],
+    "position": [
+      "结尾",
+      "评价句"
+    ],
+    "common_combinations": [
+      "💕",
+      "✨"
+    ],
+    "alternatives": [
+      "😍",
+      "😘",
+      "💖"
+    ],
+    "examples": [
+      "用完真的爱了🥰",
+      "姐妹强烈安利🥰"
+    ],
+    "popularity": 91,
+    "tags": [
+      "喜欢",
+      "情感",
+      "真实"
+    ]
+  },
+  {
+    "emoji": "🌟",
+    "name_zh": "星星",
+    "name_en": "glowing star",
+    "category": "强调装饰",
+    "tone": [
+      "亮点",
+      "推荐"
+    ],
+    "meaning_xhs": "标注亮点或值得一提，语气比火焰柔和，更有明星单品感。",
+    "usage_tips": "亮点列表前缀清晰；可与闪亮交替。",
+    "verticals": [
+      "美妆",
+      "好物推荐",
+      "穿搭"
+    ],
+    "position": [
+      "亮点列表",
+      "标题"
+    ],
+    "common_combinations": [
+      "✨",
+      "💖"
+    ],
+    "alternatives": [
+      "✨",
+      "⭐",
+      "💫"
+    ],
+    "examples": [
+      "今日明星单品🌟",
+      "三点真实体会🌟"
+    ],
+    "popularity": 90,
+    "tags": [
+      "亮点",
+      "推荐",
+      "强调"
+    ]
+  },
+  {
+    "emoji": "😭",
+    "name_zh": "大哭",
+    "name_en": "loudly crying face",
+    "category": "情感表达",
+    "tone": [
+      "夸张",
+      "共鸣"
+    ],
+    "meaning_xhs": "小红书语境多为夸张共鸣：太好看哭了或踩雷哭了。",
+    "usage_tips": "夸赞和避坑都好用；严肃干货建议更克制。",
+    "verticals": [
+      "测评",
+      "避坑",
+      "美妆"
+    ],
+    "position": [
+      "标题",
+      "情绪句"
+    ],
+    "common_combinations": [
+      "💔",
+      "👏"
+    ],
+    "alternatives": [
+      "🥲",
+      "🥺",
+      "😩"
+    ],
+    "examples": [
+      "显白到哭😭",
+      "踩雷实录我哭了😭"
+    ],
+    "popularity": 90,
+    "tags": [
+      "共鸣",
+      "夸张",
+      "情绪"
+    ]
+  },
+  {
+    "emoji": "📌",
+    "name_zh": "图钉",
+    "name_en": "pushpin",
+    "category": "符号标记",
+    "tone": [
+      "提示",
+      "重点"
+    ],
+    "meaning_xhs": "标记请记住或重点条目，适合步骤列表与避坑要点。",
+    "usage_tips": "列表前缀非常清晰；标题里不要连用太多次。",
+    "verticals": [
+      "避坑",
+      "教程",
+      "职场"
+    ],
+    "position": [
+      "列表前缀",
+      "重点句"
+    ],
+    "common_combinations": [
+      "✅",
+      "❗️"
+    ],
+    "alternatives": [
+      "📍",
+      "✅",
+      "❗️"
+    ],
+    "examples": [
+      "重点先记📌",
+      "避坑三条📌请收藏"
+    ],
+    "popularity": 89,
+    "tags": [
+      "重点",
+      "标记",
+      "收藏"
+    ]
+  },
+  {
+    "emoji": "💕",
+    "name_zh": "俩心",
+    "name_en": "two hearts",
+    "category": "情感表达",
+    "tone": [
+      "甜",
+      "喜爱"
+    ],
+    "meaning_xhs": "双心甜感，氛围更少女。",
+    "usage_tips": "情侣向或甜美穿搭适合。",
+    "verticals": [
+      "穿搭",
+      "美妆",
+      "生活"
+    ],
+    "position": [
+      "标题结尾"
+    ],
+    "common_combinations": [
+      "✨",
+      "🥰"
+    ],
+    "alternatives": [
+      "💖",
+      "💗",
+      "💓"
+    ],
+    "examples": [
+      "甜妹日记💕"
+    ],
+    "popularity": 88,
+    "tags": [
+      "甜美",
+      "喜欢"
+    ]
+  },
+  {
+    "emoji": "😂",
+    "name_zh": "笑哭",
+    "name_en": "face with tears of joy",
+    "category": "情感表达",
+    "tone": [
+      "好笑",
+      "共鸣"
+    ],
+    "meaning_xhs": "笑到哭，吐槽与自嘲神器。",
+    "usage_tips": "避雷翻车或社死故事常用。",
+    "verticals": [
+      "生活",
+      "避坑",
+      "职场"
+    ],
+    "position": [
+      "情绪句",
+      "标题"
+    ],
+    "common_combinations": [
+      "🤣",
+      "🥲"
+    ],
+    "alternatives": [
+      "🤣",
+      "😭",
+      "😅"
+    ],
+    "examples": [
+      "社死现场😂",
+      "笑到发抖😂"
+    ],
+    "popularity": 88,
+    "tags": [
+      "好笑",
+      "共鸣"
+    ]
+  },
+  {
+    "emoji": "💯",
+    "name_zh": "一百分",
+    "name_en": "hundred points",
+    "category": "种草推荐",
+    "tone": [
+      "满分",
+      "力推"
+    ],
+    "meaning_xhs": "表示完全正确或分数拉满，用于强力背书。",
+    "usage_tips": "适合总结句；全篇多个会削弱可信度。",
+    "verticals": [
+      "测评",
+      "好物推荐",
+      "职场"
+    ],
+    "position": [
+      "总结",
+      "标题"
+    ],
+    "common_combinations": [
+      "✨",
+      "✅"
+    ],
+    "alternatives": [
+      "👍",
+      "🌟",
+      "🔥"
+    ],
+    "examples": [
+      "显白程度💯",
+      "性价比拉满💯"
+    ],
+    "popularity": 88,
+    "tags": [
+      "满分",
+      "种草",
+      "推荐"
+    ]
+  },
+  {
+    "emoji": "❌",
+    "name_zh": "叉号",
+    "name_en": "cross mark",
+    "category": "符号标记",
+    "tone": [
+      "否定",
+      "避坑"
+    ],
+    "meaning_xhs": "明确避坑或不推荐，常在对比测评中与勾选成对。",
+    "usage_tips": "批评要具体，别只打叉不解释。",
+    "verticals": [
+      "避坑",
+      "测评",
+      "职场"
+    ],
+    "position": [
+      "列表",
+      "对比"
+    ],
+    "common_combinations": [
+      "✅",
+      "⚠️"
+    ],
+    "alternatives": [
+      "🚫",
+      "⚠️",
+      "👎"
+    ],
+    "examples": [
+      "油皮慎入 ❌",
+      "别踩这个雷 ❌"
+    ],
+    "popularity": 88,
+    "tags": [
+      "避坑",
+      "否定",
+      "对比"
+    ]
+  },
+  {
+    "emoji": "🌸",
+    "name_zh": "樱花",
+    "name_en": "cherry blossom",
+    "category": "视觉美化",
+    "tone": [
+      "柔美",
+      "少女"
+    ],
+    "meaning_xhs": "清透温柔春日感，护肤香氛粉色系常见。",
+    "usage_tips": "柔光风适合；硬核职场慎用。",
+    "verticals": [
+      "美妆",
+      "护肤",
+      "穿搭"
+    ],
+    "position": [
+      "标题",
+      "分段点缀"
+    ],
+    "common_combinations": [
+      "💕",
+      "✨"
+    ],
+    "alternatives": [
+      "🌺",
+      "🌼",
+      "💮"
+    ],
+    "examples": [
+      "水光肌养成记🌸",
+      "温柔系穿搭🌸"
+    ],
+    "popularity": 88,
+    "tags": [
+      "柔美",
+      "少女",
+      "视觉"
+    ]
+  },
+  {
+    "emoji": "👀",
+    "name_zh": "眼睛",
+    "name_en": "eyes",
+    "category": "强调装饰",
+    "tone": [
+      "好奇",
+      "关注"
+    ],
+    "meaning_xhs": "表示请看这里或值得关注，也用于揭秘与细节放大。",
+    "usage_tips": "标题钩子很强；教程正文过多会显浮夸。",
+    "verticals": [
+      "测评",
+      "穿搭",
+      "数码"
+    ],
+    "position": [
+      "标题",
+      "细节句"
+    ],
+    "common_combinations": [
+      "✨",
+      "🔍"
+    ],
+    "alternatives": [
+      "🔍",
+      "❗️",
+      "✨"
+    ],
+    "examples": [
+      "细节才是重点👀",
+      "隐藏技巧请看👀"
+    ],
+    "popularity": 87,
+    "tags": [
+      "关注",
+      "细节",
+      "强调"
+    ]
+  },
+  {
+    "emoji": "🥺",
+    "name_zh": "恳求脸",
+    "name_en": "pleading face",
+    "category": "情感表达",
+    "tone": [
+      "软萌",
+      "拜托"
+    ],
+    "meaning_xhs": "软萌请求或求同款语气，互动向很强。",
+    "usage_tips": "求链接、求教程可用；硬核正文慎用。",
+    "verticals": [
+      "穿搭",
+      "美食",
+      "生活"
+    ],
+    "position": [
+      "互动句",
+      "结尾"
+    ],
+    "common_combinations": [
+      "🙏",
+      "💕"
+    ],
+    "alternatives": [
+      "🥹",
+      "🥰",
+      "💗"
+    ],
+    "examples": [
+      "求同款链接🥺",
+      "也会给我种草吗🥺"
+    ],
+    "popularity": 87,
+    "tags": [
+      "软萌",
+      "互动"
+    ]
+  },
+  {
+    "emoji": "🥲",
+    "name_zh": "含泪笑脸",
+    "name_en": "smiling face with tear",
+    "category": "情感表达",
+    "tone": [
+      "苦乐",
+      "破防"
+    ],
+    "meaning_xhs": "笑中带泪，真香与心酸并存。",
+    "usage_tips": "穷但爱了、又学废了语境一流。",
+    "verticals": [
+      "生活",
+      "好物推荐",
+      "学习"
+    ],
+    "position": [
+      "情绪句",
+      "结尾"
+    ],
+    "common_combinations": [
+      "💸",
+      "🥹"
+    ],
+    "alternatives": [
+      "😅",
+      "😭",
+      "🥹"
+    ],
+    "examples": [
+      "贫穷但真香🥲",
+      "学废了但还在卷🥲"
+    ],
+    "popularity": 86,
+    "tags": [
+      "破防",
+      "真实"
+    ]
+  },
+  {
+    "emoji": "🙏",
+    "name_zh": "感恩",
+    "name_en": "folded hands",
+    "category": "情感表达",
+    "tone": [
+      "感谢",
+      "拜托"
+    ],
+    "meaning_xhs": "感谢或拜托，也有祈福意。",
+    "usage_tips": "求建议、表感谢超常用。",
+    "verticals": [
+      "生活",
+      "运营",
+      "职场"
+    ],
+    "position": [
+      "结尾",
+      "互动"
+    ],
+    "common_combinations": [
+      "✨",
+      "🥹"
+    ],
+    "alternatives": [
+      "🫶",
+      "🥺",
+      "💕"
+    ],
+    "examples": [
+      "求推荐🙏",
+      "谢谢大家🙏"
+    ],
+    "popularity": 86,
+    "tags": [
+      "感谢",
+      "拜托"
+    ]
+  },
+  {
+    "emoji": "😍",
+    "name_zh": "花痴",
+    "name_en": "heart eyes",
+    "category": "情感表达",
+    "tone": [
+      "迷恋",
+      "热烈"
+    ],
+    "meaning_xhs": "一眼心动的强表达，适合开箱第一眼或强烈安利。",
+    "usage_tips": "放在第一眼相关句子最好；别全篇刷屏。",
+    "verticals": [
+      "美妆",
+      "穿搭",
+      "旅行"
+    ],
+    "position": [
+      "开场",
+      "首图文案"
+    ],
+    "common_combinations": [
+      "✨",
+      "💖"
+    ],
+    "alternatives": [
+      "🥰",
+      "🤩",
+      "💕"
+    ],
+    "examples": [
+      "包装先心动😍",
+      "这件外套我先爱为敬😍"
+    ],
+    "popularity": 86,
+    "tags": [
+      "心动",
+      "安利"
+    ]
+  },
+  {
+    "emoji": "💄",
+    "name_zh": "口红",
+    "name_en": "lipstick",
+    "category": "种草推荐",
+    "tone": [
+      "美妆",
+      "妆造"
+    ],
+    "meaning_xhs": "口红与妆造种草的标志。",
+    "usage_tips": "彩妆笔记标题强相关。",
+    "verticals": [
+      "美妆"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "✨",
+      "💋"
+    ],
+    "alternatives": [
+      "💅",
+      "💋",
+      "👄"
+    ],
+    "examples": [
+      "今日口红色号💄"
+    ],
+    "popularity": 86,
+    "tags": [
+      "美妆",
+      "种草"
+    ]
+  },
+  {
+    "emoji": "❗️",
+    "name_zh": "感叹号",
+    "name_en": "exclamation mark",
+    "category": "符号标记",
+    "tone": [
+      "提醒",
+      "重要"
+    ],
+    "meaning_xhs": "强化注意或重要提醒，适合注意事项与规则说明。",
+    "usage_tips": "一条提醒用一个足够；连用三个像咆哮。",
+    "verticals": [
+      "避坑",
+      "教程",
+      "母婴"
+    ],
+    "position": [
+      "注意事项",
+      "小标题"
+    ],
+    "common_combinations": [
+      "📌",
+      "⚠️"
+    ],
+    "alternatives": [
+      "‼️",
+      "⚠️",
+      "📢"
+    ],
+    "examples": [
+      "敏肌注意❗️",
+      "下单前看清❗️"
+    ],
+    "popularity": 86,
+    "tags": [
+      "提醒",
+      "重要",
+      "标记"
+    ]
+  },
+  {
+    "emoji": "🥹",
+    "name_zh": "含泪笑",
+    "name_en": "face holding back tears",
+    "category": "情感表达",
+    "tone": [
+      "感动",
+      "共鸣"
+    ],
+    "meaning_xhs": "忍泪感动或破防感动，比大哭更克制。",
+    "usage_tips": "感谢与暖心故事很贴。",
+    "verticals": [
+      "生活",
+      "母婴",
+      "美妆"
+    ],
+    "position": [
+      "情绪句",
+      "结尾"
+    ],
+    "common_combinations": [
+      "💕",
+      "🫶"
+    ],
+    "alternatives": [
+      "🥺",
+      "😭",
+      "🥰"
+    ],
+    "examples": [
+      "被暖到了🥹",
+      "终于等到了🥹"
+    ],
+    "popularity": 85,
+    "tags": [
+      "感动",
+      "共鸣"
+    ]
+  },
+  {
+    "emoji": "💗",
+    "name_zh": "成长心",
+    "name_en": "growing heart",
+    "category": "情感表达",
+    "tone": [
+      "喜欢",
+      "升温"
+    ],
+    "meaning_xhs": "心动升级、喜欢加码。",
+    "usage_tips": "回购或升级安利可用。",
+    "verticals": [
+      "美妆",
+      "好物推荐"
+    ],
+    "position": [
+      "评价句"
+    ],
+    "common_combinations": [
+      "💖",
+      "✨"
+    ],
+    "alternatives": [
+      "💖",
+      "💕",
+      "💓"
+    ],
+    "examples": [
+      "越用越爱💗"
+    ],
+    "popularity": 85,
+    "tags": [
+      "喜欢"
+    ]
+  },
+  {
+    "emoji": "🫶",
+    "name_zh": "手作心",
+    "name_en": "heart hands",
+    "category": "情感表达",
+    "tone": [
+      "感谢",
+      "亲近"
+    ],
+    "meaning_xhs": "比爱心更互动，表达感谢与温柔陪伴。",
+    "usage_tips": "结尾致谢与粉丝互动适合。",
+    "verticals": [
+      "生活方式",
+      "母婴",
+      "美妆"
+    ],
+    "position": [
+      "结尾",
+      "互动"
+    ],
+    "common_combinations": [
+      "💕",
+      "✨"
+    ],
+    "alternatives": [
+      "🤗",
+      "💖",
+      "🙏"
+    ],
+    "examples": [
+      "谢谢姐妹们的喜欢🫶",
+      "一起变美🫶"
+    ],
+    "popularity": 85,
+    "tags": [
+      "感谢",
+      "互动"
+    ]
+  },
+  {
+    "emoji": "💸",
+    "name_zh": "飞钱",
+    "name_en": "money with wings",
+    "category": "种草推荐",
+    "tone": [
+      "冲动",
+      "自嘲"
+    ],
+    "meaning_xhs": "自嘲又花钱了或钱包空了，常见于冲动开箱。",
+    "usage_tips": "轻松口吻好用；别过度负面抱怨。",
+    "verticals": [
+      "好物推荐",
+      "美妆",
+      "数码"
+    ],
+    "position": [
+      "标题",
+      "情绪句"
+    ],
+    "common_combinations": [
+      "😭",
+      "🛍️"
+    ],
+    "alternatives": [
+      "💰",
+      "🛒",
+      "🥲"
+    ],
+    "examples": [
+      "又破防下单💸",
+      "钱包警告💸但真香"
+    ],
+    "popularity": 85,
+    "tags": [
+      "种草",
+      "花钱",
+      "自嘲"
+    ]
+  },
+  {
+    "emoji": "⚠️",
+    "name_zh": "警告",
+    "name_en": "warning",
+    "category": "符号标记",
+    "tone": [
+      "提醒",
+      "谨慎"
+    ],
+    "meaning_xhs": "注意事项与风险提示标准符号。",
+    "usage_tips": "过敏、使用方法、谣言澄清很适合。",
+    "verticals": [
+      "避坑",
+      "教程",
+      "母婴"
+    ],
+    "position": [
+      "注意事项",
+      "小标题"
+    ],
+    "common_combinations": [
+      "❗️",
+      "📌"
+    ],
+    "alternatives": [
+      "❗️",
+      "‼️",
+      "📢"
+    ],
+    "examples": [
+      "使用前必看⚠️"
+    ],
+    "popularity": 85,
+    "tags": [
+      "提醒",
+      "警告"
+    ]
+  },
+  {
+    "emoji": "💥",
+    "name_zh": "碰撞",
+    "name_en": "collision",
+    "category": "强调装饰",
+    "tone": [
+      "冲击",
+      "醒目"
+    ],
+    "meaning_xhs": "制造视觉冲击，强调颠覆认知或信息量大，多用于对比与避坑反转。",
+    "usage_tips": "适合痛点句前；一篇用 1 次即可。",
+    "verticals": [
+      "测评",
+      "避坑",
+      "职场"
+    ],
+    "position": [
+      "重点句开头",
+      "小标题"
+    ],
+    "common_combinations": [
+      "🔥",
+      "❗️"
+    ],
+    "alternatives": [
+      "🔥",
+      "⚡️",
+      "‼️"
+    ],
+    "examples": [
+      "真相我哭了💥",
+      "一句说清💥闭眼入"
+    ],
+    "popularity": 84,
+    "tags": [
+      "强调",
+      "反转",
+      "冲击"
+    ]
+  },
+  {
+    "emoji": "🩷",
+    "name_zh": "粉心",
+    "name_en": "pink heart",
+    "category": "强调装饰",
+    "tone": [
+      "甜美",
+      "少女"
+    ],
+    "meaning_xhs": "粉色爱心，少女心与甜美强调非常高频。",
+    "usage_tips": "粉色系笔记几乎百搭。",
+    "verticals": [
+      "美妆",
+      "穿搭",
+      "生活"
+    ],
+    "position": [
+      "标题结尾"
+    ],
+    "common_combinations": [
+      "✨",
+      "🌸"
+    ],
+    "alternatives": [
+      "💖",
+      "💕",
+      "💗"
+    ],
+    "examples": [
+      "粉粉嫩嫩🩷",
+      "心动推荐🩷"
+    ],
+    "popularity": 84,
+    "tags": [
+      "甜美",
+      "强调"
+    ]
+  },
+  {
+    "emoji": "🤩",
+    "name_zh": "星眼",
+    "name_en": "star-struck",
+    "category": "情感表达",
+    "tone": [
+      "崇拜",
+      "惊喜"
+    ],
+    "meaning_xhs": "被惊艳到、追星式狂欢，种草爆发感强。",
+    "usage_tips": "开箱高光句子很好用。",
+    "verticals": [
+      "美妆",
+      "数码",
+      "旅行"
+    ],
+    "position": [
+      "开场",
+      "高光句"
+    ],
+    "common_combinations": [
+      "✨",
+      "🔥"
+    ],
+    "alternatives": [
+      "😍",
+      "🥳",
+      "🌟"
+    ],
+    "examples": [
+      "惊艳到说不出话🤩",
+      "尊嘟会谢🤩"
+    ],
+    "popularity": 84,
+    "tags": [
+      "惊艳",
+      "开心"
+    ]
+  },
+  {
+    "emoji": "👍",
+    "name_zh": "点赞",
+    "name_en": "thumbs up",
+    "category": "情感表达",
+    "tone": [
+      "认可",
+      "推荐"
+    ],
+    "meaning_xhs": "认可通过，轻量背书。",
+    "usage_tips": "清单勾选旁或总结可用。",
+    "verticals": [
+      "测评",
+      "职场",
+      "好物推荐"
+    ],
+    "position": [
+      "总结",
+      "列表"
+    ],
+    "common_combinations": [
+      "✅",
+      "✨"
+    ],
+    "alternatives": [
+      "👌",
+      "💯",
+      "👏"
+    ],
+    "examples": [
+      "可以闭眼冲👍"
+    ],
+    "popularity": 84,
+    "tags": [
+      "认可",
+      "推荐"
+    ]
+  },
+  {
+    "emoji": "😅",
+    "name_zh": "苦笑",
+    "name_en": "grinning face with sweat",
+    "category": "情感表达",
+    "tone": [
+      "无奈",
+      "自嘲"
+    ],
+    "meaning_xhs": "尴尬苦笑、无奈自嘲，小红书超常用。",
+    "usage_tips": "翻车、退货、吃土故事很贴。",
+    "verticals": [
+      "避坑",
+      "生活",
+      "职场"
+    ],
+    "position": [
+      "情绪句",
+      "结尾"
+    ],
+    "common_combinations": [
+      "💸",
+      "🥲"
+    ],
+    "alternatives": [
+      "🥲",
+      "😂",
+      "🙈"
+    ],
+    "examples": [
+      "又冲动了😅",
+      "钱包警告😅"
+    ],
+    "popularity": 84,
+    "tags": [
+      "自嘲",
+      "无奈"
+    ]
+  },
+  {
+    "emoji": "🎁",
+    "name_zh": "礼物",
+    "name_en": "wrapped gift",
+    "category": "种草推荐",
+    "tone": [
+      "送礼",
+      "惊喜"
+    ],
+    "meaning_xhs": "送礼清单或拆礼物惊喜。",
+    "usage_tips": "节日合集很强。",
+    "verticals": [
+      "好物推荐",
+      "生活",
+      "美妆"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "✨",
+      "🎀"
+    ],
+    "alternatives": [
+      "💝",
+      "🎀",
+      "🛍️"
+    ],
+    "examples": [
+      "送礼不踩雷🎁",
+      "自我奖励🎁"
+    ],
+    "popularity": 84,
+    "tags": [
+      "礼物",
+      "种草"
+    ]
+  },
+  {
+    "emoji": "1️⃣",
+    "name_zh": "数字一",
+    "name_en": "keycap 1",
+    "category": "符号标记",
+    "tone": [
+      "编号",
+      "步骤"
+    ],
+    "meaning_xhs": "步骤或榜单单号。",
+    "usage_tips": "教程第一步或 TOP1。",
+    "verticals": [
+      "教程",
+      "好物推荐",
+      "职场"
+    ],
+    "position": [
+      "列表",
+      "步骤"
+    ],
+    "common_combinations": [
+      "2️⃣",
+      "✨"
+    ],
+    "alternatives": [
+      "👉",
+      "📌",
+      "🥇"
+    ],
+    "examples": [
+      "第一步1️⃣做好清洁"
+    ],
+    "popularity": 84,
+    "tags": [
+      "步骤",
+      "编号"
+    ]
+  },
+  {
+    "emoji": "💡",
+    "name_zh": "灯泡",
+    "name_en": "light bulb",
+    "category": "符号标记",
+    "tone": [
+      "巧思",
+      "干货"
+    ],
+    "meaning_xhs": "标记小技巧、灵感点或突然懂了。",
+    "usage_tips": "放在 tips 小标题前；碎碎念不适合。",
+    "verticals": [
+      "职场",
+      "家居",
+      "学习"
+    ],
+    "position": [
+      "小标题",
+      "技巧句"
+    ],
+    "common_combinations": [
+      "📌",
+      "✅"
+    ],
+    "alternatives": [
+      "🧠",
+      "✍️",
+      "📌"
+    ],
+    "examples": [
+      "省时小技巧💡",
+      "职场摸鱼合规版💡"
+    ],
+    "popularity": 84,
+    "tags": [
+      "干货",
+      "技巧",
+      "灵感"
+    ]
+  },
+  {
+    "emoji": "🌹",
+    "name_zh": "玫瑰",
+    "name_en": "rose",
+    "category": "视觉美化",
+    "tone": [
+      "浪漫",
+      "高级"
+    ],
+    "meaning_xhs": "浪漫与玫瑰妆、香氛强绑定。",
+    "usage_tips": "情人节与浪漫滤镜适用。",
+    "verticals": [
+      "美妆",
+      "生活",
+      "穿搭"
+    ],
+    "position": [
+      "标题结尾"
+    ],
+    "common_combinations": [
+      "✨",
+      "💖"
+    ],
+    "alternatives": [
+      "🥀",
+      "💐",
+      "🩷"
+    ],
+    "examples": [
+      "玫瑰香氛日记🌹"
+    ],
+    "popularity": 84,
+    "tags": [
+      "浪漫",
+      "视觉"
+    ]
+  },
+  {
+    "emoji": "💎",
+    "name_zh": "钻石",
+    "name_en": "gem stone",
+    "category": "强调装饰",
+    "tone": [
+      "高级",
+      "珍藏"
+    ],
+    "meaning_xhs": "强调质感、贵气和压箱底好物，常见于美妆珠光与珠宝穿搭。",
+    "usage_tips": "高级感标题加分；平价对比可反差使用。",
+    "verticals": [
+      "美妆",
+      "穿搭",
+      "好物推荐"
+    ],
+    "position": [
+      "标题",
+      "亮点"
+    ],
+    "common_combinations": [
+      "✨",
+      "👑"
+    ],
+    "alternatives": [
+      "✨",
+      "👑",
+      "🌟"
+    ],
+    "examples": [
+      "珠光压箱底💎",
+      "质感拉满💎"
+    ],
+    "popularity": 83,
+    "tags": [
+      "高级",
+      "质感",
+      "强调"
+    ]
+  },
+  {
+    "emoji": "🤔",
+    "name_zh": "思考",
+    "name_en": "thinking face",
+    "category": "情感表达",
+    "tone": [
+      "犹豫",
+      "对比"
+    ],
+    "meaning_xhs": "纠结对比、引发思考，选题标题常用。",
+    "usage_tips": "对比测评引入很好。",
+    "verticals": [
+      "测评",
+      "避坑",
+      "职场"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "❓",
+      "👀"
+    ],
+    "alternatives": [
+      "🧐",
+      "❓",
+      "😶"
+    ],
+    "examples": [
+      "到底选哪个🤔",
+      "值不值得买🤔"
+    ],
+    "popularity": 83,
+    "tags": [
+      "纠结",
+      "对比"
+    ]
+  },
+  {
+    "emoji": "🤣",
+    "name_zh": "滚笑",
+    "name_en": "rolling on the floor laughing",
+    "category": "情感表达",
+    "tone": [
+      "爆笑",
+      "夸张"
+    ],
+    "meaning_xhs": "比笑哭更夸张的爆笑。",
+    "usage_tips": "极端笑点可用，别过量。",
+    "verticals": [
+      "生活",
+      "避坑"
+    ],
+    "position": [
+      "情绪句"
+    ],
+    "common_combinations": [
+      "😂",
+      "😆"
+    ],
+    "alternatives": [
+      "😂",
+      "😆",
+      "😅"
+    ],
+    "examples": [
+      "笑到地板上🤣"
+    ],
+    "popularity": 83,
+    "tags": [
+      "好笑"
+    ]
+  },
+  {
+    "emoji": "🤯",
+    "name_zh": "爆炸头",
+    "name_en": "exploding head",
+    "category": "情感表达",
+    "tone": [
+      "震撼",
+      "信息过载"
+    ],
+    "meaning_xhs": "认知被刷新、信息量爆炸。",
+    "usage_tips": "干货密度高的标题很贴。",
+    "verticals": [
+      "职场",
+      "测评",
+      "学习"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "💡",
+      "💥"
+    ],
+    "alternatives": [
+      "😱",
+      "💥",
+      "⚡️"
+    ],
+    "examples": [
+      "认知改写🤯",
+      "原来还能这样🤯"
+    ],
+    "popularity": 83,
+    "tags": [
+      "震撼",
+      "干货"
+    ]
+  },
+  {
+    "emoji": "💪",
+    "name_zh": "肌肉",
+    "name_en": "flexed biceps",
+    "category": "情感表达",
+    "tone": [
+      "加油",
+      "坚持"
+    ],
+    "meaning_xhs": "加油打气、自律坚持。",
+    "usage_tips": "健身或学习打卡必备。",
+    "verticals": [
+      "健身",
+      "学习",
+      "职场"
+    ],
+    "position": [
+      "结尾",
+      "号召"
+    ],
+    "common_combinations": [
+      "🔥",
+      "✨"
+    ],
+    "alternatives": [
+      "👏",
+      "🏆",
+      "🔥"
+    ],
+    "examples": [
+      "一起加油💪",
+      "训练打卡💪"
+    ],
+    "popularity": 83,
+    "tags": [
+      "激励",
+      "打卡"
+    ]
+  },
+  {
+    "emoji": "🎀",
+    "name_zh": "蝴蝶结",
+    "name_en": "ribbon bow",
+    "category": "种草推荐",
+    "tone": [
+      "可爱",
+      "包装"
+    ],
+    "meaning_xhs": "包装精致、少女礼盒感。",
+    "usage_tips": "美妆礼盒或穿搭点缀适用。",
+    "verticals": [
+      "美妆",
+      "穿搭",
+      "生活"
+    ],
+    "position": [
+      "标题结尾"
+    ],
+    "common_combinations": [
+      "✨",
+      "💕"
+    ],
+    "alternatives": [
+      "🎁",
+      "💖",
+      "🌸"
+    ],
+    "examples": [
+      "包装我也爱🎀"
+    ],
+    "popularity": 83,
+    "tags": [
+      "精致",
+      "种草"
+    ]
+  },
+  {
+    "emoji": "🛍️",
+    "name_zh": "购物袋",
+    "name_en": "shopping bags",
+    "category": "种草推荐",
+    "tone": [
+      "消费",
+      "清单"
+    ],
+    "meaning_xhs": "直接暗示购物清单、战利品开箱。",
+    "usage_tips": "清单类标题加分；知识干货少用。",
+    "verticals": [
+      "好物推荐",
+      "穿搭",
+      "家居"
+    ],
+    "position": [
+      "标题",
+      "清单头"
+    ],
+    "common_combinations": [
+      "✨",
+      "💸"
+    ],
+    "alternatives": [
+      "🛒",
+      "💝",
+      "📦"
+    ],
+    "examples": [
+      "周末战利品🛍️",
+      "春节囤货清单🛍️"
+    ],
+    "popularity": 83,
+    "tags": [
+      "购物",
+      "清单",
+      "种草"
+    ]
+  },
+  {
+    "emoji": "👉",
+    "name_zh": "右指",
+    "name_en": "backhand index pointing right",
+    "category": "符号标记",
+    "tone": [
+      "引导",
+      "指向"
+    ],
+    "meaning_xhs": "指向重点、链接感引导，评论与正文都高频。",
+    "usage_tips": "一步步教程或看这里句好用。",
+    "verticals": [
+      "教程",
+      "运营",
+      "测评"
+    ],
+    "position": [
+      "列表",
+      "引导句"
+    ],
+    "common_combinations": [
+      "✨",
+      "📌"
+    ],
+    "alternatives": [
+      "➡️",
+      "👀"
+    ],
+    "examples": [
+      "看这里👉",
+      "颜色这样选👉"
+    ],
+    "popularity": 83,
+    "tags": [
+      "引导",
+      "标记"
+    ]
+  },
+  {
+    "emoji": "🍓",
+    "name_zh": "草莓",
+    "name_en": "strawberry",
+    "category": "视觉美化",
+    "tone": [
+      "甜美",
+      "粉嫩"
+    ],
+    "meaning_xhs": "粉嫩甜美视觉符号，穿搭美妆超高频。",
+    "usage_tips": "粉色系内容几乎必备。",
+    "verticals": [
+      "美妆",
+      "穿搭",
+      "美食"
+    ],
+    "position": [
+      "标题结尾",
+      "点缀"
+    ],
+    "common_combinations": [
+      "💕",
+      "✨"
+    ],
+    "alternatives": [
+      "🍒",
+      "🌸",
+      "💗"
+    ],
+    "examples": [
+      "草莓系女孩🍓"
+    ],
+    "popularity": 83,
+    "tags": [
+      "甜美",
+      "视觉"
+    ]
+  },
+  {
+    "emoji": "⚡️",
+    "name_zh": "闪电",
+    "name_en": "high voltage",
+    "category": "强调装饰",
+    "tone": [
+      "敏捷",
+      "效率"
+    ],
+    "meaning_xhs": "强调快、强、立刻见效，常见于效率工具与快闪种草。",
+    "usage_tips": "放在结果导向句子旁最好，如“三分钟见效”。",
+    "verticals": [
+      "职场",
+      "美妆",
+      "数码"
+    ],
+    "position": [
+      "标题",
+      "效果句"
+    ],
+    "common_combinations": [
+      "✨",
+      "🔥"
+    ],
+    "alternatives": [
+      "🔥",
+      "💥",
+      "🚀"
+    ],
+    "examples": [
+      "上脸立刻亮⚡️",
+      "效率神器请收好⚡️"
+    ],
+    "popularity": 82,
+    "tags": [
+      "效率",
+      "强调",
+      "快"
+    ]
+  },
+  {
+    "emoji": "😱",
+    "name_zh": "尖叫",
+    "name_en": "face screaming in fear",
+    "category": "情感表达",
+    "tone": [
+      "震惊",
+      "惊吓"
+    ],
+    "meaning_xhs": "震惊惊吓，揭秘或价格惊吓都常用。",
+    "usage_tips": "价格或反转标题很抓眼。",
+    "verticals": [
+      "避坑",
+      "测评",
+      "好物推荐"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "😳",
+      "💥"
+    ],
+    "alternatives": [
+      "😮",
+      "😳",
+      "🤯"
+    ],
+    "examples": [
+      "这个价格我害怕😱",
+      "结果逆转了😱"
+    ],
+    "popularity": 82,
+    "tags": [
+      "震惊"
+    ]
+  },
+  {
+    "emoji": "🎉",
+    "name_zh": "庆祝",
+    "name_en": "party popper",
+    "category": "情感表达",
+    "tone": [
+      "欢庆",
+      "里程碑"
+    ],
+    "meaning_xhs": "庆祝进步、活动开场或终于做到。",
+    "usage_tips": "里程碑标题加分；避坑文不匹配。",
+    "verticals": [
+      "生活",
+      "学习",
+      "运营"
+    ],
+    "position": [
+      "标题",
+      "结尾"
+    ],
+    "common_combinations": [
+      "✨",
+      "🥳"
+    ],
+    "alternatives": [
+      "🥳",
+      "🎊",
+      "🙌"
+    ],
+    "examples": [
+      "粉丝破万啦🎉",
+      "坚持打卡30天🎉"
+    ],
+    "popularity": 82,
+    "tags": [
+      "庆祝",
+      "里程碑"
+    ]
+  },
+  {
+    "emoji": "😊",
+    "name_zh": "微笑",
+    "name_en": "smiling face with smiling eyes",
+    "category": "情感表达",
+    "tone": [
+      "友好",
+      "温和"
+    ],
+    "meaning_xhs": "温和开心，适合日常分享与礼貌收尾。",
+    "usage_tips": "百搭但不抓眼，可配闪亮。",
+    "verticals": [
+      "生活",
+      "职场",
+      "美食"
+    ],
+    "position": [
+      "结尾",
+      "正文"
+    ],
+    "common_combinations": [
+      "✨",
+      "🌸"
+    ],
+    "alternatives": [
+      "☺️",
+      "🙂",
+      "🥰"
+    ],
+    "examples": [
+      "今天也愉快😊",
+      "分享给温柔的你😊"
+    ],
+    "popularity": 82,
+    "tags": [
+      "温和",
+      "开心"
+    ]
+  },
+  {
+    "emoji": "💅",
+    "name_zh": "指甲油",
+    "name_en": "nail polish",
+    "category": "情感表达",
+    "tone": [
+      "傲娇",
+      "精致"
+    ],
+    "meaning_xhs": "精致傲娇与 beauty 自信，美妆区名梗。",
+    "usage_tips": "美妆态度句很贴；职场硬核慎用。",
+    "verticals": [
+      "美妆",
+      "穿搭"
+    ],
+    "position": [
+      "情绪句",
+      "结尾"
+    ],
+    "common_combinations": [
+      "✨",
+      "💋"
+    ],
+    "alternatives": [
+      "💄",
+      "💋",
+      "👑"
+    ],
+    "examples": [
+      "我值得最好的💅"
+    ],
+    "popularity": 82,
+    "tags": [
+      "精致",
+      "态度"
+    ]
+  },
+  {
+    "emoji": "🫠",
+    "name_zh": "融化",
+    "name_en": "melting face",
+    "category": "情感表达",
+    "tone": [
+      "无奈",
+      "崩溃"
+    ],
+    "meaning_xhs": "热化、羞耻、无奈融化，新一代万能情绪脸。",
+    "usage_tips": "社死、热到融化、被撩到都可用。",
+    "verticals": [
+      "生活",
+      "穿搭",
+      "情感"
+    ],
+    "position": [
+      "情绪句",
+      "标题"
+    ],
+    "common_combinations": [
+      "🥵",
+      "🥲"
+    ],
+    "alternatives": [
+      "🥲",
+      "😵‍💫",
+      "🥵"
+    ],
+    "examples": [
+      "我直接融化🫠",
+      "又社死了🫠"
+    ],
+    "popularity": 82,
+    "tags": [
+      "无奈",
+      "流行"
+    ]
+  },
+  {
+    "emoji": "🧴",
+    "name_zh": "乳液瓶",
+    "name_en": "lotion bottle",
+    "category": "种草推荐",
+    "tone": [
+      "护肤",
+      "个护"
+    ],
+    "meaning_xhs": "护肤个护种草符号。",
+    "usage_tips": "护肤步骤或空瓶记很贴。",
+    "verticals": [
+      "护肤",
+      "美妆"
+    ],
+    "position": [
+      "标题",
+      "列表"
+    ],
+    "common_combinations": [
+      "✨",
+      "🫧"
+    ],
+    "alternatives": [
+      "🧼",
+      "💧",
+      "✨"
+    ],
+    "examples": [
+      "空瓶记🧴",
+      "夏日清爽乳液🧴"
+    ],
+    "popularity": 82,
+    "tags": [
+      "护肤",
+      "种草"
+    ]
+  },
+  {
+    "emoji": "📦",
+    "name_zh": "包裹",
+    "name_en": "package",
+    "category": "种草推荐",
+    "tone": [
+      "开箱",
+      "到货"
+    ],
+    "meaning_xhs": "快递开箱、到货喜感。",
+    "usage_tips": "开箱封面文案必备。",
+    "verticals": [
+      "好物推荐",
+      "美妆",
+      "数码"
+    ],
+    "position": [
+      "标题",
+      "开场"
+    ],
+    "common_combinations": [
+      "✨",
+      "😍"
+    ],
+    "alternatives": [
+      "🛍️",
+      "🎁",
+      "💌"
+    ],
+    "examples": [
+      "今日开箱📦",
+      "终于到货📦"
+    ],
+    "popularity": 82,
+    "tags": [
+      "开箱",
+      "种草"
+    ]
+  },
+  {
+    "emoji": "2️⃣",
+    "name_zh": "数字二",
+    "name_en": "keycap 2",
+    "category": "符号标记",
+    "tone": [
+      "编号",
+      "步骤"
+    ],
+    "meaning_xhs": "步骤或榜单二号。",
+    "usage_tips": "与其他数字键连用。",
+    "verticals": [
+      "教程",
+      "好物推荐"
+    ],
+    "position": [
+      "列表",
+      "步骤"
+    ],
+    "common_combinations": [
+      "1️⃣",
+      "3️⃣"
+    ],
+    "alternatives": [
+      "1️⃣",
+      "👉",
+      "📌"
+    ],
+    "examples": [
+      "第二步2️⃣厚涂面霜"
+    ],
+    "popularity": 82,
+    "tags": [
+      "步骤",
+      "编号"
+    ]
+  },
+  {
+    "emoji": "☀️",
+    "name_zh": "太阳",
+    "name_en": "sun",
+    "category": "视觉美化",
+    "tone": [
+      "明亮",
+      "活力"
+    ],
+    "meaning_xhs": "元气明亮，防晒提醒也常见。",
+    "usage_tips": "夏日与元气内容必备。",
+    "verticals": [
+      "护肤",
+      "生活",
+      "穿搭"
+    ],
+    "position": [
+      "标题",
+      "提醒"
+    ],
+    "common_combinations": [
+      "🌻",
+      "✨"
+    ],
+    "alternatives": [
+      "🌞",
+      "🌤️",
+      "🔥"
+    ],
+    "examples": [
+      "防晒别忘☀️",
+      "元气早晨☀️"
+    ],
+    "popularity": 82,
+    "tags": [
+      "元气",
+      "防晒"
+    ]
+  },
+  {
+    "emoji": "💫",
+    "name_zh": "头晕星",
+    "name_en": "dizzy",
+    "category": "强调装饰",
+    "tone": [
+      "梦幻",
+      "惊艳"
+    ],
+    "meaning_xhs": "比闪亮更梦幻，常表示被美到或氛围感爆棚。",
+    "usage_tips": "用于氛围句而非强安利句。",
+    "verticals": [
+      "美妆",
+      "家居",
+      "旅行"
+    ],
+    "position": [
+      "氛围句",
+      "标题"
+    ],
+    "common_combinations": [
+      "✨",
+      "🌙"
+    ],
+    "alternatives": [
+      "✨",
+      "🌟",
+      "⭐"
+    ],
+    "examples": [
+      "夜妆氛围拉满💫",
+      "小户型也高级💫"
+    ],
+    "popularity": 81,
+    "tags": [
+      "梦幻",
+      "氛围"
+    ]
+  },
+  {
+    "emoji": "👑",
+    "name_zh": "皇冠",
+    "name_en": "crown",
+    "category": "强调装饰",
+    "tone": [
+      "王者",
+      "本命"
+    ],
+    "meaning_xhs": "常表示本命单品、赛道第一、心中 C 位。",
+    "usage_tips": "本命或封神句很搭；谦虚测评少用。",
+    "verticals": [
+      "美妆",
+      "穿搭",
+      "好物推荐"
+    ],
+    "position": [
+      "标题",
+      "总结"
+    ],
+    "common_combinations": [
+      "✨",
+      "💖"
+    ],
+    "alternatives": [
+      "💎",
+      "🏆",
+      "✨"
+    ],
+    "examples": [
+      "本命口红👑",
+      "衣柜 C 位👑"
+    ],
+    "popularity": 81,
+    "tags": [
+      "本命",
+      "第一",
+      "强调"
+    ]
+  },
+  {
+    "emoji": "😋",
+    "name_zh": "好吃脸",
+    "name_en": "face savoring food",
+    "category": "情感表达",
+    "tone": [
+      "馋",
+      "满足"
+    ],
+    "meaning_xhs": "对美食或好物的满足馋意。",
+    "usage_tips": "美食笔记几乎必备。",
+    "verticals": [
+      "美食",
+      "生活"
+    ],
+    "position": [
+      "标题",
+      "结尾"
+    ],
+    "common_combinations": [
+      "🍜",
+      "✨"
+    ],
+    "alternatives": [
+      "😍",
+      "🤤",
+      "🥰"
+    ],
+    "examples": [
+      "今日份干饭😋",
+      "甜度超标😋"
+    ],
+    "popularity": 81,
+    "tags": [
+      "美食",
+      "满足"
+    ]
+  },
+  {
+    "emoji": "🥳",
+    "name_zh": "派对脸",
+    "name_en": "partying face",
+    "category": "情感表达",
+    "tone": [
+      "狂欢",
+      "庆祝"
+    ],
+    "meaning_xhs": "派对狂欢脸，节日与节点超合适。",
+    "usage_tips": "生日、成绩、发售日适用。",
+    "verticals": [
+      "生活",
+      "运营",
+      "美妆"
+    ],
+    "position": [
+      "标题",
+      "结尾"
+    ],
+    "common_combinations": [
+      "🎉",
+      "✨"
+    ],
+    "alternatives": [
+      "🎉",
+      "🎊",
+      "🎈"
+    ],
+    "examples": [
+      "开业快乐🥳",
+      "生日自拍🥳"
+    ],
+    "popularity": 81,
+    "tags": [
+      "庆祝",
+      "开心"
+    ]
+  },
+  {
+    "emoji": "😳",
+    "name_zh": "脸红惊讶",
+    "name_en": "flushed face",
+    "category": "情感表达",
+    "tone": [
+      "害羞",
+      "错愕"
+    ],
+    "meaning_xhs": "害羞错愕或社死感。",
+    "usage_tips": "翻车自嘲很好用。",
+    "verticals": [
+      "生活",
+      "穿搭",
+      "美妆"
+    ],
+    "position": [
+      "情绪句"
+    ],
+    "common_combinations": [
+      "😅",
+      "🙈"
+    ],
+    "alternatives": [
+      "🥲",
+      "🙈",
+      "😰"
+    ],
+    "examples": [
+      "被识破了😳",
+      "第一次也太刺激😳"
+    ],
+    "popularity": 81,
+    "tags": [
+      "害羞",
+      "社死"
+    ]
+  },
+  {
+    "emoji": "💋",
+    "name_zh": "唇印",
+    "name_en": "kiss mark",
+    "category": "种草推荐",
+    "tone": [
+      "妆造",
+      "氛围"
+    ],
+    "meaning_xhs": "唇妆完成或性感氛围。",
+    "usage_tips": "唇膏试色结尾很好。",
+    "verticals": [
+      "美妆"
+    ],
+    "position": [
+      "结尾",
+      "标题"
+    ],
+    "common_combinations": [
+      "💄",
+      "✨"
+    ],
+    "alternatives": [
+      "💄",
+      "😍",
+      "❤️"
+    ],
+    "examples": [
+      "试色完成💋"
+    ],
+    "popularity": 81,
+    "tags": [
+      "美妆"
+    ]
+  },
+  {
+    "emoji": "🛒",
+    "name_zh": "购物车",
+    "name_en": "shopping cart",
+    "category": "种草推荐",
+    "tone": [
+      "加购",
+      "种草"
+    ],
+    "meaning_xhs": "已加购或求加购的购买意图。",
+    "usage_tips": "种草行动号召很强。",
+    "verticals": [
+      "好物推荐",
+      "美妆",
+      "穿搭"
+    ],
+    "position": [
+      "结尾号召",
+      "标题"
+    ],
+    "common_combinations": [
+      "✨",
+      "💨"
+    ],
+    "alternatives": [
+      "🛍️",
+      "💸",
+      "✅"
+    ],
+    "examples": [
+      "已加购购物车🛒",
+      "建议马飞奔🛒"
+    ],
+    "popularity": 81,
+    "tags": [
+      "加购",
+      "种草"
+    ]
+  },
+  {
+    "emoji": "👇",
+    "name_zh": "下指",
+    "name_en": "backhand index pointing down",
+    "category": "符号标记",
+    "tone": [
+      "引导",
+      "下方"
+    ],
+    "meaning_xhs": "引导看下方图片或评论。",
+    "usage_tips": "图文笔记常用。",
+    "verticals": [
+      "教程",
+      "运营",
+      "好物推荐"
+    ],
+    "position": [
+      "引导句"
+    ],
+    "common_combinations": [
+      "📌",
+      "✨"
+    ],
+    "alternatives": [
+      "⬇️",
+      "👉",
+      "👀"
+    ],
+    "examples": [
+      "细节看图👇"
+    ],
+    "popularity": 81,
+    "tags": [
+      "引导"
+    ]
+  },
+  {
+    "emoji": "3️⃣",
+    "name_zh": "数字三",
+    "name_en": "keycap 3",
+    "category": "符号标记",
+    "tone": [
+      "编号",
+      "步骤"
+    ],
+    "meaning_xhs": "步骤或榜单三号。",
+    "usage_tips": "三段式结构很清晰。",
+    "verticals": [
+      "教程",
+      "好物推荐"
+    ],
+    "position": [
+      "列表",
+      "步骤"
+    ],
+    "common_combinations": [
+      "2️⃣",
+      "4️⃣"
+    ],
+    "alternatives": [
+      "1️⃣",
+      "2️⃣",
+      "📌"
+    ],
+    "examples": [
+      "第三步3️⃣别忘防晒"
+    ],
+    "popularity": 81,
+    "tags": [
+      "步骤",
+      "编号"
+    ]
+  },
+  {
+    "emoji": "🍑",
+    "name_zh": "桃",
+    "name_en": "peach",
+    "category": "视觉美化",
+    "tone": [
+      "可爱",
+      "粉嫩"
+    ],
+    "meaning_xhs": "粉桃感，可俏皮可甜美。",
+    "usage_tips": "蜜桃妆或穿搭常用；注意网络梗义。",
+    "verticals": [
+      "美妆",
+      "穿搭"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "💕",
+      "✨"
+    ],
+    "alternatives": [
+      "🍓",
+      "💗",
+      "🌸"
+    ],
+    "examples": [
+      "蜜桃氛围🍑"
+    ],
+    "popularity": 81,
+    "tags": [
+      "甜美"
+    ]
+  },
+  {
+    "emoji": "💧",
+    "name_zh": "水滴",
+    "name_en": "droplet",
+    "category": "视觉美化",
+    "tone": [
+      "补水",
+      "清爽"
+    ],
+    "meaning_xhs": "补水保湿、清爽感。",
+    "usage_tips": "护肤补水标题常用。",
+    "verticals": [
+      "护肤",
+      "美妆"
+    ],
+    "position": [
+      "标题",
+      "亮点"
+    ],
+    "common_combinations": [
+      "✨",
+      "🫧"
+    ],
+    "alternatives": [
+      "🫧",
+      "🌊",
+      "💦"
+    ],
+    "examples": [
+      "深层补水💧"
+    ],
+    "popularity": 81,
+    "tags": [
+      "补水",
+      "护肤"
+    ]
+  },
+  {
+    "emoji": "🤍",
+    "name_zh": "白心",
+    "name_en": "white heart",
+    "category": "强调装饰",
+    "tone": [
+      "干净",
+      "柔和"
+    ],
+    "meaning_xhs": "干净柔和的装饰爱心，小红书极高频。",
+    "usage_tips": "护肤、家居、简约穿搭都百搭。",
+    "verticals": [
+      "护肤",
+      "家居",
+      "穿搭"
+    ],
+    "position": [
+      "标题结尾",
+      "重点句"
+    ],
+    "common_combinations": [
+      "✨",
+      "🕊️"
+    ],
+    "alternatives": [
+      "💕",
+      "💖",
+      "🩶"
+    ],
+    "examples": [
+      "干净又高级🤍",
+      "本命白Tee🤍"
+    ],
+    "popularity": 80,
+    "tags": [
+      "干净",
+      "高级",
+      "强调"
+    ]
+  },
+  {
+    "emoji": "🎯",
+    "name_zh": "靶心",
+    "name_en": "bullseye",
+    "category": "强调装饰",
+    "tone": [
+      "精准",
+      "到位"
+    ],
+    "meaning_xhs": "表示说到点子上、精准命中需求，适合种草理由总结。",
+    "usage_tips": "适合结论句；情绪抒发不必用。",
+    "verticals": [
+      "测评",
+      "职场",
+      "好物推荐"
+    ],
+    "position": [
+      "总结",
+      "标题"
+    ],
+    "common_combinations": [
+      "✅",
+      "✨"
+    ],
+    "alternatives": [
+      "💯",
+      "✅",
+      "📌"
+    ],
+    "examples": [
+      "痛点狙击🎯",
+      "需求命中🎯"
+    ],
+    "popularity": 80,
+    "tags": [
+      "精准",
+      "强调",
+      "总结"
+    ]
+  },
+  {
+    "emoji": "👌",
+    "name_zh": "OK",
+    "name_en": "OK hand",
+    "category": "情感表达",
+    "tone": [
+      "刚好",
+      "到位"
+    ],
+    "meaning_xhs": "刚刚好、很成。",
+    "usage_tips": "色号或尺寸合适可用。",
+    "verticals": [
+      "美妆",
+      "穿搭",
+      "好物推荐"
+    ],
+    "position": [
+      "评价句"
+    ],
+    "common_combinations": [
+      "✨",
+      "👍"
+    ],
+    "alternatives": [
+      "👍",
+      "✅",
+      "💯"
+    ],
+    "examples": [
+      "色号刚好👌"
+    ],
+    "popularity": 80,
+    "tags": [
+      "到位"
+    ]
+  },
+  {
+    "emoji": "💔",
+    "name_zh": "心碎",
+    "name_en": "broken heart",
+    "category": "情感表达",
+    "tone": [
+      "失望",
+      "踩雷"
+    ],
+    "meaning_xhs": "失望踩雷或分手式告别某单品。",
+    "usage_tips": "避坑结尾很有情绪。",
+    "verticals": [
+      "避坑",
+      "测评"
+    ],
+    "position": [
+      "情绪句",
+      "结尾"
+    ],
+    "common_combinations": [
+      "😭",
+      "❌"
+    ],
+    "alternatives": [
+      "😭",
+      "😢",
+      "❌"
+    ],
+    "examples": [
+      "回购到心碎💔",
+      "踩雷分手💔"
+    ],
+    "popularity": 80,
+    "tags": [
+      "踩雷",
+      "失望"
+    ]
+  },
+  {
+    "emoji": "🤗",
+    "name_zh": "拥抱",
+    "name_en": "smiling face with open hands",
+    "category": "情感表达",
+    "tone": [
+      "温暖",
+      "欢迎"
+    ],
+    "meaning_xhs": "拥抱欢迎、暖心安抚。",
+    "usage_tips": "互助或治愈内容适合。",
+    "verticals": [
+      "生活",
+      "母婴",
+      "情感"
+    ],
+    "position": [
+      "开头",
+      "结尾"
+    ],
+    "common_combinations": [
+      "💕",
+      "🫶"
+    ],
+    "alternatives": [
+      "🥰",
+      "🫶",
+      "💖"
+    ],
+    "examples": [
+      "给你个拥抱🤗"
+    ],
+    "popularity": 80,
+    "tags": [
+      "温暖",
+      "治愈"
+    ]
+  },
+  {
+    "emoji": "🤤",
+    "name_zh": "流口水",
+    "name_en": "drooling face",
+    "category": "情感表达",
+    "tone": [
+      "馋",
+      "渴望"
+    ],
+    "meaning_xhs": "强烈馋意，比好吃脸更夸张。",
+    "usage_tips": "美食封面或甜品种草很强。",
+    "verticals": [
+      "美食",
+      "生活"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "🍰",
+      "😋"
+    ],
+    "alternatives": [
+      "😋",
+      "😍",
+      "🥰"
+    ],
+    "examples": [
+      "看饿了🤤",
+      "无法拒绝🤤"
+    ],
+    "popularity": 80,
+    "tags": [
+      "美食",
+      "种草"
+    ]
+  },
+  {
+    "emoji": "😩",
+    "name_zh": "疲倦",
+    "name_en": "weary face",
+    "category": "情感表达",
+    "tone": [
+      "疲惫",
+      "抓狂"
+    ],
+    "meaning_xhs": "疲惫抓狂，加班与踩雷都行。",
+    "usage_tips": "吐槽情绪很强。",
+    "verticals": [
+      "职场",
+      "避坑",
+      "生活"
+    ],
+    "position": [
+      "情绪句",
+      "标题"
+    ],
+    "common_combinations": [
+      "😭",
+      "💼"
+    ],
+    "alternatives": [
+      "😫",
+      "😭",
+      "🥲"
+    ],
+    "examples": [
+      "上班累到😩",
+      "避坑避到心态崩😩"
+    ],
+    "popularity": 80,
+    "tags": [
+      "疲惫",
+      "吐槽"
+    ]
+  },
+  {
+    "emoji": "🙈",
+    "name_zh": "非礼勿视",
+    "name_en": "see-no-evil monkey",
+    "category": "情感表达",
+    "tone": [
+      "害羞",
+      "社死"
+    ],
+    "meaning_xhs": "害羞不敢看或社死遮眼。",
+    "usage_tips": "翻车对比很好用。",
+    "verticals": [
+      "生活",
+      "美妆",
+      "避坑"
+    ],
+    "position": [
+      "情绪句"
+    ],
+    "common_combinations": [
+      "😅",
+      "😳"
+    ],
+    "alternatives": [
+      "🙉",
+      "🙊",
+      "😳"
+    ],
+    "examples": [
+      "不敢看自己素颜🙈"
+    ],
+    "popularity": 80,
+    "tags": [
+      "社死",
+      "害羞"
+    ]
+  },
+  {
+    "emoji": "😘",
+    "name_zh": "飞吻",
+    "name_en": "face blowing a kiss",
+    "category": "情感表达",
+    "tone": [
+      "亲昵",
+      "感谢"
+    ],
+    "meaning_xhs": "亲昵感谢或俏皮收尾，评论区互动也常见。",
+    "usage_tips": "结尾谢粉丝可用；硬核参数文少用。",
+    "verticals": [
+      "生活",
+      "美妆"
+    ],
+    "position": [
+      "结尾",
+      "互动"
+    ],
+    "common_combinations": [
+      "💕",
+      "🥰"
+    ],
+    "alternatives": [
+      "🥰",
+      "🫶",
+      "💖"
+    ],
+    "examples": [
+      "谢谢宝宝们😘",
+      "封面对你飞吻😘"
+    ],
+    "popularity": 80,
+    "tags": [
+      "感谢",
+      "互动"
+    ]
+  },
+  {
+    "emoji": "👗",
+    "name_zh": "连衣裙",
+    "name_en": "dress",
+    "category": "种草推荐",
+    "tone": [
+      "穿搭",
+      "造型"
+    ],
+    "meaning_xhs": "穿搭造型、女装种草。",
+    "usage_tips": "OOTD 标题常用。",
+    "verticals": [
+      "穿搭"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "✨",
+      "💖"
+    ],
+    "alternatives": [
+      "👠",
+      "🪞",
+      "✨"
+    ],
+    "examples": [
+      "小裙子日记👗"
+    ],
+    "popularity": 80,
+    "tags": [
+      "穿搭"
+    ]
+  },
+  {
+    "emoji": "📸",
+    "name_zh": "闪拍相机",
+    "name_en": "camera with flash",
+    "category": "种草推荐",
+    "tone": [
+      "实拍",
+      "记录"
+    ],
+    "meaning_xhs": "强调实拍图、无滤镜记录。",
+    "usage_tips": "真实测或穿搭实拍很贴。",
+    "verticals": [
+      "穿搭",
+      "美妆",
+      "测评"
+    ],
+    "position": [
+      "标题",
+      "图注"
+    ],
+    "common_combinations": [
+      "✨",
+      "👀"
+    ],
+    "alternatives": [
+      "📷",
+      "🖼️",
+      "✅"
+    ],
+    "examples": [
+      "全身实拍📸",
+      "无滤镜实况📸"
+    ],
+    "popularity": 80,
+    "tags": [
+      "实拍",
+      "真实"
+    ]
+  },
+  {
+    "emoji": "➡️",
+    "name_zh": "右箭头",
+    "name_en": "right arrow",
+    "category": "符号标记",
+    "tone": [
+      "引导",
+      "流程"
+    ],
+    "meaning_xhs": "引导阅读下一歩或步骤流向，常见于教程与对比。",
+    "usage_tips": "步骤间用箭头比纯数字更有动感。",
+    "verticals": [
+      "教程",
+      "家居",
+      "美妆"
+    ],
+    "position": [
+      "步骤间",
+      "对比"
+    ],
+    "common_combinations": [
+      "1️⃣",
+      "✨"
+    ],
+    "alternatives": [
+      "👉",
+      "⏩",
+      "▶️"
+    ],
+    "examples": [
+      "清洁➡️保湿➡️防晒",
+      "改造前➡️改造后"
+    ],
+    "popularity": 80,
+    "tags": [
+      "流程",
+      "引导",
+      "步骤"
+    ]
+  },
+  {
+    "emoji": "📝",
+    "name_zh": "备忘录",
+    "name_en": "memo",
+    "category": "符号标记",
+    "tone": [
+      "记录",
+      "清单"
+    ],
+    "meaning_xhs": "记录要点、备忘与清单。",
+    "usage_tips": "攻略文标题很合适。",
+    "verticals": [
+      "职场",
+      "教程",
+      "生活"
+    ],
+    "position": [
+      "标题",
+      "列表"
+    ],
+    "common_combinations": [
+      "📌",
+      "✅"
+    ],
+    "alternatives": [
+      "✍️",
+      "📌",
+      "📂"
+    ],
+    "examples": [
+      "旅行备忘录📝"
+    ],
+    "popularity": 80,
+    "tags": [
+      "记录",
+      "清单"
+    ]
+  },
+  {
+    "emoji": "📍",
+    "name_zh": "定位钉",
+    "name_en": "round pushpin",
+    "category": "符号标记",
+    "tone": [
+      "位置",
+      "重点"
+    ],
+    "meaning_xhs": "地点分享或重点定位。",
+    "usage_tips": "探店或旅行定位超合适。",
+    "verticals": [
+      "旅行",
+      "美食",
+      "生活"
+    ],
+    "position": [
+      "标题",
+      "信息句"
+    ],
+    "common_combinations": [
+      "✨",
+      "🏡"
+    ],
+    "alternatives": [
+      "📌",
+      "🗺️",
+      "🏪"
+    ],
+    "examples": [
+      "位置在这📍"
+    ],
+    "popularity": 80,
+    "tags": [
+      "定位",
+      "标记"
+    ]
+  },
+  {
+    "emoji": "🚫",
+    "name_zh": "禁止",
+    "name_en": "prohibited",
+    "category": "符号标记",
+    "tone": [
+      "禁止",
+      "避雷"
+    ],
+    "meaning_xhs": "禁止或雷区更强标识。",
+    "usage_tips": "敏肌雷区或禁忌事项适合。",
+    "verticals": [
+      "避坑",
+      "母婴",
+      "护肤"
+    ],
+    "position": [
+      "注意事项"
+    ],
+    "common_combinations": [
+      "❌",
+      "⚠️"
+    ],
+    "alternatives": [
+      "❌",
+      "⛔️",
+      "⚠️"
+    ],
+    "examples": [
+      "这里严禁踩雷🚫"
+    ],
+    "popularity": 80,
+    "tags": [
+      "避坑",
+      "禁止"
+    ]
+  },
+  {
+    "emoji": "❗",
+    "name_zh": "红感叹",
+    "name_en": "red exclamation mark",
+    "category": "符号标记",
+    "tone": [
+      "提醒",
+      "重要"
+    ],
+    "meaning_xhs": "红色感叹，强调必须注意。",
+    "usage_tips": "关键注意事项前缀。",
+    "verticals": [
+      "避坑",
+      "教程"
+    ],
+    "position": [
+      "注意事项"
+    ],
+    "common_combinations": [
+      "⚠️",
+      "📌"
+    ],
+    "alternatives": [
+      "❗️",
+      "‼️",
+      "⚠️"
+    ],
+    "examples": [
+      "关键❗别忽略"
+    ],
+    "popularity": 80,
+    "tags": [
+      "提醒"
+    ]
+  },
+  {
+    "emoji": "🌙",
+    "name_zh": "弯月",
+    "name_en": "crescent moon",
+    "category": "视觉美化",
+    "tone": [
+      "夜",
+      "静谧"
+    ],
+    "meaning_xhs": "夜间护肤、晚安仪式。",
+    "usage_tips": "晚妆或助眠很贴。",
+    "verticals": [
+      "护肤",
+      "生活",
+      "美妆"
+    ],
+    "position": [
+      "标题",
+      "结尾"
+    ],
+    "common_combinations": [
+      "✨",
+      "😴"
+    ],
+    "alternatives": [
+      "⭐",
+      "💤",
+      "🖤"
+    ],
+    "examples": [
+      "夜间修护🌙",
+      "晚安仪式🌙"
+    ],
+    "popularity": 80,
+    "tags": [
+      "夜晚",
+      "氛围"
+    ]
+  },
+  {
+    "emoji": "🌈",
+    "name_zh": "彩虹",
+    "name_en": "rainbow",
+    "category": "视觉美化",
+    "tone": [
+      "活泼",
+      "缤纷"
+    ],
+    "meaning_xhs": "增添彩色元气感，适合多彩穿搭与节日氛围。",
+    "usage_tips": "标题尾部或合集名适配；冷淡风慎用。",
+    "verticals": [
+      "穿搭",
+      "生活方式",
+      "母婴"
+    ],
+    "position": [
+      "标题结尾",
+      "合集名"
+    ],
+    "common_combinations": [
+      "🦄",
+      "💕"
+    ],
+    "alternatives": [
+      "🎨",
+      "🌸",
+      "☀️"
+    ],
+    "examples": [
+      "今日多巴胺穿搭🌈",
+      "彩色心情加油包🌈"
+    ],
+    "popularity": 80,
+    "tags": [
+      "视觉",
+      "元气",
+      "美化"
+    ]
+  },
+  {
+    "emoji": "☕",
+    "name_zh": "热饮",
+    "name_en": "hot beverage",
+    "category": "视觉美化",
+    "tone": [
+      "治愈",
+      "日常"
+    ],
+    "meaning_xhs": "咖啡日常、通勤仪式感。",
+    "usage_tips": "生活方式与职场松弛感。",
+    "verticals": [
+      "生活方式",
+      "职场",
+      "美食"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "📖",
+      "✨"
+    ],
+    "alternatives": [
+      "🍵",
+      "🥐",
+      "☁️"
+    ],
+    "examples": [
+      "早咖啡☕"
+    ],
+    "popularity": 80,
+    "tags": [
+      "日常",
+      "治愈"
+    ]
+  },
+  {
+    "emoji": "🦋",
+    "name_zh": "蝴蝶",
+    "name_en": "butterfly",
+    "category": "视觉美化",
+    "tone": [
+      "轻盈",
+      "梦幻"
+    ],
+    "meaning_xhs": "蝴蝶元素与梦幻美化，近年超火。",
+    "usage_tips": "妆容、头饰、文案点缀。",
+    "verticals": [
+      "美妆",
+      "穿搭",
+      "生活"
+    ],
+    "position": [
+      "标题结尾",
+      "点缀"
+    ],
+    "common_combinations": [
+      "✨",
+      "💕"
+    ],
+    "alternatives": [
+      "🌸",
+      "🧚",
+      "💫"
+    ],
+    "examples": [
+      "蝴蝶结眼线🦋"
+    ],
+    "popularity": 80,
+    "tags": [
+      "梦幻",
+      "视觉"
+    ]
+  },
+  {
+    "emoji": "‼️",
+    "name_zh": "双感叹",
+    "name_en": "double exclamation mark",
+    "category": "强调装饰",
+    "tone": [
+      "重要",
+      "强烈"
+    ],
+    "meaning_xhs": "比单感叹更强的提醒，适合硬核注意事项。",
+    "usage_tips": "一条提醒够用，避免连环咆哮。",
+    "verticals": [
+      "避坑",
+      "教程",
+      "母婴"
+    ],
+    "position": [
+      "注意事项"
+    ],
+    "common_combinations": [
+      "❗️",
+      "⚠️"
+    ],
+    "alternatives": [
+      "❗️",
+      "⚠️",
+      "📢"
+    ],
+    "examples": [
+      "敏肌必看‼️",
+      "下单前注意‼️"
+    ],
+    "popularity": 79,
+    "tags": [
+      "重要",
+      "提醒"
+    ]
+  },
+  {
+    "emoji": "🚀",
+    "name_zh": "火箭",
+    "name_en": "rocket",
+    "category": "强调装饰",
+    "tone": [
+      "增速",
+      "冲劲"
+    ],
+    "meaning_xhs": "表达上新、冲榜、效率飞升，也有“冲啊”行动感。",
+    "usage_tips": "运营节点或效率内容好用；柔美氛围文不搭。",
+    "verticals": [
+      "职场",
+      "数码",
+      "运营"
+    ],
+    "position": [
+      "标题",
+      "号召"
+    ],
+    "common_combinations": [
+      "⚡️",
+      "🔥"
+    ],
+    "alternatives": [
+      "⚡️",
+      "🔥",
+      "💨"
+    ],
+    "examples": [
+      "效率起飞🚀",
+      "新品冲鸭🚀"
+    ],
+    "popularity": 79,
+    "tags": [
+      "冲",
+      "效率",
+      "强调"
+    ]
+  },
+  {
+    "emoji": "🙌",
+    "name_zh": "举双手",
+    "name_en": "raising hands",
+    "category": "情感表达",
+    "tone": [
+      "庆祝",
+      "赞同"
+    ],
+    "meaning_xhs": "赞同、庆祝、庆幸终于做到。",
+    "usage_tips": "节点庆祝很好。",
+    "verticals": [
+      "生活",
+      "学习",
+      "运营"
+    ],
+    "position": [
+      "结尾",
+      "标题"
+    ],
+    "common_combinations": [
+      "🎉",
+      "✨"
+    ],
+    "alternatives": [
+      "👏",
+      "🥳",
+      "🎉"
+    ],
+    "examples": [
+      "终于发工资🙌"
+    ],
+    "popularity": 79,
+    "tags": [
+      "庆祝"
+    ]
+  },
+  {
+    "emoji": "😏",
+    "name_zh": "得意",
+    "name_en": "smirking face",
+    "category": "情感表达",
+    "tone": [
+      "得意",
+      "神秘"
+    ],
+    "meaning_xhs": "得意坏笑或心里有数。",
+    "usage_tips": "透露技巧前很有戏。",
+    "verticals": [
+      "美妆",
+      "职场",
+      "穿搭"
+    ],
+    "position": [
+      "标题",
+      "情绪句"
+    ],
+    "common_combinations": [
+      "😉",
+      "✨"
+    ],
+    "alternatives": [
+      "😉",
+      "🤭",
+      "😎"
+    ],
+    "examples": [
+      "秘密武器来了😏"
+    ],
+    "popularity": 79,
+    "tags": [
+      "得意",
+      "俏皮"
+    ]
+  },
+  {
+    "emoji": "😉",
+    "name_zh": "眨眼",
+    "name_en": "winking face",
+    "category": "情感表达",
+    "tone": [
+      "俏皮",
+      "暗示"
+    ],
+    "meaning_xhs": "俏皮暗示、小秘密、内幕感。",
+    "usage_tips": "技巧分享暗示句好用。",
+    "verticals": [
+      "美妆",
+      "穿搭",
+      "职场"
+    ],
+    "position": [
+      "标题",
+      "结尾"
+    ],
+    "common_combinations": [
+      "✨",
+      "🤫"
+    ],
+    "alternatives": [
+      "😏",
+      "🤭",
+      "✨"
+    ],
+    "examples": [
+      "小技巧偷偷告诉你😉"
+    ],
+    "popularity": 79,
+    "tags": [
+      "俏皮",
+      "暗示"
+    ]
+  },
+  {
+    "emoji": "✌️",
+    "name_zh": "耶",
+    "name_en": "victory hand",
+    "category": "情感表达",
+    "tone": [
+      "轻松",
+      "可爱"
+    ],
+    "meaning_xhs": "耶胜利手势，自拍与打卡常用。",
+    "usage_tips": "轻松日常好用。",
+    "verticals": [
+      "生活",
+      "穿搭",
+      "旅行"
+    ],
+    "position": [
+      "结尾",
+      "自拍文案"
+    ],
+    "common_combinations": [
+      "✨",
+      "😊"
+    ],
+    "alternatives": [
+      "🤟",
+      "🤘",
+      "👋"
+    ],
+    "examples": [
+      "打卡成功✌️"
+    ],
+    "popularity": 79,
+    "tags": [
+      "轻松"
+    ]
+  },
+  {
+    "emoji": "😌",
+    "name_zh": "释然",
+    "name_en": "relieved face",
+    "category": "情感表达",
+    "tone": [
+      "放松",
+      "满足"
+    ],
+    "meaning_xhs": "释然满足、放松感。",
+    "usage_tips": "护肤仪式、下班治愈好用。",
+    "verticals": [
+      "护肤",
+      "生活",
+      "家居"
+    ],
+    "position": [
+      "结尾",
+      "氛围句"
+    ],
+    "common_combinations": [
+      "🍵",
+      "✨"
+    ],
+    "alternatives": [
+      "☺️",
+      "😊",
+      "🧘"
+    ],
+    "examples": [
+      "敷完面膜好幸福😌"
+    ],
+    "popularity": 79,
+    "tags": [
+      "治愈",
+      "放松"
+    ]
+  },
+  {
+    "emoji": "💀",
+    "name_zh": "骷髅",
+    "name_en": "skull",
+    "category": "情感表达",
+    "tone": [
+      "笑死",
+      "夸张"
+    ],
+    "meaning_xhs": "网络语笑死或要死了的夸张。",
+    "usage_tips": "梗感强，正式测评少用。",
+    "verticals": [
+      "生活",
+      "避坑"
+    ],
+    "position": [
+      "情绪句"
+    ],
+    "common_combinations": [
+      "😂",
+      "😭"
+    ],
+    "alternatives": [
+      "☠️",
+      "😂",
+      "😭"
+    ],
+    "examples": [
+      "笑死我了💀",
+      "忙死了💀"
+    ],
+    "popularity": 79,
+    "tags": [
+      "夸张",
+      "梗"
+    ]
+  },
+  {
+    "emoji": "📱",
+    "name_zh": "手机",
+    "name_en": "mobile phone",
+    "category": "种草推荐",
+    "tone": [
+      "数码",
+      "必备"
+    ],
+    "meaning_xhs": "数码配件或手机里的宝藏 App。",
+    "usage_tips": "App 种草或配件适用。",
+    "verticals": [
+      "数码",
+      "职场"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "✨",
+      "💡"
+    ],
+    "alternatives": [
+      "💻",
+      "🔋",
+      "✨"
+    ],
+    "examples": [
+      "宝藏 App 分享📱"
+    ],
+    "popularity": 79,
+    "tags": [
+      "数码",
+      "种草"
+    ]
+  },
+  {
+    "emoji": "🔔",
+    "name_zh": "铃铛",
+    "name_en": "bell",
+    "category": "符号标记",
+    "tone": [
+      "提醒",
+      "关注"
+    ],
+    "meaning_xhs": "提醒打开通知或别忘节点。",
+    "usage_tips": "更新提醒与活动预告。",
+    "verticals": [
+      "运营",
+      "生活"
+    ],
+    "position": [
+      "标题",
+      "结尾"
+    ],
+    "common_combinations": [
+      "📢",
+      "✨"
+    ],
+    "alternatives": [
+      "📌",
+      "📣",
+      "❗️"
+    ],
+    "examples": [
+      "开提醒🔔别迷路"
+    ],
+    "popularity": 79,
+    "tags": [
+      "提醒"
+    ]
+  },
+  {
+    "emoji": "🍒",
+    "name_zh": "樱桃",
+    "name_en": "cherries",
+    "category": "视觉美化",
+    "tone": [
+      "俏皮",
+      "红润"
+    ],
+    "meaning_xhs": "俏皮红润，唇颊彩或穿搭点缀。",
+    "usage_tips": "红调妆容很贴。",
+    "verticals": [
+      "美妆",
+      "穿搭"
+    ],
+    "position": [
+      "点缀",
+      "标题"
+    ],
+    "common_combinations": [
+      "💋",
+      "✨"
+    ],
+    "alternatives": [
+      "🍓",
+      "❤️",
+      "💄"
+    ],
+    "examples": [
+      "樱桃唇🍒"
+    ],
+    "popularity": 79,
+    "tags": [
+      "俏皮",
+      "视觉"
+    ]
+  },
+  {
+    "emoji": "🫧",
+    "name_zh": "泡泡",
+    "name_en": "bubbles",
+    "category": "视觉美化",
+    "tone": [
+      "清透",
+      "干净"
+    ],
+    "meaning_xhs": "干净水润松弛，护肤清洁氛围强。",
+    "usage_tips": "步骤旁增强清透感。",
+    "verticals": [
+      "护肤",
+      "家居",
+      "生活方式"
+    ],
+    "position": [
+      "步骤旁",
+      "标题结尾"
+    ],
+    "common_combinations": [
+      "🧴",
+      "✨"
+    ],
+    "alternatives": [
+      "💧",
+      "☁️",
+      "🤍"
+    ],
+    "examples": [
+      "早C晚A水感满满🫧",
+      "浴室治愈角🫧"
+    ],
+    "popularity": 79,
+    "tags": [
+      "清透",
+      "护肤",
+      "氛围"
+    ]
+  },
+  {
+    "emoji": "🐱",
+    "name_zh": "猫脸",
+    "name_en": "cat face",
+    "category": "视觉美化",
+    "tone": [
+      "可爱",
+      "慵懒"
+    ],
+    "meaning_xhs": "猫系脸、慵懒可爱。",
+    "usage_tips": "自拍、萌宠、猫系妆。",
+    "verticals": [
+      "生活",
+      "美妆"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "✨",
+      "🖤"
+    ],
+    "alternatives": [
+      "🐰",
+      "💕",
+      "😻"
+    ],
+    "examples": [
+      "猫系女孩🐱"
+    ],
+    "popularity": 79,
+    "tags": [
+      "可爱"
+    ]
+  },
+  {
+    "emoji": "💐",
+    "name_zh": "花束",
+    "name_en": "bouquet",
+    "category": "视觉美化",
+    "tone": [
+      "浪漫",
+      "仪式"
+    ],
+    "meaning_xhs": "花束仪式感、送礼美学。",
+    "usage_tips": "生活仪式或礼物笔记适合。",
+    "verticals": [
+      "生活",
+      "好物推荐"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "🎀",
+      "✨"
+    ],
+    "alternatives": [
+      "🌹",
+      "🎁",
+      "🌸"
+    ],
+    "examples": [
+      "一周花束记录💐"
+    ],
+    "popularity": 79,
+    "tags": [
+      "仪式感"
+    ]
+  },
+  {
+    "emoji": "⭐",
+    "name_zh": "五角星",
+    "name_en": "star",
+    "category": "强调装饰",
+    "tone": [
+      "亮点",
+      "评价"
+    ],
+    "meaning_xhs": "简约星标，常用于评分感、收藏点或轻度强调。",
+    "usage_tips": "适合干货要点；情绪安利向不如闪亮自然。",
+    "verticals": [
+      "测评",
+      "职场",
+      "学习"
+    ],
+    "position": [
+      "列表",
+      "标题"
+    ],
+    "common_combinations": [
+      "✨",
+      "📌"
+    ],
+    "alternatives": [
+      "🌟",
+      "✨",
+      "💫"
+    ],
+    "examples": [
+      "重点划⭐",
+      "五星好评⭐"
+    ],
+    "popularity": 78,
+    "tags": [
+      "评分",
+      "强调"
+    ]
+  },
+  {
+    "emoji": "🔍",
+    "name_zh": "放大镜",
+    "name_en": "magnifying glass tilted left",
+    "category": "强调装饰",
+    "tone": [
+      "细节",
+      "深挖"
+    ],
+    "meaning_xhs": "强调深挖信息、认真测评与避坑排查。",
+    "usage_tips": "干货拆解小标题前很适合。",
+    "verticals": [
+      "测评",
+      "避坑",
+      "数码"
+    ],
+    "position": [
+      "小标题",
+      "标题"
+    ],
+    "common_combinations": [
+      "👀",
+      "📌"
+    ],
+    "alternatives": [
+      "🔎",
+      "👀",
+      "💡"
+    ],
+    "examples": [
+      "成分拆解🔍",
+      "避坑细节🔍"
+    ],
+    "popularity": 78,
+    "tags": [
+      "细节",
+      "测评"
+    ]
+  },
+  {
+    "emoji": "😮",
+    "name_zh": "吃惊",
+    "name_en": "face with open mouth",
+    "category": "情感表达",
+    "tone": [
+      "惊讶"
+    ],
+    "meaning_xhs": "轻度惊讶：哇。",
+    "usage_tips": "揭晓句可用。",
+    "verticals": [
+      "测评",
+      "生活"
+    ],
+    "position": [
+      "情绪句"
+    ],
+    "common_combinations": [
+      "😳",
+      "✨"
+    ],
+    "alternatives": [
+      "😯",
+      "😲",
+      "🤯"
+    ],
+    "examples": [
+      "没想到吧😮"
+    ],
+    "popularity": 78,
+    "tags": [
+      "惊讶"
+    ]
+  },
+  {
+    "emoji": "🤫",
+    "name_zh": "嘘",
+    "name_en": "shushing face",
+    "category": "情感表达",
+    "tone": [
+      "秘密",
+      "低调"
+    ],
+    "meaning_xhs": "别声张的内幕安利感。",
+    "usage_tips": "隐藏优惠或冷门技巧适用。",
+    "verticals": [
+      "好物推荐",
+      "职场",
+      "美妆"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "😉",
+      "✨"
+    ],
+    "alternatives": [
+      "🤭",
+      "😉",
+      "👀"
+    ],
+    "examples": [
+      "内部消息🤫",
+      "冷门但好用🤫"
+    ],
+    "popularity": 78,
+    "tags": [
+      "秘密",
+      "安利"
+    ]
+  },
+  {
+    "emoji": "😎",
+    "name_zh": "墨镜笑",
+    "name_en": "smiling face with sunglasses",
+    "category": "情感表达",
+    "tone": [
+      "自信",
+      "酷"
+    ],
+    "meaning_xhs": "自信酷感、轻松装完的感觉。",
+    "usage_tips": "穿搭大片或打卡成就可用。",
+    "verticals": [
+      "穿搭",
+      "旅行",
+      "数码"
+    ],
+    "position": [
+      "标题",
+      "结尾"
+    ],
+    "common_combinations": [
+      "✨",
+      "🖤"
+    ],
+    "alternatives": [
+      "😏",
+      "🧢",
+      "🔥"
+    ],
+    "examples": [
+      "今日氛围感😎"
+    ],
+    "popularity": 78,
+    "tags": [
+      "自信",
+      "酷"
+    ]
+  },
+  {
+    "emoji": "💓",
+    "name_zh": "心跳",
+    "name_en": "beating heart",
+    "category": "情感表达",
+    "tone": [
+      "激动",
+      "喜欢"
+    ],
+    "meaning_xhs": "心跳加速的喜欢。",
+    "usage_tips": "紧张期待开箱可用。",
+    "verticals": [
+      "美妆",
+      "数码"
+    ],
+    "position": [
+      "情绪句"
+    ],
+    "common_combinations": [
+      "✨",
+      "😍"
+    ],
+    "alternatives": [
+      "💗",
+      "💖",
+      "❤️"
+    ],
+    "examples": [
+      "等快递等到心跳💓"
+    ],
+    "popularity": 78,
+    "tags": [
+      "心动"
+    ]
+  },
+  {
+    "emoji": "☺️",
+    "name_zh": "浅笑",
+    "name_en": "smiling face",
+    "category": "情感表达",
+    "tone": [
+      "温柔",
+      "礼貌"
+    ],
+    "meaning_xhs": "更含蓄的微笑，氛围柔和。",
+    "usage_tips": "日系或简约内容适配。",
+    "verticals": [
+      "生活",
+      "穿搭"
+    ],
+    "position": [
+      "结尾"
+    ],
+    "common_combinations": [
+      "🤍",
+      "✨"
+    ],
+    "alternatives": [
+      "😊",
+      "🥰",
+      "🌸"
+    ],
+    "examples": [
+      "慢慢来也很好☺️"
+    ],
+    "popularity": 78,
+    "tags": [
+      "温柔"
+    ]
+  },
+  {
+    "emoji": "👏",
+    "name_zh": "鼓掌",
+    "name_en": "clapping hands",
+    "category": "情感表达",
+    "tone": [
+      "认可",
+      "鼓励"
+    ],
+    "meaning_xhs": "表示干得好或自夸打卡完成。",
+    "usage_tips": "成就打卡适合；吐槽不太搭。",
+    "verticals": [
+      "职场",
+      "学习",
+      "健身"
+    ],
+    "position": [
+      "结尾",
+      "成就句"
+    ],
+    "common_combinations": [
+      "💪",
+      "✨"
+    ],
+    "alternatives": [
+      "🙌",
+      "💪",
+      "🎉"
+    ],
+    "examples": [
+      "今天也认真护肤了👏",
+      "简历终于改完👏"
+    ],
+    "popularity": 78,
+    "tags": [
+      "认可",
+      "打卡"
+    ]
+  },
+  {
+    "emoji": "🌿",
+    "name_zh": "草叶",
+    "name_en": "herb",
+    "category": "种草推荐",
+    "tone": [
+      "自然",
+      "清新"
+    ],
+    "meaning_xhs": "清新自然、成分温和的种草氛围。",
+    "usage_tips": "护肤成分党或轻食很贴。",
+    "verticals": [
+      "护肤",
+      "美食",
+      "生活"
+    ],
+    "position": [
+      "标题",
+      "亮点"
+    ],
+    "common_combinations": [
+      "✨",
+      "💚"
+    ],
+    "alternatives": [
+      "🌱",
+      "🍃",
+      "🪴"
+    ],
+    "examples": [
+      "植物成分友好🌿"
+    ],
+    "popularity": 78,
+    "tags": [
+      "清新",
+      "种草"
+    ]
+  },
+  {
+    "emoji": "✈️",
+    "name_zh": "飞机",
+    "name_en": "airplane",
+    "category": "种草推荐",
+    "tone": [
+      "旅行",
+      "出发"
+    ],
+    "meaning_xhs": "旅行出发、航司攻略。",
+    "usage_tips": "旅行笔记标题强。",
+    "verticals": [
+      "旅行"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "🌏",
+      "✨"
+    ],
+    "alternatives": [
+      "🧳",
+      "🗺️",
+      "🏖️"
+    ],
+    "examples": [
+      "出发去旅行✈️"
+    ],
+    "popularity": 78,
+    "tags": [
+      "旅行"
+    ]
+  },
+  {
+    "emoji": "👠",
+    "name_zh": "高跟鞋",
+    "name_en": "high-heeled shoe",
+    "category": "种草推荐",
+    "tone": [
+      "穿搭",
+      "精致"
+    ],
+    "meaning_xhs": "精致女着或鞋履种草。",
+    "usage_tips": "鞋履合集适合。",
+    "verticals": [
+      "穿搭"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "✨",
+      "👜"
+    ],
+    "alternatives": [
+      "👗",
+      "👜",
+      "✨"
+    ],
+    "examples": [
+      "今日战靴👠"
+    ],
+    "popularity": 78,
+    "tags": [
+      "穿搭",
+      "种草"
+    ]
+  },
+  {
+    "emoji": "✔️",
+    "name_zh": "重勾",
+    "name_en": "check mark",
+    "category": "符号标记",
+    "tone": [
+      "确认"
+    ],
+    "meaning_xhs": "更轻量的勾选。",
+    "usage_tips": "步骤完成可用。",
+    "verticals": [
+      "教程",
+      "职场"
+    ],
+    "position": [
+      "列表"
+    ],
+    "common_combinations": [
+      "✅",
+      "✨"
+    ],
+    "alternatives": [
+      "✅",
+      "☑️",
+      "📌"
+    ],
+    "examples": [
+      "已完成✔️"
+    ],
+    "popularity": 78,
+    "tags": [
+      "清单"
+    ]
+  },
+  {
+    "emoji": "🔗",
+    "name_zh": "链接",
+    "name_en": "link",
+    "category": "符号标记",
+    "tone": [
+      "关联",
+      "入口"
+    ],
+    "meaning_xhs": "提示有链接、关联阅读。",
+    "usage_tips": "评论区引导或合集串联。",
+    "verticals": [
+      "运营",
+      "教程"
+    ],
+    "position": [
+      "引导句",
+      "结尾"
+    ],
+    "common_combinations": [
+      "👉",
+      "📌"
+    ],
+    "alternatives": [
+      "👉",
+      "📎",
+      "⬇️"
+    ],
+    "examples": [
+      "相关链接🔗"
+    ],
+    "popularity": 78,
+    "tags": [
+      "链接",
+      "引导"
+    ]
+  },
+  {
+    "emoji": "🐰",
+    "name_zh": "兔子",
+    "name_en": "rabbit face",
+    "category": "视觉美化",
+    "tone": [
+      "软萌",
+      "可爱"
+    ],
+    "meaning_xhs": "软萌可爱人设点缀。",
+    "usage_tips": "萌系穿搭或美妆适合。",
+    "verticals": [
+      "美妆",
+      "穿搭",
+      "母婴"
+    ],
+    "position": [
+      "标题结尾"
+    ],
+    "common_combinations": [
+      "💕",
+      "✨"
+    ],
+    "alternatives": [
+      "🐱",
+      "🐻",
+      "🌸"
+    ],
+    "examples": [
+      "兔系妆容🐰"
+    ],
+    "popularity": 78,
+    "tags": [
+      "可爱",
+      "软萌"
+    ]
+  },
+  {
+    "emoji": "🍰",
+    "name_zh": "蛋糕",
+    "name_en": "shortcake",
+    "category": "视觉美化",
+    "tone": [
+      "甜蜜",
+      "庆祝"
+    ],
+    "meaning_xhs": "甜品与小庆祝。",
+    "usage_tips": "下午茶与生日可用。",
+    "verticals": [
+      "美食",
+      "生活"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "🎉",
+      "✨"
+    ],
+    "alternatives": [
+      "🧁",
+      "🍓",
+      "🎂"
+    ],
+    "examples": [
+      "切片快乐🍰"
+    ],
+    "popularity": 78,
+    "tags": [
+      "美食",
+      "氛围"
+    ]
+  },
+  {
+    "emoji": "🌷",
+    "name_zh": "郁金香",
+    "name_en": "tulip",
+    "category": "视觉美化",
+    "tone": [
+      "温柔",
+      "春意"
+    ],
+    "meaning_xhs": "春日温柔与郁金香色穿搭。",
+    "usage_tips": "春季合集很贴。",
+    "verticals": [
+      "穿搭",
+      "生活"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "✨",
+      "💕"
+    ],
+    "alternatives": [
+      "🌸",
+      "🌼",
+      "🩷"
+    ],
+    "examples": [
+      "郁金香色系🌷"
+    ],
+    "popularity": 78,
+    "tags": [
+      "春天",
+      "视觉"
+    ]
+  },
+  {
+    "emoji": "🏆",
+    "name_zh": "奖杯",
+    "name_en": "trophy",
+    "category": "强调装饰",
+    "tone": [
+      "第一",
+      "成就"
+    ],
+    "meaning_xhs": "表达封神、年度爱用、打卡成就。",
+    "usage_tips": "年度盘点或打卡节点适合；吐槽文语气冲突。",
+    "verticals": [
+      "好物推荐",
+      "学习",
+      "健身"
+    ],
+    "position": [
+      "总结",
+      "标题"
+    ],
+    "common_combinations": [
+      "✨",
+      "👏"
+    ],
+    "alternatives": [
+      "🥇",
+      "👑",
+      "💯"
+    ],
+    "examples": [
+      "年度爱用第一名🏆",
+      "坚持打卡冠军🏆"
+    ],
+    "popularity": 77,
+    "tags": [
+      "成就",
+      "第一",
+      "强调"
+    ]
+  },
+  {
+    "emoji": "❣️",
+    "name_zh": "心叹号",
+    "name_en": "heart exclamation",
+    "category": "强调装饰",
+    "tone": [
+      "喜爱",
+      "俏皮"
+    ],
+    "meaning_xhs": "爱心加感叹，强调心动的俏皮感。",
+    "usage_tips": "短标题很灵；严肃文不搭。",
+    "verticals": [
+      "穿搭",
+      "美妆",
+      "生活"
+    ],
+    "position": [
+      "标题结尾"
+    ],
+    "common_combinations": [
+      "✨",
+      "❤️"
+    ],
+    "alternatives": [
+      "❤️",
+      "💕",
+      "💖"
+    ],
+    "examples": [
+      "一眼心动❣️",
+      "今日cp❣️"
+    ],
+    "popularity": 77,
+    "tags": [
+      "心动",
+      "强调"
+    ]
+  },
+  {
+    "emoji": "😤",
+    "name_zh": "倔强",
+    "name_en": "face with steam from nose",
+    "category": "情感表达",
+    "tone": [
+      "不服",
+      "傲娇"
+    ],
+    "meaning_xhs": "傲娇不服或鼓劲：我就不信了。",
+    "usage_tips": "打卡激励和吐槽可用。",
+    "verticals": [
+      "健身",
+      "学习",
+      "避坑"
+    ],
+    "position": [
+      "情绪句"
+    ],
+    "common_combinations": [
+      "💪",
+      "🔥"
+    ],
+    "alternatives": [
+      "😠",
+      "💢",
+      "💪"
+    ],
+    "examples": [
+      "这次必须做成😤"
+    ],
+    "popularity": 77,
+    "tags": [
+      "傲娇",
+      "激励"
+    ]
+  },
+  {
+    "emoji": "👋",
+    "name_zh": "挥手",
+    "name_en": "waving hand",
+    "category": "情感表达",
+    "tone": [
+      "招呼",
+      "再见"
+    ],
+    "meaning_xhs": "打招呼或拜拜收尾。",
+    "usage_tips": "开头自我介绍或结尾再见可用。",
+    "verticals": [
+      "生活",
+      "运营"
+    ],
+    "position": [
+      "开头",
+      "结尾"
+    ],
+    "common_combinations": [
+      "✨",
+      "😊"
+    ],
+    "alternatives": [
+      "✌️",
+      "🤝",
+      "😊"
+    ],
+    "examples": [
+      "嗨大家好👋",
+      "我们下期见👋"
+    ],
+    "popularity": 77,
+    "tags": [
+      "打招呼"
+    ]
+  },
+  {
+    "emoji": "🤭",
+    "name_zh": "捂嘴笑",
+    "name_en": "face with hand over mouth",
+    "category": "情感表达",
+    "tone": [
+      "窃喜",
+      "秘密"
+    ],
+    "meaning_xhs": "偷笑、小声分享秘密感。",
+    "usage_tips": "内行人技巧很贴。",
+    "verticals": [
+      "美妆",
+      "职场",
+      "生活"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "🤫",
+      "✨"
+    ],
+    "alternatives": [
+      "😉",
+      "🤫",
+      "😏"
+    ],
+    "examples": [
+      "小声说句实话🤭"
+    ],
+    "popularity": 77,
+    "tags": [
+      "俏皮",
+      "秘密"
+    ]
+  },
+  {
+    "emoji": "💝",
+    "name_zh": "点心盒",
+    "name_en": "heart with ribbon",
+    "category": "情感表达",
+    "tone": [
+      "礼物",
+      "用心"
+    ],
+    "meaning_xhs": "礼物感、用心安利。",
+    "usage_tips": "礼物清单或节日合集贴。",
+    "verticals": [
+      "好物推荐",
+      "生活"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "🎁",
+      "✨"
+    ],
+    "alternatives": [
+      "🎁",
+      "💖",
+      "🎀"
+    ],
+    "examples": [
+      "送礼指南💝"
+    ],
+    "popularity": 77,
+    "tags": [
+      "礼物",
+      "种草"
+    ]
+  },
+  {
+    "emoji": "😫",
+    "name_zh": "难受",
+    "name_en": "tired face",
+    "category": "情感表达",
+    "tone": [
+      "难受",
+      "崩溃"
+    ],
+    "meaning_xhs": "比疲倦更难受一些的崩溃感。",
+    "usage_tips": "护肤翻车或忙乱日常可用。",
+    "verticals": [
+      "生活",
+      "护肤",
+      "避坑"
+    ],
+    "position": [
+      "情绪句"
+    ],
+    "common_combinations": [
+      "😭",
+      "😩"
+    ],
+    "alternatives": [
+      "😩",
+      "😭",
+      "🫠"
+    ],
+    "examples": [
+      "熬夜毁所有😫"
+    ],
+    "popularity": 77,
+    "tags": [
+      "难受"
+    ]
+  },
+  {
+    "emoji": "😁",
+    "name_zh": "露齿笑",
+    "name_en": "beaming face with smiling eyes",
+    "category": "情感表达",
+    "tone": [
+      "兴奋",
+      "开朗"
+    ],
+    "meaning_xhs": "开朗大笑，偏活泼分享。",
+    "usage_tips": "节日与打卡很搭。",
+    "verticals": [
+      "生活",
+      "旅行",
+      "美食"
+    ],
+    "position": [
+      "标题",
+      "结尾"
+    ],
+    "common_combinations": [
+      "🎉",
+      "✨"
+    ],
+    "alternatives": [
+      "😄",
+      "🥳",
+      "😆"
+    ],
+    "examples": [
+      "周末快乐😁"
+    ],
+    "popularity": 77,
+    "tags": [
+      "开心"
+    ]
+  },
+  {
+    "emoji": "🆕",
+    "name_zh": "NEW",
+    "name_en": "new button",
+    "category": "种草推荐",
+    "tone": [
+      "上新",
+      "新鲜"
+    ],
+    "meaning_xhs": "上新提醒与新品种草。",
+    "usage_tips": "新品首发笔记适合。",
+    "verticals": [
+      "美妆",
+      "好物推荐",
+      "运营"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "✨",
+      "🔥"
+    ],
+    "alternatives": [
+      "🔥",
+      "📣",
+      "✨"
+    ],
+    "examples": [
+      "今日上新🆕"
+    ],
+    "popularity": 77,
+    "tags": [
+      "上新",
+      "种草"
+    ]
+  },
+  {
+    "emoji": "🌱",
+    "name_zh": "幼苗",
+    "name_en": "seedling",
+    "category": "种草推荐",
+    "tone": [
+      "真实",
+      "成长"
+    ],
+    "meaning_xhs": "常隐喻种草养草，也可表达从零开始的生活方式。",
+    "usage_tips": "自然风、护肤成分、生活方式主题适合。",
+    "verticals": [
+      "生活方式",
+      "护肤",
+      "家居"
+    ],
+    "position": [
+      "标题",
+      "系列名"
+    ],
+    "common_combinations": [
+      "✨",
+      "💛"
+    ],
+    "alternatives": [
+      "🌿",
+      "🪴",
+      "🍃"
+    ],
+    "examples": [
+      "小众护肤养草中🌱",
+      "慢生活启程🌱"
+    ],
+    "popularity": 77,
+    "tags": [
+      "种草",
+      "自然",
+      "成长"
+    ]
+  },
+  {
+    "emoji": "👜",
+    "name_zh": "手提包",
+    "name_en": "handbag",
+    "category": "种草推荐",
+    "tone": [
+      "穿搭",
+      "包袋"
+    ],
+    "meaning_xhs": "包袋种草。",
+    "usage_tips": "包包合集适用。",
+    "verticals": [
+      "穿搭",
+      "好物推荐"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "✨",
+      "👠"
+    ],
+    "alternatives": [
+      "👠",
+      "👗",
+      "💎"
+    ],
+    "examples": [
+      "通勤包分享👜"
+    ],
+    "popularity": 77,
+    "tags": [
+      "穿搭",
+      "种草"
+    ]
+  },
+  {
+    "emoji": "📷",
+    "name_zh": "相机",
+    "name_en": "camera",
+    "category": "种草推荐",
+    "tone": [
+      "记录",
+      "种草"
+    ],
+    "meaning_xhs": "拍照记录生活与好物。",
+    "usage_tips": "日常 vlog 风适合。",
+    "verticals": [
+      "生活",
+      "旅行",
+      "穿搭"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "✨",
+      "🎞️"
+    ],
+    "alternatives": [
+      "📸",
+      "🎬",
+      "✨"
+    ],
+    "examples": [
+      "今日随手拍📷"
+    ],
+    "popularity": 77,
+    "tags": [
+      "记录"
+    ]
+  },
+  {
+    "emoji": "💻",
+    "name_zh": "笔记本",
+    "name_en": "laptop",
+    "category": "种草推荐",
+    "tone": [
+      "效率",
+      "数码"
+    ],
+    "meaning_xhs": "效率工具、远程办公种草。",
+    "usage_tips": "职场效率文适合。",
+    "verticals": [
+      "职场",
+      "数码"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "⚡️",
+      "✨"
+    ],
+    "alternatives": [
+      "📱",
+      "⌨️",
+      "💡"
+    ],
+    "examples": [
+      "桌面效率套装💻"
+    ],
+    "popularity": 77,
+    "tags": [
+      "效率",
+      "种草"
+    ]
+  },
+  {
+    "emoji": "✍️",
+    "name_zh": "手写",
+    "name_en": "writing hand",
+    "category": "符号标记",
+    "tone": [
+      "记录",
+      "亲笔"
+    ],
+    "meaning_xhs": "强调亲测手写记录感。",
+    "usage_tips": "经验复盘可用。",
+    "verticals": [
+      "职场",
+      "学习",
+      "测评"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "📝",
+      "✨"
+    ],
+    "alternatives": [
+      "📝",
+      "💡",
+      "📌"
+    ],
+    "examples": [
+      "亲测手记✍️"
+    ],
+    "popularity": 77,
+    "tags": [
+      "记录"
+    ]
+  },
+  {
+    "emoji": "⏰",
+    "name_zh": "闹钟",
+    "name_en": "alarm clock",
+    "category": "符号标记",
+    "tone": [
+      "提醒",
+      "早起"
+    ],
+    "meaning_xhs": "闹钟提醒、早起打卡。",
+    "usage_tips": "早起护肤或通勤。",
+    "verticals": [
+      "生活",
+      "护肤",
+      "职场"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "☀️",
+      "✨"
+    ],
+    "alternatives": [
+      "🕒",
+      "🌞",
+      "📌"
+    ],
+    "examples": [
+      "早起闹钟响⏰"
+    ],
+    "popularity": 77,
+    "tags": [
+      "提醒",
+      "打卡"
+    ]
+  },
+  {
+    "emoji": "🌻",
+    "name_zh": "向日葵",
+    "name_en": "sunflower",
+    "category": "视觉美化",
+    "tone": [
+      "明亮",
+      "正向"
+    ],
+    "meaning_xhs": "明亮阳光正能量。",
+    "usage_tips": "元气穿搭或早安帖适合。",
+    "verticals": [
+      "生活",
+      "穿搭"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "☀️",
+      "✨"
+    ],
+    "alternatives": [
+      "🌼",
+      "🌸",
+      "☀️"
+    ],
+    "examples": [
+      "向阳而生🌻"
+    ],
+    "popularity": 77,
+    "tags": [
+      "元气",
+      "视觉"
+    ]
+  },
+  {
+    "emoji": "🧸",
+    "name_zh": "泰迪熊",
+    "name_en": "teddy bear",
+    "category": "视觉美化",
+    "tone": [
+      "治愈",
+      "童趣"
+    ],
+    "meaning_xhs": "毛绒治愈与童趣美学。",
+    "usage_tips": "家居、穿搭、礼物。",
+    "verticals": [
+      "生活",
+      "家居",
+      "穿搭"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "💕",
+      "✨"
+    ],
+    "alternatives": [
+      "🐻",
+      "🎀",
+      "🤎"
+    ],
+    "examples": [
+      "桌面小熊🧸"
+    ],
+    "popularity": 77,
+    "tags": [
+      "治愈",
+      "可爱"
+    ]
+  },
+  {
+    "emoji": "🔎",
+    "name_zh": "右放大镜",
+    "name_en": "magnifying glass tilted right",
+    "category": "强调装饰",
+    "tone": [
+      "细节",
+      "深挖"
+    ],
+    "meaning_xhs": "引导看细节、成分拆解与测评深挖。",
+    "usage_tips": "成分党或细节党标题很贴。",
+    "verticals": [
+      "测评",
+      "避坑",
+      "美妆"
+    ],
+    "position": [
+      "标题",
+      "小标题"
+    ],
+    "common_combinations": [
+      "👀",
+      "📌"
+    ],
+    "alternatives": [
+      "🔍",
+      "👀",
+      "🧪"
+    ],
+    "examples": [
+      "细节放大🔎",
+      "认真看这里🔎"
+    ],
+    "popularity": 76,
+    "tags": [
+      "细节",
+      "测评"
+    ]
+  },
+  {
+    "emoji": "📢",
+    "name_zh": "喇叭",
+    "name_en": "loudspeaker",
+    "category": "强调装饰",
+    "tone": [
+      "宣告",
+      "提醒"
+    ],
+    "meaning_xhs": "强调通知或重要播报，适合活动、规则与预警。",
+    "usage_tips": "提醒类标题可用；日常分享别太密。",
+    "verticals": [
+      "运营",
+      "避坑",
+      "职场"
+    ],
+    "position": [
+      "标题",
+      "提醒"
+    ],
+    "common_combinations": [
+      "❗️",
+      "📌"
+    ],
+    "alternatives": [
+      "❗️",
+      "📣",
+      "‼️"
+    ],
+    "examples": [
+      "重要通知📢",
+      "活动别错过📢"
+    ],
+    "popularity": 76,
+    "tags": [
+      "通知",
+      "强调"
+    ]
+  },
+  {
+    "emoji": "💜",
+    "name_zh": "紫心",
+    "name_en": "purple heart",
+    "category": "强调装饰",
+    "tone": [
+      "神秘",
+      "高级"
+    ],
+    "meaning_xhs": "神秘高级或紫调美学装饰，美妆紫色系常出。",
+    "usage_tips": "紫调妆容或产品图文很贴。",
+    "verticals": [
+      "美妆",
+      "穿搭"
+    ],
+    "position": [
+      "标题结尾"
+    ],
+    "common_combinations": [
+      "✨",
+      "🪄"
+    ],
+    "alternatives": [
+      "💖",
+      "💙",
+      "💗"
+    ],
+    "examples": [
+      "紫调氛围💜",
+      "高级感紫💜"
+    ],
+    "popularity": 76,
+    "tags": [
+      "高级",
+      "装饰"
+    ]
+  },
+  {
+    "emoji": "😲",
+    "name_zh": "呆住",
+    "name_en": "astonished face",
+    "category": "情感表达",
+    "tone": [
+      "震惊"
+    ],
+    "meaning_xhs": "更强的呆住惊讶。",
+    "usage_tips": "反转结果适合。",
+    "verticals": [
+      "测评",
+      "避坑"
+    ],
+    "position": [
+      "情绪句"
+    ],
+    "common_combinations": [
+      "😱",
+      "🤯"
+    ],
+    "alternatives": [
+      "😮",
+      "🤯",
+      "😳"
+    ],
+    "examples": [
+      "直接呆住😲"
+    ],
+    "popularity": 76,
+    "tags": [
+      "震惊"
+    ]
+  },
+  {
+    "emoji": "😬",
+    "name_zh": "咬牙",
+    "name_en": "grimacing face",
+    "category": "情感表达",
+    "tone": [
+      "尴尬",
+      "紧张"
+    ],
+    "meaning_xhs": "尴尬咬牙、紧张笑。",
+    "usage_tips": "翻车预告很好用。",
+    "verticals": [
+      "避坑",
+      "生活",
+      "职场"
+    ],
+    "position": [
+      "情绪句"
+    ],
+    "common_combinations": [
+      "😅",
+      "🥲"
+    ],
+    "alternatives": [
+      "😅",
+      "😰",
+      "🙈"
+    ],
+    "examples": [
+      "结果有点尴尬😬"
+    ],
+    "popularity": 76,
+    "tags": [
+      "尴尬"
+    ]
+  },
+  {
+    "emoji": "💘",
+    "name_zh": "心箭",
+    "name_en": "heart with arrow",
+    "category": "情感表达",
+    "tone": [
+      "心动",
+      "命中"
+    ],
+    "meaning_xhs": "被射中般心动。",
+    "usage_tips": "一见钟情的单品开箱好用。",
+    "verticals": [
+      "穿搭",
+      "美妆"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "😍",
+      "✨"
+    ],
+    "alternatives": [
+      "💖",
+      "❣️",
+      "❤️"
+    ],
+    "examples": [
+      "一眼命中💘"
+    ],
+    "popularity": 76,
+    "tags": [
+      "心动"
+    ]
+  },
+  {
+    "emoji": "😵‍💫",
+    "name_zh": "晕旋",
+    "name_en": "face with spiral eyes",
+    "category": "情感表达",
+    "tone": [
+      "眩晕",
+      "信息过载"
+    ],
+    "meaning_xhs": "被种草到晕、信息过载。",
+    "usage_tips": "清单太长的自嘲可用。",
+    "verticals": [
+      "好物推荐",
+      "学习"
+    ],
+    "position": [
+      "情绪句"
+    ],
+    "common_combinations": [
+      "🤯",
+      "🫠"
+    ],
+    "alternatives": [
+      "🥴",
+      "🤯",
+      "🫠"
+    ],
+    "examples": [
+      "选择困难到晕😵‍💫"
+    ],
+    "popularity": 76,
+    "tags": [
+      "过载"
+    ]
+  },
+  {
+    "emoji": "😴",
+    "name_zh": "睡觉",
+    "name_en": "sleeping face",
+    "category": "情感表达",
+    "tone": [
+      "困倦",
+      "休息"
+    ],
+    "meaning_xhs": "困、睡眠、休息向内容。",
+    "usage_tips": "助眠或熬夜修复笔记适合。",
+    "verticals": [
+      "护肤",
+      "生活",
+      "家居"
+    ],
+    "position": [
+      "标题",
+      "结尾"
+    ],
+    "common_combinations": [
+      "💤",
+      "🌙"
+    ],
+    "alternatives": [
+      "💤",
+      "🛏️",
+      "🌙"
+    ],
+    "examples": [
+      "早睡打卡😴",
+      "助眠仪式😴"
+    ],
+    "popularity": 76,
+    "tags": [
+      "睡眠",
+      "休息"
+    ]
+  },
+  {
+    "emoji": "😄",
+    "name_zh": "笑眼",
+    "name_en": "grinning face with smiling eyes",
+    "category": "情感表达",
+    "tone": [
+      "开心",
+      "明亮"
+    ],
+    "meaning_xhs": "明亮开心，日常好心情分享。",
+    "usage_tips": "轻松文案百搭。",
+    "verticals": [
+      "生活",
+      "美食"
+    ],
+    "position": [
+      "正文",
+      "结尾"
+    ],
+    "common_combinations": [
+      "☀️",
+      "✨"
+    ],
+    "alternatives": [
+      "😁",
+      "😆",
+      "😊"
+    ],
+    "examples": [
+      "分享好心情😄"
+    ],
+    "popularity": 76,
+    "tags": [
+      "开心"
+    ]
+  },
+  {
+    "emoji": "🍀",
+    "name_zh": "四叶草",
+    "name_en": "four leaf clover",
+    "category": "种草推荐",
+    "tone": [
+      "幸运",
+      "种草"
+    ],
+    "meaning_xhs": "幸运感种草，也常表示欧气空瓶。",
+    "usage_tips": "开箱祈愿或幸运色好物可用。",
+    "verticals": [
+      "好物推荐",
+      "生活"
+    ],
+    "position": [
+      "标题",
+      "结尾"
+    ],
+    "common_combinations": [
+      "✨",
+      "🙏"
+    ],
+    "alternatives": [
+      "🌱",
+      "🤞",
+      "💚"
+    ],
+    "examples": [
+      "欧气空瓶🍀",
+      "幸运好物🍀"
+    ],
+    "popularity": 76,
+    "tags": [
+      "幸运",
+      "种草"
+    ]
+  },
+  {
+    "emoji": "🏠",
+    "name_zh": "房子",
+    "name_en": "house",
+    "category": "种草推荐",
+    "tone": [
+      "家居",
+      "安家"
+    ],
+    "meaning_xhs": "家居改造、安家好物。",
+    "usage_tips": "家居笔记常用。",
+    "verticals": [
+      "家居",
+      "生活"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "✨",
+      "🪴"
+    ],
+    "alternatives": [
+      "🛏️",
+      "🪴",
+      "🧹"
+    ],
+    "examples": [
+      "小家更新🏠"
+    ],
+    "popularity": 76,
+    "tags": [
+      "家居",
+      "种草"
+    ]
+  },
+  {
+    "emoji": "👟",
+    "name_zh": "跑鞋",
+    "name_en": "running shoe",
+    "category": "种草推荐",
+    "tone": [
+      "运动",
+      "穿搭"
+    ],
+    "meaning_xhs": "运动鞋或通勤鞋种草。",
+    "usage_tips": "健身与穿搭都能用。",
+    "verticals": [
+      "穿搭",
+      "健身"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "💪",
+      "✨"
+    ],
+    "alternatives": [
+      "👠",
+      "🧢",
+      "🏃"
+    ],
+    "examples": [
+      "周末跑鞋运动鞋👟"
+    ],
+    "popularity": 76,
+    "tags": [
+      "穿搭",
+      "运动"
+    ]
+  },
+  {
+    "emoji": "💰",
+    "name_zh": "钱袋",
+    "name_en": "money bag",
+    "category": "种草推荐",
+    "tone": [
+      "性价比",
+      "省钱"
+    ],
+    "meaning_xhs": "省钱攻略或真的值这个价。",
+    "usage_tips": "性价比清单贴切。",
+    "verticals": [
+      "好物推荐",
+      "职场",
+      "生活"
+    ],
+    "position": [
+      "标题",
+      "总结"
+    ],
+    "common_combinations": [
+      "✅",
+      "✨"
+    ],
+    "alternatives": [
+      "💸",
+      "💵",
+      "📌"
+    ],
+    "examples": [
+      "省钱清单💰",
+      "这块贼值💰"
+    ],
+    "popularity": 76,
+    "tags": [
+      "性价比",
+      "种草"
+    ]
+  },
+  {
+    "emoji": "📅",
+    "name_zh": "日历",
+    "name_en": "calendar",
+    "category": "符号标记",
+    "tone": [
+      "日程",
+      "打卡"
+    ],
+    "meaning_xhs": "日程安排与打卡日期。",
+    "usage_tips": "挑战打卡或行程。",
+    "verticals": [
+      "生活",
+      "学习",
+      "职场"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "✅",
+      "✨"
+    ],
+    "alternatives": [
+      "🗓️",
+      "📌",
+      "✅"
+    ],
+    "examples": [
+      "七日打卡📅"
+    ],
+    "popularity": 76,
+    "tags": [
+      "打卡",
+      "日程"
+    ]
+  },
+  {
+    "emoji": "☁️",
+    "name_zh": "云",
+    "name_en": "cloud",
+    "category": "视觉美化",
+    "tone": [
+      "柔软",
+      "治愈"
+    ],
+    "meaning_xhs": "柔软云朵感、松弛治愈。",
+    "usage_tips": "家居与穿搭柔和滤镜。",
+    "verticals": [
+      "家居",
+      "穿搭",
+      "生活"
+    ],
+    "position": [
+      "氛围句",
+      "标题"
+    ],
+    "common_combinations": [
+      "🤍",
+      "✨"
+    ],
+    "alternatives": [
+      "🫧",
+      "🕊️",
+      "💤"
+    ],
+    "examples": [
+      "云朵感针织☁️"
+    ],
+    "popularity": 76,
+    "tags": [
+      "治愈",
+      "柔软"
+    ]
+  },
+  {
+    "emoji": "🎂",
+    "name_zh": "生日蛋糕",
+    "name_en": "birthday cake",
+    "category": "视觉美化",
+    "tone": [
+      "庆祝",
+      "生日"
+    ],
+    "meaning_xhs": "生日氛围美化。",
+    "usage_tips": "生日妆造或礼物贴。",
+    "verticals": [
+      "生活",
+      "美妆"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "🎉",
+      "🎈"
+    ],
+    "alternatives": [
+      "🍰",
+      "🥳",
+      "🎁"
+    ],
+    "examples": [
+      "生日妆生日蛋糕🎂"
+    ],
+    "popularity": 76,
+    "tags": [
+      "庆祝"
+    ]
+  },
+  {
+    "emoji": "🌺",
+    "name_zh": "芙蓉",
+    "name_en": "hibiscus",
+    "category": "视觉美化",
+    "tone": [
+      "热带",
+      "明艳"
+    ],
+    "meaning_xhs": "明艳花感，度假与夏日妆容常用。",
+    "usage_tips": "夏日内容贴。",
+    "verticals": [
+      "美妆",
+      "旅行",
+      "穿搭"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "☀️",
+      "✨"
+    ],
+    "alternatives": [
+      "🌸",
+      "🌻",
+      "🌴"
+    ],
+    "examples": [
+      "夏日明艳妆🌺"
+    ],
+    "popularity": 76,
+    "tags": [
+      "夏日",
+      "视觉"
+    ]
+  },
+  {
+    "emoji": "🎨",
+    "name_zh": "调色板",
+    "name_en": "artist palette",
+    "category": "视觉美化",
+    "tone": [
+      "色彩",
+      "创作"
+    ],
+    "meaning_xhs": "配色、彩妆盘、创作感。",
+    "usage_tips": "眼影盘或配色教程贴。",
+    "verticals": [
+      "美妆",
+      "穿搭",
+      "设计"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "✨",
+      "🌈"
+    ],
+    "alternatives": [
+      "🖌️",
+      "🌈",
+      "✨"
+    ],
+    "examples": [
+      "今日眼盘配色🎨"
+    ],
+    "popularity": 76,
+    "tags": [
+      "色彩",
+      "视觉"
+    ]
+  },
+  {
+    "emoji": "🪞",
+    "name_zh": "镜子",
+    "name_en": "mirror",
+    "category": "视觉美化",
+    "tone": [
+      "精致",
+      "自我"
+    ],
+    "meaning_xhs": "穿搭上身、妆造对照与自我关照。",
+    "usage_tips": "OOTD 或护肤仪式感贴；美食职场几乎用不上。",
+    "verticals": [
+      "穿搭",
+      "美妆",
+      "护肤"
+    ],
+    "position": [
+      "标题",
+      "图注"
+    ],
+    "common_combinations": [
+      "✨",
+      "👗"
+    ],
+    "alternatives": [
+      "💄",
+      "💃",
+      "✨"
+    ],
+    "examples": [
+      "今日镜前仪式感🪞",
+      "上身对比请看🪞"
+    ],
+    "popularity": 76,
+    "tags": [
+      "穿搭",
+      "精致",
+      "视觉"
+    ]
+  },
+  {
+    "emoji": "❄️",
+    "name_zh": "雪花",
+    "name_en": "snowflake",
+    "category": "视觉美化",
+    "tone": [
+      "清冷",
+      "冬日"
+    ],
+    "meaning_xhs": "冬日清冷或冰美式氛围。",
+    "usage_tips": "冬日护肤或穿搭。",
+    "verticals": [
+      "穿搭",
+      "护肤",
+      "生活"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "✨",
+      "🤍"
+    ],
+    "alternatives": [
+      "🌨️",
+      "💎",
+      "🩵"
+    ],
+    "examples": [
+      "冬日冷白❄️"
+    ],
+    "popularity": 76,
+    "tags": [
+      "冬日",
+      "视觉"
+    ]
+  },
+  {
+    "emoji": "🥇",
+    "name_zh": "金牌",
+    "name_en": "1st place medal",
+    "category": "强调装饰",
+    "tone": [
+      "第一",
+      "力推"
+    ],
+    "meaning_xhs": "比奖杯更有排名感，适合 TOP 清单第一名。",
+    "usage_tips": "清单编号旁很清晰。",
+    "verticals": [
+      "好物推荐",
+      "测评",
+      "穿搭"
+    ],
+    "position": [
+      "清单",
+      "标题"
+    ],
+    "common_combinations": [
+      "🥈",
+      "✨"
+    ],
+    "alternatives": [
+      "🏆",
+      "👑",
+      "💯"
+    ],
+    "examples": [
+      "TOP1 闭眼入🥇",
+      "榜一真不是吹🥇"
+    ],
+    "popularity": 75,
+    "tags": [
+      "榜单",
+      "第一"
+    ]
+  },
+  {
+    "emoji": "💛",
+    "name_zh": "黄心",
+    "name_en": "yellow heart",
+    "category": "强调装饰",
+    "tone": [
+      "友情",
+      "阳光"
+    ],
+    "meaning_xhs": "阳光友好的爱心装饰，也可表友情向安利。",
+    "usage_tips": "元气文案很搭。",
+    "verticals": [
+      "生活",
+      "穿搭",
+      "美食"
+    ],
+    "position": [
+      "标题结尾"
+    ],
+    "common_combinations": [
+      "✨",
+      "🧡"
+    ],
+    "alternatives": [
+      "🧡",
+      "❤️",
+      "💕"
+    ],
+    "examples": [
+      "元气早餐💛",
+      "姐妹情💛"
+    ],
+    "popularity": 75,
+    "tags": [
+      "装饰",
+      "强调"
+    ]
+  },
+  {
+    "emoji": "🫣",
+    "name_zh": "偷窥脸",
+    "name_en": "face with peeking eye",
+    "category": "情感表达",
+    "tone": [
+      "害羞",
+      "偷看"
+    ],
+    "meaning_xhs": "偷偷看、尴尬偷看。",
+    "usage_tips": "对比前后或内幕可用。",
+    "verticals": [
+      "生活",
+      "美妆"
+    ],
+    "position": [
+      "情绪句"
+    ],
+    "common_combinations": [
+      "👀",
+      "🤭"
+    ],
+    "alternatives": [
+      "😳",
+      "👀",
+      "🙈"
+    ],
+    "examples": [
+      "我先偷看一眼🫣"
+    ],
+    "popularity": 75,
+    "tags": [
+      "俏皮"
+    ]
+  },
+  {
+    "emoji": "😰",
+    "name_zh": "冷汗",
+    "name_en": "anxious face with sweat",
+    "category": "情感表达",
+    "tone": [
+      "焦虑",
+      "紧张"
+    ],
+    "meaning_xhs": "焦虑紧张冒冷汗。",
+    "usage_tips": "大促选择困难或面试可用。",
+    "verticals": [
+      "职场",
+      "生活",
+      "好物推荐"
+    ],
+    "position": [
+      "情绪句"
+    ],
+    "common_combinations": [
+      "💦",
+      "🥲"
+    ],
+    "alternatives": [
+      "😅",
+      "😨",
+      "😬"
+    ],
+    "examples": [
+      "优惠太多我慌了😰"
+    ],
+    "popularity": 75,
+    "tags": [
+      "焦虑"
+    ]
+  },
+  {
+    "emoji": "🫡",
+    "name_zh": "敬礼",
+    "name_en": "saluting face",
+    "category": "情感表达",
+    "tone": [
+      "服从",
+      "尊重"
+    ],
+    "meaning_xhs": "收到、遵命、佩服真实测评。",
+    "usage_tips": "互动回复或认栽语境可用。",
+    "verticals": [
+      "生活",
+      "职场",
+      "测评"
+    ],
+    "position": [
+      "情绪句",
+      "结尾"
+    ],
+    "common_combinations": [
+      "👍",
+      "✨"
+    ],
+    "alternatives": [
+      "🙏",
+      "👍",
+      "😊"
+    ],
+    "examples": [
+      "前辈说得对🫡",
+      "我洗耳恭听🫡"
+    ],
+    "popularity": 75,
+    "tags": [
+      "佩服",
+      "互动"
+    ]
+  },
+  {
+    "emoji": "😆",
+    "name_zh": "斜眼笑",
+    "name_en": "grinning squinting face",
+    "category": "情感表达",
+    "tone": [
+      "大笑",
+      "超开心"
+    ],
+    "meaning_xhs": "更夸张的开心大笑。",
+    "usage_tips": "笑点或趣事可用。",
+    "verticals": [
+      "生活",
+      "美食"
+    ],
+    "position": [
+      "情绪句"
+    ],
+    "common_combinations": [
+      "😂",
+      "🤣"
+    ],
+    "alternatives": [
+      "😄",
+      "🤣",
+      "😂"
+    ],
+    "examples": [
+      "笑死我了但真香😆"
+    ],
+    "popularity": 75,
+    "tags": [
+      "开心",
+      "夸张"
+    ]
+  },
+  {
+    "emoji": "🤟",
+    "name_zh": "爱你手势",
+    "name_en": "love-you gesture",
+    "category": "情感表达",
+    "tone": [
+      "爱意",
+      "潮流"
+    ],
+    "meaning_xhs": "爱你或潮流手势。",
+    "usage_tips": "粉丝互动可用。",
+    "verticals": [
+      "生活",
+      "穿搭"
+    ],
+    "position": [
+      "结尾"
+    ],
+    "common_combinations": [
+      "❤️",
+      "✨"
+    ],
+    "alternatives": [
+      "✌️",
+      "🤘",
+      "🫶"
+    ],
+    "examples": [
+      "爱你们🤟"
+    ],
+    "popularity": 75,
+    "tags": [
+      "互动"
+    ]
+  },
+  {
+    "emoji": "🎧",
+    "name_zh": "耳机",
+    "name_en": "headphone",
+    "category": "种草推荐",
+    "tone": [
+      "数码",
+      "氛围"
+    ],
+    "meaning_xhs": "耳机数码或听书氛围。",
+    "usage_tips": "数码与生活方式都可用。",
+    "verticals": [
+      "数码",
+      "生活"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "✨",
+      "🎵"
+    ],
+    "alternatives": [
+      "📱",
+      "🎵",
+      "✨"
+    ],
+    "examples": [
+      "降噪真香🎧"
+    ],
+    "popularity": 75,
+    "tags": [
+      "数码"
+    ]
+  },
+  {
+    "emoji": "🧪",
+    "name_zh": "试管",
+    "name_en": "test tube",
+    "category": "种草推荐",
+    "tone": [
+      "成分",
+      "测评"
+    ],
+    "meaning_xhs": "成分党、实验向测评种草。",
+    "usage_tips": "成分解析标题贴。",
+    "verticals": [
+      "护肤",
+      "测评"
+    ],
+    "position": [
+      "小标题",
+      "标题"
+    ],
+    "common_combinations": [
+      "🔍",
+      "✨"
+    ],
+    "alternatives": [
+      "🔬",
+      "📌",
+      "💡"
+    ],
+    "examples": [
+      "成分表解读🧪"
+    ],
+    "popularity": 75,
+    "tags": [
+      "成分",
+      "测评"
+    ]
+  },
+  {
+    "emoji": "🔖",
+    "name_zh": "书签",
+    "name_en": "bookmark",
+    "category": "符号标记",
+    "tone": [
+      "收藏",
+      "标记"
+    ],
+    "meaning_xhs": "收藏标记，引导收藏笔记。",
+    "usage_tips": "干货结尾很适合。",
+    "verticals": [
+      "教程",
+      "职场",
+      "测评"
+    ],
+    "position": [
+      "结尾"
+    ],
+    "common_combinations": [
+      "📌",
+      "⭐"
+    ],
+    "alternatives": [
+      "📌",
+      "💾",
+      "⭐"
+    ],
+    "examples": [
+      "记得收藏🔖"
+    ],
+    "popularity": 75,
+    "tags": [
+      "收藏",
+      "标记"
+    ]
+  },
+  {
+    "emoji": "🦄",
+    "name_zh": "独角兽",
+    "name_en": "unicorn",
+    "category": "视觉美化",
+    "tone": [
+      "梦幻",
+      "彩色"
+    ],
+    "meaning_xhs": "独角兽梦幻彩色美学。",
+    "usage_tips": "多巴胺与儿童向也可用。",
+    "verticals": [
+      "美妆",
+      "生活",
+      "母婴"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "🌈",
+      "✨"
+    ],
+    "alternatives": [
+      "🌈",
+      "💖",
+      "💫"
+    ],
+    "examples": [
+      "独角兽眼影🦄"
+    ],
+    "popularity": 75,
+    "tags": [
+      "梦幻"
+    ]
+  },
+  {
+    "emoji": "🧁",
+    "name_zh": "纸杯蛋糕",
+    "name_en": "cupcake",
+    "category": "视觉美化",
+    "tone": [
+      "甜美",
+      "可爱"
+    ],
+    "meaning_xhs": "甜品视觉与少女心。",
+    "usage_tips": "甜点笔记或甜美穿搭点缀。",
+    "verticals": [
+      "美食",
+      "生活"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "💖",
+      "✨"
+    ],
+    "alternatives": [
+      "🍰",
+      "🍓",
+      "🎀"
+    ],
+    "examples": [
+      "甜度超标🧁"
+    ],
+    "popularity": 75,
+    "tags": [
+      "甜美",
+      "视觉"
+    ]
+  },
+  {
+    "emoji": "🌼",
+    "name_zh": "花朵",
+    "name_en": "blossom",
+    "category": "视觉美化",
+    "tone": [
+      "清新",
+      "柔和"
+    ],
+    "meaning_xhs": "小花清新点缀。",
+    "usage_tips": "日常柔和美化。",
+    "verticals": [
+      "生活",
+      "美妆"
+    ],
+    "position": [
+      "分段点缀"
+    ],
+    "common_combinations": [
+      "🌸",
+      "✨"
+    ],
+    "alternatives": [
+      "🌸",
+      "🌷",
+      "🤍"
+    ],
+    "examples": [
+      "清新小花🌼"
+    ],
+    "popularity": 75,
+    "tags": [
+      "清新"
+    ]
+  },
+  {
+    "emoji": "📣",
+    "name_zh": "扩音器",
+    "name_en": "megaphone",
+    "category": "强调装饰",
+    "tone": [
+      "宣告",
+      "安利"
+    ],
+    "meaning_xhs": "比喇叭更偏大声安利与站台，适合强推广语气。",
+    "usage_tips": "强安利结尾好用；中立测评慎用。",
+    "verticals": [
+      "好物推荐",
+      "运营"
+    ],
+    "position": [
+      "结尾",
+      "标题"
+    ],
+    "common_combinations": [
+      "🔥",
+      "✨"
+    ],
+    "alternatives": [
+      "📢",
+      "🔥",
+      "💥"
+    ],
+    "examples": [
+      "超大声安利📣",
+      "冲这个📣"
+    ],
+    "popularity": 74,
+    "tags": [
+      "安利",
+      "强调"
+    ]
+  },
+  {
+    "emoji": "🧡",
+    "name_zh": "橙心",
+    "name_en": "orange heart",
+    "category": "强调装饰",
+    "tone": [
+      "温暖",
+      "点缀"
+    ],
+    "meaning_xhs": "彩色爱心作装饰强调，偏活力温暖。",
+    "usage_tips": "穿搭或生活标题点缀很好。",
+    "verticals": [
+      "穿搭",
+      "生活"
+    ],
+    "position": [
+      "标题结尾"
+    ],
+    "common_combinations": [
+      "✨",
+      "💛"
+    ],
+    "alternatives": [
+      "💛",
+      "❤️",
+      "💕"
+    ],
+    "examples": [
+      "活力满满🧡",
+      "秋季氛围🧡"
+    ],
+    "popularity": 74,
+    "tags": [
+      "装饰",
+      "强调"
+    ]
+  },
+  {
+    "emoji": "💙",
+    "name_zh": "蓝心",
+    "name_en": "blue heart",
+    "category": "强调装饰",
+    "tone": [
+      "冷静",
+      "信任"
+    ],
+    "meaning_xhs": "信任感、科技感或清冷风装饰。",
+    "usage_tips": "数码、职场或冷静测评可用。",
+    "verticals": [
+      "数码",
+      "职场",
+      "护肤"
+    ],
+    "position": [
+      "标题结尾"
+    ],
+    "common_combinations": [
+      "✨",
+      "🤍"
+    ],
+    "alternatives": [
+      "🤍",
+      "💜",
+      "🩵"
+    ],
+    "examples": [
+      "冷静种草💙",
+      "稳定发挥💙"
+    ],
+    "popularity": 74,
+    "tags": [
+      "信任",
+      "强调"
+    ]
+  },
+  {
+    "emoji": "🪄",
+    "name_zh": "魔杖",
+    "name_en": "magic wand",
+    "category": "强调装饰",
+    "tone": [
+      "魔法",
+      "惊喜"
+    ],
+    "meaning_xhs": "强调仿佛魔法一样有效或改造感，适合妆前后与空间改造。",
+    "usage_tips": "改造对比句很贴；日常碎碎念慎用。",
+    "verticals": [
+      "美妆",
+      "家居",
+      "穿搭"
+    ],
+    "position": [
+      "对比句",
+      "标题"
+    ],
+    "common_combinations": [
+      "✨",
+      "💫"
+    ],
+    "alternatives": [
+      "✨",
+      "🔮",
+      "💫"
+    ],
+    "examples": [
+      "妆前妆后像施了魔法🪄",
+      "收纳改造完成🪄"
+    ],
+    "popularity": 74,
+    "tags": [
+      "魔法",
+      "改造",
+      "强调"
+    ]
+  },
+  {
+    "emoji": "🤞",
+    "name_zh": "交叉手",
+    "name_en": "crossed fingers",
+    "category": "情感表达",
+    "tone": [
+      "祈愿",
+      "好运"
+    ],
+    "meaning_xhs": "祈求好运、希望别翻车。",
+    "usage_tips": "下单许愿或考试祈福可用。",
+    "verticals": [
+      "生活",
+      "学习",
+      "好物推荐"
+    ],
+    "position": [
+      "情绪句"
+    ],
+    "common_combinations": [
+      "✨",
+      "🙏"
+    ],
+    "alternatives": [
+      "🙏",
+      "🍀",
+      "💫"
+    ],
+    "examples": [
+      "希望别踩雷🤞"
+    ],
+    "popularity": 74,
+    "tags": [
+      "祈愿"
+    ]
+  },
+  {
+    "emoji": "🧐",
+    "name_zh": "单片眼镜",
+    "name_en": "face with monocle",
+    "category": "情感表达",
+    "tone": [
+      "审视",
+      "深挖"
+    ],
+    "meaning_xhs": "认真审视、较真测评语气。",
+    "usage_tips": "成分或评测深挖标题贴切。",
+    "verticals": [
+      "测评",
+      "数码",
+      "职场"
+    ],
+    "position": [
+      "标题",
+      "小标题"
+    ],
+    "common_combinations": [
+      "🔍",
+      "📌"
+    ],
+    "alternatives": [
+      "🤔",
+      "🔍",
+      "😮‍💨"
+    ],
+    "examples": [
+      "认真看评测🧐"
+    ],
+    "popularity": 74,
+    "tags": [
+      "审视",
+      "测评"
+    ]
+  },
+  {
+    "emoji": "😡",
+    "name_zh": "发怒",
+    "name_en": "pouting face",
+    "category": "情感表达",
+    "tone": [
+      "生气",
+      "吐槽"
+    ],
+    "meaning_xhs": "明确生气，避坑维权语气更强。",
+    "usage_tips": "维权或重度踩雷可用，注意别过火。",
+    "verticals": [
+      "避坑",
+      "消费"
+    ],
+    "position": [
+      "情绪句",
+      "标题"
+    ],
+    "common_combinations": [
+      "💢",
+      "💔"
+    ],
+    "alternatives": [
+      "😤",
+      "🤬",
+      "💢"
+    ],
+    "examples": [
+      "被虚假宣传气到😡"
+    ],
+    "popularity": 74,
+    "tags": [
+      "吐槽",
+      "生气"
+    ]
+  },
+  {
+    "emoji": "😈",
+    "name_zh": "小恶魔笑",
+    "name_en": "smiling face with horns",
+    "category": "情感表达",
+    "tone": [
+      "坏笑",
+      "大胆"
+    ],
+    "meaning_xhs": "小坏坏的坏笑安利。",
+    "usage_tips": "大胆色号或反差穿搭可用。",
+    "verticals": [
+      "美妆",
+      "穿搭"
+    ],
+    "position": [
+      "标题",
+      "情绪句"
+    ],
+    "common_combinations": [
+      "🔥",
+      "✨"
+    ],
+    "alternatives": [
+      "😏",
+      "🔥",
+      "🖤"
+    ],
+    "examples": [
+      "大胆冲色😈"
+    ],
+    "popularity": 74,
+    "tags": [
+      "态度"
+    ]
+  },
+  {
+    "emoji": "🎊",
+    "name_zh": "拉炮",
+    "name_en": "confetti ball",
+    "category": "情感表达",
+    "tone": [
+      "庆祝"
+    ],
+    "meaning_xhs": "纸屑庆祝，强化节日气氛。",
+    "usage_tips": "与庆祝拉炮搭配更满。",
+    "verticals": [
+      "生活",
+      "运营"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "🎉",
+      "🥳"
+    ],
+    "alternatives": [
+      "🎉",
+      "🥳",
+      "✨"
+    ],
+    "examples": [
+      "跨年快乐🎊"
+    ],
+    "popularity": 74,
+    "tags": [
+      "庆祝"
+    ]
+  },
+  {
+    "emoji": "🤝",
+    "name_zh": "握手",
+    "name_en": "handshake",
+    "category": "情感表达",
+    "tone": [
+      "合作",
+      "认同"
+    ],
+    "meaning_xhs": "合作达成或意见一致。",
+    "usage_tips": "职场与联名笔记适合。",
+    "verticals": [
+      "职场",
+      "运营"
+    ],
+    "position": [
+      "总结",
+      "结尾"
+    ],
+    "common_combinations": [
+      "✨",
+      "💼"
+    ],
+    "alternatives": [
+      "👍",
+      "🙏",
+      "💼"
+    ],
+    "examples": [
+      "合作愉快🤝"
+    ],
+    "popularity": 74,
+    "tags": [
+      "合作"
+    ]
+  },
+  {
+    "emoji": "💞",
+    "name_zh": "旋转心",
+    "name_en": "revolving hearts",
+    "category": "情感表达",
+    "tone": [
+      "甜蜜",
+      "氛围"
+    ],
+    "meaning_xhs": "甜蜜旋转氛围。",
+    "usage_tips": "恋爱或甜美风可用。",
+    "verticals": [
+      "生活",
+      "穿搭"
+    ],
+    "position": [
+      "标题结尾"
+    ],
+    "common_combinations": [
+      "💕",
+      "✨"
+    ],
+    "alternatives": [
+      "💕",
+      "💗",
+      "💖"
+    ],
+    "examples": [
+      "氛围感恋爱脑💞"
+    ],
+    "popularity": 74,
+    "tags": [
+      "甜美"
+    ]
+  },
+  {
+    "emoji": "🥴",
+    "name_zh": "晕乎",
+    "name_en": "woozy face",
+    "category": "情感表达",
+    "tone": [
+      "晕",
+      "混乱"
+    ],
+    "meaning_xhs": "头晕、微醺、状态混乱。",
+    "usage_tips": "熬夜或微醺派对可用。",
+    "verticals": [
+      "生活",
+      "美妆"
+    ],
+    "position": [
+      "情绪句"
+    ],
+    "common_combinations": [
+      "😵‍💫",
+      "🍺"
+    ],
+    "alternatives": [
+      "😵‍💫",
+      "😵",
+      "🫠"
+    ],
+    "examples": [
+      "熬夜成这样🥴"
+    ],
+    "popularity": 74,
+    "tags": [
+      "混乱"
+    ]
+  },
+  {
+    "emoji": "💤",
+    "name_zh": "睡觉符",
+    "name_en": "zzz",
+    "category": "情感表达",
+    "tone": [
+      "睡眠",
+      "安静"
+    ],
+    "meaning_xhs": "睡眠符号，助眠氛围。",
+    "usage_tips": "晚间仪式或床品种草点缀。",
+    "verticals": [
+      "家居",
+      "生活",
+      "护肤"
+    ],
+    "position": [
+      "标题结尾"
+    ],
+    "common_combinations": [
+      "😴",
+      "🌙"
+    ],
+    "alternatives": [
+      "😴",
+      "🛏️",
+      "🌙"
+    ],
+    "examples": [
+      "安静助眠💤"
+    ],
+    "popularity": 74,
+    "tags": [
+      "睡眠"
+    ]
+  },
+  {
+    "emoji": "🛏️",
+    "name_zh": "床",
+    "name_en": "bed",
+    "category": "种草推荐",
+    "tone": [
+      "家居",
+      "睡眠"
+    ],
+    "meaning_xhs": "床品、睡眠好物种草。",
+    "usage_tips": "助眠与家居交叉。",
+    "verticals": [
+      "家居",
+      "生活"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "😴",
+      "✨"
+    ],
+    "alternatives": [
+      "🏠",
+      "💤",
+      "🧺"
+    ],
+    "examples": [
+      "床品换季🛏️"
+    ],
+    "popularity": 74,
+    "tags": [
+      "家居"
+    ]
+  },
+  {
+    "emoji": "💍",
+    "name_zh": "戒指",
+    "name_en": "ring",
+    "category": "种草推荐",
+    "tone": [
+      "精致",
+      "配饰"
+    ],
+    "meaning_xhs": "配饰珠宝种草。",
+    "usage_tips": "饰品合集适用。",
+    "verticals": [
+      "穿搭",
+      "好物推荐"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "✨",
+      "💎"
+    ],
+    "alternatives": [
+      "💎",
+      "👑",
+      "✨"
+    ],
+    "examples": [
+      "小拇指戒指💍"
+    ],
+    "popularity": 74,
+    "tags": [
+      "配饰",
+      "种草"
+    ]
+  },
+  {
+    "emoji": "🏷️",
+    "name_zh": "标签",
+    "name_en": "label",
+    "category": "种草推荐",
+    "tone": [
+      "优惠",
+      "标记"
+    ],
+    "meaning_xhs": "价格标签、优惠信息提示。",
+    "usage_tips": "砍价或大促笔记适合。",
+    "verticals": [
+      "好物推荐",
+      "运营"
+    ],
+    "position": [
+      "价格句",
+      "标题"
+    ],
+    "common_combinations": [
+      "💰",
+      "📌"
+    ],
+    "alternatives": [
+      "💰",
+      "💸",
+      "📣"
+    ],
+    "examples": [
+      "大促标签一看🏷️"
+    ],
+    "popularity": 74,
+    "tags": [
+      "优惠",
+      "种草"
+    ]
+  },
+  {
+    "emoji": "🪴",
+    "name_zh": "盆栽",
+    "name_en": "potted plant",
+    "category": "种草推荐",
+    "tone": [
+      "养成",
+      "家居"
+    ],
+    "meaning_xhs": "养草养成感，家居绿植笔记常用。",
+    "usage_tips": "家居与习惯养成适合。",
+    "verticals": [
+      "家居",
+      "生活"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "✨",
+      "🏠"
+    ],
+    "alternatives": [
+      "🌱",
+      "🌿",
+      "🍃"
+    ],
+    "examples": [
+      "桌面绿植养成🪴"
+    ],
+    "popularity": 74,
+    "tags": [
+      "家居",
+      "养成"
+    ]
+  },
+  {
+    "emoji": "🧳",
+    "name_zh": "行李箱",
+    "name_en": "luggage",
+    "category": "种草推荐",
+    "tone": [
+      "旅行",
+      "出门"
+    ],
+    "meaning_xhs": "出行行李清单。",
+    "usage_tips": "旅行收拾笔记适合。",
+    "verticals": [
+      "旅行",
+      "生活"
+    ],
+    "position": [
+      "标题",
+      "清单"
+    ],
+    "common_combinations": [
+      "✈️",
+      "✨"
+    ],
+    "alternatives": [
+      "✈️",
+      "📦",
+      "🗺️"
+    ],
+    "examples": [
+      "旅行打包清单🧳"
+    ],
+    "popularity": 74,
+    "tags": [
+      "旅行",
+      "清单"
+    ]
+  },
+  {
+    "emoji": "👆",
+    "name_zh": "上指",
+    "name_en": "backhand index pointing up",
+    "category": "符号标记",
+    "tone": [
+      "引导",
+      "上方"
+    ],
+    "meaning_xhs": "指向上方重点。",
+    "usage_tips": "回顾上文可用。",
+    "verticals": [
+      "教程",
+      "职场"
+    ],
+    "position": [
+      "引导句"
+    ],
+    "common_combinations": [
+      "📌",
+      "✨"
+    ],
+    "alternatives": [
+      "☝️",
+      "👉",
+      "⬆️"
+    ],
+    "examples": [
+      "重点在上面👆"
+    ],
+    "popularity": 74,
+    "tags": [
+      "引导"
+    ]
+  },
+  {
+    "emoji": "☑️",
+    "name_zh": "勾选框",
+    "name_en": "check box with check",
+    "category": "符号标记",
+    "tone": [
+      "清单",
+      "完成"
+    ],
+    "meaning_xhs": "清单勾选视觉。",
+    "usage_tips": "待办笔记适合。",
+    "verticals": [
+      "职场",
+      "生活"
+    ],
+    "position": [
+      "列表"
+    ],
+    "common_combinations": [
+      "✅",
+      "📌"
+    ],
+    "alternatives": [
+      "✅",
+      "✔️",
+      "📝"
+    ],
+    "examples": [
+      "打卡完成☑️"
+    ],
+    "popularity": 74,
+    "tags": [
+      "清单"
+    ]
+  },
+  {
+    "emoji": "🗓️",
+    "name_zh": "台历",
+    "name_en": "spiral calendar",
+    "category": "符号标记",
+    "tone": [
+      "计划",
+      "日程"
+    ],
+    "meaning_xhs": "计划表与月刊整理。",
+    "usage_tips": "月度盘点可用。",
+    "verticals": [
+      "职场",
+      "生活"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "📌",
+      "✅"
+    ],
+    "alternatives": [
+      "📅",
+      "📝",
+      "✅"
+    ],
+    "examples": [
+      "本月计划🗓️"
+    ],
+    "popularity": 74,
+    "tags": [
+      "计划"
+    ]
+  },
+  {
+    "emoji": "4️⃣",
+    "name_zh": "数字四",
+    "name_en": "keycap 4",
+    "category": "符号标记",
+    "tone": [
+      "编号",
+      "步骤"
+    ],
+    "meaning_xhs": "步骤四号。",
+    "usage_tips": "四步法护肤常用。",
+    "verticals": [
+      "教程",
+      "护肤"
+    ],
+    "position": [
+      "列表"
+    ],
+    "common_combinations": [
+      "3️⃣",
+      "5️⃣"
+    ],
+    "alternatives": [
+      "1️⃣",
+      "2️⃣",
+      "3️⃣"
+    ],
+    "examples": [
+      "第四步4️⃣"
+    ],
+    "popularity": 74,
+    "tags": [
+      "步骤"
+    ]
+  },
+  {
+    "emoji": "🚩",
+    "name_zh": "旗子",
+    "name_en": "triangular flag",
+    "category": "符号标记",
+    "tone": [
+      "标记",
+      "风险"
+    ],
+    "meaning_xhs": "可表打卡点，也可表危险信号旗。",
+    "usage_tips": "避坑红旗或旅行打卡看语境。",
+    "verticals": [
+      "避坑",
+      "旅行"
+    ],
+    "position": [
+      "标记句"
+    ],
+    "common_combinations": [
+      "⚠️",
+      "📍"
+    ],
+    "alternatives": [
+      "⚠️",
+      "📍",
+      "❌"
+    ],
+    "examples": [
+      "恋爱红旗🚩",
+      "打卡点🚩"
+    ],
+    "popularity": 74,
+    "tags": [
+      "标记"
+    ]
+  },
+  {
+    "emoji": "🧠",
+    "name_zh": "脑",
+    "name_en": "brain",
+    "category": "符号标记",
+    "tone": [
+      "思考",
+      "聪明"
+    ],
+    "meaning_xhs": "聪明思路、认知方法。",
+    "usage_tips": "方法论笔记可用。",
+    "verticals": [
+      "职场",
+      "学习"
+    ],
+    "position": [
+      "小标题"
+    ],
+    "common_combinations": [
+      "💡",
+      "✨"
+    ],
+    "alternatives": [
+      "💡",
+      "📌",
+      "✍️"
+    ],
+    "examples": [
+      "底层逻辑🧠"
+    ],
+    "popularity": 74,
+    "tags": [
+      "干货"
+    ]
+  },
+  {
+    "emoji": "🌞",
+    "name_zh": "微笑太阳",
+    "name_en": "sun with face",
+    "category": "视觉美化",
+    "tone": [
+      "可爱",
+      "晴朗"
+    ],
+    "meaning_xhs": "更可爱的太阳脸。",
+    "usage_tips": "童趣或母婴也可用。",
+    "verticals": [
+      "生活",
+      "母婴"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "☀️",
+      "✨"
+    ],
+    "alternatives": [
+      "☀️",
+      "🌸",
+      "😊"
+    ],
+    "examples": [
+      "晴天娃娃心情🌞"
+    ],
+    "popularity": 74,
+    "tags": [
+      "可爱",
+      "氛围"
+    ]
+  },
+  {
+    "emoji": "🌊",
+    "name_zh": "波浪",
+    "name_en": "water wave",
+    "category": "视觉美化",
+    "tone": [
+      "清凉",
+      "流动"
+    ],
+    "meaning_xhs": "清凉海洋或流水感。",
+    "usage_tips": "夏日或海边可用。",
+    "verticals": [
+      "旅行",
+      "护肤",
+      "生活"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "💙",
+      "✨"
+    ],
+    "alternatives": [
+      "💧",
+      "🏖️",
+      "💦"
+    ],
+    "examples": [
+      "补水像海浪潮🌊"
+    ],
+    "popularity": 74,
+    "tags": [
+      "清凉"
+    ]
+  },
+  {
+    "emoji": "🐻",
+    "name_zh": "熊脸",
+    "name_en": "bear face",
+    "category": "视觉美化",
+    "tone": [
+      "软萌",
+      "奶凶"
+    ],
+    "meaning_xhs": "软萌熊感。",
+    "usage_tips": "冬日穿搭或玩偶分享。",
+    "verticals": [
+      "生活",
+      "穿搭"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "🤎",
+      "✨"
+    ],
+    "alternatives": [
+      "🐰",
+      "🧸",
+      "💕"
+    ],
+    "examples": [
+      "小熊针织🐻"
+    ],
+    "popularity": 74,
+    "tags": [
+      "可爱"
+    ]
+  },
+  {
+    "emoji": "🍵",
+    "name_zh": "茶",
+    "name_en": "teacup without handle",
+    "category": "视觉美化",
+    "tone": [
+      "松弛",
+      "治愈"
+    ],
+    "meaning_xhs": "慢生活下午茶氛围。",
+    "usage_tips": "氛围文加分；硬广突兀。",
+    "verticals": [
+      "生活方式",
+      "家居",
+      "美食"
+    ],
+    "position": [
+      "标题",
+      "氛围句"
+    ],
+    "common_combinations": [
+      "📚",
+      "🌤️"
+    ],
+    "alternatives": [
+      "☕",
+      "🪴",
+      "☁️"
+    ],
+    "examples": [
+      "一个人的下班茶🍵",
+      "雨天治愈配方🍵"
+    ],
+    "popularity": 74,
+    "tags": [
+      "治愈",
+      "氛围",
+      "生活"
+    ]
+  },
+  {
+    "emoji": "⭐️",
+    "name_zh": "黄星",
+    "name_en": "star",
+    "category": "视觉美化",
+    "tone": [
+      "闪",
+      "点缀"
+    ],
+    "meaning_xhs": "小星星点缀美化。",
+    "usage_tips": "柔和强调可用。",
+    "verticals": [
+      "美妆",
+      "生活"
+    ],
+    "position": [
+      "点缀"
+    ],
+    "common_combinations": [
+      "✨",
+      "🌙"
+    ],
+    "alternatives": [
+      "🌟",
+      "✨",
+      "💫"
+    ],
+    "examples": [
+      "闪闪⭐️"
+    ],
+    "popularity": 74,
+    "tags": [
+      "点缀"
+    ]
+  },
+  {
+    "emoji": "💨",
+    "name_zh": "尾气",
+    "name_en": "dashing away",
+    "category": "强调装饰",
+    "tone": [
+      "速度",
+      "冲"
+    ],
+    "meaning_xhs": "强调跑得快、冲去做、秒空感。",
+    "usage_tips": "行动号召或抢购语境适合。",
+    "verticals": [
+      "好物推荐",
+      "运营",
+      "职场"
+    ],
+    "position": [
+      "号召",
+      "标题"
+    ],
+    "common_combinations": [
+      "🚀",
+      "🛒"
+    ],
+    "alternatives": [
+      "🚀",
+      "⚡️",
+      "🔥"
+    ],
+    "examples": [
+      "小马飞奔去下单💨",
+      "名额秒没💨"
+    ],
+    "popularity": 73,
+    "tags": [
+      "速度",
+      "强调"
+    ]
+  },
+  {
+    "emoji": "💦",
+    "name_zh": "汗滴",
+    "name_en": "sweat droplets",
+    "category": "强调装饰",
+    "tone": [
+      "夸张",
+      "水润"
+    ],
+    "meaning_xhs": "可表水润、冒汗或努力感，也可俏皮强调。",
+    "usage_tips": "护肤水润和吐槽忙碌都能用，注意语境。",
+    "verticals": [
+      "护肤",
+      "健身",
+      "生活"
+    ],
+    "position": [
+      "效果句",
+      "情绪句"
+    ],
+    "common_combinations": [
+      "✨",
+      "💧"
+    ],
+    "alternatives": [
+      "💧",
+      "🫧",
+      "😅"
+    ],
+    "examples": [
+      "补水到饱💦",
+      "忙到冒汗💦"
+    ],
+    "popularity": 73,
+    "tags": [
+      "水润",
+      "强调"
+    ]
+  },
+  {
+    "emoji": "🩵",
+    "name_zh": "浅蓝心",
+    "name_en": "light blue heart",
+    "category": "强调装饰",
+    "tone": [
+      "清透",
+      "柔和"
+    ],
+    "meaning_xhs": "清透柔和的浅蓝爱心，偏干净冷感。",
+    "usage_tips": "护肤清透或夏日穿搭点缀。",
+    "verticals": [
+      "护肤",
+      "穿搭",
+      "生活"
+    ],
+    "position": [
+      "标题结尾"
+    ],
+    "common_combinations": [
+      "✨",
+      "💧"
+    ],
+    "alternatives": [
+      "💙",
+      "🤍",
+      "💧"
+    ],
+    "examples": [
+      "冰美式清透感🩵"
+    ],
+    "popularity": 73,
+    "tags": [
+      "清透",
+      "装饰"
+    ]
+  },
+  {
+    "emoji": "💚",
+    "name_zh": "绿心",
+    "name_en": "green heart",
+    "category": "强调装饰",
+    "tone": [
+      "清新",
+      "安心"
+    ],
+    "meaning_xhs": "清新、养生、环保感的装饰爱心。",
+    "usage_tips": "护肤成分或健康生活向适合。",
+    "verticals": [
+      "护肤",
+      "生活",
+      "美食"
+    ],
+    "position": [
+      "标题结尾"
+    ],
+    "common_combinations": [
+      "🌿",
+      "✨"
+    ],
+    "alternatives": [
+      "🌿",
+      "🤍",
+      "💛"
+    ],
+    "examples": [
+      "敏感肌友好💚",
+      "轻食日常💚"
+    ],
+    "popularity": 73,
+    "tags": [
+      "清新",
+      "强调"
+    ]
+  },
+  {
+    "emoji": "👎",
+    "name_zh": "倒赞",
+    "name_en": "thumbs down",
+    "category": "情感表达",
+    "tone": [
+      "否定",
+      "避坑"
+    ],
+    "meaning_xhs": "不推荐的明确态度。",
+    "usage_tips": "对比测评否定项可用。",
+    "verticals": [
+      "避坑",
+      "测评"
+    ],
+    "position": [
+      "列表",
+      "总结"
+    ],
+    "common_combinations": [
+      "❌",
+      "💔"
+    ],
+    "alternatives": [
+      "❌",
+      "🚫",
+      "💔"
+    ],
+    "examples": [
+      "不推荐👎"
+    ],
+    "popularity": 73,
+    "tags": [
+      "避坑",
+      "否定"
+    ]
+  },
+  {
+    "emoji": "😯",
+    "name_zh": "闭嘴惊",
+    "name_en": "hushed face",
+    "category": "情感表达",
+    "tone": [
+      "惊讶",
+      "停顿"
+    ],
+    "meaning_xhs": "轻轻愣住的惊讶。",
+    "usage_tips": "反转前一秒可用。",
+    "verticals": [
+      "测评",
+      "生活"
+    ],
+    "position": [
+      "情绪句"
+    ],
+    "common_combinations": [
+      "😮",
+      "👀"
+    ],
+    "alternatives": [
+      "😮",
+      "😲",
+      "😳"
+    ],
+    "examples": [
+      "我愣住了😯"
+    ],
+    "popularity": 73,
+    "tags": [
+      "惊讶"
+    ]
+  },
+  {
+    "emoji": "🙊",
+    "name_zh": "非礼勿言",
+    "name_en": "speak-no-evil monkey",
+    "category": "情感表达",
+    "tone": [
+      "保密",
+      "忍住"
+    ],
+    "meaning_xhs": "忍住不说、保密彩蛋。",
+    "usage_tips": "剧透预警可用。",
+    "verticals": [
+      "生活",
+      "美妆"
+    ],
+    "position": [
+      "情绪句"
+    ],
+    "common_combinations": [
+      "🤫",
+      "🙈"
+    ],
+    "alternatives": [
+      "🙈",
+      "🙉",
+      "🤫"
+    ],
+    "examples": [
+      "剧透我忍住🙊"
+    ],
+    "popularity": 73,
+    "tags": [
+      "秘密"
+    ]
+  },
+  {
+    "emoji": "⌚️",
+    "name_zh": "手表",
+    "name_en": "watch",
+    "category": "种草推荐",
+    "tone": [
+      "穿搭",
+      "数码"
+    ],
+    "meaning_xhs": "腕表或智能手表种草。",
+    "usage_tips": "数码穿搭系列适合。",
+    "verticals": [
+      "数码",
+      "穿搭"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "✨",
+      "💎"
+    ],
+    "alternatives": [
+      "📱",
+      "💍",
+      "✨"
+    ],
+    "examples": [
+      "手表搭配⌚️"
+    ],
+    "popularity": 73,
+    "tags": [
+      "数码",
+      "穿搭"
+    ]
+  },
+  {
+    "emoji": "🏖️",
+    "name_zh": "海滩伞",
+    "name_en": "beach with umbrella",
+    "category": "种草推荐",
+    "tone": [
+      "度假",
+      "放松"
+    ],
+    "meaning_xhs": "度假氛围种草，地点穿搭好物都行。",
+    "usage_tips": "夏日内容贴。",
+    "verticals": [
+      "旅行",
+      "穿搭"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "☀️",
+      "✨"
+    ],
+    "alternatives": [
+      "✈️",
+      "🌊",
+      "☀️"
+    ],
+    "examples": [
+      "海边穿搭🏖️"
+    ],
+    "popularity": 73,
+    "tags": [
+      "旅行",
+      "氛围"
+    ]
+  },
+  {
+    "emoji": "🧼",
+    "name_zh": "肥皂",
+    "name_en": "soap",
+    "category": "种草推荐",
+    "tone": [
+      "清洁",
+      "清爽"
+    ],
+    "meaning_xhs": "清洁洁面、洗护种草。",
+    "usage_tips": "清洁步骤旁可用。",
+    "verticals": [
+      "护肤",
+      "家居"
+    ],
+    "position": [
+      "列表"
+    ],
+    "common_combinations": [
+      "🫧",
+      "✨"
+    ],
+    "alternatives": [
+      "🧴",
+      "🫧",
+      "💧"
+    ],
+    "examples": [
+      "洁面好物🧼"
+    ],
+    "popularity": 73,
+    "tags": [
+      "清洁"
+    ]
+  },
+  {
+    "emoji": "📎",
+    "name_zh": "回形针",
+    "name_en": "paperclip",
+    "category": "符号标记",
+    "tone": [
+      "附件",
+      "补充"
+    ],
+    "meaning_xhs": "附件补充信息。",
+    "usage_tips": "补充说明小标题可用。",
+    "verticals": [
+      "职场",
+      "教程"
+    ],
+    "position": [
+      "小标题"
+    ],
+    "common_combinations": [
+      "📌",
+      "📝"
+    ],
+    "alternatives": [
+      "🔗",
+      "📝",
+      "📌"
+    ],
+    "examples": [
+      "补充资料📎"
+    ],
+    "popularity": 73,
+    "tags": [
+      "补充"
+    ]
+  },
+  {
+    "emoji": "5️⃣",
+    "name_zh": "数字五",
+    "name_en": "keycap 5",
+    "category": "符号标记",
+    "tone": [
+      "编号",
+      "步骤"
+    ],
+    "meaning_xhs": "步骤五号或五点总结。",
+    "usage_tips": "五点避坑法很合适。",
+    "verticals": [
+      "避坑",
+      "教程"
+    ],
+    "position": [
+      "列表"
+    ],
+    "common_combinations": [
+      "4️⃣",
+      "📌"
+    ],
+    "alternatives": [
+      "1️⃣",
+      "2️⃣",
+      "3️⃣"
+    ],
+    "examples": [
+      "五点总结5️⃣"
+    ],
+    "popularity": 73,
+    "tags": [
+      "步骤"
+    ]
+  },
+  {
+    "emoji": "⏳",
+    "name_zh": "沙漏",
+    "name_en": "hourglass not done",
+    "category": "符号标记",
+    "tone": [
+      "等待",
+      "倒计时"
+    ],
+    "meaning_xhs": "倒计时或等待中。",
+    "usage_tips": "活动倒计时贴切。",
+    "verticals": [
+      "运营",
+      "生活"
+    ],
+    "position": [
+      "提醒句"
+    ],
+    "common_combinations": [
+      "⌛️",
+      "🔔"
+    ],
+    "alternatives": [
+      "⌛️",
+      "‼️",
+      "📅"
+    ],
+    "examples": [
+      "截止倒计时⏳"
+    ],
+    "popularity": 73,
+    "tags": [
+      "倒计时"
+    ]
+  },
+  {
+    "emoji": "⛔️",
+    "name_zh": "禁行",
+    "name_en": "no entry",
+    "category": "符号标记",
+    "tone": [
+      "禁止",
+      "危险"
+    ],
+    "meaning_xhs": "更硬的禁止通行感。",
+    "usage_tips": "严重避坑可用。",
+    "verticals": [
+      "避坑"
+    ],
+    "position": [
+      "提醒"
+    ],
+    "common_combinations": [
+      "🚫",
+      "‼️"
+    ],
+    "alternatives": [
+      "🚫",
+      "❌",
+      "⚠️"
+    ],
+    "examples": [
+      "千万别买⛔️"
+    ],
+    "popularity": 73,
+    "tags": [
+      "禁止"
+    ]
+  },
+  {
+    "emoji": "☝️",
+    "name_zh": "食指",
+    "name_en": "index pointing up",
+    "category": "符号标记",
+    "tone": [
+      "提示",
+      "第一条"
+    ],
+    "meaning_xhs": "提示第一条或注意这一点。",
+    "usage_tips": "要点列举可用。",
+    "verticals": [
+      "教程",
+      "避坑"
+    ],
+    "position": [
+      "列表"
+    ],
+    "common_combinations": [
+      "📌",
+      "❗️"
+    ],
+    "alternatives": [
+      "👆",
+      "❗️",
+      "📌"
+    ],
+    "examples": [
+      "第一条记住☝️"
+    ],
+    "popularity": 73,
+    "tags": [
+      "提示"
+    ]
+  },
+  {
+    "emoji": "🌤️",
+    "name_zh": "晴间云",
+    "name_en": "sun behind small cloud",
+    "category": "视觉美化",
+    "tone": [
+      "轻快",
+      "天气"
+    ],
+    "meaning_xhs": "轻快天气氛围。",
+    "usage_tips": "天气心情日记可用。",
+    "verticals": [
+      "生活",
+      "旅行"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "☀️",
+      "✨"
+    ],
+    "alternatives": [
+      "☀️",
+      "⛅",
+      "🌸"
+    ],
+    "examples": [
+      "好天气出门🌤️"
+    ],
+    "popularity": 73,
+    "tags": [
+      "氛围"
+    ]
+  },
+  {
+    "emoji": "🪶",
+    "name_zh": "羽毛",
+    "name_en": "feather",
+    "category": "视觉美化",
+    "tone": [
+      "轻盈",
+      "高级"
+    ],
+    "meaning_xhs": "轻盈高级、裸感妆。",
+    "usage_tips": "轻薄底妆描述很贴。",
+    "verticals": [
+      "美妆",
+      "穿搭"
+    ],
+    "position": [
+      "亮点句"
+    ],
+    "common_combinations": [
+      "✨",
+      "🤍"
+    ],
+    "alternatives": [
+      "☁️",
+      "🤍",
+      "💫"
+    ],
+    "examples": [
+      "羽感粉底🪶"
+    ],
+    "popularity": 73,
+    "tags": [
+      "轻盈",
+      "高级"
+    ]
+  },
+  {
+    "emoji": "🩰",
+    "name_zh": "芭蕾鞋",
+    "name_en": "ballet shoes",
+    "category": "视觉美化",
+    "tone": [
+      "甜美",
+      "芭蕾风"
+    ],
+    "meaning_xhs": "芭蕾风穿搭美学。",
+    "usage_tips": "芭蕾核心内容贴。",
+    "verticals": [
+      "穿搭"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "🎀",
+      "✨"
+    ],
+    "alternatives": [
+      "👗",
+      "🎀",
+      "🌸"
+    ],
+    "examples": [
+      "芭蕾风一天🩰"
+    ],
+    "popularity": 73,
+    "tags": [
+      "穿搭",
+      "视觉"
+    ]
+  },
+  {
+    "emoji": "🔮",
+    "name_zh": "水晶球",
+    "name_en": "crystal ball",
+    "category": "强调装饰",
+    "tone": [
+      "神秘",
+      "预测"
+    ],
+    "meaning_xhs": "带一点剧透、预言与惊喜揭晓的俏皮感。",
+    "usage_tips": "轻松语气好用；严肃测评少用。",
+    "verticals": [
+      "美妆",
+      "穿搭",
+      "生活方式"
+    ],
+    "position": [
+      "标题",
+      "彩蛋句"
+    ],
+    "common_combinations": [
+      "✨",
+      "💫"
+    ],
+    "alternatives": [
+      "✨",
+      "🌟",
+      "🪄"
+    ],
+    "examples": [
+      "下周趋势抢先看🔮",
+      "开箱悬念🔮"
+    ],
+    "popularity": 72,
+    "tags": [
+      "神秘",
+      "强调"
+    ]
+  },
+  {
+    "emoji": "⭕",
+    "name_zh": "红圈",
+    "name_en": "hollow red circle",
+    "category": "强调装饰",
+    "tone": [
+      "圈重点",
+      "标记"
+    ],
+    "meaning_xhs": "常用于圈出重点或正确项，和截图搭配多。",
+    "usage_tips": "列表正确项可与勾选搭配。",
+    "verticals": [
+      "教程",
+      "避坑",
+      "职场"
+    ],
+    "position": [
+      "列表",
+      "重点"
+    ],
+    "common_combinations": [
+      "✅",
+      "❌"
+    ],
+    "alternatives": [
+      "✅",
+      "🔴",
+      "📌"
+    ],
+    "examples": [
+      "正确示范⭕",
+      "重点圈这里⭕"
+    ],
+    "popularity": 72,
+    "tags": [
+      "标记",
+      "重点"
+    ]
+  },
+  {
+    "emoji": "🖤",
+    "name_zh": "黑心",
+    "name_en": "black heart",
+    "category": "强调装饰",
+    "tone": [
+      "冷淡",
+      "暗黑"
+    ],
+    "meaning_xhs": "冷淡风、暗黑系或反差感装饰。",
+    "usage_tips": "黑白穿搭或冷淡妆好用；甜妹文慎用。",
+    "verticals": [
+      "穿搭",
+      "美妆"
+    ],
+    "position": [
+      "标题结尾"
+    ],
+    "common_combinations": [
+      "✨",
+      "🤍"
+    ],
+    "alternatives": [
+      "🤍",
+      "❤️",
+      "🩶"
+    ],
+    "examples": [
+      "冷淡风LOOK🖤",
+      "暗黑系好物🖤"
+    ],
+    "popularity": 72,
+    "tags": [
+      "冷淡",
+      "装饰"
+    ]
+  },
+  {
+    "emoji": "🥱",
+    "name_zh": "打哈欠",
+    "name_en": "yawning face",
+    "category": "情感表达",
+    "tone": [
+      "疲惫",
+      "催眠"
+    ],
+    "meaning_xhs": "疲惫或被治愈到犯困。",
+    "usage_tips": "助眠或养生文可用。",
+    "verticals": [
+      "生活",
+      "护肤"
+    ],
+    "position": [
+      "情绪句"
+    ],
+    "common_combinations": [
+      "😴",
+      "💤"
+    ],
+    "alternatives": [
+      "😴",
+      "😪",
+      "💤"
+    ],
+    "examples": [
+      "听着就困了🥱"
+    ],
+    "popularity": 72,
+    "tags": [
+      "疲惫"
+    ]
+  },
+  {
+    "emoji": "🙉",
+    "name_zh": "非礼勿听",
+    "name_en": "hear-no-evil monkey",
+    "category": "情感表达",
+    "tone": [
+      "抗拒",
+      "俏皮"
+    ],
+    "meaning_xhs": "不想听安利或不想听劝的俏皮表达。",
+    "usage_tips": "轻松吐槽可用。",
+    "verticals": [
+      "生活",
+      "好物推荐"
+    ],
+    "position": [
+      "情绪句"
+    ],
+    "common_combinations": [
+      "🙈",
+      "🙊"
+    ],
+    "alternatives": [
+      "🙈",
+      "🙊",
+      "😅"
+    ],
+    "examples": [
+      "别再安利我了🙉"
+    ],
+    "popularity": 72,
+    "tags": [
+      "俏皮"
+    ]
+  },
+  {
+    "emoji": "👄",
+    "name_zh": "嘴唇",
+    "name_en": "mouth",
+    "category": "种草推荐",
+    "tone": [
+      "唇部",
+      "焦点"
+    ],
+    "meaning_xhs": "强调唇部焦点。",
+    "usage_tips": "唇部护理或试色可用。",
+    "verticals": [
+      "美妆"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "💄",
+      "✨"
+    ],
+    "alternatives": [
+      "💋",
+      "💄",
+      "💗"
+    ],
+    "examples": [
+      "唇部护理重点👄"
+    ],
+    "popularity": 72,
+    "tags": [
+      "美妆"
+    ]
+  },
+  {
+    "emoji": "🗺️",
+    "name_zh": "地图",
+    "name_en": "world map",
+    "category": "种草推荐",
+    "tone": [
+      "旅行",
+      "攻略"
+    ],
+    "meaning_xhs": "旅行攻略与路线规划。",
+    "usage_tips": "行程笔记可用。",
+    "verticals": [
+      "旅行"
+    ],
+    "position": [
+      "标题",
+      "列表"
+    ],
+    "common_combinations": [
+      "📍",
+      "✨"
+    ],
+    "alternatives": [
+      "✈️",
+      "📍",
+      "📌"
+    ],
+    "examples": [
+      "三天两夜路线🗺️"
+    ],
+    "popularity": 72,
+    "tags": [
+      "旅行",
+      "攻略"
+    ]
+  },
+  {
+    "emoji": "🕶️",
+    "name_zh": "墨镜",
+    "name_en": "sunglasses",
+    "category": "种草推荐",
+    "tone": [
+      "酷",
+      "配饰"
+    ],
+    "meaning_xhs": "墨镜配饰种草，强化酷感。",
+    "usage_tips": "出行穿搭可用。",
+    "verticals": [
+      "穿搭",
+      "旅行"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "😎",
+      "✨"
+    ],
+    "alternatives": [
+      "🧢",
+      "😎",
+      "✨"
+    ],
+    "examples": [
+      "度假墨镜🕶️"
+    ],
+    "popularity": 72,
+    "tags": [
+      "穿搭"
+    ]
+  },
+  {
+    "emoji": "🍃",
+    "name_zh": "落叶",
+    "name_en": "leaf fluttering in wind",
+    "category": "种草推荐",
+    "tone": [
+      "清新",
+      "轻盈"
+    ],
+    "meaning_xhs": "轻盈清新的自然感种草点缀。",
+    "usage_tips": "换季护肤或森系穿搭可用。",
+    "verticals": [
+      "护肤",
+      "穿搭",
+      "生活"
+    ],
+    "position": [
+      "标题结尾"
+    ],
+    "common_combinations": [
+      "🌿",
+      "✨"
+    ],
+    "alternatives": [
+      "🌿",
+      "🌱",
+      "🍀"
+    ],
+    "examples": [
+      "轻盈保湿🍃"
+    ],
+    "popularity": 72,
+    "tags": [
+      "清新",
+      "种草"
+    ]
+  },
+  {
+    "emoji": "➕",
+    "name_zh": "加号",
+    "name_en": "plus",
+    "category": "符号标记",
+    "tone": [
+      "增加",
+      "搭配"
+    ],
+    "meaning_xhs": "搭配加法：A 加 B。",
+    "usage_tips": "护肤叠加或穿搭叠加。",
+    "verticals": [
+      "护肤",
+      "穿搭",
+      "教程"
+    ],
+    "position": [
+      "步骤间"
+    ],
+    "common_combinations": [
+      "✨",
+      "➡️"
+    ],
+    "alternatives": [
+      "✅",
+      "👉"
+    ],
+    "examples": [
+      "精华➕乳液"
+    ],
+    "popularity": 72,
+    "tags": [
+      "搭配",
+      "步骤"
+    ]
+  },
+  {
+    "emoji": "❎",
+    "name_zh": "叉框",
+    "name_en": "cross mark button",
+    "category": "符号标记",
+    "tone": [
+      "否定"
+    ],
+    "meaning_xhs": "框式叉号，用于列表不选项。",
+    "usage_tips": "对比表可用。",
+    "verticals": [
+      "测评",
+      "避坑"
+    ],
+    "position": [
+      "列表"
+    ],
+    "common_combinations": [
+      "✅",
+      "❌"
+    ],
+    "alternatives": [
+      "❌",
+      "🚫",
+      "✅"
+    ],
+    "examples": [
+      "不推荐❎"
+    ],
+    "popularity": 72,
+    "tags": [
+      "否定"
+    ]
+  },
+  {
+    "emoji": "🔹",
+    "name_zh": "小蓝菱",
+    "name_en": "small blue diamond",
+    "category": "符号标记",
+    "tone": [
+      "列表",
+      "点缀"
+    ],
+    "meaning_xhs": "轻量列表符号，比圆点更精致。",
+    "usage_tips": "要点排列可用。",
+    "verticals": [
+      "教程",
+      "职场",
+      "测评"
+    ],
+    "position": [
+      "列表"
+    ],
+    "common_combinations": [
+      "✨",
+      "📌"
+    ],
+    "alternatives": [
+      "🔸",
+      "▪️",
+      "✅"
+    ],
+    "examples": [
+      "要点🔹保湿优先"
+    ],
+    "popularity": 72,
+    "tags": [
+      "列表",
+      "标记"
+    ]
+  },
+  {
+    "emoji": "📂",
+    "name_zh": "文件夹",
+    "name_en": "open file folder",
+    "category": "符号标记",
+    "tone": [
+      "归档",
+      "合集"
+    ],
+    "meaning_xhs": "合集归档、资料夹感。",
+    "usage_tips": "系列合集标题可用。",
+    "verticals": [
+      "职场",
+      "运营",
+      "学习"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "📌",
+      "✨"
+    ],
+    "alternatives": [
+      "📁",
+      "📝",
+      "⭐"
+    ],
+    "examples": [
+      "资料合集📂"
+    ],
+    "popularity": 72,
+    "tags": [
+      "合集"
+    ]
+  },
+  {
+    "emoji": "🥀",
+    "name_zh": "枯萎玫瑰",
+    "name_en": "wilted flower",
+    "category": "视觉美化",
+    "tone": [
+      "情绪",
+      "美学"
+    ],
+    "meaning_xhs": "暗玫瑰美学或情绪美。",
+    "usage_tips": "冷感美学可用；欢乐文少用。",
+    "verticals": [
+      "穿搭",
+      "情感"
+    ],
+    "position": [
+      "氛围句"
+    ],
+    "common_combinations": [
+      "🖤",
+      "✨"
+    ],
+    "alternatives": [
+      "🌹",
+      "🖤",
+      "💔"
+    ],
+    "examples": [
+      "复古枯萎美🥀"
+    ],
+    "popularity": 72,
+    "tags": [
+      "情绪",
+      "美学"
+    ]
+  },
+  {
+    "emoji": "🍋",
+    "name_zh": "柠檬",
+    "name_en": "lemon",
+    "category": "视觉美化",
+    "tone": [
+      "清新",
+      "提亮"
+    ],
+    "meaning_xhs": "清新提亮、夏日感。",
+    "usage_tips": "护肤提亮或夏日单品可用。",
+    "verticals": [
+      "护肤",
+      "美食",
+      "生活"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "✨",
+      "💛"
+    ],
+    "alternatives": [
+      "☀️",
+      "💧",
+      "🟡"
+    ],
+    "examples": [
+      "维C柠檬感🍋"
+    ],
+    "popularity": 72,
+    "tags": [
+      "清新"
+    ]
+  },
+  {
+    "emoji": "🕊️",
+    "name_zh": "鸽子",
+    "name_en": "dove",
+    "category": "视觉美化",
+    "tone": [
+      "干净",
+      "平和"
+    ],
+    "meaning_xhs": "平和干净、松弛感。",
+    "usage_tips": "极简与治愈文。",
+    "verticals": [
+      "生活",
+      "家居"
+    ],
+    "position": [
+      "氛围句"
+    ],
+    "common_combinations": [
+      "🤍",
+      "✨"
+    ],
+    "alternatives": [
+      "☁️",
+      "🤍",
+      "🌿"
+    ],
+    "examples": [
+      "内心平静🕊️"
+    ],
+    "popularity": 72,
+    "tags": [
+      "治愈"
+    ]
+  },
+  {
+    "emoji": "🤎",
+    "name_zh": "棕心",
+    "name_en": "brown heart",
+    "category": "强调装饰",
+    "tone": [
+      "温柔",
+      "大地色"
+    ],
+    "meaning_xhs": "大地色、咖啡系、温柔稳重氛围。",
+    "usage_tips": "秋冬穿搭或咖啡生活很贴。",
+    "verticals": [
+      "穿搭",
+      "生活",
+      "美食"
+    ],
+    "position": [
+      "标题结尾"
+    ],
+    "common_combinations": [
+      "☕",
+      "✨"
+    ],
+    "alternatives": [
+      "🧡",
+      "🤍",
+      "💛"
+    ],
+    "examples": [
+      "咖啡通勤🤎",
+      "大地色系🤎"
+    ],
+    "popularity": 71,
+    "tags": [
+      "温柔",
+      "装饰"
+    ]
+  },
+  {
+    "emoji": "❓",
+    "name_zh": "问号",
+    "name_en": "question mark",
+    "category": "强调装饰",
+    "tone": [
+      "好奇",
+      "设问"
+    ],
+    "meaning_xhs": "标题设问、引发点击，常见于对比和避坑引入。",
+    "usage_tips": "问句标题好用；答案正文要接住。",
+    "verticals": [
+      "测评",
+      "避坑",
+      "职场"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "❗️",
+      "👀"
+    ],
+    "alternatives": [
+      "❔",
+      "🤔",
+      "👀"
+    ],
+    "examples": [
+      "到底值不值？❓",
+      "你踩过这个坑吗❓"
+    ],
+    "popularity": 71,
+    "tags": [
+      "设问",
+      "强调"
+    ]
+  },
+  {
+    "emoji": "😵",
+    "name_zh": "晕眩",
+    "name_en": "dizzy face",
+    "category": "情感表达",
+    "tone": [
+      "晕",
+      "崩溃"
+    ],
+    "meaning_xhs": "晕掉、被惊到空白。",
+    "usage_tips": "信息量过大可用。",
+    "verticals": [
+      "学习",
+      "好物推荐"
+    ],
+    "position": [
+      "情绪句"
+    ],
+    "common_combinations": [
+      "🤯",
+      "😵‍💫"
+    ],
+    "alternatives": [
+      "😵‍💫",
+      "🫠",
+      "🥴"
+    ],
+    "examples": [
+      "直接看晕😵"
+    ],
+    "popularity": 71,
+    "tags": [
+      "晕"
+    ]
+  },
+  {
+    "emoji": "🤒",
+    "name_zh": "生病",
+    "name_en": "face with thermometer",
+    "category": "情感表达",
+    "tone": [
+      "不适",
+      "关怀"
+    ],
+    "meaning_xhs": "生病不适，也可引申爱到生病的夸张。",
+    "usage_tips": "养生或生病日常可用，别消费苦难。",
+    "verticals": [
+      "生活",
+      "护肤"
+    ],
+    "position": [
+      "情绪句"
+    ],
+    "common_combinations": [
+      "💊",
+      "😷"
+    ],
+    "alternatives": [
+      "😷",
+      "🤢",
+      "💊"
+    ],
+    "examples": [
+      "流感日记🤒"
+    ],
+    "popularity": 71,
+    "tags": [
+      "不适"
+    ]
+  },
+  {
+    "emoji": "🎒",
+    "name_zh": "双肩包",
+    "name_en": "backpack",
+    "category": "种草推荐",
+    "tone": [
+      "通勤",
+      "实用"
+    ],
+    "meaning_xhs": "通勤包或旅行轻装种草。",
+    "usage_tips": "学生党或效率通勤可用。",
+    "verticals": [
+      "职场",
+      "生活",
+      "旅行"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "✨",
+      "💻"
+    ],
+    "alternatives": [
+      "👜",
+      "🧳",
+      "👟"
+    ],
+    "examples": [
+      "轻便通勤包🎒"
+    ],
+    "popularity": 71,
+    "tags": [
+      "通勤",
+      "种草"
+    ]
+  },
+  {
+    "emoji": "🧾",
+    "name_zh": "小票",
+    "name_en": "receipt",
+    "category": "种草推荐",
+    "tone": [
+      "真实",
+      "凭证"
+    ],
+    "meaning_xhs": "强调真实购买小票或消费记录。",
+    "usage_tips": "真实测分享可信度更高。",
+    "verticals": [
+      "测评",
+      "好物推荐"
+    ],
+    "position": [
+      "凭证句"
+    ],
+    "common_combinations": [
+      "✅",
+      "📸"
+    ],
+    "alternatives": [
+      "📦",
+      "✅",
+      "💯"
+    ],
+    "examples": [
+      "附小票真实测🧾"
+    ],
+    "popularity": 71,
+    "tags": [
+      "真实",
+      "种草"
+    ]
+  },
+  {
+    "emoji": "🧹",
+    "name_zh": "扫帚",
+    "name_en": "broom",
+    "category": "种草推荐",
+    "tone": [
+      "清洁",
+      "收纳"
+    ],
+    "meaning_xhs": "清洁收纳好物种草。",
+    "usage_tips": "大扫除清单贴切。",
+    "verticals": [
+      "家居",
+      "生活"
+    ],
+    "position": [
+      "标题",
+      "列表"
+    ],
+    "common_combinations": [
+      "✨",
+      "✅"
+    ],
+    "alternatives": [
+      "🧼",
+      "📦",
+      "🏠"
+    ],
+    "examples": [
+      "收纳清洁好物🧹"
+    ],
+    "popularity": 71,
+    "tags": [
+      "收纳",
+      "种草"
+    ]
+  },
+  {
+    "emoji": "🔬",
+    "name_zh": "显微镜",
+    "name_en": "microscope",
+    "category": "种草推荐",
+    "tone": [
+      "深挖",
+      "测评"
+    ],
+    "meaning_xhs": "深挖测评、细节党工具感。",
+    "usage_tips": "硬核测评可用。",
+    "verticals": [
+      "测评",
+      "护肤",
+      "数码"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "🧪",
+      "🔍"
+    ],
+    "alternatives": [
+      "🧪",
+      "🔍",
+      "🧐"
+    ],
+    "examples": [
+      "微距看清楚🔬"
+    ],
+    "popularity": 71,
+    "tags": [
+      "测评"
+    ]
+  },
+  {
+    "emoji": "🔸",
+    "name_zh": "小橙菱",
+    "name_en": "small orange diamond",
+    "category": "符号标记",
+    "tone": [
+      "列表",
+      "点缀"
+    ],
+    "meaning_xhs": "橙色小菱形列表符。",
+    "usage_tips": "与蓝菱交替排版好看。",
+    "verticals": [
+      "教程",
+      "好物推荐"
+    ],
+    "position": [
+      "列表"
+    ],
+    "common_combinations": [
+      "✨",
+      "📌"
+    ],
+    "alternatives": [
+      "🔹",
+      "▪️",
+      "✅"
+    ],
+    "examples": [
+      "要点🔸先清洁"
+    ],
+    "popularity": 71,
+    "tags": [
+      "列表"
+    ]
+  },
+  {
+    "emoji": "📁",
+    "name_zh": "文件夹关",
+    "name_en": "file folder",
+    "category": "符号标记",
+    "tone": [
+      "归档",
+      "合集"
+    ],
+    "meaning_xhs": "资料收纳与合集。",
+    "usage_tips": "系列导航可用。",
+    "verticals": [
+      "职场",
+      "运营"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "📂",
+      "📌"
+    ],
+    "alternatives": [
+      "📂",
+      "📝",
+      "⭐"
+    ],
+    "examples": [
+      "系列文件夹📁"
+    ],
+    "popularity": 71,
+    "tags": [
+      "合集"
+    ]
+  },
+  {
+    "emoji": "🍊",
+    "name_zh": "橘子",
+    "name_en": "tangerine",
+    "category": "视觉美化",
+    "tone": [
+      "明快",
+      "维C"
+    ],
+    "meaning_xhs": "明快橙色与维C感。",
+    "usage_tips": "冬日维C护肤可用。",
+    "verticals": [
+      "护肤",
+      "美食"
+    ],
+    "position": [
+      "点缀"
+    ],
+    "common_combinations": [
+      "☀️",
+      "✨"
+    ],
+    "alternatives": [
+      "🍋",
+      "🧡",
+      "☀️"
+    ],
+    "examples": [
+      "橘感满满🍊"
+    ],
+    "popularity": 71,
+    "tags": [
+      "明快"
+    ]
+  },
+  {
+    "emoji": "🖌️",
+    "name_zh": "画笔",
+    "name_en": "paintbrush",
+    "category": "视觉美化",
+    "tone": [
+      "创作",
+      "手作"
+    ],
+    "meaning_xhs": "手作、绘画、彩妆刷感。",
+    "usage_tips": "教程步骤点缀。",
+    "verticals": [
+      "美妆",
+      "生活"
+    ],
+    "position": [
+      "小标题"
+    ],
+    "common_combinations": [
+      "🎨",
+      "✨"
+    ],
+    "alternatives": [
+      "🎨",
+      "✏️",
+      "✨"
+    ],
+    "examples": [
+      "手残党也学得会🖌️"
+    ],
+    "popularity": 71,
+    "tags": [
+      "创作"
+    ]
+  },
+  {
+    "emoji": "🌌",
+    "name_zh": "银河",
+    "name_en": "milky way",
+    "category": "视觉美化",
+    "tone": [
+      "梦幻",
+      "高级"
+    ],
+    "meaning_xhs": "星空梦幻高级氛围。",
+    "usage_tips": "夜景旅行或暗调美学。",
+    "verticals": [
+      "旅行",
+      "美妆"
+    ],
+    "position": [
+      "氛围句"
+    ],
+    "common_combinations": [
+      "✨",
+      "💫"
+    ],
+    "alternatives": [
+      "🌙",
+      "💫",
+      "✨"
+    ],
+    "examples": [
+      "星空滤镜🌌"
+    ],
+    "popularity": 71,
+    "tags": [
+      "梦幻"
+    ]
+  },
+  {
+    "emoji": "💢",
+    "name_zh": "怒气",
+    "name_en": "anger symbol",
+    "category": "强调装饰",
+    "tone": [
+      "激动",
+      "吐槽"
+    ],
+    "meaning_xhs": "漫画式怒意符号，用于破防吐槽的夸张强调。",
+    "usage_tips": "避坑吐槽可用；高端冷淡风不搭。",
+    "verticals": [
+      "避坑",
+      "测评",
+      "生活"
+    ],
+    "position": [
+      "情绪句",
+      "标题"
+    ],
+    "common_combinations": [
+      "😤",
+      "💥"
+    ],
+    "alternatives": [
+      "😤",
+      "😡",
+      "💥"
+    ],
+    "examples": [
+      "踩雷破防💢",
+      "真的会生气💢"
+    ],
+    "popularity": 70,
+    "tags": [
+      "吐槽",
+      "强调"
+    ]
+  },
+  {
+    "emoji": "🔴",
+    "name_zh": "红圆",
+    "name_en": "red circle",
+    "category": "强调装饰",
+    "tone": [
+      "醒目",
+      "标记"
+    ],
+    "meaning_xhs": "醒目圆点，可当状态灯或重点色标。",
+    "usage_tips": "清单圆点或警示条可用。",
+    "verticals": [
+      "避坑",
+      "教程"
+    ],
+    "position": [
+      "列表"
+    ],
+    "common_combinations": [
+      "🟠",
+      "❗️"
+    ],
+    "alternatives": [
+      "⭕",
+      "❗️",
+      "📌"
+    ],
+    "examples": [
+      "重点🔴请看",
+      "状态：进行中🔴"
+    ],
+    "popularity": 70,
+    "tags": [
+      "标记"
+    ]
+  },
+  {
+    "emoji": "😪",
+    "name_zh": "想睡",
+    "name_en": "sleepy face",
+    "category": "情感表达",
+    "tone": [
+      "困倦"
+    ],
+    "meaning_xhs": "想睡但还没睡着的困顿。",
+    "usage_tips": "熬夜修护内容可用。",
+    "verticals": [
+      "生活",
+      "护肤"
+    ],
+    "position": [
+      "情绪句"
+    ],
+    "common_combinations": [
+      "😴",
+      "💤"
+    ],
+    "alternatives": [
+      "😴",
+      "🥱",
+      "🌙"
+    ],
+    "examples": [
+      "困到睁不开😪"
+    ],
+    "popularity": 70,
+    "tags": [
+      "困倦"
+    ]
+  },
+  {
+    "emoji": "🤬",
+    "name_zh": "骂骂脸",
+    "name_en": "face with symbols on mouth",
+    "category": "情感表达",
+    "tone": [
+      "愤怒",
+      "暴躁"
+    ],
+    "meaning_xhs": "极端愤怒的符号化表达。",
+    "usage_tips": "谨慎使用，平台氛围敏感。",
+    "verticals": [
+      "避坑"
+    ],
+    "position": [
+      "情绪句"
+    ],
+    "common_combinations": [
+      "😡",
+      "💢"
+    ],
+    "alternatives": [
+      "😡",
+      "😤",
+      "💥"
+    ],
+    "examples": [
+      "无语到爆粗🤬"
+    ],
+    "popularity": 70,
+    "tags": [
+      "愤怒"
+    ]
+  },
+  {
+    "emoji": "🆓",
+    "name_zh": "FREE",
+    "name_en": "free button",
+    "category": "种草推荐",
+    "tone": [
+      "福利",
+      "免费"
+    ],
+    "meaning_xhs": "免费福利或试用提醒。",
+    "usage_tips": "活动向内容可用，注意合规。",
+    "verticals": [
+      "运营",
+      "好物推荐"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "🎁",
+      "✨"
+    ],
+    "alternatives": [
+      "🎁",
+      "📢",
+      "🏷️"
+    ],
+    "examples": [
+      "有免费小样🆓"
+    ],
+    "popularity": 70,
+    "tags": [
+      "福利"
+    ]
+  },
+  {
+    "emoji": "🧢",
+    "name_zh": "帽子",
+    "name_en": "billed cap",
+    "category": "种草推荐",
+    "tone": [
+      "穿搭",
+      "休闲"
+    ],
+    "meaning_xhs": "休闲配饰种草。",
+    "usage_tips": "运动休闲风可用。",
+    "verticals": [
+      "穿搭",
+      "生活"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "✨",
+      "😎"
+    ],
+    "alternatives": [
+      "🕶️",
+      "👟",
+      "✨"
+    ],
+    "examples": [
+      "鸭舌帽搭配🧢"
+    ],
+    "popularity": 70,
+    "tags": [
+      "穿搭"
+    ]
+  },
+  {
+    "emoji": "🛋️",
+    "name_zh": "沙发",
+    "name_en": "couch and lamp",
+    "category": "种草推荐",
+    "tone": [
+      "家居",
+      "松弛"
+    ],
+    "meaning_xhs": "客厅家居与松弛角种草。",
+    "usage_tips": "家居布置可用。",
+    "verticals": [
+      "家居",
+      "生活"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "✨",
+      "📖"
+    ],
+    "alternatives": [
+      "🏠",
+      "💡",
+      "🪴"
+    ],
+    "examples": [
+      "客厅松弛角🛋️"
+    ],
+    "popularity": 70,
+    "tags": [
+      "家居"
+    ]
+  },
+  {
+    "emoji": "🧲",
+    "name_zh": "磁铁",
+    "name_en": "magnet",
+    "category": "种草推荐",
+    "tone": [
+      "吸引力",
+      "种草"
+    ],
+    "meaning_xhs": "被吸走钱包的俏皮种草。",
+    "usage_tips": "轻松安利可用。",
+    "verticals": [
+      "好物推荐",
+      "美妆"
+    ],
+    "position": [
+      "情绪句"
+    ],
+    "common_combinations": [
+      "💸",
+      "✨"
+    ],
+    "alternatives": [
+      "✨",
+      "🛒",
+      "💖"
+    ],
+    "examples": [
+      "吸引力Max🧲"
+    ],
+    "popularity": 70,
+    "tags": [
+      "种草",
+      "俏皮"
+    ]
+  },
+  {
+    "emoji": "💵",
+    "name_zh": "美钞",
+    "name_en": "dollar banknote",
+    "category": "种草推荐",
+    "tone": [
+      "价格",
+      "消费"
+    ],
+    "meaning_xhs": "强调价格或海外购。",
+    "usage_tips": "海淘与价格对比可用。",
+    "verticals": [
+      "好物推荐",
+      "数码"
+    ],
+    "position": [
+      "价格句"
+    ],
+    "common_combinations": [
+      "💸",
+      "✈️"
+    ],
+    "alternatives": [
+      "💰",
+      "💸",
+      "🛍️"
+    ],
+    "examples": [
+      "海淘入手💵"
+    ],
+    "popularity": 70,
+    "tags": [
+      "价格"
+    ]
+  },
+  {
+    "emoji": "⬆️",
+    "name_zh": "上箭头",
+    "name_en": "up arrow",
+    "category": "符号标记",
+    "tone": [
+      "提升",
+      "向上"
+    ],
+    "meaning_xhs": "提升、上涨、置顶感。",
+    "usage_tips": "效果提升句可用。",
+    "verticals": [
+      "护肤",
+      "职场",
+      "健身"
+    ],
+    "position": [
+      "效果句"
+    ],
+    "common_combinations": [
+      "📈",
+      "✨"
+    ],
+    "alternatives": [
+      "📈",
+      "🔥"
+    ],
+    "examples": [
+      "效率up⬆️"
+    ],
+    "popularity": 70,
+    "tags": [
+      "提升"
+    ]
+  },
+  {
+    "emoji": "🔟",
+    "name_zh": "数字十",
+    "name_en": "keycap 10",
+    "category": "符号标记",
+    "tone": [
+      "编号",
+      "压轴"
+    ],
+    "meaning_xhs": "编号十，常作压轴。",
+    "usage_tips": "十佳清单压轴位。",
+    "verticals": [
+      "好物推荐",
+      "测评"
+    ],
+    "position": [
+      "列表"
+    ],
+    "common_combinations": [
+      "9️⃣",
+      "✨"
+    ],
+    "alternatives": [
+      "🥇",
+      "💯",
+      "📌"
+    ],
+    "examples": [
+      "压轴第十🔟"
+    ],
+    "popularity": 70,
+    "tags": [
+      "编号",
+      "榜单"
+    ]
+  },
+  {
+    "emoji": "⌛️",
+    "name_zh": "沙漏完",
+    "name_en": "hourglass done",
+    "category": "符号标记",
+    "tone": [
+      "结束",
+      "时间到"
+    ],
+    "meaning_xhs": "时间到、截止。",
+    "usage_tips": "活动结束提醒。",
+    "verticals": [
+      "运营"
+    ],
+    "position": [
+      "提醒句"
+    ],
+    "common_combinations": [
+      "⏳",
+      "‼️"
+    ],
+    "alternatives": [
+      "⏳",
+      "❗️",
+      "📢"
+    ],
+    "examples": [
+      "活动结束⌛️"
+    ],
+    "popularity": 70,
+    "tags": [
+      "截止"
+    ]
+  },
+  {
+    "emoji": "🏁",
+    "name_zh": "终旗",
+    "name_en": "chequered flag",
+    "category": "符号标记",
+    "tone": [
+      "完成",
+      "终点"
+    ],
+    "meaning_xhs": "完成终点、挑战达成。",
+    "usage_tips": "打卡终结可用。",
+    "verticals": [
+      "健身",
+      "学习",
+      "生活"
+    ],
+    "position": [
+      "结尾"
+    ],
+    "common_combinations": [
+      "🎉",
+      "✅"
+    ],
+    "alternatives": [
+      "🏆",
+      "✅",
+      "🎉"
+    ],
+    "examples": [
+      "挑战完成🏁"
+    ],
+    "popularity": 70,
+    "tags": [
+      "完成"
+    ]
+  },
+  {
+    "emoji": "▪️",
+    "name_zh": "黑方",
+    "name_en": "black small square",
+    "category": "符号标记",
+    "tone": [
+      "列表"
+    ],
+    "meaning_xhs": "极简黑方列表点。",
+    "usage_tips": "干货排版常用。",
+    "verticals": [
+      "职场",
+      "教程"
+    ],
+    "position": [
+      "列表"
+    ],
+    "common_combinations": [
+      "▫️",
+      "📌"
+    ],
+    "alternatives": [
+      "▫️",
+      "🔹",
+      "✅"
+    ],
+    "examples": [
+      "▪️步骤一"
+    ],
+    "popularity": 70,
+    "tags": [
+      "列表"
+    ]
+  },
+  {
+    "emoji": "💮",
+    "name_zh": "白花",
+    "name_en": "white flower",
+    "category": "视觉美化",
+    "tone": [
+      "干净",
+      "日系"
+    ],
+    "meaning_xhs": "日系白花点缀，干净清透。",
+    "usage_tips": "日系美妆或穿搭可用。",
+    "verticals": [
+      "美妆",
+      "穿搭"
+    ],
+    "position": [
+      "点缀"
+    ],
+    "common_combinations": [
+      "🌸",
+      "✨"
+    ],
+    "alternatives": [
+      "🌸",
+      "🤍",
+      "🌼"
+    ],
+    "examples": [
+      "干净白花点缀💮"
+    ],
+    "popularity": 70,
+    "tags": [
+      "日系",
+      "视觉"
+    ]
+  },
+  {
+    "emoji": "🍇",
+    "name_zh": "葡萄",
+    "name_en": "grapes",
+    "category": "视觉美化",
+    "tone": [
+      "色感",
+      "果香"
+    ],
+    "meaning_xhs": "紫调果香视觉。",
+    "usage_tips": "紫色系妆容点缀。",
+    "verticals": [
+      "美妆",
+      "美食"
+    ],
+    "position": [
+      "点缀"
+    ],
+    "common_combinations": [
+      "💜",
+      "✨"
+    ],
+    "alternatives": [
+      "🍓",
+      "🍷",
+      "💜"
+    ],
+    "examples": [
+      "葡萄紫妆🍇"
+    ],
+    "popularity": 70,
+    "tags": [
+      "色感"
+    ]
+  },
+  {
+    "emoji": "😷",
+    "name_zh": "口罩脸",
+    "name_en": "face with medical mask",
+    "category": "情感表达",
+    "tone": [
+      "防护",
+      "不适"
+    ],
+    "meaning_xhs": "生病防护或敏感期状态。",
+    "usage_tips": "养生护理日记可用。",
+    "verticals": [
+      "生活",
+      "护肤"
+    ],
+    "position": [
+      "情绪句"
+    ],
+    "common_combinations": [
+      "💊",
+      "🤒"
+    ],
+    "alternatives": [
+      "🤒",
+      "🤢",
+      "💊"
+    ],
+    "examples": [
+      "敏弱期闭嘴护肤😷"
+    ],
+    "popularity": 69,
+    "tags": [
+      "不适"
+    ]
+  },
+  {
+    "emoji": "💲",
+    "name_zh": "美元符",
+    "name_en": "heavy dollar sign",
+    "category": "种草推荐",
+    "tone": [
+      "价格",
+      "优惠"
+    ],
+    "meaning_xhs": "价格与优惠符号强调。",
+    "usage_tips": "大促价格锚点可用。",
+    "verticals": [
+      "好物推荐",
+      "运营"
+    ],
+    "position": [
+      "价格句",
+      "标题"
+    ],
+    "common_combinations": [
+      "🏷️",
+      "💰"
+    ],
+    "alternatives": [
+      "💰",
+      "💸",
+      "🏷️"
+    ],
+    "examples": [
+      "神价预警💲"
+    ],
+    "popularity": 69,
+    "tags": [
+      "优惠",
+      "价格"
+    ]
+  },
+  {
+    "emoji": "🕒",
+    "name_zh": "三点钟",
+    "name_en": "three o’clock",
+    "category": "符号标记",
+    "tone": [
+      "时间",
+      "节点"
+    ],
+    "meaning_xhs": "时间点标记。",
+    "usage_tips": "行程时刻可用。",
+    "verticals": [
+      "旅行",
+      "生活",
+      "职场"
+    ],
+    "position": [
+      "信息句"
+    ],
+    "common_combinations": [
+      "📌",
+      "📅"
+    ],
+    "alternatives": [
+      "⏰",
+      "📅",
+      "📌"
+    ],
+    "examples": [
+      "下午三点集合🕒"
+    ],
+    "popularity": 69,
+    "tags": [
+      "时间"
+    ]
+  },
+  {
+    "emoji": "⬇️",
+    "name_zh": "下箭头",
+    "name_en": "down arrow",
+    "category": "符号标记",
+    "tone": [
+      "下降",
+      "指向"
+    ],
+    "meaning_xhs": "指向下方信息或价格下降。",
+    "usage_tips": "领取区或降价提示可用。",
+    "verticals": [
+      "运营",
+      "好物推荐"
+    ],
+    "position": [
+      "指引",
+      "价格句"
+    ],
+    "common_combinations": [
+      "📌",
+      "🏷️"
+    ],
+    "alternatives": [
+      "👇",
+      "📌"
+    ],
+    "examples": [
+      "福利在下方⬇️"
+    ],
+    "popularity": 69,
+    "tags": [
+      "指引"
+    ]
+  },
+  {
+    "emoji": "▫️",
+    "name_zh": "白方",
+    "name_en": "white small square",
+    "category": "符号标记",
+    "tone": [
+      "列表"
+    ],
+    "meaning_xhs": "极简白方列表点。",
+    "usage_tips": "浅色背景笔记可用。",
+    "verticals": [
+      "职场",
+      "教程"
+    ],
+    "position": [
+      "列表"
+    ],
+    "common_combinations": [
+      "▪️",
+      "📌"
+    ],
+    "alternatives": [
+      "▪️",
+      "🔹",
+      "✅"
+    ],
+    "examples": [
+      "▫️要点二"
+    ],
+    "popularity": 69,
+    "tags": [
+      "列表"
+    ]
+  },
+  {
+    "emoji": "🌨️",
+    "name_zh": "下雪",
+    "name_en": "cloud with snow",
+    "category": "视觉美化",
+    "tone": [
+      "冬日",
+      "氛围"
+    ],
+    "meaning_xhs": "下雪天氛围美化。",
+    "usage_tips": "冬日穿搭日记。",
+    "verticals": [
+      "穿搭",
+      "生活"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "❄️",
+      "🧣"
+    ],
+    "alternatives": [
+      "❄️",
+      "☁️",
+      "🤍"
+    ],
+    "examples": [
+      "雪天出门🌨️"
+    ],
+    "popularity": 69,
+    "tags": [
+      "冬日"
+    ]
+  },
+  {
+    "emoji": "🩶",
+    "name_zh": "灰心",
+    "name_en": "grey heart",
+    "category": "强调装饰",
+    "tone": [
+      "克制",
+      "质感"
+    ],
+    "meaning_xhs": "灰色爱心，表达克制质感或低饱和审美。",
+    "usage_tips": "极简穿搭可用。",
+    "verticals": [
+      "穿搭",
+      "家居"
+    ],
+    "position": [
+      "标题结尾"
+    ],
+    "common_combinations": [
+      "✨",
+      "🤍"
+    ],
+    "alternatives": [
+      "🤍",
+      "🖤",
+      "🤎"
+    ],
+    "examples": [
+      "低饱和质感🩶"
+    ],
+    "popularity": 68,
+    "tags": [
+      "质感",
+      "装饰"
+    ]
+  },
+  {
+    "emoji": "🥈",
+    "name_zh": "银牌",
+    "name_en": "2nd place medal",
+    "category": "强调装饰",
+    "tone": [
+      "推荐",
+      "清单"
+    ],
+    "meaning_xhs": "清单第二名标记，用于有序安利。",
+    "usage_tips": "配合金银铜做榜单更整齐。",
+    "verticals": [
+      "好物推荐",
+      "测评"
+    ],
+    "position": [
+      "清单"
+    ],
+    "common_combinations": [
+      "🥇",
+      "🥉"
+    ],
+    "alternatives": [
+      "🥇",
+      "🥉",
+      "✨"
+    ],
+    "examples": [
+      "第二推这款🥈",
+      "性价比亚军🥈"
+    ],
+    "popularity": 68,
+    "tags": [
+      "榜单",
+      "清单"
+    ]
+  },
+  {
+    "emoji": "☠️",
+    "name_zh": "骷髅号",
+    "name_en": "skull and crossbones",
+    "category": "情感表达",
+    "tone": [
+      "危险",
+      "警告"
+    ],
+    "meaning_xhs": "危险警告，也可玩梗。",
+    "usage_tips": "避坑硬警告可用。",
+    "verticals": [
+      "避坑"
+    ],
+    "position": [
+      "提醒"
+    ],
+    "common_combinations": [
+      "⚠️",
+      "❌"
+    ],
+    "alternatives": [
+      "⚠️",
+      "❌",
+      "🚨"
+    ],
+    "examples": [
+      "有坑小心☠️"
+    ],
+    "popularity": 68,
+    "tags": [
+      "警告"
+    ]
+  },
+  {
+    "emoji": "🪥",
+    "name_zh": "牙刷",
+    "name_en": "toothbrush",
+    "category": "种草推荐",
+    "tone": [
+      "个护",
+      "口腔"
+    ],
+    "meaning_xhs": "口腔护理与个护好物。",
+    "usage_tips": "口腔护理清单适用。",
+    "verticals": [
+      "生活",
+      "好物推荐"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "✨",
+      "💧"
+    ],
+    "alternatives": [
+      "🧼",
+      "🧴",
+      "😁"
+    ],
+    "examples": [
+      "口腔护理好物🪥"
+    ],
+    "popularity": 68,
+    "tags": [
+      "个护"
+    ]
+  },
+  {
+    "emoji": "💾",
+    "name_zh": "软盘",
+    "name_en": "floppy disk",
+    "category": "种草推荐",
+    "tone": [
+      "保存",
+      "收藏"
+    ],
+    "meaning_xhs": "保存收藏这份种草清单。",
+    "usage_tips": "长文结尾引导收藏。",
+    "verticals": [
+      "好物推荐",
+      "教程"
+    ],
+    "position": [
+      "结尾"
+    ],
+    "common_combinations": [
+      "📌",
+      "✨"
+    ],
+    "alternatives": [
+      "📌",
+      "⭐",
+      "📁"
+    ],
+    "examples": [
+      "收藏这篇💾"
+    ],
+    "popularity": 68,
+    "tags": [
+      "收藏",
+      "种草"
+    ]
+  },
+  {
+    "emoji": "#️⃣",
+    "name_zh": "井号",
+    "name_en": "keycap #",
+    "category": "符号标记",
+    "tone": [
+      "话题",
+      "标签"
+    ],
+    "meaning_xhs": "话题标签感。",
+    "usage_tips": "主题合集可用。",
+    "verticals": [
+      "运营",
+      "生活"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "✨",
+      "📌"
+    ],
+    "alternatives": [
+      "🔖",
+      "🔹",
+      "✨"
+    ],
+    "examples": [
+      "话题合集#️⃣"
+    ],
+    "popularity": 68,
+    "tags": [
+      "话题"
+    ]
+  },
+  {
+    "emoji": "⬅️",
+    "name_zh": "左箭头",
+    "name_en": "left arrow",
+    "category": "符号标记",
+    "tone": [
+      "回看",
+      "指引"
+    ],
+    "meaning_xhs": "回看上一步或指向左侧信息。",
+    "usage_tips": "轮播图说明可用。",
+    "verticals": [
+      "教程",
+      "运营"
+    ],
+    "position": [
+      "指引"
+    ],
+    "common_combinations": [
+      "➡️",
+      "📌"
+    ],
+    "alternatives": [
+      "👉",
+      "✨"
+    ],
+    "examples": [
+      "回看上一页⬅️"
+    ],
+    "popularity": 68,
+    "tags": [
+      "指引"
+    ]
+  },
+  {
+    "emoji": "6️⃣",
+    "name_zh": "数字六",
+    "name_en": "keycap 6",
+    "category": "符号标记",
+    "tone": [
+      "编号"
+    ],
+    "meaning_xhs": "编号六。",
+    "usage_tips": "长清单用。",
+    "verticals": [
+      "好物推荐",
+      "教程"
+    ],
+    "position": [
+      "列表"
+    ],
+    "common_combinations": [
+      "5️⃣",
+      "7️⃣"
+    ],
+    "alternatives": [
+      "1️⃣",
+      "📌",
+      "✅"
+    ],
+    "examples": [
+      "第六个好物6️⃣"
+    ],
+    "popularity": 68,
+    "tags": [
+      "编号"
+    ]
+  },
+  {
+    "emoji": "🥾",
+    "name_zh": "登山靴",
+    "name_en": "hiking boot",
+    "category": "种草推荐",
+    "tone": [
+      "户外",
+      "耐造"
+    ],
+    "meaning_xhs": "户外鞋靴种草。",
+    "usage_tips": "徒步露营内容适合。",
+    "verticals": [
+      "旅行",
+      "健身"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "⛰️",
+      "✨"
+    ],
+    "alternatives": [
+      "👟",
+      "🧳",
+      "🌲"
+    ],
+    "examples": [
+      "徒步靴子分享🥾"
+    ],
+    "popularity": 67,
+    "tags": [
+      "户外"
+    ]
+  },
+  {
+    "emoji": "✖️",
+    "name_zh": "乘号",
+    "name_en": "multiply",
+    "category": "符号标记",
+    "tone": [
+      "叠乘",
+      "否定"
+    ],
+    "meaning_xhs": "可表叠加倍数，也有打叉意味。",
+    "usage_tips": "注意与叉号区分语境。",
+    "verticals": [
+      "测评",
+      "避坑"
+    ],
+    "position": [
+      "列表"
+    ],
+    "common_combinations": [
+      "❌",
+      "✨"
+    ],
+    "alternatives": [
+      "❌",
+      "🚫",
+      "✅"
+    ],
+    "examples": [
+      "效果不是1✖️1"
+    ],
+    "popularity": 67,
+    "tags": [
+      "标记"
+    ]
+  },
+  {
+    "emoji": "7️⃣",
+    "name_zh": "数字七",
+    "name_en": "keycap 7",
+    "category": "符号标记",
+    "tone": [
+      "编号"
+    ],
+    "meaning_xhs": "编号七。",
+    "usage_tips": "长清单用。",
+    "verticals": [
+      "好物推荐",
+      "教程"
+    ],
+    "position": [
+      "列表"
+    ],
+    "common_combinations": [
+      "6️⃣",
+      "8️⃣"
+    ],
+    "alternatives": [
+      "📌",
+      "✅",
+      "✨"
+    ],
+    "examples": [
+      "第七点7️⃣"
+    ],
+    "popularity": 67,
+    "tags": [
+      "编号"
+    ]
+  },
+  {
+    "emoji": "🥉",
+    "name_zh": "铜牌",
+    "name_en": "3rd place medal",
+    "category": "强调装饰",
+    "tone": [
+      "推荐",
+      "清单"
+    ],
+    "meaning_xhs": "清单第三名标记。",
+    "usage_tips": "三联榜一起出现更完整。",
+    "verticals": [
+      "好物推荐",
+      "测评"
+    ],
+    "position": [
+      "清单"
+    ],
+    "common_combinations": [
+      "🥇",
+      "🥈"
+    ],
+    "alternatives": [
+      "🥇",
+      "🥈",
+      "✨"
+    ],
+    "examples": [
+      "第三也值得🥉",
+      "平替铜牌位🥉"
+    ],
+    "popularity": 66,
+    "tags": [
+      "榜单",
+      "清单"
+    ]
+  },
+  {
+    "emoji": "➖",
+    "name_zh": "减号",
+    "name_en": "minus",
+    "category": "符号标记",
+    "tone": [
+      "减少",
+      "去掉"
+    ],
+    "meaning_xhs": "做减法、去掉某步骤。",
+    "usage_tips": "极简护肤可用。",
+    "verticals": [
+      "护肤",
+      "生活"
+    ],
+    "position": [
+      "对比"
+    ],
+    "common_combinations": [
+      "✨",
+      "✅"
+    ],
+    "alternatives": [
+      "❌",
+      "➡️",
+      "📌"
+    ],
+    "examples": [
+      "步骤做减法➖"
+    ],
+    "popularity": 66,
+    "tags": [
+      "简化"
+    ]
+  },
+  {
+    "emoji": "8️⃣",
+    "name_zh": "数字八",
+    "name_en": "keycap 8",
+    "category": "符号标记",
+    "tone": [
+      "编号"
+    ],
+    "meaning_xhs": "编号八。",
+    "usage_tips": "长清单用。",
+    "verticals": [
+      "好物推荐"
+    ],
+    "position": [
+      "列表"
+    ],
+    "common_combinations": [
+      "7️⃣",
+      "9️⃣"
+    ],
+    "alternatives": [
+      "📌",
+      "✅",
+      "✨"
+    ],
+    "examples": [
+      "第八个8️⃣"
+    ],
+    "popularity": 66,
+    "tags": [
+      "编号"
+    ]
+  },
+  {
+    "emoji": "🔕",
+    "name_zh": "禁铃",
+    "name_en": "bell with slash",
+    "category": "符号标记",
+    "tone": [
+      "免打扰",
+      "安静"
+    ],
+    "meaning_xhs": "免打扰或安静模式。",
+    "usage_tips": "专注生活内容可用。",
+    "verticals": [
+      "生活",
+      "职场"
+    ],
+    "position": [
+      "氛围句"
+    ],
+    "common_combinations": [
+      "💤",
+      "✨"
+    ],
+    "alternatives": [
+      "🔔",
+      "😌",
+      "🌙"
+    ],
+    "examples": [
+      "今日免打扰🔕"
+    ],
+    "popularity": 66,
+    "tags": [
+      "安静"
+    ]
+  },
+  {
+    "emoji": "❔",
+    "name_zh": "白问号",
+    "name_en": "white question mark",
+    "category": "强调装饰",
+    "tone": [
+      "好奇",
+      "轻问"
+    ],
+    "meaning_xhs": "比红色问号更轻，适合轻松疑问。",
+    "usage_tips": "软萌内容更搭。",
+    "verticals": [
+      "生活",
+      "穿搭"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "❓",
+      "🥺"
+    ],
+    "alternatives": [
+      "❓",
+      "🤔",
+      "✨"
+    ],
+    "examples": [
+      "这样搭可以吗❔",
+      "还有谁不知❔"
+    ],
+    "popularity": 65,
+    "tags": [
+      "设问"
+    ]
+  },
+  {
+    "emoji": "🆔",
+    "name_zh": "ID",
+    "name_en": "ID button",
+    "category": "符号标记",
+    "tone": [
+      "身份",
+      "标签"
+    ],
+    "meaning_xhs": "身份标签或合集 ID 感。",
+    "usage_tips": "人设标签玩法可用。",
+    "verticals": [
+      "运营",
+      "生活"
+    ],
+    "position": [
+      "标题"
+    ],
+    "common_combinations": [
+      "✨",
+      "📌"
+    ],
+    "alternatives": [
+      "🔖",
+      "📌",
+      "⭐"
+    ],
+    "examples": [
+      "学生党ID🆔"
+    ],
+    "popularity": 65,
+    "tags": [
+      "标签"
+    ]
+  },
+  {
+    "emoji": "9️⃣",
+    "name_zh": "数字九",
+    "name_en": "keycap 9",
+    "category": "符号标记",
+    "tone": [
+      "编号"
+    ],
+    "meaning_xhs": "编号九。",
+    "usage_tips": "长清单用。",
+    "verticals": [
+      "好物推荐"
+    ],
+    "position": [
+      "列表"
+    ],
+    "common_combinations": [
+      "8️⃣",
+      "🔟"
+    ],
+    "alternatives": [
+      "📌",
+      "✅",
+      "✨"
+    ],
+    "examples": [
+      "第九点9️⃣"
+    ],
+    "popularity": 65,
+    "tags": [
+      "编号"
+    ]
+  },
+  {
+    "emoji": "❕",
+    "name_zh": "白感叹",
+    "name_en": "white exclamation mark",
+    "category": "强调装饰",
+    "tone": [
+      "提醒",
+      "轻提示"
+    ],
+    "meaning_xhs": "轻度提示，语气比红色柔和。",
+    "usage_tips": "温柔提醒可用。",
+    "verticals": [
+      "生活",
+      "教程"
+    ],
+    "position": [
+      "注意事项"
+    ],
+    "common_combinations": [
+      "❗️",
+      "✨"
+    ],
+    "alternatives": [
+      "❗️",
+      "‼️",
+      "📌"
+    ],
+    "examples": [
+      "小提醒❕",
+      "别忘了防晒❕"
+    ],
+    "popularity": 64,
+    "tags": [
+      "提醒"
+    ]
+  },
+  {
+    "emoji": "*️⃣",
+    "name_zh": "星号键",
+    "name_en": "keycap *",
+    "category": "符号标记",
+    "tone": [
+      "注记",
+      "补充"
+    ],
+    "meaning_xhs": "补充注记符号。",
+    "usage_tips": "脚注说明可用。",
+    "verticals": [
+      "教程",
+      "职场"
+    ],
+    "position": [
+      "注释"
+    ],
+    "common_combinations": [
+      "📌",
+      "❗️"
+    ],
+    "alternatives": [
+      "※",
+      "📌",
+      "❗️"
+    ],
+    "examples": [
+      "补充说明*️⃣"
+    ],
+    "popularity": 62,
+    "tags": [
+      "注释"
+    ]
+  },
+  {
+    "emoji": "➗",
+    "name_zh": "除号",
+    "name_en": "division sign",
+    "category": "符号标记",
+    "tone": [
+      "分割",
+      "厘清"
+    ],
+    "meaning_xhs": "较少见，可用于分割维度说明。",
+    "usage_tips": "硬核拆解偶尔用。",
+    "verticals": [
+      "测评",
+      "职场"
+    ],
+    "position": [
+      "小标题"
+    ],
+    "common_combinations": [
+      "📌",
+      "💡"
+    ],
+    "alternatives": [
+      "➕",
+      "➖",
+      "📌"
+    ],
+    "examples": [
+      "成本结构➗拆开看"
+    ],
+    "popularity": 60,
+    "tags": [
+      "拆解"
+    ]
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "name": "@xhs/minitool-validate",
+  "version": "0.1.0",
+  "private": true,
+  "description": "小红书小工具静态兼容性校验（Python validator 的 Node 封装）",
+  "type": "module",
+  "bin": {
+    "minitool-validate": "./bin/minitool-validate.mjs"
+  },
+  "exports": {
+    ".": "./index.js"
+  },
+  "files": [
+    "bin",
+    "scripts",
+    "index.js"
+  ],
+  "engines": {
+    "node": ">=18.17.0"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "shu-emoji",
+  "version": "1.1.0",
+  "private": true,
+  "description": "薯 Emoji - 小红书表情含义与用法离线小工具",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && minitool-pack",
+    "preview": "vite preview --port 5174",
+    "validate": "minitool-validate xhs-tool --strict"
+  },
+  "devDependencies": {
+    "@xhs/minitool-pack": "workspace:*",
+    "@xhs/minitool-validate": "workspace:*",
+    "@xhs/minitool-vite-config": "workspace:*",
+    "vite": "^6.3.5"
+  },
+  "engines": {
+    "node": ">=18.17.0"
+  }
+}

@@ -1,0 +1,81 @@
+:root {
+  /* 软萌治愈 · 更克制的粉 */
+  --rose-50: #fff7fa;
+  --rose-100: #ffe8f0;
+  --rose-200: #ffd0e0;
+  --rose-300: #ffb0cc;
+  --rose-400: #ff8fba;
+  --rose-500: #f56ea6;
+  --ink: #3d3438;
+  --ink-soft: #8a7a82;
+  --ink-faint: #b5a4ab;
+  --paper: #ffffff;
+  --lilac: #c4b5fd;
+
+  --color-primary: var(--rose-400);
+  --color-secondary: var(--rose-300);
+  --color-bg: var(--rose-50);
+  --color-card: #fff1f6;
+  --color-border: var(--rose-200);
+  --color-text: var(--ink);
+  --color-text-soft: var(--ink-soft);
+  --color-accent: var(--lilac);
+  --color-glow: var(--rose-100);
+  --color-white: var(--paper);
+
+  --gradient-btn: linear-gradient(135deg, #ff8fba 0%, #ffb0cc 55%, #ffc2d4 100%);
+  --gradient-card: linear-gradient(165deg, #ffffff 0%, #fff4f8 100%);
+  --gradient-hero: radial-gradient(ellipse 90% 70% at 50% 20%, #ffe4ef 0%, #fff7fa 62%, transparent 100%);
+  --gradient-stage: radial-gradient(circle at 50% 45%, #ffe8f0 0%, #fff7fa 58%, #fff1f6 100%);
+
+  --shadow-soft: 0 8px 24px rgba(245, 110, 166, 0.1);
+  --shadow-card: 0 10px 28px rgba(245, 110, 166, 0.12);
+  --shadow-float: 0 12px 40px rgba(61, 52, 56, 0.08), 0 4px 14px rgba(245, 110, 166, 0.14);
+  --shadow-press: 0 4px 12px rgba(245, 110, 166, 0.16);
+
+  --radius-xl: 28px;
+  --radius-lg: 22px;
+  --radius-md: 18px;
+  --radius-sm: 14px;
+  --radius-pill: 999px;
+
+  --page-pad: 22px;
+  /* 设计上边距（叠在安全区 / 容器顶栏避让之上） */
+  --page-pad-top: 12px;
+  /*
+   * 容器返回 / 分享 / 更多常叠在 WebView 顶部，且 inset 可能为 0。
+   * 用 max(系统 inset, 顶栏保底) 保证可操作区下移出状态栏与容器按钮。
+   */
+  --chrome-top: 76px;
+
+  /*
+   * 安全区：逐行覆盖（旧 WebKit 认 constant，现代认 env）。
+   * PC 模拟器多为 0；真机 notch / Home Indicator 才有值。
+   */
+  --sat: 0px;
+  --sat: constant(safe-area-inset-top, 0px);
+  --sat: env(safe-area-inset-top, 0px);
+  --sar: 0px;
+  --sar: constant(safe-area-inset-right, 0px);
+  --sar: env(safe-area-inset-right, 0px);
+  --sab: 0px;
+  --sab: constant(safe-area-inset-bottom, 0px);
+  --sab: env(safe-area-inset-bottom, 0px);
+  --sal: 0px;
+  --sal: constant(safe-area-inset-left, 0px);
+  --sal: env(safe-area-inset-left, 0px);
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+
+  --font-display: 'ZCOOL KuaiLe', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  --font-body: 'PingFang SC', 'Hiragino Sans GB', 'Noto Sans SC', 'Microsoft YaHei', ui-rounded,
+    system-ui, sans-serif;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+}
