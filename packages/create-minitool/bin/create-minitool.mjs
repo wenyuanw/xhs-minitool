@@ -9,7 +9,7 @@ import {
   writeFileSync,
 } from 'node:fs';
 import { createInterface } from 'node:readline/promises';
-import { dirname, join, relative, resolve } from 'node:path';
+import { dirname, join, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { stdin as input, stdout as output } from 'node:process';
 
@@ -96,6 +96,8 @@ function createProject(targetDir, vars) {
   cpSync(TEMPLATE_DIR, targetDir, { recursive: true });
 
   for (const file of walkFiles(targetDir)) {
+    // Keep agent skills as-is (no placeholder substitution)
+    if (file.split(sep).includes('.agents')) continue;
     if (/\.(png|jpe?g|gif|webp|woff2?|ico)$/i.test(file)) continue;
     const raw = readFileSync(file, 'utf8');
     const next = applyPlaceholders(raw, vars);

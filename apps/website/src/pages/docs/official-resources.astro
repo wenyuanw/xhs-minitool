@@ -1,0 +1,57 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+---
+
+<DocsLayout
+  slug="official-resources"
+  title="官方资源"
+  description="小红书小工具官方规范、操作指南与能力清单。"
+>
+  <h1>官方资源</h1>
+  <p>以下为小红书公开的小工具规范与说明，建议在开发 / 打包前阅读。</p>
+
+  <h2>规范 Skill（zip 构建）</h2>
+  <p>官方要求可概括为：</p>
+  <pre><code>从 https://fe-static.xhscdn.com/mini-tool/1.2.0/minitool-zip-builder.zip 下载 skill，解压到工作区（Cursor/Claude Code → .claude/，Codex → .codex/，其余 → .skill/），读取 SKILL.md，对当前工作区产物按指引校验、修复并打包，输出校验摘要和产物路径。</code></pre>
+  <p>
+    Skill 下载：
+    <a
+      href="https://fe-static.xhscdn.com/mini-tool/1.2.0/minitool-zip-builder.zip"
+      target="_blank"
+      rel="noopener"
+      >minitool-zip-builder.zip</a
+    >
+  </p>
+  <p>
+    本仓库 / 脚手架已内置对应内容于 <code>.agents/skills/</code>（如
+    <code>minitool-zip-builder</code>），也可直接使用官方 zip 同步最新指引。
+  </p>
+
+  <h2>操作指南</h2>
+  <p>
+    <a
+      href="https://fe.xiaohongshu.com/ditto/vincent/0df3caa3417d4c008b2c06689cf1653a?naviHidden=yes&fullscreen=true&source=wowcard"
+      target="_blank"
+      rel="noopener"
+      >小工具操作指南</a
+    >
+  </p>
+
+  <h2>能力清单</h2>
+  <p>
+    <a
+      href="https://fe.xiaohongshu.com/ditto/vincent/9e60cefbd7024e1cb783383308cb1aa5?naviHidden=yes&fullscreen=true&source=splash"
+      target="_blank"
+      rel="noopener"
+      >小工具能力清单</a
+    >
+  </p>
+
+  <h2>创作服务平台</h2>
+  <p>
+    上传 zip 并部署预览：
+    <a href="https://creator.xiaohongshu.com/new/red-app" target="_blank" rel="noopener"
+      >创作服务平台 · 小工具</a
+    >
+  </p>
+</DocsLayout>
