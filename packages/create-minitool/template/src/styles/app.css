@@ -40,6 +40,21 @@ body {
   gap: 20px;
 }
 
+.hero {
+  text-align: center;
+}
+
+.logo {
+  display: block;
+  width: 96px;
+  height: 96px;
+  margin: 4px auto 18px;
+  border-radius: 24px;
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / 55%) inset,
+    0 14px 32px rgb(255 36 66 / 28%);
+}
+
 .hero h1 {
   margin: 0 0 8px;
   font-size: 1.75rem;
@@ -70,21 +85,44 @@ body {
   margin: 0 0 14px;
   line-height: 1.6;
   color: var(--muted);
+  text-align: center;
 }
 
-.btn {
+.counter {
   appearance: none;
+  width: 100%;
   border: 0;
-  border-radius: 999px;
-  padding: 12px 18px;
-  background: var(--accent);
+  border-radius: 20px;
+  padding: 28px 16px;
+  background: linear-gradient(160deg, #ff4d67, var(--accent));
   color: #fff;
-  font-size: 0.95rem;
-  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
 }
 
-.btn:active {
+.counter:active {
   transform: scale(0.98);
+}
+
+.counter.pop .counter-value {
+  animation: pop 0.28s ease;
+}
+
+.counter-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.counter-value {
+  font-size: 3.25rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
 }
 
 .toast {
@@ -99,4 +137,16 @@ body {
   color: #fff;
   font-size: 0.875rem;
   z-index: 100;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.18);
+  }
+  100% {
+    transform: scale(1);
+  }
 }

@@ -4,6 +4,13 @@
 
 - GitHub：https://github.com/wenyuanw/xhs-minitool
 - npm：https://www.npmjs.com/package/create-xhs-minitool
+- 官网：https://xhs-minitool.wenyuanw.me
+
+## 创作服务平台预览
+
+在 [小红书创作服务平台](https://creator.xiaohongshu.com/new/red-app) 上传 zip 并部署后的预览示意（示例：`hello-minitool`）：
+
+![小红书创作服务平台中的小工具预览](docs/creator-platform-preview.png)
 
 ## npx 创建独立项目
 
@@ -92,6 +99,8 @@ pnpm --filter <name> validate
 | `pnpm release:check` | 对各 package 做 pack dry-run |
 
 ## 官网
+
+线上：https://xhs-minitool.wenyuanw.me
 
 [`apps/website`](apps/website) 为 Astro 纯静态站，部署到 Cloudflare Workers Static Assets：
 

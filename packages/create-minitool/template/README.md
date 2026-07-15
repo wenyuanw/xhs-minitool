@@ -4,19 +4,21 @@
 
 {{description}}
 
-## 开发
+内置示例：logo + 点击计数（localStorage）。
 
-在 monorepo 根目录：
+## 开发
 
 ```bash
 pnpm install
-pnpm --filter {{name}} dev
+pnpm dev
 ```
+
+Monorepo 内也可用：`pnpm --filter {{name}} dev`
 
 ## 打包
 
 ```bash
-pnpm --filter {{name}} build
+pnpm build
 ```
 
 产物：
@@ -27,5 +29,5 @@ pnpm --filter {{name}} build
 校验：
 
 ```bash
-pnpm --filter {{name}} validate
+pnpm validate
 ```
