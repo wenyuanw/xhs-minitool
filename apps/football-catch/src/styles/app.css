@@ -96,8 +96,6 @@ body {
   gap: 22px;
   text-align: center;
   z-index: 1;
-  /* optical vertical center: chrome top pad makes true center look low */
-  transform: translateY(-4vh);
 }
 
 .home-decor {
