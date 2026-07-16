@@ -1,11 +1,11 @@
 # AGENTS.md — 小红书小工具项目规范
 
-本文件是本仓库的**项目级 Agent 规范**。开发、改版、审查任何小工具（`apps/*`、脚手架模板）时，除遵守 `.agents/skills/` 下的技能与 reference 外，还必须遵守本文。
+本文件位于 `.agents/AGENTS.md`，是本仓库的**项目级 Agent 规范**。开发、改版、审查任何小工具（`apps/*`、脚手架模板）时，除遵守同目录下 `skills/` 中的技能与 reference 外，还必须遵守本文。
 
 相关技能（细节以技能文档为准）：
 
-- `.agents/skills/xiaohongshu-mini-tool-dev/` — 容器能力、离线约束、发布审查
-- `.agents/skills/minitool-zip-builder/` — zip 产物、端能力、跨端适配
+- `skills/xiaohongshu-mini-tool-dev/` — 容器能力、离线约束、发布审查
+- `skills/minitool-zip-builder/` — zip 产物、端能力、跨端适配
 
 ---
 

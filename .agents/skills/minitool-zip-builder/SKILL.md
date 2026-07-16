@@ -24,7 +24,7 @@ metadata:
 
 1. **编写 / 适配 HTML** — 先读 [zip-artifact-spec.md](references/zip-artifact-spec.md)：目录结构、`index.html` 模板、路径与资源引用规则，按其编写
 2. **端能力合规** — 先读 [device-capabilities.md](references/device-capabilities.md)：对照「不可用能力 / 行为」逐项扫描原代码，移除或改用其给出的替代写法
-3. **跨端适配** — 先读 [cross-platform-h5.md](references/cross-platform-h5.md)：触摸、滚动、安全区、PC vs 真机差异
+3. **跨端适配** — 先读 [cross-platform-h5.md](references/cross-platform-h5.md)：触摸、滚动、安全区、PC vs 真机差异；顶部避让与 Logo/标题居中见仓库 [AGENTS.md](../../AGENTS.md)
 4. **改写正确性自查** — 静态核对改写没把应用改坏（被禁 API 无残留调用、脚本加载顺序、引用资源都在 zip 内、未误改业务逻辑），见 [zip-artifact-spec.md](references/zip-artifact-spec.md) 自检清单
 5. **打包** — 逐条核对各 reference 末尾的自检清单，全部通过后再打包
 
