@@ -4,18 +4,8 @@
   <rect x="34" y="60" width="124" height="84" rx="8" stroke="#FFFFFF" stroke-width="8"/>
   <path d="M42 72h108M42 90h108M42 108h108M42 126h108" stroke="#FFFFFF" stroke-width="3" opacity=".4"/>
   <path d="M58 60v84M78 60v84M96 60v84M114 60v84M134 60v84" stroke="#FFFFFF" stroke-width="3" opacity=".4"/>
-  <ellipse cx="100" cy="160" rx="28" ry="7" fill="#1A2744" opacity=".2"/>
   <circle cx="96" cy="132" r="30" fill="#FFFFFF"/>
-  <circle cx="96" cy="132" r="30" fill="url(#ballG)" opacity=".95"/>
-  <path d="M96 111.5l7.2 14.1 15.6 2.3-11.3 11 2.7 15.5L96 146.4l-14.2 7.5 2.7-15.5-11.3-11 15.6-2.3L96 111.5z" fill="#1A1A1A"/>
-  <path d="M82.8 125.2l-12.6 9M109.2 125.2l12.6 9M89.1 145.2l-6.9 15M102.9 145.2l6.9 15M96 111.5V102" stroke="#2A2A2A" stroke-width="2.2" stroke-linecap="round" opacity=".4"/>
-  <circle cx="85" cy="120" r="7.5" fill="#FFFFFF" opacity=".5"/>
+  <polygon points="96,115.5 111.7,126.9 105.7,145.4 86.3,145.4 80.3,126.9" fill="#111111"/>
+  <path d="M96 115.5v-12M80.3 126.9l-13.5 8.5M111.7 126.9l13.5 8.5M86.3 145.4l-6 13.5M105.7 145.4l6 13.5" stroke="#222222" stroke-width="2.2" stroke-linecap="round" opacity=".45"/>
   <path d="M50 168c16 11 76 11 92 0" stroke="#FF5A3C" stroke-width="7" stroke-linecap="round"/>
-  <defs>
-    <radialGradient id="ballG" cx="34%" cy="28%" r="70%">
-      <stop offset="0%" stop-color="#FFFFFF"/>
-      <stop offset="65%" stop-color="#FFFFFF"/>
-      <stop offset="100%" stop-color="#E2E2E2"/>
-    </radialGradient>
-  </defs>
 </svg>

@@ -4,7 +4,8 @@
   <rect x="90" y="170" width="332" height="230" rx="22" stroke="#FFFFFF" stroke-width="22"/>
   <path d="M112 200h288M112 248h288M112 296h288M112 344h288" stroke="#FFFFFF" stroke-width="8" opacity=".4"/>
   <path d="M154 170v230M210 170v230M256 170v230M302 170v230M358 170v230" stroke="#FFFFFF" stroke-width="8" opacity=".4"/>
-  <circle cx="256" cy="340" r="58" fill="#F4F4F4" stroke="#1A2744" stroke-width="8"/>
-  <path d="M256 282l18.8 37 41 5.9-29.7 28.9 7 40.8L256 374.9l-37.1 19.7 7-40.8-29.7-28.9 41-5.9L256 282z" fill="#1A2744"/>
+  <circle cx="256" cy="340" r="58" fill="#FFFFFF"/>
+  <polygon points="256,308.5 286.4,330.6 274.8,366.2 237.2,366.2 225.6,330.6" fill="#111111"/>
+  <path d="M256 308.5v-24M225.6 330.6l-26 16M286.4 330.6l26 16M237.2 366.2l-12 26M274.8 366.2l12 26" stroke="#222222" stroke-width="6" stroke-linecap="round" opacity=".45"/>
   <path d="M132 422c42 32 206 32 248 0" stroke="#FF5A3C" stroke-width="18" stroke-linecap="round"/>
 </svg>
