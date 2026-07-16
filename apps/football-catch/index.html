@@ -39,7 +39,7 @@
                 alt=""
               />
               <h1 class="tool-brand__title">绿茵门神</h1>
-              <p class="tool-brand__desc">左右移动球门，接住足球，小心红黄牌</p>
+              <p class="tool-brand__desc">30 秒冲刺高分，漏接会扣生命</p>
             </header>
 
             <div class="home-actions home-enter home-enter--2">
@@ -55,7 +55,7 @@
             <ul class="howto home-enter home-enter--3" aria-label="玩法说明">
               <li>
                 <img class="howto__icon" src="./icons/item-ball.svg" alt="" width="36" height="36" />
-                <span class="howto__text">接到得分</span>
+                <span class="howto__text">接球得分</span>
               </li>
               <li>
                 <span class="howto__icons">
@@ -77,29 +77,29 @@
         </section>
 
         <section id="screen-play" class="screen screen--play" hidden>
-          <div class="hud" id="hud">
-            <div class="hud__item">
-              <span class="hud__label">得分</span>
-              <span class="hud__value" id="hud-score">0</span>
-            </div>
-            <div class="hud__item">
-              <span class="hud__label">倒计时</span>
-              <span class="hud__value" id="hud-time">60</span>
-            </div>
-            <div class="hud__item">
-              <span class="hud__label">连击</span>
-              <span class="hud__value" id="hud-combo">0</span>
-            </div>
-          </div>
-          <p class="effect-banner" id="effect-banner" hidden></p>
           <div class="pitch-wrap">
-            <canvas id="game" width="360" height="560" aria-label="绿茵门神游戏画布"></canvas>
-          </div>
-          <div class="play-bar">
-            <p class="play-hint">拖动或滑动移动球门</p>
-            <button type="button" class="btn-sound btn-sound--compact" id="btn-sound-play" aria-pressed="false">
-              音效开
-            </button>
+            <div class="hud hud--overlay" id="hud">
+              <div class="hud__item">
+                <span class="hud__label">得分</span>
+                <span class="hud__value" id="hud-score">0</span>
+              </div>
+              <div class="hud__item">
+                <span class="hud__label">倒计时</span>
+                <span class="hud__value" id="hud-time">30</span>
+              </div>
+              <div class="hud__item">
+                <span class="hud__label">生命</span>
+                <span class="hud__value hud__value--lives" id="hud-lives">●●●</span>
+              </div>
+            </div>
+            <p class="effect-banner effect-banner--overlay" id="effect-banner" hidden></p>
+            <canvas id="game" width="360" height="640" aria-label="绿茵门神游戏画布"></canvas>
+            <div class="play-bar play-bar--overlay">
+              <p class="play-hint">拖动球门接球 · 漏接扣命</p>
+              <button type="button" class="btn-sound btn-sound--compact" id="btn-sound-play" aria-pressed="false">
+                音效开
+              </button>
+            </div>
           </div>
         </section>
 

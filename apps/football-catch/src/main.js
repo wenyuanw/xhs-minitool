@@ -16,20 +16,21 @@ import {
 } from './lib/audio.js';
 
 const STORAGE_KEY = 'football-catch-best';
-const ROUND_SECONDS = 60;
+const ROUND_SECONDS = 30;
+const MAX_LIVES = 3;
 
 const TYPES = {
   ball: {
     kind: 'ball',
     label: '足球',
-    weight: 52,
+    weight: 48,
     radius: 20,
     points: 10,
   },
   ballPro: {
     kind: 'ball',
     label: '花式球',
-    weight: 18,
+    weight: 16,
     radius: 18,
     points: 18,
     variant: 'pro',
@@ -37,38 +38,38 @@ const TYPES = {
   golden: {
     kind: 'bonus',
     label: '金球',
-    weight: 8,
+    weight: 7,
     radius: 19,
-    points: 35,
+    points: 40,
   },
   clock: {
     kind: 'bonus',
     label: '加时',
-    weight: 8,
+    weight: 4,
     radius: 16,
-    timeBonus: 5,
+    timeBonus: 2,
   },
   boost: {
     kind: 'bonus',
     label: '激励',
-    weight: 6,
+    weight: 5,
     radius: 16,
     scoreMult: 2,
-    duration: 6,
+    duration: 5,
   },
   yellow: {
     kind: 'penalty',
     label: '黄牌',
-    weight: 5,
+    weight: 8,
     radius: 15,
-    slowDuration: 7,
+    slowDuration: 4,
   },
   red: {
     kind: 'penalty',
     label: '红牌',
-    weight: 3,
+    weight: 6,
     radius: 15,
-    scorePenalty: 25,
+    scorePenalty: 30,
   },
 };
 
@@ -81,7 +82,7 @@ const els = {
   homeBest: document.querySelector('#home-best'),
   hudScore: document.querySelector('#hud-score'),
   hudTime: document.querySelector('#hud-time'),
-  hudCombo: document.querySelector('#hud-combo'),
+  hudLives: document.querySelector('#hud-lives'),
   effectBanner: document.querySelector('#effect-banner'),
   canvas: document.querySelector('#game'),
   overScore: document.querySelector('#over-score'),
@@ -100,6 +101,7 @@ const state = {
   mode: 'home',
   score: 0,
   timeLeft: ROUND_SECONDS,
+  lives: MAX_LIVES,
   combo: 0,
   best: readBest(),
   items: [],
@@ -151,10 +153,10 @@ function resizeCanvas() {
   const wrap = els.canvas.parentElement;
   if (!wrap) return;
   const cssW = wrap.clientWidth;
-  const cssH = Math.min(wrap.clientHeight || cssW * 1.45, window.innerHeight * 0.68);
+  const cssH = Math.max(320, wrap.clientHeight);
   const dpr = Math.min(window.devicePixelRatio || 1, 2);
   const w = Math.max(280, Math.floor(cssW));
-  const h = Math.max(360, Math.floor(cssH || w * 1.45));
+  const h = Math.max(360, Math.floor(cssH));
   els.canvas.width = Math.floor(w * dpr);
   els.canvas.height = Math.floor(h * dpr);
   els.canvas.style.width = `${w}px`;
@@ -165,19 +167,30 @@ function resizeCanvas() {
 function goalMetrics() {
   const w = els.canvas.clientWidth;
   const h = els.canvas.clientHeight;
-  const goalW = Math.min(118, w * 0.34);
-  const goalH = 46;
+  // goal shrinks as pressure rises
+  const shrink = Math.min(0.22, state.elapsed * 0.006);
+  const goalW = Math.min(110, w * (0.34 - shrink));
+  const goalH = 44;
   const x = state.goalX * (w - goalW);
-  const y = h - goalH - 18;
+  const y = h - goalH - 56; // leave room for overlay play-bar
   return { w, h, goalW, goalH, x, y };
 }
 
 function pickType() {
-  const total = TYPE_LIST.reduce((s, t) => s + t.weight, 0);
+  const t = state.elapsed;
+  const weighted = TYPE_LIST.map((type) => {
+    let w = type.weight;
+    if (type.label === '红牌') w += t * 0.45;
+    if (type.label === '黄牌') w += t * 0.3;
+    if (type.timeBonus) w = Math.max(1.5, w - t * 0.12);
+    if (type.label === '金球') w = Math.max(3, w - t * 0.05);
+    return { type, w };
+  });
+  const total = weighted.reduce((s, x) => s + x.w, 0);
   let r = Math.random() * total;
-  for (const t of TYPE_LIST) {
-    r -= t.weight;
-    if (r <= 0) return t;
+  for (const entry of weighted) {
+    r -= entry.w;
+    if (r <= 0) return entry.type;
   }
   return TYPES.ball;
 }
@@ -186,14 +199,16 @@ function spawnItem() {
   const { w } = goalMetrics();
   const type = pickType();
   const margin = type.radius + 8;
+  const speedRamp = 170 + Math.random() * 55 + state.elapsed * 5.5;
   state.items.push({
     ...type,
     x: margin + Math.random() * (w - margin * 2),
     y: -type.radius - 8,
-    vy: 110 + Math.random() * 40 + state.elapsed * 2.2,
+    vy: speedRamp,
     spin: Math.random() * Math.PI * 2,
-    spinSpeed: (Math.random() * 3 + 1.5) * (Math.random() < 0.5 ? -1 : 1),
+    spinSpeed: (Math.random() * 4 + 2) * (Math.random() < 0.5 ? -1 : 1),
     wobble: Math.random() * Math.PI * 2,
+    wobbleAmp: 18 + Math.min(22, state.elapsed * 0.8),
   });
 }
 
@@ -230,30 +245,47 @@ function setEffectBanner() {
   }
 }
 
+function livesGlyph() {
+  return '●'.repeat(Math.max(0, state.lives)) + '○'.repeat(Math.max(0, MAX_LIVES - state.lives));
+}
+
 function updateHud() {
   els.hudScore.textContent = String(state.score);
   els.hudTime.textContent = String(Math.max(0, Math.ceil(state.timeLeft)));
-  els.hudCombo.textContent = String(state.combo);
+  if (els.hudLives) els.hudLives.textContent = livesGlyph();
   setEffectBanner();
 }
 
+function loseLife(reason) {
+  if (state.mode !== 'play') return;
+  state.lives = Math.max(0, state.lives - 1);
+  state.combo = 0;
+  state.shake = 12;
+  showToast(reason);
+  sfxMiss();
+  if (state.lives <= 0) {
+    endGame();
+  }
+}
+
 function applyCatch(item) {
+  if (state.mode !== 'play') return;
   const { x, y } = item;
 
   if (item.kind === 'ball' || item.label === '金球') {
     const gain = Math.round((item.points || 0) * state.scoreMult);
     state.score += gain;
     state.combo += 1;
-    const bonus = state.combo >= 5 ? Math.floor(state.combo / 5) * 2 : 0;
+    const bonus = state.combo >= 4 ? Math.floor(state.combo / 4) * 3 : 0;
     if (bonus) state.score += bonus;
-    addFloat(x, y, `+${gain}${bonus ? ` 连击` : ''}`, item.label === '金球' ? '#d4a017' : '#f4fff0');
-    burst(x, y, item.label === '金球' ? '#f3d16b' : '#ffffff', 12);
+    addFloat(x, y, `+${gain}${bonus ? ` 连击` : ''}`, item.label === '金球' ? '#ffd24a' : '#ffffff');
+    burst(x, y, item.label === '金球' ? '#ffd24a' : '#ffffff', 12);
     sfxCatch(item.label === '金球' ? 'gold' : 'ball');
     return;
   }
 
   if (item.timeBonus) {
-    state.timeLeft += item.timeBonus;
+    state.timeLeft = Math.min(ROUND_SECONDS + 8, state.timeLeft + item.timeBonus);
     state.combo += 1;
     addFloat(x, y, `+${item.timeBonus}秒`, '#9fe7ff');
     burst(x, y, '#7fd4ff', 12);
@@ -275,12 +307,12 @@ function applyCatch(item) {
 
   if (item.slowDuration) {
     state.yellowLeft = item.slowDuration;
-    state.fallMult = 0.55;
+    state.fallMult = 0.62;
     state.combo = 0;
-    addFloat(x, y, '黄牌!', '#e8b923');
-    burst(x, y, '#e8b923', 10);
+    addFloat(x, y, '黄牌!', '#ffc400');
+    burst(x, y, '#ffc400', 10);
     state.shake = 8;
-    showToast('黄牌：掉落速度变慢');
+    showToast('黄牌：掉落变慢');
     sfxCard('yellow');
     return;
   }
@@ -297,9 +329,9 @@ function applyCatch(item) {
 }
 
 function missItem(item) {
+  if (state.mode !== 'play') return;
   if (item.kind === 'ball' || item.label === '金球') {
-    state.combo = 0;
-    sfxMiss();
+    loseLife(item.label === '金球' ? '漏接金球，生命 -1' : '漏接足球，生命 -1');
   }
 }
 
@@ -327,21 +359,24 @@ function update(dt) {
 
   if (state.shake > 0) state.shake = Math.max(0, state.shake - dt * 40);
 
-  const spawnInterval = Math.max(0.38, 0.95 - state.elapsed * 0.012);
+  // denser spawn over time
+  const spawnInterval = Math.max(0.22, 0.72 - state.elapsed * 0.018);
   state.spawnAcc += dt;
   while (state.spawnAcc >= spawnInterval) {
     state.spawnAcc -= spawnInterval;
     spawnItem();
+    // late game occasionally double-drop
+    if (state.elapsed > 12 && Math.random() < 0.28) spawnItem();
   }
 
   const { h, goalW, goalH, x: gx, y: gy } = goalMetrics();
-  const catchPad = 6;
+  const catchPad = 4;
 
   for (const item of state.items) {
     item.y += item.vy * dt * state.fallMult;
     item.spin += item.spinSpeed * dt;
-    item.wobble += dt * 3;
-    item.x += Math.sin(item.wobble) * 12 * dt;
+    item.wobble += dt * 3.4;
+    item.x += Math.sin(item.wobble) * (item.wobbleAmp || 16) * dt;
 
     const inX = item.x > gx - catchPad && item.x < gx + goalW + catchPad;
     const inY = item.y + item.radius > gy + 8 && item.y - item.radius < gy + goalH;
@@ -372,7 +407,7 @@ function update(dt) {
 
   updateHud();
 
-  if (state.timeLeft <= 0) {
+  if (state.mode === 'play' && state.timeLeft <= 0) {
     endGame();
   }
 }
@@ -486,42 +521,39 @@ function regularPolyPoints(cx, cy, radius, sides, rotation) {
   return pts;
 }
 
-/** Classic Telstar ball with spherical wrap + leather lighting. */
+/** Classic Telstar ball — crisp white / vivid gold leather. */
 function drawBall(item) {
   const { x, y, radius: R, spin } = item;
   const isGold = item.label === '金球';
   const isPro = item.variant === 'pro';
-  const panel = isGold ? '#5a3e05' : '#111111';
-  const seam = isGold ? 'rgba(60,40,0,0.7)' : 'rgba(15,15,15,0.62)';
+  const panel = isGold ? '#8a5a00' : '#1a1a1a';
+  const seam = isGold ? 'rgba(120,70,0,0.45)' : 'rgba(40,40,40,0.4)';
 
   ctx.save();
   ctx.translate(x, y);
 
   // contact shadow
-  ctx.fillStyle = 'rgba(26,39,68,0.22)';
+  ctx.fillStyle = 'rgba(26,39,68,0.18)';
   ctx.beginPath();
-  ctx.ellipse(R * 0.05, R * 0.96, R * 0.72, R * 0.2, 0, 0, Math.PI * 2);
+  ctx.ellipse(R * 0.05, R * 0.96, R * 0.7, R * 0.18, 0, 0, Math.PI * 2);
   ctx.fill();
 
   ctx.rotate(spin);
 
-  // base leather sphere
-  const body = ctx.createRadialGradient(-R * 0.45, -R * 0.5, R * 0.04, R * 0.2, R * 0.25, R);
+  // base leather — keep body clearly white or golden
+  const body = ctx.createRadialGradient(-R * 0.42, -R * 0.48, R * 0.05, R * 0.12, R * 0.18, R);
   if (isGold) {
-    body.addColorStop(0, '#fff9d8');
-    body.addColorStop(0.35, '#f3c840');
-    body.addColorStop(0.72, '#c98c0e');
-    body.addColorStop(1, '#6e4c06');
-  } else if (isPro) {
-    body.addColorStop(0, '#ffffff');
-    body.addColorStop(0.4, '#f3f6fb');
-    body.addColorStop(0.78, '#c9d3e2');
-    body.addColorStop(1, '#7f8ea3');
+    body.addColorStop(0, '#fff4a8');
+    body.addColorStop(0.28, '#ffd54a');
+    body.addColorStop(0.62, '#ffb400');
+    body.addColorStop(0.88, '#f0a000');
+    body.addColorStop(1, '#d48900');
   } else {
+    // pure white leather with only a soft limb shade
     body.addColorStop(0, '#ffffff');
-    body.addColorStop(0.38, '#f4f4f4');
-    body.addColorStop(0.75, '#cfcfcf');
-    body.addColorStop(1, '#7a7a7a');
+    body.addColorStop(0.55, '#ffffff');
+    body.addColorStop(0.82, '#f3f3f3');
+    body.addColorStop(1, '#e0e0e0');
   }
   ctx.beginPath();
   ctx.arc(0, 0, R, 0, Math.PI * 2);
@@ -533,15 +565,13 @@ function drawBall(item) {
   ctx.arc(0, 0, R - 0.5, 0, Math.PI * 2);
   ctx.clip();
 
-  // pattern designed in unit disk, then sphere-mapped
-  // keep plenty of white leather so it reads as a soccer ball at small size
-  const cR = 0.32;
+  const cR = isGold ? 0.28 : 0.3;
   pathMappedPolygon(regularPolyPoints(0, 0, cR, 5, -Math.PI / 2), R);
   ctx.fillStyle = panel;
   ctx.fill();
 
   ctx.strokeStyle = seam;
-  ctx.lineWidth = Math.max(1.05, R * 0.055);
+  ctx.lineWidth = Math.max(1, R * 0.05);
   ctx.lineJoin = 'round';
   ctx.lineCap = 'round';
 
@@ -551,25 +581,26 @@ function drawBall(item) {
     const mid = (a0 + a1) / 2;
     const pts = [
       { x: Math.cos(a0) * cR, y: Math.sin(a0) * cR },
-      { x: Math.cos(a0) * 0.52, y: Math.sin(a0) * 0.52 },
-      { x: Math.cos(mid - Math.PI / 10) * 0.8, y: Math.sin(mid - Math.PI / 10) * 0.8 },
-      { x: Math.cos(mid + Math.PI / 10) * 0.8, y: Math.sin(mid + Math.PI / 10) * 0.8 },
-      { x: Math.cos(a1) * 0.52, y: Math.sin(a1) * 0.52 },
+      { x: Math.cos(a0) * 0.5, y: Math.sin(a0) * 0.5 },
+      { x: Math.cos(mid - Math.PI / 10) * 0.78, y: Math.sin(mid - Math.PI / 10) * 0.78 },
+      { x: Math.cos(mid + Math.PI / 10) * 0.78, y: Math.sin(mid + Math.PI / 10) * 0.78 },
+      { x: Math.cos(a1) * 0.5, y: Math.sin(a1) * 0.5 },
       { x: Math.cos(a1) * cR, y: Math.sin(a1) * cR },
     ];
     pathMappedPolygon(pts, R);
     ctx.stroke();
   }
 
-  // edge black pentagons — smaller so white panels stay dominant
-  for (let i = 0; i < 5; i += 1) {
-    const a = -Math.PI / 2 + (i * Math.PI * 2) / 5 + Math.PI / 5;
-    const cx = Math.cos(a) * 0.78;
-    const cy = Math.sin(a) * 0.78;
-    const local = regularPolyPoints(0, 0, 0.155, 5, a + Math.PI / 2);
+  // fewer / smaller edge panels so white & gold stay dominant
+  const edgeCount = isGold ? 3 : 5;
+  for (let i = 0; i < edgeCount; i += 1) {
+    const a = -Math.PI / 2 + (i * Math.PI * 2) / edgeCount + Math.PI / edgeCount;
+    const cx = Math.cos(a) * 0.8;
+    const cy = Math.sin(a) * 0.8;
+    const local = regularPolyPoints(0, 0, isGold ? 0.12 : 0.14, 5, a + Math.PI / 2);
     const pts = local.map((p) => ({
-      x: cx + p.x * Math.cos(a + Math.PI) - p.y * Math.sin(a + Math.PI) * 0.7,
-      y: cy + p.x * Math.sin(a + Math.PI) + p.y * Math.cos(a + Math.PI) * 0.7,
+      x: cx + p.x * Math.cos(a + Math.PI) - p.y * Math.sin(a + Math.PI) * 0.65,
+      y: cy + p.x * Math.sin(a + Math.PI) + p.y * Math.cos(a + Math.PI) * 0.65,
     }));
     pathMappedPolygon(pts, R);
     ctx.fillStyle = panel;
@@ -577,9 +608,8 @@ function drawBall(item) {
   }
 
   if (isPro) {
-    // accent arc also follows the limb
-    ctx.strokeStyle = 'rgba(255,90,60,0.92)';
-    ctx.lineWidth = Math.max(1.7, R * 0.1);
+    ctx.strokeStyle = 'rgba(255,90,60,0.95)';
+    ctx.lineWidth = Math.max(1.8, R * 0.1);
     ctx.beginPath();
     for (let t = 0; t <= 1; t += 0.04) {
       const ang = 0.45 + t * (Math.PI - 0.9);
@@ -592,27 +622,24 @@ function drawBall(item) {
 
   ctx.restore();
 
-  // leather rim
-  ctx.strokeStyle = 'rgba(0,0,0,0.2)';
-  ctx.lineWidth = Math.max(1, R * 0.04);
+  ctx.strokeStyle = isGold ? 'rgba(180,110,0,0.35)' : 'rgba(0,0,0,0.14)';
+  ctx.lineWidth = Math.max(1, R * 0.035);
   ctx.beginPath();
   ctx.arc(0, 0, R, 0, Math.PI * 2);
   ctx.stroke();
 
-  // soft leather specular (keep modest — strong gloss reads as a glass bubble)
-  const gloss = ctx.createRadialGradient(-R * 0.38, -R * 0.42, 0, -R * 0.18, -R * 0.2, R * 0.42);
-  gloss.addColorStop(0, 'rgba(255,255,255,0.55)');
-  gloss.addColorStop(0.35, 'rgba(255,255,255,0.14)');
+  const gloss = ctx.createRadialGradient(-R * 0.36, -R * 0.4, 0, -R * 0.16, -R * 0.18, R * 0.4);
+  gloss.addColorStop(0, isGold ? 'rgba(255,255,255,0.7)' : 'rgba(255,255,255,0.5)');
+  gloss.addColorStop(0.4, 'rgba(255,255,255,0.1)');
   gloss.addColorStop(1, 'rgba(255,255,255,0)');
   ctx.fillStyle = gloss;
   ctx.beginPath();
   ctx.arc(0, 0, R, 0, Math.PI * 2);
   ctx.fill();
 
-  // bottom limb shade (keep light so ball stays white, not gunmetal)
-  const occlude = ctx.createRadialGradient(R * 0.28, R * 0.42, R * 0.05, 0, 0, R);
-  occlude.addColorStop(0.62, 'rgba(0,0,0,0)');
-  occlude.addColorStop(1, 'rgba(0,0,0,0.14)');
+  const occlude = ctx.createRadialGradient(R * 0.25, R * 0.4, R * 0.05, 0, 0, R);
+  occlude.addColorStop(0.7, 'rgba(0,0,0,0)');
+  occlude.addColorStop(1, isGold ? 'rgba(120,70,0,0.18)' : 'rgba(0,0,0,0.1)');
   ctx.fillStyle = occlude;
   ctx.beginPath();
   ctx.arc(0, 0, R, 0, Math.PI * 2);
@@ -759,13 +786,14 @@ function startGame() {
   void armAudio().then(() => sfxStart());
   state.score = 0;
   state.timeLeft = ROUND_SECONDS;
+  state.lives = MAX_LIVES;
   state.combo = 0;
   state.items = [];
   state.floats = [];
   state.particles = [];
   state.goalX = 0.5;
   state.lastTs = 0;
-  state.spawnAcc = 0.2;
+  state.spawnAcc = 0.15;
   state.elapsed = 0;
   state.fallMult = 1;
   state.scoreMult = 1;
@@ -773,12 +801,16 @@ function startGame() {
   state.boostLeft = 0;
   state.shake = 0;
   showScreen('play');
-  resizeCanvas();
-  updateHud();
-  state.raf = requestAnimationFrame(loop);
+  // layout needs a frame to compute flex height
+  requestAnimationFrame(() => {
+    resizeCanvas();
+    updateHud();
+    state.raf = requestAnimationFrame(loop);
+  });
 }
 
 function endGame() {
+  if (state.mode !== 'play') return;
   cancelAnimationFrame(state.raf);
   state.mode = 'over';
   const isNew = state.score > state.best;
@@ -790,10 +822,12 @@ function endGame() {
   els.overScore.textContent = String(state.score);
   els.overSubtitle.textContent = isNew
     ? '新纪录！绿茵门神诞生'
-    : state.score >= 200
-      ? '防守稳健，继续保持'
-      : '再练几局，手感会上来';
-  sfxOver(isNew || state.score >= 200);
+    : state.lives <= 0
+      ? '生命耗尽，再练一轮'
+      : state.score >= 180
+        ? '防守稳健，继续保持'
+        : '再练几局，手感会上来';
+  sfxOver(isNew || state.score >= 180);
   stopMusic();
   showScreen('over');
 }
