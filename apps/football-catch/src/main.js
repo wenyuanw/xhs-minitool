@@ -672,14 +672,15 @@ function regularPolyPoints(cx, cy, radius, sides, rotation) {
   return pts;
 }
 
-/** Classic Telstar ball — crisp white / vivid gold leather. */
+/** Flat Telstar ball — pure white / bright gold, no shadow. */
 function drawBall(item) {
   const { x, y, radius: R, spin } = item;
   const isMust = Boolean(item.mustCatch);
   const isGold = item.label === '金球' || isMust;
   const isPro = item.variant === 'pro';
-  const panel = isGold ? '#8a5a00' : '#1a1a1a';
-  const seam = isGold ? 'rgba(120,70,0,0.45)' : 'rgba(40,40,40,0.4)';
+  const leather = isGold ? '#FFD54A' : '#FFFFFF';
+  const panel = isGold ? '#7A4A00' : '#111111';
+  const seam = isGold ? 'rgba(90,50,0,0.55)' : 'rgba(20,20,20,0.45)';
 
   ctx.save();
   ctx.translate(x, y);
@@ -698,31 +699,12 @@ function drawBall(item) {
     ctx.stroke();
   }
 
-  // contact shadow
-  ctx.fillStyle = 'rgba(26,39,68,0.18)';
-  ctx.beginPath();
-  ctx.ellipse(R * 0.05, R * 0.96, R * 0.7, R * 0.18, 0, 0, Math.PI * 2);
-  ctx.fill();
-
   ctx.rotate(spin);
 
-  // base leather — keep body clearly white or golden
-  const body = ctx.createRadialGradient(-R * 0.42, -R * 0.48, R * 0.05, R * 0.12, R * 0.18, R);
-  if (isGold) {
-    body.addColorStop(0, '#fff4a8');
-    body.addColorStop(0.28, '#ffd54a');
-    body.addColorStop(0.62, '#ffb400');
-    body.addColorStop(0.88, '#f0a000');
-    body.addColorStop(1, '#d48900');
-  } else {
-    body.addColorStop(0, '#ffffff');
-    body.addColorStop(0.55, '#ffffff');
-    body.addColorStop(0.82, '#f3f3f3');
-    body.addColorStop(1, '#e0e0e0');
-  }
+  // solid leather body — no gray gradient / no contact shadow
   ctx.beginPath();
   ctx.arc(0, 0, R, 0, Math.PI * 2);
-  ctx.fillStyle = body;
+  ctx.fillStyle = leather;
   ctx.fill();
 
   ctx.save();
@@ -730,42 +712,43 @@ function drawBall(item) {
   ctx.arc(0, 0, R - 0.5, 0, Math.PI * 2);
   ctx.clip();
 
-  const cR = isGold ? 0.28 : 0.3;
+  // center black pentagon
+  const cR = 0.32;
   pathMappedPolygon(regularPolyPoints(0, 0, cR, 5, -Math.PI / 2), R);
   ctx.fillStyle = panel;
   ctx.fill();
 
+  // seam lines from pentagon corners
   ctx.strokeStyle = seam;
-  ctx.lineWidth = Math.max(1, R * 0.05);
+  ctx.lineWidth = Math.max(1.2, R * 0.055);
   ctx.lineJoin = 'round';
   ctx.lineCap = 'round';
-
   for (let i = 0; i < 5; i += 1) {
-    const a0 = -Math.PI / 2 + (i * Math.PI * 2) / 5;
+    const a = -Math.PI / 2 + (i * Math.PI * 2) / 5;
+    const a0 = a;
     const a1 = -Math.PI / 2 + ((i + 1) * Math.PI * 2) / 5;
     const mid = (a0 + a1) / 2;
     const pts = [
       { x: Math.cos(a0) * cR, y: Math.sin(a0) * cR },
-      { x: Math.cos(a0) * 0.5, y: Math.sin(a0) * 0.5 },
-      { x: Math.cos(mid - Math.PI / 10) * 0.78, y: Math.sin(mid - Math.PI / 10) * 0.78 },
-      { x: Math.cos(mid + Math.PI / 10) * 0.78, y: Math.sin(mid + Math.PI / 10) * 0.78 },
-      { x: Math.cos(a1) * 0.5, y: Math.sin(a1) * 0.5 },
+      { x: Math.cos(a0) * 0.52, y: Math.sin(a0) * 0.52 },
+      { x: Math.cos(mid - Math.PI / 10) * 0.8, y: Math.sin(mid - Math.PI / 10) * 0.8 },
+      { x: Math.cos(mid + Math.PI / 10) * 0.8, y: Math.sin(mid + Math.PI / 10) * 0.8 },
+      { x: Math.cos(a1) * 0.52, y: Math.sin(a1) * 0.52 },
       { x: Math.cos(a1) * cR, y: Math.sin(a1) * cR },
     ];
     pathMappedPolygon(pts, R);
     ctx.stroke();
   }
 
-  // fewer / smaller edge panels so white & gold stay dominant
-  const edgeCount = isGold ? 3 : 5;
-  for (let i = 0; i < edgeCount; i += 1) {
-    const a = -Math.PI / 2 + (i * Math.PI * 2) / edgeCount + Math.PI / edgeCount;
-    const cx = Math.cos(a) * 0.8;
-    const cy = Math.sin(a) * 0.8;
-    const local = regularPolyPoints(0, 0, isGold ? 0.12 : 0.14, 5, a + Math.PI / 2);
+  // three small edge hex-ish panels (keep leather dominant)
+  for (let i = 0; i < 3; i += 1) {
+    const a = -Math.PI / 2 + (i * Math.PI * 2) / 3 + Math.PI / 3;
+    const cx = Math.cos(a) * 0.78;
+    const cy = Math.sin(a) * 0.78;
+    const local = regularPolyPoints(0, 0, 0.13, 5, a + Math.PI / 2);
     const pts = local.map((p) => ({
-      x: cx + p.x * Math.cos(a + Math.PI) - p.y * Math.sin(a + Math.PI) * 0.65,
-      y: cy + p.x * Math.sin(a + Math.PI) + p.y * Math.cos(a + Math.PI) * 0.65,
+      x: cx + p.x * Math.cos(a + Math.PI) - p.y * Math.sin(a + Math.PI) * 0.6,
+      y: cy + p.x * Math.sin(a + Math.PI) + p.y * Math.cos(a + Math.PI) * 0.6,
     }));
     pathMappedPolygon(pts, R);
     ctx.fillStyle = panel;
@@ -773,8 +756,8 @@ function drawBall(item) {
   }
 
   if (isPro) {
-    ctx.strokeStyle = 'rgba(255,90,60,0.95)';
-    ctx.lineWidth = Math.max(1.8, R * 0.1);
+    ctx.strokeStyle = '#FF5A3C';
+    ctx.lineWidth = Math.max(2, R * 0.1);
     ctx.beginPath();
     for (let t = 0; t <= 1; t += 0.04) {
       const ang = 0.45 + t * (Math.PI - 0.9);
@@ -787,28 +770,11 @@ function drawBall(item) {
 
   ctx.restore();
 
-  ctx.strokeStyle = isGold ? 'rgba(180,110,0,0.35)' : 'rgba(0,0,0,0.14)';
-  ctx.lineWidth = Math.max(1, R * 0.035);
+  ctx.strokeStyle = isGold ? 'rgba(140,80,0,0.35)' : 'rgba(0,0,0,0.12)';
+  ctx.lineWidth = Math.max(1, R * 0.03);
   ctx.beginPath();
   ctx.arc(0, 0, R, 0, Math.PI * 2);
   ctx.stroke();
-
-  const gloss = ctx.createRadialGradient(-R * 0.36, -R * 0.4, 0, -R * 0.16, -R * 0.18, R * 0.4);
-  gloss.addColorStop(0, isGold ? 'rgba(255,255,255,0.7)' : 'rgba(255,255,255,0.5)');
-  gloss.addColorStop(0.4, 'rgba(255,255,255,0.1)');
-  gloss.addColorStop(1, 'rgba(255,255,255,0)');
-  ctx.fillStyle = gloss;
-  ctx.beginPath();
-  ctx.arc(0, 0, R, 0, Math.PI * 2);
-  ctx.fill();
-
-  const occlude = ctx.createRadialGradient(R * 0.25, R * 0.4, R * 0.05, 0, 0, R);
-  occlude.addColorStop(0.7, 'rgba(0,0,0,0)');
-  occlude.addColorStop(1, isGold ? 'rgba(120,70,0,0.18)' : 'rgba(0,0,0,0.1)');
-  ctx.fillStyle = occlude;
-  ctx.beginPath();
-  ctx.arc(0, 0, R, 0, Math.PI * 2);
-  ctx.fill();
 
   ctx.restore();
 }

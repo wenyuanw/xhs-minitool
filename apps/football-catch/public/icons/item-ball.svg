@@ -1,15 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <ellipse cx="33" cy="54" rx="16" ry="4" fill="#1A2744" opacity=".18"/>
   <circle cx="32" cy="32" r="22" fill="#FFFFFF"/>
-  <circle cx="32" cy="32" r="22" fill="url(#wg)" opacity=".9"/>
-  <path d="M32 17l5.4 10.5 11.6 1.7-8.4 8.2 2 11.5L32 43.5l-10.6 5.4 2-11.5-8.4-8.2 11.6-1.7L32 17z" fill="#1A1A1A"/>
-  <path d="M23 28.4l-8.8 6.2M41 28.4l8.8 6.2M27.6 43.2l-4.8 10.6M36.4 43.2l4.8 10.6M32 17v-6" stroke="#333" stroke-width="1.6" stroke-linecap="round" opacity=".35"/>
-  <circle cx="24" cy="24" r="5.5" fill="#fff" opacity=".45"/>
-  <defs>
-    <radialGradient id="wg" cx="34%" cy="28%" r="72%">
-      <stop offset="0%" stop-color="#FFFFFF"/>
-      <stop offset="70%" stop-color="#FFFFFF"/>
-      <stop offset="100%" stop-color="#E6E6E6"/>
-    </radialGradient>
-  </defs>
+  <polygon points="32,18.5 44.1,27.3 39.5,41.5 24.5,41.5 19.9,27.3" fill="#111111"/>
+  <path d="M32 18.5v-8M19.9 27.3l-9 6M44.1 27.3l9 6M24.5 41.5l-4.5 10M39.5 41.5l4.5 10" stroke="#222" stroke-width="1.8" stroke-linecap="round" opacity=".45"/>
 </svg>
