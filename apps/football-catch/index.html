@@ -104,18 +104,41 @@
         </section>
 
         <section id="screen-over" class="screen screen--over" hidden>
-          <header class="tool-brand tool-brand--compact">
-            <h1 class="tool-brand__title">比赛结束</h1>
-            <p class="tool-brand__desc" id="over-subtitle">本场表现不错</p>
-          </header>
-          <div class="over-score">
-            <p class="over-score__label">本场得分</p>
-            <p class="over-score__value" id="over-score">0</p>
-            <p class="over-score__best" id="over-best">最高分 0</p>
-          </div>
-          <div class="home-actions">
-            <button type="button" class="btn btn--primary" id="btn-again">再来一局</button>
-            <button type="button" class="btn btn--ghost" id="btn-home">返回首页</button>
+          <div class="over-fx" id="over-fx" aria-hidden="true"></div>
+
+          <div class="over-stage">
+            <div class="over-rank home-enter home-enter--1" id="over-rank">
+              <p class="over-rank__eyebrow" id="over-eyebrow">本场称号</p>
+              <h1 class="over-rank__title" id="over-title">练习生</h1>
+              <p class="over-rank__desc" id="over-subtitle">再来一局试试手感</p>
+              <p class="over-record" id="over-record" hidden>新纪录达成！</p>
+            </div>
+
+            <div class="over-score home-enter home-enter--2">
+              <p class="over-score__label">本场得分</p>
+              <p class="over-score__value" id="over-score">0</p>
+              <p class="over-score__best" id="over-best">最高分 0</p>
+            </div>
+
+            <ul class="over-stats home-enter home-enter--2" aria-label="本场战绩">
+              <li>
+                <span class="over-stats__num" id="stat-caught">0</span>
+                <span class="over-stats__label">接住</span>
+              </li>
+              <li>
+                <span class="over-stats__num" id="stat-combo">0</span>
+                <span class="over-stats__label">最高连击</span>
+              </li>
+              <li>
+                <span class="over-stats__num" id="stat-lives">0</span>
+                <span class="over-stats__label">剩余生命</span>
+              </li>
+            </ul>
+
+            <div class="home-actions home-enter home-enter--3">
+              <button type="button" class="btn btn--primary btn--pulse" id="btn-again">再来一局</button>
+              <button type="button" class="btn btn--ghost" id="btn-home">返回首页</button>
+            </div>
           </div>
         </section>
       </main>

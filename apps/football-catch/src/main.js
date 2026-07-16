@@ -88,6 +88,13 @@ const els = {
   overScore: document.querySelector('#over-score'),
   overBest: document.querySelector('#over-best'),
   overSubtitle: document.querySelector('#over-subtitle'),
+  overTitle: document.querySelector('#over-title'),
+  overEyebrow: document.querySelector('#over-eyebrow'),
+  overRecord: document.querySelector('#over-record'),
+  overFx: document.querySelector('#over-fx'),
+  statCaught: document.querySelector('#stat-caught'),
+  statCombo: document.querySelector('#stat-combo'),
+  statLives: document.querySelector('#stat-lives'),
   btnStart: document.querySelector('#btn-start'),
   btnAgain: document.querySelector('#btn-again'),
   btnHome: document.querySelector('#btn-home'),
@@ -103,6 +110,8 @@ const state = {
   timeLeft: ROUND_SECONDS,
   lives: MAX_LIVES,
   combo: 0,
+  maxCombo: 0,
+  caught: 0,
   best: readBest(),
   items: [],
   floats: [],
@@ -118,6 +127,7 @@ const state = {
   boostLeft: 0,
   shake: 0,
   raf: 0,
+  scoreAnim: 0,
 };
 
 function readBest() {
@@ -276,6 +286,8 @@ function applyCatch(item) {
     const gain = Math.round((item.points || 0) * state.scoreMult);
     state.score += gain;
     state.combo += 1;
+    state.caught += 1;
+    state.maxCombo = Math.max(state.maxCombo, state.combo);
     const bonus = state.combo >= 4 ? Math.floor(state.combo / 4) * 3 : 0;
     if (bonus) state.score += bonus;
     addFloat(x, y, `+${gain}${bonus ? ` 连击` : ''}`, item.label === '金球' ? '#ffd24a' : '#ffffff');
@@ -287,6 +299,7 @@ function applyCatch(item) {
   if (item.timeBonus) {
     state.timeLeft = Math.min(ROUND_SECONDS + 8, state.timeLeft + item.timeBonus);
     state.combo += 1;
+    state.maxCombo = Math.max(state.maxCombo, state.combo);
     addFloat(x, y, `+${item.timeBonus}秒`, '#9fe7ff');
     burst(x, y, '#7fd4ff', 12);
     showToast(`加时 +${item.timeBonus} 秒`);
@@ -298,6 +311,7 @@ function applyCatch(item) {
     state.scoreMult = item.scoreMult;
     state.boostLeft = item.duration;
     state.combo += 1;
+    state.maxCombo = Math.max(state.maxCombo, state.combo);
     addFloat(x, y, '激励加倍!', '#ffd76a');
     burst(x, y, '#ffd76a', 14);
     showToast('激励道具：得分 ×2');
@@ -781,13 +795,113 @@ async function armAudio() {
   if (!isMuted()) startMusic();
 }
 
+function rankForScore(score, livesOut) {
+  if (livesOut && score < 40) {
+    return {
+      title: '球门木桩',
+      desc: '球从眼前飞过……再睁大一点眼睛！',
+      tone: 'fail',
+    };
+  }
+  if (score >= 260) {
+    return {
+      title: '绿茵传说',
+      desc: '今天的球门，只认你一个人。',
+      tone: 'legend',
+    };
+  }
+  if (score >= 190) {
+    return {
+      title: '铁壁门神',
+      desc: '扑得干净利落，对手都开始怀疑人生。',
+      tone: 'legend',
+    };
+  }
+  if (score >= 130) {
+    return {
+      title: '联赛主力',
+      desc: '站位稳、反应快，已经很有门神味道。',
+      tone: 'good',
+    };
+  }
+  if (score >= 70) {
+    return {
+      title: '青春训练营',
+      desc: '手感上来了，再冲一局冲击主力！',
+      tone: 'good',
+    };
+  }
+  if (livesOut) {
+    return {
+      title: '手忙脚乱',
+      desc: '生命见底，但下一场一定能稳住。',
+      tone: 'fail',
+    };
+  }
+  return {
+    title: '替补守门员',
+    desc: '热身完成，正式比赛从下一秒开始。',
+    tone: 'fail',
+  };
+}
+
+function spawnConfetti(burst = false) {
+  const host = els.overFx;
+  if (!host) return;
+  host.replaceChildren();
+  const colors = ['#ff5a3c', '#ffc400', '#3b9dff', '#ffffff', '#3aa86a', '#ff8a65'];
+  const count = burst ? 36 : 18;
+  for (let i = 0; i < count; i += 1) {
+    const piece = document.createElement('span');
+    piece.className = 'over-fx__piece';
+    piece.style.left = `${Math.random() * 100}%`;
+    piece.style.background = colors[i % colors.length];
+    piece.style.setProperty('--dx', `${(Math.random() - 0.5) * 120}px`);
+    piece.style.animationDuration = `${1.6 + Math.random() * 1.8}s`;
+    piece.style.animationDelay = `${Math.random() * 0.35}s`;
+    piece.style.width = `${8 + Math.random() * 8}px`;
+    piece.style.height = `${10 + Math.random() * 10}px`;
+    piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+    host.appendChild(piece);
+  }
+  window.setTimeout(() => {
+    if (state.mode === 'over') host.replaceChildren();
+  }, 4200);
+}
+
+function animateScoreValue(target) {
+  window.cancelAnimationFrame(state.scoreAnim);
+  const el = els.overScore;
+  if (!el) return;
+  const start = performance.now();
+  const dur = Math.min(1100, 420 + target * 3);
+  const tick = (now) => {
+    const t = Math.min(1, (now - start) / dur);
+    const eased = 1 - (1 - t) ** 3;
+    el.textContent = String(Math.round(target * eased));
+    if (t < 1) state.scoreAnim = requestAnimationFrame(tick);
+  };
+  state.scoreAnim = requestAnimationFrame(tick);
+}
+
+function replayOverEnter() {
+  els.over?.querySelectorAll('.home-enter').forEach((node) => {
+    node.classList.remove('home-enter');
+    void node.offsetWidth;
+    node.classList.add('home-enter');
+  });
+}
+
 function startGame() {
   cancelAnimationFrame(state.raf);
+  window.cancelAnimationFrame(state.scoreAnim);
   void armAudio().then(() => sfxStart());
   state.score = 0;
   state.timeLeft = ROUND_SECONDS;
   state.lives = MAX_LIVES;
   state.combo = 0;
+  state.maxCombo = 0;
+  state.caught = 0;
   state.items = [];
   state.floats = [];
   state.particles = [];
@@ -813,23 +927,37 @@ function endGame() {
   if (state.mode !== 'play') return;
   cancelAnimationFrame(state.raf);
   state.mode = 'over';
+  const livesOut = state.lives <= 0;
   const isNew = state.score > state.best;
   if (isNew) {
     state.best = state.score;
     writeBest(state.best);
   }
   updateBestLabels();
-  els.overScore.textContent = String(state.score);
-  els.overSubtitle.textContent = isNew
-    ? '新纪录！绿茵门神诞生'
-    : state.lives <= 0
-      ? '生命耗尽，再练一轮'
-      : state.score >= 180
-        ? '防守稳健，继续保持'
-        : '再练几局，手感会上来';
-  sfxOver(isNew || state.score >= 180);
+
+  const rank = rankForScore(state.score, livesOut);
+  els.over?.classList.toggle('is-legend', rank.tone === 'legend' || isNew);
+  els.over?.classList.toggle('is-fail', rank.tone === 'fail' && !isNew);
+  if (els.overEyebrow) {
+    els.overEyebrow.textContent = livesOut ? '提前终场' : '全场哨响';
+  }
+  if (els.overTitle) els.overTitle.textContent = isNew ? '新晋门神' : rank.title;
+  if (els.overSubtitle) {
+    els.overSubtitle.textContent = isNew
+      ? `刷新纪录！${rank.desc}`
+      : rank.desc;
+  }
+  if (els.overRecord) els.overRecord.hidden = !isNew;
+  if (els.statCaught) els.statCaught.textContent = String(state.caught);
+  if (els.statCombo) els.statCombo.textContent = String(state.maxCombo);
+  if (els.statLives) els.statLives.textContent = String(Math.max(0, state.lives));
+
+  animateScoreValue(state.score);
+  spawnConfetti(isNew || rank.tone === 'legend');
+  sfxOver(isNew || rank.tone === 'legend');
   stopMusic();
   showScreen('over');
+  replayOverEnter();
 }
 
 function syncSoundButtons() {
