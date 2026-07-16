@@ -61,7 +61,7 @@ description: Design, build, migrate, debug, package, and review Xiaohongshu mini
 3. 将 JavaScript 放入包内 `.js` 文件，用 `<script src>` 引入；禁止内联脚本、行内事件、动态代码和 `javascript:` URI。
 4. 优先使用原生 JavaScript。引入第三方库前审查其发布产物，确认不使用网络、WASM、Worker、远程资源或动态加载。
 5. 数据优先使用 localStorage 或 IndexedDB。不要承诺永久保存，不要把 Cookie 当作服务端会话。
-6. 采用移动端优先设计，考虑窄屏、软键盘、触摸目标和安全区域；不依赖 hover。
+6. 采用移动端优先设计，考虑窄屏、软键盘、触摸目标和安全区域；不依赖 hover。顶部避让与 Logo/标题居中等布局约定见仓库 `.agents/AGENTS.md`。
 7. 图片预览优先使用包内资源。使用 `data:` / `blob:` 时说明 9.37 之前版本的兼容策略。
 8. 不把本地预览服务器、构建工具或开发依赖放入最终提交包。
 

@@ -5,7 +5,9 @@
 ## 仓库结构
 
 ```text
-.agents/skills/       # Agent skills（规范与 reference）
+.agents/
+  AGENTS.md           # 项目级 Agent 规范（布局等）
+  skills/             # Agent skills（规范与 reference）
 apps/                 # 各小工具 + website 官网
 packages/
   create-minitool        # = create-xhs-minitool
@@ -65,6 +67,7 @@ pnpm site:deploy     # 需已 wrangler login
 
 ## 开发规范
 
+- [`.agents/AGENTS.md`](../.agents/AGENTS.md) — 项目级 Agent 规范（顶部避让、Logo/标题居中等布局约定）
 - `.agents/skills/minitool-zip-builder/` — zip 产物规范
 - `.agents/skills/xiaohongshu-mini-tool-dev/` — 容器能力与审查清单
 
