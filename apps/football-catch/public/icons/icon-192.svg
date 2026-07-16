@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" fill="none">
+  <rect width="192" height="192" rx="42" fill="#3AA86A"/>
+  <rect x="14" y="14" width="164" height="52" rx="14" fill="#7EC8E8"/>
+  <rect x="34" y="64" width="124" height="86" rx="8" stroke="#FFFFFF" stroke-width="8"/>
+  <path d="M42 76h108M42 94h108M42 112h108M42 130h108" stroke="#FFFFFF" stroke-width="3" opacity=".4"/>
+  <path d="M58 64v86M78 64v86M96 64v86M114 64v86M134 64v86" stroke="#FFFFFF" stroke-width="3" opacity=".4"/>
+  <circle cx="96" cy="130" r="26" fill="url(#ballGrad)"/>
+  <path d="M96 113.5l6 11.8 13 1.9-9.4 9.2 2.2 12.9L96 142.5l-11.8 6.3 2.2-12.9-9.4-9.2 13-1.9L96 113.5z" fill="#1A1A1A"/>
+  <path d="M85.5 124.2l-11 8M106.5 124.2l11 8M90 137.5l-6.5 14M102 137.5l6.5 14M96 113.5V104" stroke="#2A2A2A" stroke-width="2" stroke-linecap="round" opacity=".55"/>
+  <circle cx="87" cy="120" r="7" fill="white" opacity=".42"/>
+  <path d="M50 158c16 12 76 12 92 0" stroke="#FF5A3C" stroke-width="7" stroke-linecap="round"/>
+  <defs>
+    <radialGradient id="ballGrad" cx="38%" cy="32%" r="68%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="55%" stop-color="#F0F0F0"/>
+      <stop offset="100%" stop-color="#A8A8A8"/>
+    </radialGradient>
+  </defs>
+</svg>
