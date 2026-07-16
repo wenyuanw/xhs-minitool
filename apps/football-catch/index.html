@@ -28,32 +28,42 @@
             <span class="decor-card decor-card--y"></span>
             <span class="decor-card decor-card--r"></span>
           </div>
+          <div class="home-pitch" aria-hidden="true"></div>
 
           <div class="home-stage">
             <header class="tool-brand home-enter home-enter--1">
               <img
                 class="tool-brand__logo"
                 src="./icons/logo.svg"
-                width="88"
-                height="88"
+                width="104"
+                height="104"
                 alt=""
               />
               <h1 class="tool-brand__title">绿茵门神</h1>
               <p class="tool-brand__desc">连击热潮 · 必扑球 · 飞扑救场</p>
             </header>
 
-            <div class="home-actions home-enter home-enter--2">
-              <button type="button" class="btn btn--primary btn--pulse" id="btn-start">
+            <div class="home-record home-enter home-enter--2" aria-live="polite">
+              <p class="home-record__label">最高纪录</p>
+              <p class="home-record__value" id="home-best">0</p>
+            </div>
+
+            <div class="home-actions home-enter home-enter--3">
+              <button type="button" class="btn btn--primary btn--pulse btn--xl" id="btn-start">
                 开始比赛
               </button>
-              <p class="home-best" id="home-best">最高分 0</p>
-              <button type="button" class="btn-sound" id="btn-sound" aria-pressed="true">
-                音效关
-              </button>
+              <div class="home-menu">
+                <button type="button" class="btn-sound" id="btn-sound" aria-pressed="true">
+                  音效关
+                </button>
+                <button type="button" class="btn-help-inline" id="btn-help" aria-label="打开玩法说明">
+                  玩法说明
+                </button>
+              </div>
               <p class="sound-tip" id="sound-tip">建议开启音效，氛围更带感</p>
             </div>
 
-            <ul class="howto home-enter home-enter--3" aria-label="玩法速览">
+            <ul class="howto home-enter home-enter--4" aria-label="道具速览">
               <li>
                 <img class="howto__icon" src="./icons/item-ball.svg" alt="" width="36" height="36" />
                 <span class="howto__text">接球得分</span>
@@ -75,11 +85,6 @@
               </li>
             </ul>
           </div>
-
-          <button type="button" class="btn-tip" id="btn-help" aria-label="打开玩法说明">
-            <img src="./icons/icon-tip.svg" width="28" height="28" alt="" />
-            <span>玩法</span>
-          </button>
         </section>
 
         <section id="screen-help" class="screen screen--help" hidden>

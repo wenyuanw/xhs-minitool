@@ -175,7 +175,7 @@ function showScreen(name) {
 }
 
 function updateBestLabels() {
-  if (els.homeBest) els.homeBest.textContent = `最高分 ${state.best}`;
+  if (els.homeBest) els.homeBest.textContent = String(state.best);
   if (els.overBest) els.overBest.textContent = `最高分 ${state.best}`;
 }
 
