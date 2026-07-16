@@ -54,10 +54,13 @@
               </button>
               <div class="home-menu">
                 <button type="button" class="btn-sound" id="btn-sound" aria-pressed="true">
-                  音效关
+                  <img class="btn-ico btn-ico--sound-off" src="./icons/icon-sound-off.svg" width="18" height="18" alt="" />
+                  <img class="btn-ico btn-ico--sound-on" src="./icons/icon-sound.svg" width="18" height="18" alt="" hidden />
+                  <span class="btn-sound__label">音效关</span>
                 </button>
                 <button type="button" class="btn-help-inline" id="btn-help" aria-label="打开玩法说明">
-                  玩法说明
+                  <img class="btn-ico" src="./icons/icon-help.svg" width="18" height="18" alt="" />
+                  <span>玩法说明</span>
                 </button>
               </div>
               <p class="sound-tip" id="sound-tip">建议开启音效，氛围更带感</p>
@@ -205,15 +208,17 @@
             </div>
             <p class="effect-banner effect-banner--overlay" id="effect-banner" hidden></p>
             <canvas id="game" width="360" height="640" aria-label="绿茵门神游戏画布"></canvas>
-            <div class="play-bar play-bar--overlay">
-              <button type="button" class="btn-dive" id="btn-dive" disabled>
-                飞扑 <span id="dive-count">2</span>
-              </button>
-              <p class="play-hint">拖动接球 · 点飞扑救场</p>
-              <button type="button" class="btn-sound btn-sound--compact" id="btn-sound-play" aria-pressed="true">
-                音效关
-              </button>
-            </div>
+          </div>
+          <div class="play-bar">
+            <button type="button" class="btn-dive" id="btn-dive" disabled>
+              飞扑 <span id="dive-count">2</span>
+            </button>
+            <p class="play-hint">拖动接球 · 点飞扑救场</p>
+            <button type="button" class="btn-sound btn-sound--compact" id="btn-sound-play" aria-pressed="true">
+              <img class="btn-ico btn-ico--sound-off" src="./icons/icon-sound-off.svg" width="16" height="16" alt="" />
+              <img class="btn-ico btn-ico--sound-on" src="./icons/icon-sound.svg" width="16" height="16" alt="" hidden />
+              <span class="btn-sound__label">音效关</span>
+            </button>
           </div>
         </section>
 

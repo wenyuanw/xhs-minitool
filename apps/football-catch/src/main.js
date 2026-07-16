@@ -204,7 +204,8 @@ function goalMetrics() {
   const goalW = Math.min(w * 0.52, Math.max(72, w * widthRatio));
   const goalH = 44;
   const x = state.goalX * (w - goalW);
-  const y = h - goalH - 56;
+  // play controls sit outside the pitch; keep a small bottom gap only
+  const y = h - goalH - 18;
   return { w, h, goalW, goalH, x, y };
 }
 
@@ -1089,7 +1090,13 @@ function syncSoundButtons() {
   const label = muted ? '音效关' : '音效开';
   for (const btn of [els.btnSound, els.btnSoundPlay]) {
     if (!btn) continue;
-    btn.textContent = label;
+    const text = btn.querySelector('.btn-sound__label');
+    if (text) text.textContent = label;
+    else btn.textContent = label;
+    const onIco = btn.querySelector('.btn-ico--sound-on');
+    const offIco = btn.querySelector('.btn-ico--sound-off');
+    if (onIco) onIco.hidden = muted;
+    if (offIco) offIco.hidden = !muted;
     btn.setAttribute('aria-pressed', muted ? 'true' : 'false');
   }
   if (els.soundTip) els.soundTip.hidden = !muted;
