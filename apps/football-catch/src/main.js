@@ -9,14 +9,14 @@ const TYPES = {
     kind: 'ball',
     label: '足球',
     weight: 52,
-    radius: 18,
+    radius: 20,
     points: 10,
   },
   ballPro: {
     kind: 'ball',
     label: '花式球',
     weight: 18,
-    radius: 16,
+    radius: 18,
     points: 18,
     variant: 'pro',
   },
@@ -24,7 +24,7 @@ const TYPES = {
     kind: 'bonus',
     label: '金球',
     weight: 8,
-    radius: 17,
+    radius: 19,
     points: 35,
   },
   clock: {
@@ -432,46 +432,169 @@ function drawGoal(gx, gy, goalW, goalH) {
   ctx.restore();
 }
 
+/**
+ * Map flat pattern coords (unit disk, |p|<=1) onto a sphere silhouette.
+ * Edges compress so seams/panels wrap like a real ball.
+ */
+function sphereMap(px, py, R) {
+  const d = Math.hypot(px, py);
+  if (d < 1e-6) return { x: 0, y: 0 };
+  const nd = Math.min(d, 0.995);
+  const theta = nd * (Math.PI / 2) * 0.98;
+  const pr = Math.sin(theta) * R;
+  return { x: (px / d) * pr, y: (py / d) * pr };
+}
+
+function pathMappedPolygon(points, R) {
+  ctx.beginPath();
+  points.forEach((p, i) => {
+    const m = sphereMap(p.x, p.y, R);
+    if (i === 0) ctx.moveTo(m.x, m.y);
+    else ctx.lineTo(m.x, m.y);
+  });
+  ctx.closePath();
+}
+
+function regularPolyPoints(cx, cy, radius, sides, rotation) {
+  const pts = [];
+  for (let i = 0; i < sides; i += 1) {
+    const a = rotation + (i * Math.PI * 2) / sides;
+    pts.push({ x: cx + Math.cos(a) * radius, y: cy + Math.sin(a) * radius });
+  }
+  return pts;
+}
+
+/** Classic Telstar ball with spherical wrap + leather lighting. */
 function drawBall(item) {
-  const { x, y, radius: r, spin } = item;
+  const { x, y, radius: R, spin } = item;
+  const isGold = item.label === '金球';
+  const isPro = item.variant === 'pro';
+  const panel = isGold ? '#5a3e05' : '#111111';
+  const seam = isGold ? 'rgba(60,40,0,0.7)' : 'rgba(15,15,15,0.62)';
+
   ctx.save();
   ctx.translate(x, y);
+
+  // contact shadow
+  ctx.fillStyle = 'rgba(26,39,68,0.22)';
+  ctx.beginPath();
+  ctx.ellipse(R * 0.05, R * 0.96, R * 0.72, R * 0.2, 0, 0, Math.PI * 2);
+  ctx.fill();
+
   ctx.rotate(spin);
 
-  if (item.label === '金球') {
-    const g = ctx.createRadialGradient(-r * 0.3, -r * 0.3, 2, 0, 0, r);
-    g.addColorStop(0, '#fff3b0');
-    g.addColorStop(1, '#d4a017');
-    ctx.fillStyle = g;
+  // base leather sphere
+  const body = ctx.createRadialGradient(-R * 0.45, -R * 0.5, R * 0.04, R * 0.2, R * 0.25, R);
+  if (isGold) {
+    body.addColorStop(0, '#fff9d8');
+    body.addColorStop(0.35, '#f3c840');
+    body.addColorStop(0.72, '#c98c0e');
+    body.addColorStop(1, '#6e4c06');
+  } else if (isPro) {
+    body.addColorStop(0, '#ffffff');
+    body.addColorStop(0.4, '#f3f6fb');
+    body.addColorStop(0.78, '#c9d3e2');
+    body.addColorStop(1, '#7f8ea3');
   } else {
-    ctx.fillStyle = '#f2f2f2';
+    body.addColorStop(0, '#ffffff');
+    body.addColorStop(0.38, '#f4f4f4');
+    body.addColorStop(0.75, '#cfcfcf');
+    body.addColorStop(1, '#7a7a7a');
   }
   ctx.beginPath();
-  ctx.arc(0, 0, r, 0, Math.PI * 2);
+  ctx.arc(0, 0, R, 0, Math.PI * 2);
+  ctx.fillStyle = body;
   ctx.fill();
-  ctx.strokeStyle = '#1a1a1a';
-  ctx.lineWidth = 1.5;
-  ctx.stroke();
 
+  ctx.save();
   ctx.beginPath();
+  ctx.arc(0, 0, R - 0.5, 0, Math.PI * 2);
+  ctx.clip();
+
+  // pattern designed in unit disk, then sphere-mapped
+  const cR = 0.34;
+  pathMappedPolygon(regularPolyPoints(0, 0, cR, 5, -Math.PI / 2), R);
+  ctx.fillStyle = panel;
+  ctx.fill();
+
+  ctx.strokeStyle = seam;
+  ctx.lineWidth = Math.max(1.2, R * 0.065);
+  ctx.lineJoin = 'round';
+  ctx.lineCap = 'round';
+
   for (let i = 0; i < 5; i += 1) {
-    const a = (i / 5) * Math.PI * 2 - Math.PI / 2;
-    const px = Math.cos(a) * r * 0.42;
-    const py = Math.sin(a) * r * 0.42;
-    if (i === 0) ctx.moveTo(px, py);
-    else ctx.lineTo(px, py);
-  }
-  ctx.closePath();
-  ctx.fillStyle = item.label === '金球' ? '#7a5600' : '#1a1a1a';
-  ctx.fill();
-
-  if (item.variant === 'pro') {
-    ctx.strokeStyle = '#ff5a3c';
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.arc(0, 0, r * 0.72, 0.2, Math.PI - 0.2);
+    const a0 = -Math.PI / 2 + (i * Math.PI * 2) / 5;
+    const a1 = -Math.PI / 2 + ((i + 1) * Math.PI * 2) / 5;
+    const mid = (a0 + a1) / 2;
+    const pts = [
+      { x: Math.cos(a0) * cR, y: Math.sin(a0) * cR },
+      { x: Math.cos(a0) * 0.56, y: Math.sin(a0) * 0.56 },
+      { x: Math.cos(mid - Math.PI / 10) * 0.86, y: Math.sin(mid - Math.PI / 10) * 0.86 },
+      { x: Math.cos(mid + Math.PI / 10) * 0.86, y: Math.sin(mid + Math.PI / 10) * 0.86 },
+      { x: Math.cos(a1) * 0.56, y: Math.sin(a1) * 0.56 },
+      { x: Math.cos(a1) * cR, y: Math.sin(a1) * cR },
+    ];
+    pathMappedPolygon(pts, R);
     ctx.stroke();
   }
+
+  // edge black pentagons, already warped by sphereMap
+  for (let i = 0; i < 5; i += 1) {
+    const a = -Math.PI / 2 + (i * Math.PI * 2) / 5 + Math.PI / 5;
+    const cx = Math.cos(a) * 0.72;
+    const cy = Math.sin(a) * 0.72;
+    const local = regularPolyPoints(0, 0, 0.2, 5, a + Math.PI / 2);
+    const pts = local.map((p) => ({
+      x: cx + p.x * Math.cos(a + Math.PI) - p.y * Math.sin(a + Math.PI) * 0.78,
+      y: cy + p.x * Math.sin(a + Math.PI) + p.y * Math.cos(a + Math.PI) * 0.78,
+    }));
+    pathMappedPolygon(pts, R);
+    ctx.fillStyle = panel;
+    ctx.fill();
+  }
+
+  if (isPro) {
+    // accent arc also follows the limb
+    ctx.strokeStyle = 'rgba(255,90,60,0.92)';
+    ctx.lineWidth = Math.max(1.7, R * 0.1);
+    ctx.beginPath();
+    for (let t = 0; t <= 1; t += 0.04) {
+      const ang = 0.45 + t * (Math.PI - 0.9);
+      const p = sphereMap(Math.cos(ang) * 0.9, Math.sin(ang) * 0.9, R);
+      if (t === 0) ctx.moveTo(p.x, p.y);
+      else ctx.lineTo(p.x, p.y);
+    }
+    ctx.stroke();
+  }
+
+  ctx.restore();
+
+  // leather rim
+  ctx.strokeStyle = 'rgba(0,0,0,0.2)';
+  ctx.lineWidth = Math.max(1, R * 0.04);
+  ctx.beginPath();
+  ctx.arc(0, 0, R, 0, Math.PI * 2);
+  ctx.stroke();
+
+  // glossy highlight
+  const gloss = ctx.createRadialGradient(-R * 0.45, -R * 0.5, 0, -R * 0.15, -R * 0.2, R * 0.7);
+  gloss.addColorStop(0, 'rgba(255,255,255,0.85)');
+  gloss.addColorStop(0.22, 'rgba(255,255,255,0.28)');
+  gloss.addColorStop(0.55, 'rgba(255,255,255,0.04)');
+  gloss.addColorStop(1, 'rgba(255,255,255,0)');
+  ctx.fillStyle = gloss;
+  ctx.beginPath();
+  ctx.arc(0, 0, R, 0, Math.PI * 2);
+  ctx.fill();
+
+  // bottom limb shade
+  const occlude = ctx.createRadialGradient(R * 0.3, R * 0.45, R * 0.05, 0, 0, R);
+  occlude.addColorStop(0.52, 'rgba(0,0,0,0)');
+  occlude.addColorStop(1, 'rgba(0,0,0,0.22)');
+  ctx.fillStyle = occlude;
+  ctx.beginPath();
+  ctx.arc(0, 0, R, 0, Math.PI * 2);
+  ctx.fill();
 
   ctx.restore();
 }
