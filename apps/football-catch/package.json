@@ -2,7 +2,7 @@
   "name": "football-catch",
   "version": "0.1.0",
   "private": true,
-  "description": "接住掉落的足球得分，红黄牌与激励道具会改变节奏",
+  "description": "绿茵门神 —— 接住掉落的足球，小心红黄牌，冲刺高分",
   "type": "module",
   "scripts": {
     "dev": "vite",

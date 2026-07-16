@@ -789,7 +789,7 @@ function endGame() {
   updateBestLabels();
   els.overScore.textContent = String(state.score);
   els.overSubtitle.textContent = isNew
-    ? '新纪录！门将封神'
+    ? '新纪录！绿茵门神诞生'
     : state.score >= 200
       ? '防守稳健，继续保持'
       : '再练几局，手感会上来';
