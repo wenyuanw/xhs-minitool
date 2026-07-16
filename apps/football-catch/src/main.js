@@ -1,5 +1,19 @@
 import './styles/app.css';
 import { showToast } from './lib/toast.js';
+import {
+  unlockAudio,
+  startMusic,
+  stopMusic,
+  toggleMuted,
+  isMuted,
+  sfxClick,
+  sfxCatch,
+  sfxBonus,
+  sfxCard,
+  sfxMiss,
+  sfxStart,
+  sfxOver,
+} from './lib/audio.js';
 
 const STORAGE_KEY = 'football-catch-best';
 const ROUND_SECONDS = 60;
@@ -76,6 +90,8 @@ const els = {
   btnStart: document.querySelector('#btn-start'),
   btnAgain: document.querySelector('#btn-again'),
   btnHome: document.querySelector('#btn-home'),
+  btnSound: document.querySelector('#btn-sound'),
+  btnSoundPlay: document.querySelector('#btn-sound-play'),
 };
 
 const ctx = els.canvas.getContext('2d');
@@ -232,6 +248,7 @@ function applyCatch(item) {
     if (bonus) state.score += bonus;
     addFloat(x, y, `+${gain}${bonus ? ` 连击` : ''}`, item.label === '金球' ? '#d4a017' : '#f4fff0');
     burst(x, y, item.label === '金球' ? '#f3d16b' : '#ffffff', 12);
+    sfxCatch(item.label === '金球' ? 'gold' : 'ball');
     return;
   }
 
@@ -241,6 +258,7 @@ function applyCatch(item) {
     addFloat(x, y, `+${item.timeBonus}秒`, '#9fe7ff');
     burst(x, y, '#7fd4ff', 12);
     showToast(`加时 +${item.timeBonus} 秒`);
+    sfxBonus('clock');
     return;
   }
 
@@ -251,6 +269,7 @@ function applyCatch(item) {
     addFloat(x, y, '激励加倍!', '#ffd76a');
     burst(x, y, '#ffd76a', 14);
     showToast('激励道具：得分 ×2');
+    sfxBonus('boost');
     return;
   }
 
@@ -262,6 +281,7 @@ function applyCatch(item) {
     burst(x, y, '#e8b923', 10);
     state.shake = 8;
     showToast('黄牌：掉落速度变慢');
+    sfxCard('yellow');
     return;
   }
 
@@ -272,12 +292,14 @@ function applyCatch(item) {
     burst(x, y, '#d64545', 14);
     state.shake = 14;
     showToast(`红牌：扣 ${item.scorePenalty} 分`);
+    sfxCard('red');
   }
 }
 
 function missItem(item) {
   if (item.kind === 'ball' || item.label === '金球') {
     state.combo = 0;
+    sfxMiss();
   }
 }
 
@@ -727,8 +749,14 @@ function loop(ts) {
   state.raf = requestAnimationFrame(loop);
 }
 
+async function armAudio() {
+  await unlockAudio();
+  if (!isMuted()) startMusic();
+}
+
 function startGame() {
   cancelAnimationFrame(state.raf);
+  void armAudio().then(() => sfxStart());
   state.score = 0;
   state.timeLeft = ROUND_SECONDS;
   state.combo = 0;
@@ -765,7 +793,28 @@ function endGame() {
     : state.score >= 200
       ? '防守稳健，继续保持'
       : '再练几局，手感会上来';
+  sfxOver(isNew || state.score >= 200);
+  stopMusic();
   showScreen('over');
+}
+
+function syncSoundButtons() {
+  const muted = isMuted();
+  const label = muted ? '音效关' : '音效开';
+  for (const btn of [els.btnSound, els.btnSoundPlay]) {
+    if (!btn) continue;
+    btn.textContent = label;
+    btn.setAttribute('aria-pressed', muted ? 'true' : 'false');
+  }
+}
+
+function onToggleSound() {
+  void unlockAudio().then(() => {
+    toggleMuted();
+    syncSoundButtons();
+    sfxClick();
+    showToast(isMuted() ? '音效已关闭' : '音效已开启');
+  });
 }
 
 function setGoalFromClientX(clientX) {
@@ -808,13 +857,29 @@ function bindControls() {
   });
 }
 
-els.btnStart?.addEventListener('click', startGame);
-els.btnAgain?.addEventListener('click', startGame);
+els.btnStart?.addEventListener('click', () => {
+  sfxClick();
+  startGame();
+});
+els.btnAgain?.addEventListener('click', () => {
+  sfxClick();
+  startGame();
+});
 els.btnHome?.addEventListener('click', () => {
+  sfxClick();
   cancelAnimationFrame(state.raf);
+  stopMusic();
   showScreen('home');
   updateBestLabels();
+  // replay home entrance animations
+  els.home?.querySelectorAll('.home-enter').forEach((node) => {
+    node.classList.remove('home-enter');
+    void node.offsetWidth;
+    node.classList.add('home-enter');
+  });
 });
+els.btnSound?.addEventListener('click', onToggleSound);
+els.btnSoundPlay?.addEventListener('click', onToggleSound);
 
 window.addEventListener('resize', () => {
   if (state.mode === 'play') {
@@ -825,4 +890,5 @@ window.addEventListener('resize', () => {
 
 bindControls();
 updateBestLabels();
+syncSoundButtons();
 showScreen('home');
