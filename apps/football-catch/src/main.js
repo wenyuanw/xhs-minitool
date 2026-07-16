@@ -512,13 +512,14 @@ function drawBall(item) {
   ctx.clip();
 
   // pattern designed in unit disk, then sphere-mapped
-  const cR = 0.34;
+  // keep plenty of white leather so it reads as a soccer ball at small size
+  const cR = 0.32;
   pathMappedPolygon(regularPolyPoints(0, 0, cR, 5, -Math.PI / 2), R);
   ctx.fillStyle = panel;
   ctx.fill();
 
   ctx.strokeStyle = seam;
-  ctx.lineWidth = Math.max(1.2, R * 0.065);
+  ctx.lineWidth = Math.max(1.05, R * 0.055);
   ctx.lineJoin = 'round';
   ctx.lineCap = 'round';
 
@@ -528,25 +529,25 @@ function drawBall(item) {
     const mid = (a0 + a1) / 2;
     const pts = [
       { x: Math.cos(a0) * cR, y: Math.sin(a0) * cR },
-      { x: Math.cos(a0) * 0.56, y: Math.sin(a0) * 0.56 },
-      { x: Math.cos(mid - Math.PI / 10) * 0.86, y: Math.sin(mid - Math.PI / 10) * 0.86 },
-      { x: Math.cos(mid + Math.PI / 10) * 0.86, y: Math.sin(mid + Math.PI / 10) * 0.86 },
-      { x: Math.cos(a1) * 0.56, y: Math.sin(a1) * 0.56 },
+      { x: Math.cos(a0) * 0.52, y: Math.sin(a0) * 0.52 },
+      { x: Math.cos(mid - Math.PI / 10) * 0.8, y: Math.sin(mid - Math.PI / 10) * 0.8 },
+      { x: Math.cos(mid + Math.PI / 10) * 0.8, y: Math.sin(mid + Math.PI / 10) * 0.8 },
+      { x: Math.cos(a1) * 0.52, y: Math.sin(a1) * 0.52 },
       { x: Math.cos(a1) * cR, y: Math.sin(a1) * cR },
     ];
     pathMappedPolygon(pts, R);
     ctx.stroke();
   }
 
-  // edge black pentagons, already warped by sphereMap
+  // edge black pentagons — smaller so white panels stay dominant
   for (let i = 0; i < 5; i += 1) {
     const a = -Math.PI / 2 + (i * Math.PI * 2) / 5 + Math.PI / 5;
-    const cx = Math.cos(a) * 0.72;
-    const cy = Math.sin(a) * 0.72;
-    const local = regularPolyPoints(0, 0, 0.2, 5, a + Math.PI / 2);
+    const cx = Math.cos(a) * 0.78;
+    const cy = Math.sin(a) * 0.78;
+    const local = regularPolyPoints(0, 0, 0.155, 5, a + Math.PI / 2);
     const pts = local.map((p) => ({
-      x: cx + p.x * Math.cos(a + Math.PI) - p.y * Math.sin(a + Math.PI) * 0.78,
-      y: cy + p.x * Math.sin(a + Math.PI) + p.y * Math.cos(a + Math.PI) * 0.78,
+      x: cx + p.x * Math.cos(a + Math.PI) - p.y * Math.sin(a + Math.PI) * 0.7,
+      y: cy + p.x * Math.sin(a + Math.PI) + p.y * Math.cos(a + Math.PI) * 0.7,
     }));
     pathMappedPolygon(pts, R);
     ctx.fillStyle = panel;
@@ -587,10 +588,10 @@ function drawBall(item) {
   ctx.arc(0, 0, R, 0, Math.PI * 2);
   ctx.fill();
 
-  // bottom limb shade
-  const occlude = ctx.createRadialGradient(R * 0.3, R * 0.45, R * 0.05, 0, 0, R);
-  occlude.addColorStop(0.52, 'rgba(0,0,0,0)');
-  occlude.addColorStop(1, 'rgba(0,0,0,0.22)');
+  // bottom limb shade (keep light so ball stays white, not gunmetal)
+  const occlude = ctx.createRadialGradient(R * 0.28, R * 0.42, R * 0.05, 0, 0, R);
+  occlude.addColorStop(0.62, 'rgba(0,0,0,0)');
+  occlude.addColorStop(1, 'rgba(0,0,0,0.14)');
   ctx.fillStyle = occlude;
   ctx.beginPath();
   ctx.arc(0, 0, R, 0, Math.PI * 2);
