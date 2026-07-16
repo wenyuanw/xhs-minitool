@@ -1,14 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <circle cx="32" cy="34" r="22" fill="#E8E8E8"/>
-  <circle cx="32" cy="32" r="22" fill="url(#g)"/>
-  <path d="M32 18.5l5.2 10.1 11.1 1.6-8 7.8 1.9 11.1L32 43.8l-10.2 5.3 1.9-11.1-8-7.8 11.1-1.6L32 18.5z" fill="#151515"/>
-  <path d="M23.5 28.2l-9.5 6.8M40.5 28.2l9.5 6.8M27.5 42.8l-5.5 12M36.5 42.8l5.5 12M32 18.5V10" stroke="#2A2A2A" stroke-width="1.8" stroke-linecap="round" opacity=".5"/>
-  <circle cx="24" cy="24" r="5" fill="#fff" opacity=".35"/>
-  <defs>
-    <radialGradient id="g" cx="35%" cy="30%" r="70%">
-      <stop offset="0%" stop-color="#FFFFFF"/>
-      <stop offset="70%" stop-color="#F0F0F0"/>
-      <stop offset="100%" stop-color="#A0A0A0"/>
-    </radialGradient>
-  </defs>
+  <circle cx="32" cy="32" r="22" fill="#FFFFFF"/>
+  <polygon points="32,18.5 44.1,27.3 39.5,41.5 24.5,41.5 19.9,27.3" fill="#111111"/>
+  <path d="M32 18.5v-8M19.9 27.3l-9 6M44.1 27.3l9 6M24.5 41.5l-4.5 10M39.5 41.5l4.5 10" stroke="#222" stroke-width="1.8" stroke-linecap="round" opacity=".45"/>
 </svg>

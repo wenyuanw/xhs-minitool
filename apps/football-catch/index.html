@@ -28,34 +28,45 @@
             <span class="decor-card decor-card--y"></span>
             <span class="decor-card decor-card--r"></span>
           </div>
+          <div class="home-pitch" aria-hidden="true"></div>
 
           <div class="home-stage">
             <header class="tool-brand home-enter home-enter--1">
               <img
                 class="tool-brand__logo"
                 src="./icons/logo.svg"
-                width="88"
-                height="88"
+                width="104"
+                height="104"
                 alt=""
               />
               <h1 class="tool-brand__title">绿茵门神</h1>
-              <p class="tool-brand__desc">左右移动球门，接住足球，小心红黄牌</p>
+              <p class="tool-brand__desc">连击热潮 · 必扑球 · 飞扑救场</p>
             </header>
 
-            <div class="home-actions home-enter home-enter--2">
-              <button type="button" class="btn btn--primary btn--pulse" id="btn-start">
-                开始比赛
-              </button>
-              <p class="home-best" id="home-best">最高分 0</p>
-              <button type="button" class="btn-sound" id="btn-sound" aria-pressed="false">
-                音效开
-              </button>
+            <div class="home-record home-enter home-enter--2" aria-live="polite">
+              <p class="home-record__label">最高纪录</p>
+              <p class="home-record__value" id="home-best">0</p>
             </div>
 
-            <ul class="howto home-enter home-enter--3" aria-label="玩法说明">
+            <div class="home-actions home-enter home-enter--3">
+              <button type="button" class="btn btn--primary btn--pulse btn--xl" id="btn-start">
+                开始比赛
+              </button>
+              <div class="home-menu">
+                <button type="button" class="btn-sound" id="btn-sound" aria-pressed="true">
+                  音效关
+                </button>
+                <button type="button" class="btn-help-inline" id="btn-help" aria-label="打开玩法说明">
+                  玩法说明
+                </button>
+              </div>
+              <p class="sound-tip" id="sound-tip">建议开启音效，氛围更带感</p>
+            </div>
+
+            <ul class="howto home-enter home-enter--4" aria-label="道具速览">
               <li>
                 <img class="howto__icon" src="./icons/item-ball.svg" alt="" width="36" height="36" />
-                <span class="howto__text">接到得分</span>
+                <span class="howto__text">接球得分</span>
               </li>
               <li>
                 <span class="howto__icons">
@@ -76,46 +87,172 @@
           </div>
         </section>
 
+        <section id="screen-help" class="screen screen--help" hidden>
+          <div class="help-sheet">
+            <header class="help-sheet__head">
+              <h1 class="help-sheet__title">玩法说明书</h1>
+              <p class="help-sheet__desc">30 秒冲刺，3 点生命，做绿茵门神</p>
+            </header>
+
+            <div class="help-sheet__body">
+              <section class="help-block">
+                <h2 class="help-block__title">基础操作</h2>
+                <ul class="help-list">
+                  <li>左右拖动底部球门接住掉落物</li>
+                  <li>漏接足球 / 金球 / 必扑球会扣 1 点生命</li>
+                  <li>生命归零或时间结束，本场结算</li>
+                </ul>
+              </section>
+
+              <section class="help-block">
+                <h2 class="help-block__title">得分道具</h2>
+                <ul class="help-cards">
+                  <li>
+                    <img src="./icons/item-ball.svg" alt="" width="40" height="40" />
+                    <div>
+                      <strong>足球 / 花式球</strong>
+                      <p>接到得分，连续接球可叠连击加成</p>
+                    </div>
+                  </li>
+                  <li>
+                    <img src="./icons/item-boost.svg" alt="" width="40" height="40" />
+                    <div>
+                      <strong>金球 / 激励</strong>
+                      <p>金球高分；激励可短时得分 ×2</p>
+                    </div>
+                  </li>
+                  <li>
+                    <img src="./icons/item-clock.svg" alt="" width="40" height="40" />
+                    <div>
+                      <strong>加时</strong>
+                      <p>倒计时 +2 秒（有上限，别指望无限拖）</p>
+                    </div>
+                  </li>
+                </ul>
+              </section>
+
+              <section class="help-block">
+                <h2 class="help-block__title">进阶机制</h2>
+                <ul class="help-cards">
+                  <li>
+                    <span class="help-badge help-badge--heat">热潮</span>
+                    <div>
+                      <strong>连击热潮</strong>
+                      <p>连击到 5 / 10 / 15 触发：球门变宽，掉落略慢</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="help-badge help-badge--must">必扑</span>
+                    <div>
+                      <strong>必扑球</strong>
+                      <p>带光圈的高亮球，接到高分（偶带回血），漏接扣命</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="help-badge help-badge--dive">飞扑</span>
+                    <div>
+                      <strong>飞扑技能</strong>
+                      <p>每局限 2 次，短暂扩大接球范围，关键时刻救场</p>
+                    </div>
+                  </li>
+                </ul>
+              </section>
+
+              <section class="help-block">
+                <h2 class="help-block__title">惩罚道具</h2>
+                <ul class="help-cards">
+                  <li>
+                    <img src="./icons/item-yellow.svg" alt="" width="40" height="40" />
+                    <div>
+                      <strong>黄牌</strong>
+                      <p>掉落变慢一段时间，连击也会清空</p>
+                    </div>
+                  </li>
+                  <li>
+                    <img src="./icons/item-red.svg" alt="" width="40" height="40" />
+                    <div>
+                      <strong>红牌</strong>
+                      <p>直接扣分，尽量躲开</p>
+                    </div>
+                  </li>
+                </ul>
+              </section>
+
+              <p class="help-note">越往后掉落越快、刷得更密，球门也会略缩小。保持连击、看好必扑球，才是门神之路。</p>
+            </div>
+
+            <div class="help-sheet__foot">
+              <button type="button" class="btn btn--primary" id="btn-help-close">我学会了</button>
+            </div>
+          </div>
+        </section>
+
         <section id="screen-play" class="screen screen--play" hidden>
-          <div class="hud" id="hud">
-            <div class="hud__item">
-              <span class="hud__label">得分</span>
-              <span class="hud__value" id="hud-score">0</span>
-            </div>
-            <div class="hud__item">
-              <span class="hud__label">倒计时</span>
-              <span class="hud__value" id="hud-time">60</span>
-            </div>
-            <div class="hud__item">
-              <span class="hud__label">连击</span>
-              <span class="hud__value" id="hud-combo">0</span>
-            </div>
-          </div>
-          <p class="effect-banner" id="effect-banner" hidden></p>
           <div class="pitch-wrap">
-            <canvas id="game" width="360" height="560" aria-label="绿茵门神游戏画布"></canvas>
-          </div>
-          <div class="play-bar">
-            <p class="play-hint">拖动或滑动移动球门</p>
-            <button type="button" class="btn-sound btn-sound--compact" id="btn-sound-play" aria-pressed="false">
-              音效开
-            </button>
+            <div class="hud hud--overlay" id="hud">
+              <div class="hud__item">
+                <span class="hud__label">得分</span>
+                <span class="hud__value" id="hud-score">0</span>
+              </div>
+              <div class="hud__item">
+                <span class="hud__label">倒计时</span>
+                <span class="hud__value" id="hud-time">30</span>
+              </div>
+              <div class="hud__item">
+                <span class="hud__label">生命</span>
+                <span class="hud__value hud__value--lives" id="hud-lives">●●●</span>
+              </div>
+            </div>
+            <p class="effect-banner effect-banner--overlay" id="effect-banner" hidden></p>
+            <canvas id="game" width="360" height="640" aria-label="绿茵门神游戏画布"></canvas>
+            <div class="play-bar play-bar--overlay">
+              <button type="button" class="btn-dive" id="btn-dive" disabled>
+                飞扑 <span id="dive-count">2</span>
+              </button>
+              <p class="play-hint">拖动接球 · 点飞扑救场</p>
+              <button type="button" class="btn-sound btn-sound--compact" id="btn-sound-play" aria-pressed="true">
+                音效关
+              </button>
+            </div>
           </div>
         </section>
 
         <section id="screen-over" class="screen screen--over" hidden>
-          <header class="tool-brand tool-brand--compact">
-            <h1 class="tool-brand__title">比赛结束</h1>
-            <p class="tool-brand__desc" id="over-subtitle">本场表现不错</p>
-          </header>
-          <div class="over-score">
-            <p class="over-score__label">本场得分</p>
-            <p class="over-score__value" id="over-score">0</p>
-            <p class="over-score__best" id="over-best">最高分 0</p>
-          </div>
-          <div class="home-actions">
-            <button type="button" class="btn btn--primary" id="btn-again">再来一局</button>
-            <button type="button" class="btn btn--ghost" id="btn-home">返回首页</button>
+          <div class="over-fx" id="over-fx" aria-hidden="true"></div>
+
+          <div class="over-stage">
+            <div class="over-rank home-enter home-enter--1" id="over-rank">
+              <p class="over-rank__eyebrow" id="over-eyebrow">本场称号</p>
+              <h1 class="over-rank__title" id="over-title">练习生</h1>
+              <p class="over-rank__desc" id="over-subtitle">再来一局试试手感</p>
+              <p class="over-record" id="over-record" hidden>新纪录达成！</p>
+            </div>
+
+            <div class="over-score home-enter home-enter--2">
+              <p class="over-score__label">本场得分</p>
+              <p class="over-score__value" id="over-score">0</p>
+              <p class="over-score__best" id="over-best">最高分 0</p>
+            </div>
+
+            <ul class="over-stats home-enter home-enter--2" aria-label="本场战绩">
+              <li>
+                <span class="over-stats__num" id="stat-caught">0</span>
+                <span class="over-stats__label">接住</span>
+              </li>
+              <li>
+                <span class="over-stats__num" id="stat-combo">0</span>
+                <span class="over-stats__label">最高连击</span>
+              </li>
+              <li>
+                <span class="over-stats__num" id="stat-lives">0</span>
+                <span class="over-stats__label">剩余生命</span>
+              </li>
+            </ul>
+
+            <div class="home-actions home-enter home-enter--3">
+              <button type="button" class="btn btn--primary btn--pulse" id="btn-again">再来一局</button>
+              <button type="button" class="btn btn--ghost" id="btn-home">返回首页</button>
+            </div>
           </div>
         </section>
       </main>
