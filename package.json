@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "pnpm --filter hello-minitool dev",
     "dev:shu-emoji": "pnpm --filter shu-emoji dev",
+    "dev:football-catch": "pnpm --filter football-catch dev",
     "build": "pnpm -r --filter \"./apps/**\" --filter \"!website\" build",
     "validate": "pnpm -r --filter \"./apps/**\" --filter \"!website\" validate",
     "create-minitool": "node ./packages/create-minitool/bin/create-minitool.mjs",

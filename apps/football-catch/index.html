@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <meta name="theme-color" content="#1B7A4E" />
+    <meta
+      name="description"
+      content="接住掉落的足球得分，红黄牌与激励道具会改变节奏"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="icon" type="image/svg+xml" href="./icons/icon-192.svg" />
+    <link rel="apple-touch-icon" href="./icons/icon-192.svg" />
+    <title>门将接球</title>
+  </head>
+  <body>
+    <div id="app">
+      <main id="page" class="page" aria-live="polite">
+        <section id="screen-home" class="screen screen--home">
+          <header class="tool-brand">
+            <img
+              class="tool-brand__logo"
+              src="./icons/logo.svg"
+              width="88"
+              height="88"
+              alt=""
+            />
+            <h1 class="tool-brand__title">门将接球</h1>
+            <p class="tool-brand__desc">左右移动球门，接住足球，小心红黄牌</p>
+          </header>
+          <div class="home-actions">
+            <button type="button" class="btn btn--primary" id="btn-start">开始比赛</button>
+            <p class="home-best" id="home-best">最高分 0</p>
+          </div>
+          <ul class="howto" aria-label="玩法说明">
+            <li><span class="tag tag--ball">足球</span> 接到得分</li>
+            <li><span class="tag tag--bonus">激励</span> 加分 / 加时</li>
+            <li><span class="tag tag--yellow">黄牌</span> 掉落变慢</li>
+            <li><span class="tag tag--red">红牌</span> 扣分</li>
+          </ul>
+        </section>
+
+        <section id="screen-play" class="screen screen--play" hidden>
+          <div class="hud" id="hud">
+            <div class="hud__item">
+              <span class="hud__label">得分</span>
+              <span class="hud__value" id="hud-score">0</span>
+            </div>
+            <div class="hud__item">
+              <span class="hud__label">倒计时</span>
+              <span class="hud__value" id="hud-time">60</span>
+            </div>
+            <div class="hud__item">
+              <span class="hud__label">连击</span>
+              <span class="hud__value" id="hud-combo">0</span>
+            </div>
+          </div>
+          <p class="effect-banner" id="effect-banner" hidden></p>
+          <div class="pitch-wrap">
+            <canvas id="game" width="360" height="560" aria-label="门将接球游戏画布"></canvas>
+          </div>
+          <p class="play-hint">拖动或滑动移动球门</p>
+        </section>
+
+        <section id="screen-over" class="screen screen--over" hidden>
+          <header class="tool-brand tool-brand--compact">
+            <h1 class="tool-brand__title">比赛结束</h1>
+            <p class="tool-brand__desc" id="over-subtitle">本场表现不错</p>
+          </header>
+          <div class="over-score">
+            <p class="over-score__label">本场得分</p>
+            <p class="over-score__value" id="over-score">0</p>
+            <p class="over-score__best" id="over-best">最高分 0</p>
+          </div>
+          <div class="home-actions">
+            <button type="button" class="btn btn--primary" id="btn-again">再来一局</button>
+            <button type="button" class="btn btn--ghost" id="btn-home">返回首页</button>
+          </div>
+        </section>
+      </main>
+    </div>
+    <div id="toast" class="toast" hidden></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

@@ -8,6 +8,21 @@ importers:
 
   .: {}
 
+  apps/football-catch:
+    devDependencies:
+      vite:
+        specifier: ^6.3.5
+        version: 6.4.3
+      xhs-minitool-pack:
+        specifier: workspace:*
+        version: link:../../packages/minitool-pack
+      xhs-minitool-validate:
+        specifier: workspace:*
+        version: link:../../packages/minitool-validate
+      xhs-minitool-vite-config:
+        specifier: workspace:*
+        version: link:../../packages/minitool-vite-config
+
   apps/hello-minitool:
     devDependencies:
       vite:
