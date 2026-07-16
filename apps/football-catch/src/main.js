@@ -85,6 +85,7 @@ const els = {
   home: document.querySelector('#screen-home'),
   play: document.querySelector('#screen-play'),
   over: document.querySelector('#screen-over'),
+  help: document.querySelector('#screen-help'),
   homeBest: document.querySelector('#home-best'),
   hudScore: document.querySelector('#hud-score'),
   hudTime: document.querySelector('#hud-time'),
@@ -109,6 +110,8 @@ const els = {
   btnDive: document.querySelector('#btn-dive'),
   diveCount: document.querySelector('#dive-count'),
   soundTip: document.querySelector('#sound-tip'),
+  btnHelp: document.querySelector('#btn-help'),
+  btnHelpClose: document.querySelector('#btn-help-close'),
 };
 
 const ctx = els.canvas.getContext('2d');
@@ -167,6 +170,7 @@ function showScreen(name) {
   els.home.hidden = name !== 'home';
   els.play.hidden = name !== 'play';
   els.over.hidden = name !== 'over';
+  if (els.help) els.help.hidden = name !== 'help';
   state.mode = name;
 }
 
@@ -1211,6 +1215,16 @@ els.btnSoundPlay?.addEventListener('click', onToggleSound);
 els.btnDive?.addEventListener('click', (e) => {
   e.stopPropagation();
   activateDive();
+});
+els.btnHelp?.addEventListener('click', () => {
+  sfxClick();
+  showScreen('help');
+});
+els.btnHelpClose?.addEventListener('click', () => {
+  sfxClick();
+  showScreen('home');
+  updateBestLabels();
+  syncSoundButtons();
 });
 
 window.addEventListener('resize', () => {

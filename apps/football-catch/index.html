@@ -53,7 +53,7 @@
               <p class="sound-tip" id="sound-tip">建议开启音效，氛围更带感</p>
             </div>
 
-            <ul class="howto home-enter home-enter--3" aria-label="玩法说明">
+            <ul class="howto home-enter home-enter--3" aria-label="玩法速览">
               <li>
                 <img class="howto__icon" src="./icons/item-ball.svg" alt="" width="36" height="36" />
                 <span class="howto__text">接球得分</span>
@@ -74,6 +74,111 @@
                 <span class="howto__text">扣分惩罚</span>
               </li>
             </ul>
+          </div>
+
+          <button type="button" class="btn-tip" id="btn-help" aria-label="打开玩法说明">
+            <img src="./icons/icon-tip.svg" width="28" height="28" alt="" />
+            <span>玩法</span>
+          </button>
+        </section>
+
+        <section id="screen-help" class="screen screen--help" hidden>
+          <div class="help-sheet">
+            <header class="help-sheet__head">
+              <h1 class="help-sheet__title">玩法说明书</h1>
+              <p class="help-sheet__desc">30 秒冲刺，3 点生命，做绿茵门神</p>
+            </header>
+
+            <div class="help-sheet__body">
+              <section class="help-block">
+                <h2 class="help-block__title">基础操作</h2>
+                <ul class="help-list">
+                  <li>左右拖动底部球门接住掉落物</li>
+                  <li>漏接足球 / 金球 / 必扑球会扣 1 点生命</li>
+                  <li>生命归零或时间结束，本场结算</li>
+                </ul>
+              </section>
+
+              <section class="help-block">
+                <h2 class="help-block__title">得分道具</h2>
+                <ul class="help-cards">
+                  <li>
+                    <img src="./icons/item-ball.svg" alt="" width="40" height="40" />
+                    <div>
+                      <strong>足球 / 花式球</strong>
+                      <p>接到得分，连续接球可叠连击加成</p>
+                    </div>
+                  </li>
+                  <li>
+                    <img src="./icons/item-boost.svg" alt="" width="40" height="40" />
+                    <div>
+                      <strong>金球 / 激励</strong>
+                      <p>金球高分；激励可短时得分 ×2</p>
+                    </div>
+                  </li>
+                  <li>
+                    <img src="./icons/item-clock.svg" alt="" width="40" height="40" />
+                    <div>
+                      <strong>加时</strong>
+                      <p>倒计时 +2 秒（有上限，别指望无限拖）</p>
+                    </div>
+                  </li>
+                </ul>
+              </section>
+
+              <section class="help-block">
+                <h2 class="help-block__title">进阶机制</h2>
+                <ul class="help-cards">
+                  <li>
+                    <span class="help-badge help-badge--heat">热潮</span>
+                    <div>
+                      <strong>连击热潮</strong>
+                      <p>连击到 5 / 10 / 15 触发：球门变宽，掉落略慢</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="help-badge help-badge--must">必扑</span>
+                    <div>
+                      <strong>必扑球</strong>
+                      <p>带光圈的高亮球，接到高分（偶带回血），漏接扣命</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="help-badge help-badge--dive">飞扑</span>
+                    <div>
+                      <strong>飞扑技能</strong>
+                      <p>每局限 2 次，短暂扩大接球范围，关键时刻救场</p>
+                    </div>
+                  </li>
+                </ul>
+              </section>
+
+              <section class="help-block">
+                <h2 class="help-block__title">惩罚道具</h2>
+                <ul class="help-cards">
+                  <li>
+                    <img src="./icons/item-yellow.svg" alt="" width="40" height="40" />
+                    <div>
+                      <strong>黄牌</strong>
+                      <p>掉落变慢一段时间，连击也会清空</p>
+                    </div>
+                  </li>
+                  <li>
+                    <img src="./icons/item-red.svg" alt="" width="40" height="40" />
+                    <div>
+                      <strong>红牌</strong>
+                      <p>直接扣分，尽量躲开</p>
+                    </div>
+                  </li>
+                </ul>
+              </section>
+
+              <p class="help-note">越往后掉落越快、刷得更密，球门也会略缩小。保持连击、看好必扑球，才是门神之路。</p>
+            </div>
+
+            <div class="help-sheet__foot">
+              <button type="button" class="btn btn--primary" id="btn-help-close">我学会了</button>
+            </div>
           </div>
         </section>
 
