@@ -248,7 +248,6 @@ function spawnMustBall() {
     wobble: Math.random() * Math.PI * 2,
     wobbleAmp: 10,
   });
-  showToast('必扑球来了！接住拿高分');
   sfxMust();
 }
 
@@ -314,7 +313,6 @@ function syncDiveButton() {
 function triggerHeat(level) {
   state.heatLevel = level;
   state.heatLeft = 4.2;
-  showToast(`连击 ${HEAT_THRESHOLDS[level - 1]}！防守热潮`);
   sfxHeat();
 }
 
@@ -334,7 +332,6 @@ function activateDive() {
   state.diveCharges -= 1;
   state.diveLeft = 0.85;
   sfxDive();
-  showToast('飞扑！接球范围扩大');
   syncDiveButton();
 }
 
@@ -380,11 +377,10 @@ function applyCatch(item) {
     if (item.mustCatch) {
       addFloat(x, y, `必扑 +${gain}`, '#ffd24a');
       burst(x, y, '#ffd24a', 16);
-      showToast('必扑成功！');
       sfxMust();
       if (state.lives < MAX_LIVES && Math.random() < 0.35) {
         state.lives += 1;
-        showToast('必扑回血 +1');
+        addFloat(x, y - 28, '生命 +1', '#7dffb3');
       }
     } else {
       addFloat(x, y, `+${gain}${bonus ? ` 连击` : ''}`, item.label === '金球' ? '#ffd24a' : '#ffffff');
@@ -401,7 +397,6 @@ function applyCatch(item) {
     state.maxCombo = Math.max(state.maxCombo, state.combo);
     addFloat(x, y, `+${item.timeBonus}秒`, '#9fe7ff');
     burst(x, y, '#7fd4ff', 12);
-    showToast(`加时 +${item.timeBonus} 秒`);
     sfxBonus('clock');
     return;
   }
@@ -413,7 +408,6 @@ function applyCatch(item) {
     state.maxCombo = Math.max(state.maxCombo, state.combo);
     addFloat(x, y, '激励加倍!', '#ffd76a');
     burst(x, y, '#ffd76a', 14);
-    showToast('激励道具：得分 ×2');
     sfxBonus('boost');
     return;
   }
@@ -427,7 +421,6 @@ function applyCatch(item) {
     addFloat(x, y, '黄牌!', '#ffc400');
     burst(x, y, '#ffc400', 10);
     state.shake = 8;
-    showToast('黄牌：掉落变慢');
     sfxCard('yellow');
     recomputeFallMult();
     return;
@@ -439,7 +432,6 @@ function applyCatch(item) {
     addFloat(x, y, `-${item.scorePenalty}`, '#ff6b6b');
     burst(x, y, '#d64545', 14);
     state.shake = 14;
-    showToast(`红牌：扣 ${item.scorePenalty} 分`);
     sfxCard('red');
   }
 }
@@ -470,7 +462,6 @@ function update(dt) {
     state.yellowLeft -= dt;
     if (state.yellowLeft <= 0) {
       state.yellowLeft = 0;
-      showToast('黄牌效果结束');
     }
   }
 
@@ -479,7 +470,6 @@ function update(dt) {
     if (state.boostLeft <= 0) {
       state.boostLeft = 0;
       state.scoreMult = 1;
-      showToast('激励效果结束');
     }
   }
 
@@ -487,7 +477,6 @@ function update(dt) {
     state.heatLeft -= dt;
     if (state.heatLeft <= 0) {
       state.heatLeft = 0;
-      showToast('防守热潮结束');
     }
   }
 
