@@ -1,8 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
-  <rect width="128" height="128" rx="28" fill="#145C3A"/>
-  <rect x="18" y="34" width="92" height="62" rx="6" stroke="#F4F7F2" stroke-width="6"/>
-  <path d="M24 40h80M24 52h80M24 64h80M24 76h80M24 88h80" stroke="#F4F7F2" stroke-width="2" opacity=".45"/>
-  <path d="M34 34v62M50 34v62M64 34v62M78 34v62M94 34v62" stroke="#F4F7F2" stroke-width="2" opacity=".45"/>
-  <circle cx="64" cy="78" r="16" fill="#F2F2F2" stroke="#1A1A1A" stroke-width="2"/>
-  <path d="M64 62l5.2 10.2 11.3 1.6-8.2 8 1.9 11.2L64 87.4 53.8 93l1.9-11.2-8.2-8 11.3-1.6L64 62z" fill="#1A1A1A"/>
+  <rect width="128" height="128" rx="28" fill="#3AA86A"/>
+  <rect x="10" y="10" width="108" height="36" rx="10" fill="#7EC8E8"/>
+  <rect x="22" y="42" width="84" height="58" rx="6" stroke="#FFFFFF" stroke-width="6"/>
+  <path d="M28 50h72M28 62h72M28 74h72M28 86h72" stroke="#FFFFFF" stroke-width="2" opacity=".45"/>
+  <path d="M38 42v58M52 42v58M64 42v58M76 42v58M90 42v58" stroke="#FFFFFF" stroke-width="2" opacity=".45"/>
+  <circle cx="64" cy="86" r="15" fill="#F4F4F4" stroke="#1A2744" stroke-width="2"/>
+  <path d="M64 71l4.8 9.4 10.4 1.5-7.5 7.3 1.8 10.3L64 94.6l-9.5 5 1.8-10.3-7.5-7.3 10.4-1.5L64 71z" fill="#1A2744"/>
+  <path d="M34 104c10 8 50 8 60 0" stroke="#FF5A3C" stroke-width="5" stroke-linecap="round"/>
 </svg>

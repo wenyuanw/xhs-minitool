@@ -357,22 +357,21 @@ function update(dt) {
 
 function drawPitch(w, h) {
   const g = ctx.createLinearGradient(0, 0, 0, h);
-  g.addColorStop(0, '#208556');
-  g.addColorStop(0.55, '#176b45');
-  g.addColorStop(1, '#0f4d32');
+  g.addColorStop(0, '#4bb87a');
+  g.addColorStop(0.5, '#3aa86a');
+  g.addColorStop(1, '#2f8f59');
   ctx.fillStyle = g;
   ctx.fillRect(0, 0, w, h);
 
   ctx.save();
-  ctx.globalAlpha = 0.12;
-  for (let i = 0; i < 8; i += 1) {
-    ctx.fillStyle = i % 2 === 0 ? '#ffffff' : '#000000';
-    ctx.fillRect(0, (h / 8) * i, w, h / 8);
+  for (let i = 0; i < 9; i += 1) {
+    ctx.fillStyle = i % 2 === 0 ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.04)';
+    ctx.fillRect(0, (h / 9) * i, w, h / 9);
   }
   ctx.restore();
 
-  ctx.strokeStyle = 'rgba(232,245,238,0.55)';
-  ctx.lineWidth = 2;
+  ctx.strokeStyle = 'rgba(255,255,255,0.78)';
+  ctx.lineWidth = 2.2;
   ctx.strokeRect(12, 12, w - 24, h - 24);
 
   ctx.beginPath();
@@ -383,23 +382,30 @@ function drawPitch(w, h) {
   ctx.moveTo(12, h * 0.38);
   ctx.lineTo(w - 12, h * 0.38);
   ctx.stroke();
+
+  // soft sky wash at top of pitch
+  const sky = ctx.createLinearGradient(0, 0, 0, h * 0.22);
+  sky.addColorStop(0, 'rgba(170,220,245,0.35)');
+  sky.addColorStop(1, 'rgba(170,220,245,0)');
+  ctx.fillStyle = sky;
+  ctx.fillRect(0, 0, w, h * 0.22);
 }
 
 function drawGoal(gx, gy, goalW, goalH) {
   ctx.save();
   ctx.translate(gx, gy);
 
-  ctx.fillStyle = 'rgba(8,40,24,0.25)';
+  ctx.fillStyle = 'rgba(26,39,68,0.18)';
   ctx.beginPath();
   ctx.ellipse(goalW / 2, goalH + 6, goalW * 0.46, 7, 0, 0, Math.PI * 2);
   ctx.fill();
 
-  ctx.fillStyle = '#f4f7f2';
+  ctx.fillStyle = '#ffffff';
   ctx.fillRect(0, 0, 6, goalH);
   ctx.fillRect(goalW - 6, 0, 6, goalH);
   ctx.fillRect(0, 0, goalW, 6);
 
-  ctx.strokeStyle = 'rgba(20,40,28,0.35)';
+  ctx.strokeStyle = 'rgba(26,39,68,0.22)';
   ctx.lineWidth = 1;
   for (let i = 1; i < 5; i += 1) {
     const x = (goalW / 5) * i;
@@ -416,11 +422,11 @@ function drawGoal(gx, gy, goalW, goalH) {
     ctx.stroke();
   }
 
-  ctx.fillStyle = '#dce8df';
+  ctx.fillStyle = '#ff5a3c';
   ctx.beginPath();
-  ctx.moveTo(10, goalH - 4);
-  ctx.quadraticCurveTo(goalW / 2, goalH + 10, goalW - 10, goalH - 4);
-  ctx.quadraticCurveTo(goalW / 2, goalH - 16, 10, goalH - 4);
+  ctx.moveTo(12, goalH - 2);
+  ctx.quadraticCurveTo(goalW / 2, goalH + 12, goalW - 12, goalH - 2);
+  ctx.quadraticCurveTo(goalW / 2, goalH - 14, 12, goalH - 2);
   ctx.fill();
 
   ctx.restore();
@@ -460,7 +466,7 @@ function drawBall(item) {
   ctx.fill();
 
   if (item.variant === 'pro') {
-    ctx.strokeStyle = '#1b7a4e';
+    ctx.strokeStyle = '#ff5a3c';
     ctx.lineWidth = 2;
     ctx.beginPath();
     ctx.arc(0, 0, r * 0.72, 0.2, Math.PI - 0.2);
@@ -475,19 +481,22 @@ function drawCard(item, color) {
   ctx.save();
   ctx.translate(x, y);
   ctx.rotate(Math.sin(spin) * 0.25);
-  const w = r * 1.35;
-  const h = r * 1.85;
-  ctx.fillStyle = color;
-  ctx.strokeStyle = 'rgba(255,255,255,0.55)';
-  ctx.lineWidth = 2;
-  roundRect(-w / 2, -h / 2, w, h, 4);
+  const w = r * 1.4;
+  const h = r * 1.95;
+  // solid referee card — no lettering
+  const shade = ctx.createLinearGradient(-w / 2, -h / 2, w / 2, h / 2);
+  shade.addColorStop(0, color);
+  shade.addColorStop(1, color);
+  ctx.fillStyle = shade;
+  roundRect(-w / 2, -h / 2, w, h, 3);
   ctx.fill();
+  ctx.strokeStyle = 'rgba(255,255,255,0.65)';
+  ctx.lineWidth = 1.5;
   ctx.stroke();
-  ctx.fillStyle = 'rgba(0,0,0,0.22)';
-  ctx.font = `bold ${Math.floor(r * 0.9)}px sans-serif`;
-  ctx.textAlign = 'center';
-  ctx.textBaseline = 'middle';
-  ctx.fillText(item.label === '黄牌' ? '黄' : '红', 0, 1);
+  ctx.strokeStyle = 'rgba(0,0,0,0.12)';
+  ctx.lineWidth = 1;
+  roundRect(-w / 2 + 2.5, -h / 2 + 2.5, w - 5, h - 5, 2);
+  ctx.stroke();
   ctx.restore();
 }
 
@@ -495,11 +504,11 @@ function drawClock(item) {
   const { x, y, radius: r, spin } = item;
   ctx.save();
   ctx.translate(x, y);
-  ctx.fillStyle = '#2b8cff';
+  ctx.fillStyle = '#3b9dff';
   ctx.beginPath();
   ctx.arc(0, 0, r, 0, Math.PI * 2);
   ctx.fill();
-  ctx.strokeStyle = '#dff1ff';
+  ctx.strokeStyle = '#ffffff';
   ctx.lineWidth = 2;
   ctx.stroke();
   ctx.strokeStyle = '#fff';
@@ -518,7 +527,7 @@ function drawBoost(item) {
   ctx.save();
   ctx.translate(x, y);
   ctx.rotate(spin * 0.3);
-  ctx.fillStyle = '#ffd76a';
+  ctx.fillStyle = '#ffc400';
   ctx.beginPath();
   for (let i = 0; i < 5; i += 1) {
     const a = (i / 5) * Math.PI * 2 - Math.PI / 2;
@@ -545,8 +554,8 @@ function roundRect(x, y, w, h, r) {
 }
 
 function drawItem(item) {
-  if (item.label === '黄牌') drawCard(item, '#e8b923');
-  else if (item.label === '红牌') drawCard(item, '#d64545');
+  if (item.label === '黄牌') drawCard(item, '#ffc400');
+  else if (item.label === '红牌') drawCard(item, '#e23b3b');
   else if (item.timeBonus) drawClock(item);
   else if (item.scoreMult) drawBoost(item);
   else drawBall(item);
