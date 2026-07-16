@@ -39,7 +39,7 @@
                 alt=""
               />
               <h1 class="tool-brand__title">绿茵门神</h1>
-              <p class="tool-brand__desc">30 秒冲刺高分，漏接会扣生命</p>
+              <p class="tool-brand__desc">连击热潮 · 必扑球 · 飞扑救场</p>
             </header>
 
             <div class="home-actions home-enter home-enter--2">
@@ -47,9 +47,10 @@
                 开始比赛
               </button>
               <p class="home-best" id="home-best">最高分 0</p>
-              <button type="button" class="btn-sound" id="btn-sound" aria-pressed="false">
-                音效开
+              <button type="button" class="btn-sound" id="btn-sound" aria-pressed="true">
+                音效关
               </button>
+              <p class="sound-tip" id="sound-tip">建议开启音效，氛围更带感</p>
             </div>
 
             <ul class="howto home-enter home-enter--3" aria-label="玩法说明">
@@ -95,9 +96,12 @@
             <p class="effect-banner effect-banner--overlay" id="effect-banner" hidden></p>
             <canvas id="game" width="360" height="640" aria-label="绿茵门神游戏画布"></canvas>
             <div class="play-bar play-bar--overlay">
-              <p class="play-hint">拖动球门接球 · 漏接扣命</p>
-              <button type="button" class="btn-sound btn-sound--compact" id="btn-sound-play" aria-pressed="false">
-                音效开
+              <button type="button" class="btn-dive" id="btn-dive" disabled>
+                飞扑 <span id="dive-count">2</span>
+              </button>
+              <p class="play-hint">拖动接球 · 点飞扑救场</p>
+              <button type="button" class="btn-sound btn-sound--compact" id="btn-sound-play" aria-pressed="true">
+                音效关
               </button>
             </div>
           </div>

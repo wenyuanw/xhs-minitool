@@ -15,9 +15,12 @@ let unlocked = false;
 
 function readMuted() {
   try {
-    return localStorage.getItem(MUTE_KEY) === '1';
+    const v = localStorage.getItem(MUTE_KEY);
+    // default OFF until user explicitly enables
+    if (v === null) return true;
+    return v === '1';
   } catch {
-    return false;
+    return true;
   }
 }
 
@@ -155,6 +158,31 @@ export function sfxStart() {
   tone(392, t, 0.08, 'triangle', 0.12);
   tone(523, t + 0.08, 0.08, 'triangle', 0.12);
   tone(659, t + 0.16, 0.14, 'triangle', 0.14);
+}
+
+export function sfxDive() {
+  const ac = ensure();
+  if (!ac || muted) return;
+  const t = ac.currentTime;
+  tone(220, t, 0.08, 'sawtooth', 0.08);
+  tone(440, t + 0.05, 0.1, 'triangle', 0.12);
+}
+
+export function sfxMust() {
+  const ac = ensure();
+  if (!ac || muted) return;
+  const t = ac.currentTime;
+  tone(740, t, 0.07, 'square', 0.08);
+  tone(988, t + 0.07, 0.1, 'triangle', 0.12);
+}
+
+export function sfxHeat() {
+  const ac = ensure();
+  if (!ac || muted) return;
+  const t = ac.currentTime;
+  tone(523, t, 0.06, 'triangle', 0.1);
+  tone(659, t + 0.05, 0.06, 'triangle', 0.1);
+  tone(784, t + 0.1, 0.12, 'triangle', 0.12);
 }
 
 export function sfxOver(win = false) {

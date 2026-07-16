@@ -297,6 +297,46 @@ body {
 .btn-sound--compact {
   min-height: 30px;
   font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.sound-tip {
+  margin: 0;
+  color: var(--accent-deep);
+  font-size: 0.78rem;
+  font-weight: 600;
+  animation: pulse-soft 1.6s ease-in-out infinite;
+}
+
+.sound-tip[hidden] {
+  display: none !important;
+}
+
+.btn-dive {
+  appearance: none;
+  border: 0;
+  border-radius: 12px;
+  min-height: 34px;
+  padding: 0 12px;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: #fff;
+  background: linear-gradient(180deg, #5aa8ff, #2b7de0);
+  box-shadow: 0 4px 10px rgb(43 125 224 / 35%);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.btn-dive:disabled {
+  opacity: 0.45;
+  cursor: default;
+  box-shadow: none;
+}
+
+.btn-dive.is-active {
+  background: linear-gradient(180deg, #ff9a6b, #ff5a3c);
 }
 
 .home-best,
@@ -467,17 +507,23 @@ body {
   right: 10px;
   bottom: 10px;
   z-index: 3;
-  padding: 6px 10px;
+  padding: 6px 8px;
   border-radius: 12px;
   background: rgb(255 255 255 / 78%);
   backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
 }
 
 .play-hint {
   margin: 0;
   text-align: center;
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: 0.72rem;
+  flex: 1;
+  min-width: 0;
 }
 
 .screen--over {

@@ -13,11 +13,17 @@ import {
   sfxMiss,
   sfxStart,
   sfxOver,
+  sfxDive,
+  sfxMust,
+  sfxHeat,
 } from './lib/audio.js';
 
 const STORAGE_KEY = 'football-catch-best';
 const ROUND_SECONDS = 30;
 const MAX_LIVES = 3;
+const MAX_DIVES = 2;
+const HEAT_THRESHOLDS = [5, 10, 15];
+const MUST_MAX = 3;
 
 const TYPES = {
   ball: {
@@ -100,6 +106,9 @@ const els = {
   btnHome: document.querySelector('#btn-home'),
   btnSound: document.querySelector('#btn-sound'),
   btnSoundPlay: document.querySelector('#btn-sound-play'),
+  btnDive: document.querySelector('#btn-dive'),
+  diveCount: document.querySelector('#dive-count'),
+  soundTip: document.querySelector('#sound-tip'),
 };
 
 const ctx = els.canvas.getContext('2d');
@@ -125,6 +134,13 @@ const state = {
   scoreMult: 1,
   yellowLeft: 0,
   boostLeft: 0,
+  heatLeft: 0,
+  heatLevel: 0,
+  heatUnlocked: 0,
+  diveLeft: 0,
+  diveCharges: MAX_DIVES,
+  mustNextAt: 7,
+  mustSpawned: 0,
   shake: 0,
   raf: 0,
   scoreAnim: 0,
@@ -177,12 +193,14 @@ function resizeCanvas() {
 function goalMetrics() {
   const w = els.canvas.clientWidth;
   const h = els.canvas.clientHeight;
-  // goal shrinks as pressure rises
   const shrink = Math.min(0.22, state.elapsed * 0.006);
-  const goalW = Math.min(110, w * (0.34 - shrink));
+  let widthRatio = 0.34 - shrink;
+  if (state.heatLeft > 0) widthRatio += 0.08;
+  if (state.diveLeft > 0) widthRatio += 0.12;
+  const goalW = Math.min(w * 0.52, Math.max(72, w * widthRatio));
   const goalH = 44;
   const x = state.goalX * (w - goalW);
-  const y = h - goalH - 56; // leave room for overlay play-bar
+  const y = h - goalH - 56;
   return { w, h, goalW, goalH, x, y };
 }
 
@@ -203,6 +221,30 @@ function pickType() {
     if (r <= 0) return entry.type;
   }
   return TYPES.ball;
+}
+
+function spawnMustBall() {
+  if (state.mustSpawned >= MUST_MAX) return;
+  const { w } = goalMetrics();
+  const radius = 21;
+  const margin = radius + 8;
+  state.mustSpawned += 1;
+  state.items.push({
+    kind: 'ball',
+    label: '必扑球',
+    points: 55,
+    radius,
+    mustCatch: true,
+    x: margin + Math.random() * (w - margin * 2),
+    y: -radius - 8,
+    vy: 195 + state.elapsed * 4,
+    spin: Math.random() * Math.PI * 2,
+    spinSpeed: (Math.random() * 4 + 2.5) * (Math.random() < 0.5 ? -1 : 1),
+    wobble: Math.random() * Math.PI * 2,
+    wobbleAmp: 10,
+  });
+  showToast('必扑球来了！接住拿高分');
+  sfxMust();
 }
 
 function spawnItem() {
@@ -244,6 +286,8 @@ function burst(x, y, color, count = 10) {
 
 function setEffectBanner() {
   const parts = [];
+  if (state.diveLeft > 0) parts.push(`飞扑中 ${state.diveLeft.toFixed(1)}s`);
+  if (state.heatLeft > 0) parts.push(`防守热潮 Lv.${state.heatLevel}`);
   if (state.yellowLeft > 0) parts.push(`黄牌减速 ${Math.ceil(state.yellowLeft)}s`);
   if (state.boostLeft > 0) parts.push(`激励加倍 ×${state.scoreMult}`);
   if (parts.length) {
@@ -255,6 +299,40 @@ function setEffectBanner() {
   }
 }
 
+function syncDiveButton() {
+  if (!els.btnDive) return;
+  if (els.diveCount) els.diveCount.textContent = String(state.diveCharges);
+  els.btnDive.disabled = state.mode !== 'play' || state.diveCharges <= 0 || state.diveLeft > 0;
+  els.btnDive.classList.toggle('is-active', state.diveLeft > 0);
+}
+
+function triggerHeat(level) {
+  state.heatLevel = level;
+  state.heatLeft = 4.2;
+  showToast(`连击 ${HEAT_THRESHOLDS[level - 1]}！防守热潮`);
+  sfxHeat();
+}
+
+function checkHeatUnlock() {
+  for (let i = 0; i < HEAT_THRESHOLDS.length; i += 1) {
+    const level = i + 1;
+    if (state.combo >= HEAT_THRESHOLDS[i] && state.heatUnlocked < level) {
+      state.heatUnlocked = level;
+      triggerHeat(level);
+      return;
+    }
+  }
+}
+
+function activateDive() {
+  if (state.mode !== 'play' || state.diveCharges <= 0 || state.diveLeft > 0) return;
+  state.diveCharges -= 1;
+  state.diveLeft = 0.85;
+  sfxDive();
+  showToast('飞扑！接球范围扩大');
+  syncDiveButton();
+}
+
 function livesGlyph() {
   return '●'.repeat(Math.max(0, state.lives)) + '○'.repeat(Math.max(0, MAX_LIVES - state.lives));
 }
@@ -264,12 +342,16 @@ function updateHud() {
   els.hudTime.textContent = String(Math.max(0, Math.ceil(state.timeLeft)));
   if (els.hudLives) els.hudLives.textContent = livesGlyph();
   setEffectBanner();
+  syncDiveButton();
 }
 
 function loseLife(reason) {
   if (state.mode !== 'play') return;
   state.lives = Math.max(0, state.lives - 1);
   state.combo = 0;
+  state.heatLevel = 0;
+  state.heatLeft = 0;
+  state.heatUnlocked = 0;
   state.shake = 12;
   showToast(reason);
   sfxMiss();
@@ -282,7 +364,7 @@ function applyCatch(item) {
   if (state.mode !== 'play') return;
   const { x, y } = item;
 
-  if (item.kind === 'ball' || item.label === '金球') {
+  if (item.kind === 'ball' || item.label === '金球' || item.mustCatch) {
     const gain = Math.round((item.points || 0) * state.scoreMult);
     state.score += gain;
     state.combo += 1;
@@ -290,9 +372,21 @@ function applyCatch(item) {
     state.maxCombo = Math.max(state.maxCombo, state.combo);
     const bonus = state.combo >= 4 ? Math.floor(state.combo / 4) * 3 : 0;
     if (bonus) state.score += bonus;
-    addFloat(x, y, `+${gain}${bonus ? ` 连击` : ''}`, item.label === '金球' ? '#ffd24a' : '#ffffff');
-    burst(x, y, item.label === '金球' ? '#ffd24a' : '#ffffff', 12);
-    sfxCatch(item.label === '金球' ? 'gold' : 'ball');
+    if (item.mustCatch) {
+      addFloat(x, y, `必扑 +${gain}`, '#ffd24a');
+      burst(x, y, '#ffd24a', 16);
+      showToast('必扑成功！');
+      sfxMust();
+      if (state.lives < MAX_LIVES && Math.random() < 0.35) {
+        state.lives += 1;
+        showToast('必扑回血 +1');
+      }
+    } else {
+      addFloat(x, y, `+${gain}${bonus ? ` 连击` : ''}`, item.label === '金球' ? '#ffd24a' : '#ffffff');
+      burst(x, y, item.label === '金球' ? '#ffd24a' : '#ffffff', 12);
+      sfxCatch(item.label === '金球' ? 'gold' : 'ball');
+    }
+    checkHeatUnlock();
     return;
   }
 
@@ -321,13 +415,16 @@ function applyCatch(item) {
 
   if (item.slowDuration) {
     state.yellowLeft = item.slowDuration;
-    state.fallMult = 0.62;
     state.combo = 0;
+    state.heatLevel = 0;
+    state.heatLeft = 0;
+    state.heatUnlocked = 0;
     addFloat(x, y, '黄牌!', '#ffc400');
     burst(x, y, '#ffc400', 10);
     state.shake = 8;
     showToast('黄牌：掉落变慢');
     sfxCard('yellow');
+    recomputeFallMult();
     return;
   }
 
@@ -344,9 +441,20 @@ function applyCatch(item) {
 
 function missItem(item) {
   if (state.mode !== 'play') return;
+  if (item.mustCatch) {
+    loseLife('必扑球漏接，生命 -1');
+    return;
+  }
   if (item.kind === 'ball' || item.label === '金球') {
     loseLife(item.label === '金球' ? '漏接金球，生命 -1' : '漏接足球，生命 -1');
   }
+}
+
+function recomputeFallMult() {
+  let m = 1;
+  if (state.yellowLeft > 0) m *= 0.62;
+  if (state.heatLeft > 0) m *= 0.82;
+  state.fallMult = m;
 }
 
 function update(dt) {
@@ -357,7 +465,6 @@ function update(dt) {
     state.yellowLeft -= dt;
     if (state.yellowLeft <= 0) {
       state.yellowLeft = 0;
-      state.fallMult = 1;
       showToast('黄牌效果结束');
     }
   }
@@ -371,20 +478,39 @@ function update(dt) {
     }
   }
 
+  if (state.heatLeft > 0) {
+    state.heatLeft -= dt;
+    if (state.heatLeft <= 0) {
+      state.heatLeft = 0;
+      showToast('防守热潮结束');
+    }
+  }
+
+  if (state.diveLeft > 0) {
+    state.diveLeft -= dt;
+    if (state.diveLeft <= 0) {
+      state.diveLeft = 0;
+    }
+  }
+
+  recomputeFallMult();
   if (state.shake > 0) state.shake = Math.max(0, state.shake - dt * 40);
 
-  // denser spawn over time
+  if (state.elapsed >= state.mustNextAt && state.mustSpawned < MUST_MAX) {
+    spawnMustBall();
+    state.mustNextAt = state.elapsed + 8 + Math.random() * 3;
+  }
+
   const spawnInterval = Math.max(0.22, 0.72 - state.elapsed * 0.018);
   state.spawnAcc += dt;
   while (state.spawnAcc >= spawnInterval) {
     state.spawnAcc -= spawnInterval;
     spawnItem();
-    // late game occasionally double-drop
     if (state.elapsed > 12 && Math.random() < 0.28) spawnItem();
   }
 
   const { h, goalW, goalH, x: gx, y: gy } = goalMetrics();
-  const catchPad = 4;
+  const catchPad = state.diveLeft > 0 ? 18 : 4;
 
   for (const item of state.items) {
     item.y += item.vy * dt * state.fallMult;
@@ -466,6 +592,13 @@ function drawGoal(gx, gy, goalW, goalH) {
   ctx.save();
   ctx.translate(gx, gy);
 
+  if (state.diveLeft > 0 || state.heatLeft > 0) {
+    ctx.fillStyle = state.diveLeft > 0 ? 'rgba(90,168,255,0.22)' : 'rgba(255,196,0,0.18)';
+    ctx.beginPath();
+    ctx.ellipse(goalW / 2, goalH / 2, goalW * 0.62, goalH * 0.9, 0, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
   ctx.fillStyle = 'rgba(26,39,68,0.18)';
   ctx.beginPath();
   ctx.ellipse(goalW / 2, goalH + 6, goalW * 0.46, 7, 0, 0, Math.PI * 2);
@@ -538,13 +671,28 @@ function regularPolyPoints(cx, cy, radius, sides, rotation) {
 /** Classic Telstar ball — crisp white / vivid gold leather. */
 function drawBall(item) {
   const { x, y, radius: R, spin } = item;
-  const isGold = item.label === '金球';
+  const isMust = Boolean(item.mustCatch);
+  const isGold = item.label === '金球' || isMust;
   const isPro = item.variant === 'pro';
   const panel = isGold ? '#8a5a00' : '#1a1a1a';
   const seam = isGold ? 'rgba(120,70,0,0.45)' : 'rgba(40,40,40,0.4)';
 
   ctx.save();
   ctx.translate(x, y);
+
+  if (isMust) {
+    const pulse = 0.55 + Math.sin(state.elapsed * 10) * 0.35;
+    ctx.strokeStyle = `rgba(255,90,60,${0.35 + pulse * 0.45})`;
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.arc(0, 0, R + 6 + pulse * 4, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.strokeStyle = `rgba(255,210,70,${0.4 + pulse * 0.4})`;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(0, 0, R + 11 + pulse * 3, 0, Math.PI * 2);
+    ctx.stroke();
+  }
 
   // contact shadow
   ctx.fillStyle = 'rgba(26,39,68,0.18)';
@@ -563,7 +711,6 @@ function drawBall(item) {
     body.addColorStop(0.88, '#f0a000');
     body.addColorStop(1, '#d48900');
   } else {
-    // pure white leather with only a soft limb shade
     body.addColorStop(0, '#ffffff');
     body.addColorStop(0.55, '#ffffff');
     body.addColorStop(0.82, '#f3f3f3');
@@ -913,6 +1060,13 @@ function startGame() {
   state.scoreMult = 1;
   state.yellowLeft = 0;
   state.boostLeft = 0;
+  state.heatLeft = 0;
+  state.heatLevel = 0;
+  state.heatUnlocked = 0;
+  state.diveLeft = 0;
+  state.diveCharges = MAX_DIVES;
+  state.mustNextAt = 7;
+  state.mustSpawned = 0;
   state.shake = 0;
   showScreen('play');
   // layout needs a frame to compute flex height
@@ -968,14 +1122,21 @@ function syncSoundButtons() {
     btn.textContent = label;
     btn.setAttribute('aria-pressed', muted ? 'true' : 'false');
   }
+  if (els.soundTip) els.soundTip.hidden = !muted;
 }
 
 function onToggleSound() {
   void unlockAudio().then(() => {
     toggleMuted();
     syncSoundButtons();
-    sfxClick();
-    showToast(isMuted() ? '音效已关闭' : '音效已开启');
+    if (!isMuted()) {
+      sfxClick();
+      startMusic();
+      showToast('音效已开启，更有氛围');
+    } else {
+      stopMusic();
+      showToast('音效已关闭');
+    }
   });
 }
 
@@ -1016,6 +1177,10 @@ function bindControls() {
     if (state.mode !== 'play') return;
     if (e.key === 'ArrowLeft') state.goalX = Math.max(0, state.goalX - 0.05);
     if (e.key === 'ArrowRight') state.goalX = Math.min(1, state.goalX + 0.05);
+    if (e.key === ' ' || e.key === 'Enter') {
+      e.preventDefault();
+      activateDive();
+    }
   });
 }
 
@@ -1033,6 +1198,7 @@ els.btnHome?.addEventListener('click', () => {
   stopMusic();
   showScreen('home');
   updateBestLabels();
+  syncSoundButtons();
   // replay home entrance animations
   els.home?.querySelectorAll('.home-enter').forEach((node) => {
     node.classList.remove('home-enter');
@@ -1042,6 +1208,10 @@ els.btnHome?.addEventListener('click', () => {
 });
 els.btnSound?.addEventListener('click', onToggleSound);
 els.btnSoundPlay?.addEventListener('click', onToggleSound);
+els.btnDive?.addEventListener('click', (e) => {
+  e.stopPropagation();
+  activateDive();
+});
 
 window.addEventListener('resize', () => {
   if (state.mode === 'play') {
