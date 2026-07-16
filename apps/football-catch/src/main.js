@@ -577,11 +577,10 @@ function drawBall(item) {
   ctx.arc(0, 0, R, 0, Math.PI * 2);
   ctx.stroke();
 
-  // glossy highlight
-  const gloss = ctx.createRadialGradient(-R * 0.45, -R * 0.5, 0, -R * 0.15, -R * 0.2, R * 0.7);
-  gloss.addColorStop(0, 'rgba(255,255,255,0.85)');
-  gloss.addColorStop(0.22, 'rgba(255,255,255,0.28)');
-  gloss.addColorStop(0.55, 'rgba(255,255,255,0.04)');
+  // soft leather specular (keep modest — strong gloss reads as a glass bubble)
+  const gloss = ctx.createRadialGradient(-R * 0.38, -R * 0.42, 0, -R * 0.18, -R * 0.2, R * 0.42);
+  gloss.addColorStop(0, 'rgba(255,255,255,0.55)');
+  gloss.addColorStop(0.35, 'rgba(255,255,255,0.14)');
   gloss.addColorStop(1, 'rgba(255,255,255,0)');
   ctx.fillStyle = gloss;
   ctx.beginPath();
