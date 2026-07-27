@@ -12,5 +12,12 @@
     "name": "shu-emoji",
     "description": "薯 Emoji - 小红书表情含义与用法小工具",
     "path": "/preview/shu-emoji/index.html"
+  },
+  {
+    "id": "sony-shutter",
+    "title": "索尼快门",
+    "name": "sony-shutter",
+    "description": "上传索尼相机原图，本地解析快门次数与拍摄信息。",
+    "path": "/preview/sony-shutter/index.html"
   }
 ]
