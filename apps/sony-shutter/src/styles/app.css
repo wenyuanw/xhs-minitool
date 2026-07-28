@@ -15,8 +15,8 @@
   --status-line: rgb(0 87 184 / 35%);
 
   --page-pad: 24px;
-  --page-pad-top: 16px;
-  --chrome-top: 76px;
+  --page-pad-top: 8px;
+  --chrome-top: 68px;
   --section-gap: 40px;
   --rule: 1px;
 
@@ -35,7 +35,7 @@
 
   --font-body: 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Noto Sans SC', sans-serif;
   --font-num: 'Helvetica Neue', 'PingFang SC', ui-monospace, monospace;
-  --font-display: 'Avenir Next', 'SF Pro Display', 'Helvetica Neue', 'PingFang SC', sans-serif;
+  --font-display: 'DIN Condensed', 'Avenir Next Condensed', 'DIN Alternate', 'Avenir Next', 'SF Pro Display', 'Helvetica Neue', 'PingFang SC', sans-serif;
 
   color-scheme: light;
 }
@@ -102,13 +102,13 @@ body {
 
 .tool-brand {
   text-align: center;
-  padding-bottom: 8px;
+  padding-bottom: 2px;
 }
 
 .brand-mark {
-  width: 48px;
-  height: 48px;
-  margin: 0 auto 28px;
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 16px;
   color: var(--accent);
 }
 
@@ -166,11 +166,17 @@ body {
 .tool-brand__title {
   margin: 0;
   font-family: var(--font-display);
-  font-size: 22px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
   line-height: 1.2;
   color: var(--ink);
+  text-transform: uppercase;
+}
+
+.tool-brand + .section {
+  border-top: 0;
+  padding-top: 24px;
 }
 
 @keyframes brandBadgePulse {

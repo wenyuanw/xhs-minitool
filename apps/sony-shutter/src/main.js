@@ -48,7 +48,7 @@ function initHome() {
             </g>
           </svg>
         </div>
-        <h1 class="tool-brand__title">快门查询</h1>
+        <h1 class="tool-brand__title">快门次数查询</h1>
       </header>
 
       <section class="section upload" aria-label="选择照片">
