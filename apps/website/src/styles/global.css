@@ -435,13 +435,13 @@ code {
 
 @media (min-width: 900px) {
   .demo-stage {
-    grid-template-columns: minmax(0, 1fr) minmax(360px, 420px);
+    grid-template-columns: minmax(0, 1fr) minmax(420px, 480px);
     align-items: start;
   }
 }
 
 .phone {
-  --phone-w: min(100%, 380px);
+  --phone-w: min(100%, 430px);
   position: relative;
   width: var(--phone-w);
   margin: 0.5rem auto 1rem;
@@ -637,7 +637,7 @@ code {
 
 @media (max-width: 480px) {
   .phone {
-    --phone-w: min(100%, 340px);
+    --phone-w: min(100%, 390px);
   }
 }
 

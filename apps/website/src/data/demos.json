@@ -1,10 +1,24 @@
 [
   {
+    "id": "football-catch",
+    "title": "绿茵门神",
+    "name": "football-catch",
+    "description": "绿茵门神 —— 接住掉落的足球，小心红黄牌，冲刺高分",
+    "path": "/preview/football-catch/index.html"
+  },
+  {
     "id": "hello-minitool",
     "title": "你好小工具",
     "name": "hello-minitool",
     "description": "Monorepo 内置可运行示例：展示 Vite + 原生 JS 模板与打包流水线。",
     "path": "/preview/hello-minitool/index.html"
+  },
+  {
+    "id": "momo-avatar-maker",
+    "title": "炫彩 momo",
+    "name": "momo-avatar-maker",
+    "description": "离线可用的 momo 风格头像生成器，可模板 DIY，也可上传图片装饰",
+    "path": "/preview/momo-avatar-maker/index.html"
   },
   {
     "id": "shu-emoji",
