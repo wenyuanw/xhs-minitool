@@ -116,6 +116,53 @@ body {
   display: block;
 }
 
+.brand-mark__badge,
+.brand-mark__shutter,
+.brand-mark__blade,
+.brand-mark__aperture {
+  transform-origin: 24px 24px;
+}
+
+.brand-mark__badge {
+  animation: brandBadgePulse 3.8s ease-in-out infinite;
+}
+
+.brand-mark__shutter {
+  animation: brandShutterRotate 3.8s cubic-bezier(0.45, 0, 0.2, 1) infinite;
+}
+
+.brand-mark__blade {
+  animation: brandIrisBlade 3.8s cubic-bezier(0.45, 0, 0.2, 1) infinite;
+}
+
+.brand-mark__blade--1 {
+  animation-delay: 0s;
+}
+
+.brand-mark__blade--2 {
+  animation-delay: 0s;
+}
+
+.brand-mark__blade--3 {
+  animation-delay: 0s;
+}
+
+.brand-mark__blade--4 {
+  animation-delay: 0s;
+}
+
+.brand-mark__blade--5 {
+  animation-delay: 0s;
+}
+
+.brand-mark__blade--6 {
+  animation-delay: 0s;
+}
+
+.brand-mark__aperture {
+  animation: brandApertureOpen 3.8s cubic-bezier(0.45, 0, 0.2, 1) infinite;
+}
+
 .tool-brand__title {
   margin: 0;
   font-family: var(--font-display);
@@ -124,6 +171,88 @@ body {
   letter-spacing: 0.1em;
   line-height: 1.2;
   color: var(--ink);
+}
+
+@keyframes brandBadgePulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  32% {
+    transform: scale(0.988);
+  }
+
+  52% {
+    transform: scale(1);
+  }
+}
+
+@keyframes brandIrisBlade {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  18% {
+    transform: scale(1);
+  }
+
+  34% {
+    transform: scale(0.993);
+  }
+
+  52% {
+    transform: scale(1);
+  }
+
+}
+
+@keyframes brandApertureOpen {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  18% {
+    transform: scale(1);
+  }
+
+  34% {
+    transform: scale(1.22);
+  }
+
+  52% {
+    transform: scale(1);
+  }
+}
+
+@keyframes brandShutterRotate {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  18% {
+    transform: rotate(0deg);
+  }
+
+  34% {
+    transform: rotate(-4deg);
+  }
+
+  52% {
+    transform: rotate(0deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-mark__badge,
+  .brand-mark__shutter,
+  .brand-mark__blade,
+  .brand-mark__aperture {
+    animation: none;
+  }
 }
 
 /* ── 上传 ── */

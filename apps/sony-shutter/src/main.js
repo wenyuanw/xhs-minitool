@@ -34,14 +34,18 @@ function initHome() {
         <div class="brand-mark" aria-hidden="true">
           <svg class="brand-mark__grid" viewBox="0 0 48 48" width="48" height="48" fill="none">
             <circle cx="24" cy="24" r="19.5" stroke="#111111" stroke-width="1"/>
-            <circle cx="24" cy="24" r="12.5" fill="#D90915"/>
-            <path d="M24 15.1l4.3 2.5-4.1 7.2h-4.9L24 15.1Z" fill="#ffffff"/>
-            <path d="M32.6 19.6v5.1l-7.9-0.1-2.4-4.2 10.3-0.8Z" fill="#ffffff"/>
-            <path d="M32.4 27.9l-4.4 2.5-4-7.2 2.5-4.2 5.9 8.9Z" fill="#ffffff"/>
-            <path d="M24 32.9l-4.3-2.5 4.1-7.2h4.9L24 32.9Z" fill="#ffffff"/>
-            <path d="M15.4 27.9v-5.1l7.9 0.1 2.4 4.2-10.3 0.8Z" fill="#ffffff"/>
-            <path d="M15.6 19.6l4.4-2.5 4 7.2-2.5 4.2-5.9-8.9Z" fill="#ffffff"/>
-            <path d="M24 21l2.5 1.5v3L24 27l-2.5-1.5v-3L24 21Z" fill="#D90915"/>
+            <g class="brand-mark__badge">
+              <circle cx="24" cy="24" r="12.5" fill="#D90915"/>
+            </g>
+            <g class="brand-mark__shutter">
+              <path class="brand-mark__blade brand-mark__blade--1" d="M24 15.1l4.3 2.5-4.1 7.2h-4.9L24 15.1Z" fill="#ffffff"/>
+              <path class="brand-mark__blade brand-mark__blade--2" d="M32.6 19.6v5.1l-7.9-0.1-2.4-4.2 10.3-0.8Z" fill="#ffffff"/>
+              <path class="brand-mark__blade brand-mark__blade--3" d="M32.4 27.9l-4.4 2.5-4-7.2 2.5-4.2 5.9 8.9Z" fill="#ffffff"/>
+              <path class="brand-mark__blade brand-mark__blade--4" d="M24 32.9l-4.3-2.5 4.1-7.2h4.9L24 32.9Z" fill="#ffffff"/>
+              <path class="brand-mark__blade brand-mark__blade--5" d="M15.4 27.9v-5.1l7.9 0.1 2.4 4.2-10.3 0.8Z" fill="#ffffff"/>
+              <path class="brand-mark__blade brand-mark__blade--6" d="M15.6 19.6l4.4-2.5 4 7.2-2.5 4.2-5.9-8.9Z" fill="#ffffff"/>
+              <path class="brand-mark__aperture" d="M24 21l2.5 1.5v3L24 27l-2.5-1.5v-3L24 21Z" fill="#D90915"/>
+            </g>
           </svg>
         </div>
         <h1 class="tool-brand__title">快门查询</h1>
