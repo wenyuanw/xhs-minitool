@@ -9,6 +9,7 @@
     "dev": "pnpm --filter hello-minitool dev",
     "dev:shu-emoji": "pnpm --filter shu-emoji dev",
     "dev:football-catch": "pnpm --filter football-catch dev",
+    "dev:momo-avatar-maker": "pnpm --filter momo-avatar-maker dev",
     "dev:sony-shutter": "pnpm --filter sony-shutter dev",
     "build": "pnpm -r --filter \"./apps/**\" --filter \"!website\" build",
     "validate": "pnpm -r --filter \"./apps/**\" --filter \"!website\" validate",
