@@ -34,6 +34,12 @@ export function parseImageExif(buffer) {
     return { ...parseTiffExif(bytes, 0), format: 'tiff' };
   }
 
+  // Fuji RAF often carries an embedded JPEG/EXIF block.
+  const embeddedExif = findEmbeddedExif(bytes);
+  if (embeddedExif) {
+    return { ...parseTiffExif(bytes, embeddedExif.tiffStart), format: 'embedded-exif' };
+  }
+
   return empty;
 }
 
@@ -95,6 +101,25 @@ function findJpegExif(bytes) {
       }
     }
     offset += 2 + size;
+  }
+  return null;
+}
+
+/**
+ * @param {Uint8Array} bytes
+ */
+function findEmbeddedExif(bytes) {
+  for (let i = 0; i < bytes.length - 6; i += 1) {
+    if (
+      bytes[i] === 0x45 &&
+      bytes[i + 1] === 0x78 &&
+      bytes[i + 2] === 0x69 &&
+      bytes[i + 3] === 0x66 &&
+      bytes[i + 4] === 0x00 &&
+      bytes[i + 5] === 0x00
+    ) {
+      return { tiffStart: i + 6 };
+    }
   }
   return null;
 }

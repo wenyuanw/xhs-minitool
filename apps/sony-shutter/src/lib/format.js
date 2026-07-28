@@ -71,6 +71,32 @@ export function formatCount(n) {
 /**
  * @param {number | null | undefined} count
  * @param {number | null | undefined} rated
+ * @returns {{ grade: string, label: string, percent: number | null }}
+ */
+export function formatShutterGrade(count, rated) {
+  if (count == null) {
+    return { grade: '—', label: '未能读取', percent: null };
+  }
+  if (rated == null || rated <= 0) {
+    if (count < 5000) return { grade: 'A+', label: '极少使用', percent: null };
+    if (count < 20000) return { grade: 'A', label: '轻度使用', percent: null };
+    if (count < 80000) return { grade: 'B', label: '正常使用', percent: null };
+    if (count < 150000) return { grade: 'C', label: '使用较多', percent: null };
+    return { grade: 'D', label: '使用频繁', percent: null };
+  }
+
+  const pct = Math.min(100, (count / rated) * 100);
+  if (pct < 10) return { grade: 'A+', label: '极少使用', percent: pct };
+  if (pct < 25) return { grade: 'A', label: '轻度使用', percent: pct };
+  if (pct < 50) return { grade: 'B', label: '正常使用', percent: pct };
+  if (pct < 75) return { grade: 'C', label: '使用较多', percent: pct };
+  if (pct < 90) return { grade: 'D', label: '使用频繁', percent: pct };
+  return { grade: 'E', label: '接近寿命', percent: pct };
+}
+
+/**
+ * @param {number | null | undefined} count
+ * @param {number | null | undefined} rated
  */
 export function formatLife(count, rated) {
   if (count == null || rated == null || rated <= 0) return null;
@@ -79,6 +105,13 @@ export function formatLife(count, rated) {
     percent: pct,
     text: `约使用额定寿命的 ${pct.toFixed(1)}%（额定 ${rated.toLocaleString('zh-CN')} 次）`,
   };
+}
+
+/** @returns {string} */
+export function formatNow() {
+  const d = new Date();
+  const p = (n) => String(n).padStart(2, '0');
+  return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`;
 }
 
 /**

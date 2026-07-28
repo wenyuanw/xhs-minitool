@@ -6,22 +6,22 @@
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
     />
-    <meta name="theme-color" content="#1F6B5C" />
+    <meta name="theme-color" content="#FAFAFA" />
     <meta
       name="description"
-      content="上传索尼相机原图，本地解析快门次数、机身型号与拍摄参数。"
+      content="上传索尼、尼康相机原图，本地解析快门次数、机身型号与拍摄参数。"
     />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <link rel="icon" type="image/svg+xml" href="./icons/icon-192.svg" />
     <link rel="apple-touch-icon" href="./icons/icon-192.svg" />
-    <title>索尼快门</title>
+    <title>快门查询</title>
   </head>
   <body>
     <div id="app">
       <main id="page" class="page" aria-live="polite"></main>
     </div>
-    <div id="toast" class="toast" hidden></div>
+    <input id="file-input" class="upload__input" type="file" accept="image/*" hidden />
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

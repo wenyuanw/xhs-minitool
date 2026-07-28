@@ -1,74 +1,23 @@
 import './styles/app.css';
 import { parseImageExif } from './lib/exif.js';
-import { extractSonyShutterCount } from './lib/sony.js';
+import { extractShutterCount } from './lib/shutter.js';
 import {
   formatCount,
   formatDateTime,
-  formatExposureProgram,
   formatExposureTime,
   formatFNumber,
   formatFocal,
   formatIso,
-  formatLife,
-  formatMetering,
-  formatWhiteBalance,
+  formatNow,
+  formatShutterGrade,
 } from './lib/format.js';
-import { showToast } from './lib/toast.js';
 
 const page = document.querySelector('#page');
 
 /** @type {string | null} */
 let previewUrl = null;
 
-page.innerHTML = `
-  <header class="tool-brand">
-    <div class="brand-mark" aria-hidden="true">
-      <svg class="brand-mark__ring" viewBox="0 0 96 96" width="88" height="88">
-        <circle cx="48" cy="48" r="44" fill="none" stroke="currentColor" stroke-width="2.5" opacity="0.35"/>
-        <circle cx="48" cy="48" r="32" fill="none" stroke="currentColor" stroke-width="2.5" opacity="0.55"/>
-        <circle cx="48" cy="48" r="20" fill="none" stroke="currentColor" stroke-width="2.5" opacity="0.75"/>
-        <circle cx="48" cy="48" r="8" fill="currentColor"/>
-        <path d="M48 4v8M48 84v8M4 48h8M84 48h8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
-      </svg>
-    </div>
-    <h1 class="tool-brand__title">索尼快门</h1>
-    <p class="tool-brand__desc">本地读取快门次数与拍摄信息</p>
-  </header>
-
-  <section class="upload" aria-label="选择照片">
-    <input id="file-input" class="upload__input" type="file" accept="image/*" />
-    <label for="file-input" class="upload__hit" id="upload-hit">
-      <span class="upload__icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8">
-          <path d="M12 16V4m0 0l-4 4m4-4l4 4"/>
-          <path d="M4 14v4a2 2 0 002 2h12a2 2 0 002-2v-4"/>
-        </svg>
-      </span>
-      <span class="upload__title">选择索尼相机照片</span>
-      <span class="upload__hint">优先使用相机直出 JPEG；处理全程在本地完成</span>
-    </label>
-  </section>
-
-  <p class="status" id="status" hidden></p>
-
-  <section class="result" id="result" hidden></section>
-
-  <section class="tips">
-    <h2 class="tips__title">使用说明</h2>
-    <ul class="tips__list">
-      <li>请选择索尼相机原图（直出 JPEG）。经社交软件压缩或重导出的照片，快门次数通常会丢失。</li>
-      <li>小工具容器一般只能选图片；ARW 若能选中也可解析，但移动端相册里往往看不到。</li>
-      <li>快门次数来自 MakerNote 加密字段，不同机型偏移不同；未知机型会尝试常见偏移。</li>
-      <li>电子快门／静音拍摄可能不增加机械快门计数。</li>
-    </ul>
-  </section>
-`;
-
 const fileInput = document.querySelector('#file-input');
-const statusEl = document.querySelector('#status');
-const resultEl = document.querySelector('#result');
-const uploadHit = document.querySelector('#upload-hit');
-
 fileInput?.addEventListener('change', () => {
   const file = fileInput.files && fileInput.files[0];
   if (!file) return;
@@ -76,50 +25,96 @@ fileInput?.addEventListener('change', () => {
   fileInput.value = '';
 });
 
+initHome();
+
+function initHome() {
+  page.innerHTML = `
+    <div class="view view--home" id="view-home">
+      <header class="section tool-brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg class="brand-mark__grid" viewBox="0 0 48 48" width="48" height="48" fill="none">
+            <circle cx="24" cy="24" r="19.5" stroke="#111111" stroke-width="1"/>
+            <circle cx="24" cy="24" r="12.5" fill="#D90915"/>
+            <path d="M24 15.1l4.3 2.5-4.1 7.2h-4.9L24 15.1Z" fill="#ffffff"/>
+            <path d="M32.6 19.6v5.1l-7.9-0.1-2.4-4.2 10.3-0.8Z" fill="#ffffff"/>
+            <path d="M32.4 27.9l-4.4 2.5-4-7.2 2.5-4.2 5.9 8.9Z" fill="#ffffff"/>
+            <path d="M24 32.9l-4.3-2.5 4.1-7.2h4.9L24 32.9Z" fill="#ffffff"/>
+            <path d="M15.4 27.9v-5.1l7.9 0.1 2.4 4.2-10.3 0.8Z" fill="#ffffff"/>
+            <path d="M15.6 19.6l4.4-2.5 4 7.2-2.5 4.2-5.9-8.9Z" fill="#ffffff"/>
+            <path d="M24 21l2.5 1.5v3L24 27l-2.5-1.5v-3L24 21Z" fill="#D90915"/>
+          </svg>
+        </div>
+        <h1 class="tool-brand__title">快门查询</h1>
+      </header>
+
+      <section class="section upload" aria-label="选择照片">
+        <p class="section__label">上传</p>
+        <label for="file-input" class="upload__hit" id="upload-hit">
+          <span class="upload__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1">
+              <path d="M12 4v12M8 8l4-4 4 4"/>
+              <path d="M4 16v3h16v-3"/>
+            </svg>
+          </span>
+          <span class="upload__title">选择相机原图</span>
+          <span class="upload__hint">支持索尼、尼康<br/>处理全程在本地完成</span>
+        </label>
+      </section>
+
+      <p class="status" id="status" hidden></p>
+
+      <section class="section tips">
+        <p class="section__label">说明</p>
+        <ul class="tips__list">
+          <li>请选择相机直出原图。经社交软件压缩或重导出的照片，快门次数通常会丢失。</li>
+          <li>当前支持索尼、尼康；其他品牌通常只能读取基础拍摄参数。</li>
+          <li>电子快门／静音拍摄可能不增加机械快门计数。</li>
+        </ul>
+      </section>
+    </div>
+  `;
+}
+
 /**
  * @param {File} file
  */
 async function handleFile(file) {
   setStatus('正在本地解析…');
-  resultEl.hidden = true;
-  resultEl.innerHTML = '';
-  revokePreview();
 
   try {
     if (!file.type.startsWith('image/') && !/\.(jpe?g|arw|dng|tif{1,2})$/i.test(file.name)) {
-      setStatus('请选择图片文件（建议索尼直出 JPEG）。');
-      showToast('不支持的文件类型');
+      setStatus('请选择图片文件（建议相机直出 JPEG / RAW）。');
       return;
     }
 
     const buffer = await file.arrayBuffer();
     const exif = parseImageExif(buffer);
-    const shutter = extractSonyShutterCount(exif);
-
-    const make = (exif.make || '').toUpperCase();
-    const isSony = make.includes('SONY') || Boolean(shutter.modelInfo);
+    const shutter = extractShutterCount(exif);
 
     if (!exif.model && !exif.makerNoteAbs) {
       setStatus('未读到 EXIF 信息。请换一张相机原图试试。');
-      showToast('未找到拍摄信息');
       return;
     }
 
+    revokePreview();
     previewUrl = URL.createObjectURL(file);
-    renderResult({
+
+    const make = (exif.make || '').toUpperCase();
+    const isSupportedBrand = ['SONY', 'NIKON', 'FUJIFILM', 'FUJI'].some((name) => make.includes(name));
+
+    showResultView({
       fileName: file.name,
       previewUrl,
       exif,
       shutter,
-      isSony,
+      isSupportedBrand,
+      queryTime: formatNow(),
     });
+
     setStatus('');
-    statusEl.hidden = true;
-    showToast(shutter.shutterCount != null ? '快门次数已读出' : '已解析拍摄信息');
   } catch (err) {
     console.error(err);
     setStatus('解析失败，请换一张原图重试。');
-    showToast('解析失败');
   }
 }
 
@@ -128,119 +123,142 @@ async function handleFile(file) {
  *   fileName: string,
  *   previewUrl: string,
  *   exif: ReturnType<typeof parseImageExif>,
- *   shutter: ReturnType<typeof extractSonyShutterCount>,
- *   isSony: boolean,
+ *   shutter: ReturnType<typeof extractShutterCount>,
+ *   isSupportedBrand: boolean,
+ *   queryTime: string,
  * }} data
  */
-function renderResult(data) {
-  const { fileName, previewUrl: url, exif, shutter, isSony } = data;
-  const label = shutter.modelInfo?.label || exif.model || '未知机型';
-  const life = formatLife(shutter.shutterCount, shutter.modelInfo?.rated);
+function showResultView(data) {
+  const { fileName, exif, shutter, isSupportedBrand, queryTime } = data;
+  const rated = shutter.modelInfo?.rated ?? null;
+  const grade = formatShutterGrade(shutter.shutterCount, rated);
   const countText =
-    shutter.shutterCount != null ? formatCount(shutter.shutterCount) : '未能读出';
+    shutter.shutterCount != null ? formatCount(shutter.shutterCount) : '—';
+  const cameraModel = [exif.make, exif.model].filter(Boolean).join(' ') || '—';
+  const usagePct =
+    grade.percent != null ? `${Math.round(grade.percent)}%` : '—';
 
-  const rows = [
-    ['文件', fileName],
-    ['品牌', exif.make || '—'],
-    ['型号', exif.model || '—'],
+  const segCount = 24;
+  const filledSegs =
+    grade.percent != null
+      ? Math.max(1, Math.round((grade.percent / 100) * segCount))
+      : 0;
+
+  const segHtml = Array.from({ length: segCount }, (_, i) => {
+    const on = i < filledSegs;
+    return `<span class="seg-bar__cell${on ? ' is-on' : ''}"></span>`;
+  }).join('');
+
+  const gridRows = [
+    ['镜头型号', exif.lensModel || '—'],
+    ['镜头焦距', formatFocal(exif.focalLength)],
+    ['光圈系数', formatFNumber(exif.fNumber)],
+    ['曝光时间', formatExposureTime(exif.exposureTime)],
+    ['感光指数', formatIso(exif.iso)],
+    ['图片名称', fileName],
     ['拍摄时间', formatDateTime(exif.datetime)],
-    ['快门', formatExposureTime(exif.exposureTime)],
-    ['光圈', formatFNumber(exif.fNumber)],
-    ['感光度', formatIso(exif.iso)],
-    ['焦距', formatFocal(exif.focalLength)],
-    ['镜头', exif.lensModel || '—'],
-    ['测光', formatMetering(exif.meteringMode)],
-    ['曝光模式', formatExposureProgram(exif.exposureProgram)],
-    ['白平衡', formatWhiteBalance(exif.whiteBalance)],
+    ['查询时间', queryTime],
   ];
 
-  resultEl.hidden = false;
-  resultEl.replaceChildren();
+  const gridHtml = gridRows
+    .map(
+      ([k, v]) => `
+        <div class="detail-cell">
+          <span class="detail-cell__key">${k}</span>
+          <span class="detail-cell__val">${escapeHtml(v)}</span>
+        </div>`,
+    )
+    .join('');
 
-  const preview = el('div', 'result__preview');
-  const img = el('img', 'result__img');
-  img.alt = '所选照片预览';
-  img.src = url;
-  preview.appendChild(img);
-
-  const hero = el('div', 'result__hero');
-  const modelEl = el('p', 'result__model');
-  modelEl.textContent = label;
-  const countLabel = el('p', 'result__count-label');
-  countLabel.textContent = '快门次数';
-  const countEl = el('p', 'result__count');
-  countEl.textContent = countText;
-  if (shutter.shutterCount == null) countEl.classList.add('is-empty');
-  hero.append(modelEl, countLabel, countEl);
-
-  if (life) {
-    const lifeWrap = el('div', 'result__life');
-    const bar = el('div', 'result__life-bar');
-    const fill = el('span', 'result__life-fill');
-    fill.style.width = `${Math.max(2, life.percent)}%`;
-    bar.appendChild(fill);
-    const lifeText = el('p', 'result__life-text');
-    lifeText.textContent = life.text;
-    lifeWrap.append(bar, lifeText);
-    hero.appendChild(lifeWrap);
-  }
-
+  let noteHtml = '';
   if (shutter.note) {
-    const note = el('p', 'result__note');
-    note.textContent = shutter.note;
-    hero.appendChild(note);
-  } else if (!isSony) {
-    const note = el('p', 'result__note');
-    note.textContent = '品牌看起来不是索尼。仍展示已读到的 EXIF；快门次数仅对索尼机身有效。';
-    hero.appendChild(note);
+    noteHtml = `<p class="report-note">${escapeHtml(shutter.note)}</p>`;
+  } else if (!isSupportedBrand) {
+    noteHtml =
+      '<p class="report-note">当前仅支持索尼、尼康的快门次数查询；已展示可读取的基础拍摄信息。</p>';
   }
 
-  const meta = el('div', 'result__meta');
-  const metaTitle = el('h2', 'result__meta-title');
-  metaTitle.textContent = '拍摄信息';
-  meta.appendChild(metaTitle);
+  page.innerHTML = `
+    <div class="view view--result" id="view-result">
+      <header class="result-nav">
+        <p class="result-nav__title">查询结果</p>
+      </header>
 
-  const list = el('dl', 'meta-list');
-  for (const [k, v] of rows) {
-    const row = el('div', 'meta-list__row');
-    const dt = el('dt', 'meta-list__key');
-    dt.textContent = k;
-    const dd = el('dd', 'meta-list__val');
-    dd.textContent = v;
-    row.append(dt, dd);
-    list.appendChild(row);
-  }
-  meta.appendChild(list);
+      <div class="report-hero">
+        <div class="report-hero__col report-hero__col--count">
+          <p class="report-hero__label">快门次数</p>
+          <p class="report-hero__count${shutter.shutterCount == null ? ' is-empty' : ''}">${countText}</p>
+          <div class="seg-bar" role="img" aria-label="已使用 ${usagePct}">
+            ${segHtml}
+          </div>
+          <div class="report-hero__usage">
+            <span>已使用</span>
+            <span>${usagePct}</span>
+          </div>
+        </div>
+        <div class="report-hero__split" aria-hidden="true"></div>
+        <div class="report-hero__col report-hero__col--grade">
+          <p class="report-hero__label">快门状态</p>
+          <p class="report-hero__grade">${grade.grade}</p>
+          <p class="report-hero__status">${grade.label}</p>
+        </div>
+      </div>
 
-  const again = el('button', 'again-btn');
-  again.type = 'button';
-  again.textContent = '再选一张';
-  again.addEventListener('click', () => {
+      <section class="report-details" aria-label="拍摄信息">
+        <div class="report-details__head">
+          <div class="detail-cell detail-cell--wide">
+            <span class="detail-cell__key">相机型号</span>
+            <span class="detail-cell__val">${escapeHtml(cameraModel)}</span>
+          </div>
+          <div class="detail-cell detail-cell--wide">
+            <span class="detail-cell__key">快门来源</span>
+            <span class="detail-cell__val">${escapeHtml(shutter.source || 'MakerNote 估算')}</span>
+          </div>
+        </div>
+        <div class="report-details__grid">
+          ${gridHtml}
+        </div>
+      </section>
+
+      ${noteHtml}
+
+      <div class="result-actions">
+        <button type="button" class="again-btn" id="again-btn">再选一张</button>
+        <button type="button" class="back-btn" id="back-btn">返回首页</button>
+      </div>
+    </div>
+  `;
+
+  document.querySelector('#back-btn')?.addEventListener('click', goHome);
+  document.querySelector('#again-btn')?.addEventListener('click', () => {
     fileInput?.click();
   });
 
-  resultEl.append(preview, hero, meta, again);
-  resultEl.classList.remove('is-in');
-  void resultEl.offsetWidth;
-  resultEl.classList.add('is-in');
+  window.scrollTo(0, 0);
+}
 
-  uploadHit?.classList.add('is-done');
+function goHome() {
+  revokePreview();
+  initHome();
+  window.scrollTo(0, 0);
 }
 
 /**
- * @param {string} tag
- * @param {string} className
+ * @param {string} s
  */
-function el(tag, className) {
-  const node = document.createElement(tag);
-  node.className = className;
-  return node;
+function escapeHtml(s) {
+  return String(s)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;');
 }
 
 /**
  * @param {string} text
  */
 function setStatus(text) {
+  const statusEl = document.querySelector('#status');
   if (!statusEl) return;
   if (!text) {
     statusEl.hidden = true;
