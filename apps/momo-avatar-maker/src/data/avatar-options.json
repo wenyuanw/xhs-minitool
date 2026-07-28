@@ -1,0 +1,157 @@
+{
+  "parts": [
+    { "id": "body", "label": "身体" },
+    { "id": "eye", "label": "眼睛" },
+    { "id": "mouth", "label": "嘴巴" },
+    { "id": "blush", "label": "腮红" },
+    { "id": "hand", "label": "手部" },
+    { "id": "spots", "label": "斑点" },
+    { "id": "background", "label": "背景" }
+  ],
+  "palette": [
+    { "id": "milk", "label": "奶白", "color": "#fff8f2" },
+    { "id": "peach", "label": "蜜桃", "color": "#ffd5c2" },
+    { "id": "sakura", "label": "樱花粉", "color": "#ffc2d4" },
+    { "id": "butter", "label": "黄油", "color": "#ffe6a0" },
+    { "id": "lilac", "label": "香芋", "color": "#dcc8f7" },
+    { "id": "mint", "label": "青提", "color": "#c2ebd4" },
+    { "id": "sky", "label": "汽水蓝", "color": "#b0dbf2" },
+    { "id": "cocoa", "label": "可可", "color": "#4a342e" },
+    { "id": "rose", "label": "玫糖", "color": "#ff8fb0" },
+    { "id": "grape", "label": "葡萄", "color": "#9b78dc" }
+  ],
+  "backgrounds": [
+    { "id": "cotton", "label": "棉花糖", "palette": ["#fff0f5", "#ffd6e4", "#ffb8d0"] },
+    { "id": "lavender", "label": "香芋奶", "palette": ["#f4ecff", "#e0d0f8", "#c8b0f0"] },
+    { "id": "cloud", "label": "棉花蓝", "palette": ["#e8f6ff", "#c8e8fa", "#9ed4f0"] },
+    { "id": "honey", "label": "蜂蜜奶", "palette": ["#fff8e0", "#ffe8a8", "#ffd478"] },
+    { "id": "matcha", "label": "青提拿铁", "palette": ["#e8f7ee", "#ccebd8", "#a8d8bc"] },
+    { "id": "peachtea", "label": "蜜桃乌龙", "palette": ["#fff0e8", "#ffd8c8", "#ffc0a8"] },
+    { "id": "candy", "label": "草莓糖", "palette": ["#ffe4ee", "#ffc4d8", "#ffa8c4"] },
+    { "id": "lemon", "label": "柠檬汽", "palette": ["#f6ffd8", "#e8f8b0", "#d0e888"] },
+    { "id": "sunset", "label": "晚霞", "palette": ["#ffe8d8", "#ffc8b0", "#ffa890"] },
+    { "id": "dream", "label": "梦境", "palette": ["#eef2ff", "#dce4f8", "#c4ccec"] }
+  ],
+  "presets": [
+    {
+      "id": "soft-cream",
+      "partColors": {
+        "body": "milk",
+        "eye": "cocoa",
+        "mouth": "rose",
+        "blush": "sakura",
+        "hand": "cocoa",
+        "spots": "sakura",
+        "background": "cotton"
+      }
+    },
+    {
+      "id": "lavender-dot",
+      "partColors": {
+        "body": "lilac",
+        "eye": "cocoa",
+        "mouth": "rose",
+        "blush": "sakura",
+        "hand": "cocoa",
+        "spots": "grape",
+        "background": "lavender"
+      }
+    },
+    {
+      "id": "sunny-heart",
+      "partColors": {
+        "body": "butter",
+        "eye": "cocoa",
+        "mouth": "rose",
+        "blush": "peach",
+        "hand": "cocoa",
+        "spots": "peach",
+        "background": "cloud"
+      }
+    },
+    {
+      "id": "soda-blue",
+      "partColors": {
+        "body": "sky",
+        "eye": "cocoa",
+        "mouth": "rose",
+        "blush": "sakura",
+        "hand": "cocoa",
+        "spots": "grape",
+        "background": "cloud"
+      }
+    },
+    {
+      "id": "peach-tea",
+      "partColors": {
+        "body": "milk",
+        "eye": "cocoa",
+        "mouth": "rose",
+        "blush": "peach",
+        "hand": "cocoa",
+        "spots": "peach",
+        "background": "peachtea"
+      }
+    },
+    {
+      "id": "sakura-soft",
+      "partColors": {
+        "body": "sakura",
+        "eye": "cocoa",
+        "mouth": "rose",
+        "blush": "peach",
+        "hand": "cocoa",
+        "spots": "milk",
+        "background": "candy"
+      }
+    },
+    {
+      "id": "matcha-frog",
+      "partColors": {
+        "body": "mint",
+        "eye": "cocoa",
+        "mouth": "rose",
+        "blush": "sakura",
+        "hand": "cocoa",
+        "spots": "milk",
+        "background": "matcha"
+      }
+    },
+    {
+      "id": "grape-pop",
+      "partColors": {
+        "body": "grape",
+        "eye": "cocoa",
+        "mouth": "rose",
+        "blush": "sakura",
+        "hand": "cocoa",
+        "spots": "lilac",
+        "background": "sunset"
+      }
+    },
+    {
+      "id": "lemon-fresh",
+      "partColors": {
+        "body": "butter",
+        "eye": "cocoa",
+        "mouth": "rose",
+        "blush": "peach",
+        "hand": "cocoa",
+        "spots": "mint",
+        "background": "lemon"
+      }
+    },
+    {
+      "id": "dreamy",
+      "partColors": {
+        "body": "milk",
+        "eye": "cocoa",
+        "mouth": "rose",
+        "blush": "lilac",
+        "hand": "cocoa",
+        "spots": "lilac",
+        "background": "dream"
+      }
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+:root {
+  --ink: #111111;
+  --ink-soft: #111111;
+  --paper: #fff5eb;
+  --paper-raised: #ffffff;
+  --accent: #ff5a7a;
+  --accent-yellow: #ffe566;
+  --accent-mint: #7dffb3;
+  --accent-sky: #7ec8ff;
+
+  --color-primary: var(--accent);
+  --color-primary-strong: var(--accent);
+  --color-bg: var(--paper);
+  --color-card: var(--paper-raised);
+  --color-border: var(--ink);
+  --color-text: var(--ink);
+  --color-text-soft: var(--ink);
+  --color-white: #ffffff;
+
+  --stroke: 2.5px;
+  --line: var(--stroke) solid var(--ink);
+  --line-strong: 3px solid var(--ink);
+
+  --shadow-hard: 4px 4px 0 var(--ink);
+  --shadow-hard-sm: 3px 3px 0 var(--ink);
+  --shadow-press: 1px 1px 0 var(--ink);
+
+  --radius-xl: 0;
+  --radius-lg: 0;
+  --radius-md: 0;
+  --radius-sm: 0;
+  --radius-pill: 0;
+
+  --page-pad: 14px;
+  --page-pad-top: 6px;
+  --chrome-top: 76px;
+  --module-gap: 14px;
+  --preview-size: 200px;
+
+  --sat: 0px;
+  --sat: constant(safe-area-inset-top, 0px);
+  --sat: env(safe-area-inset-top, 0px);
+  --sar: 0px;
+  --sar: constant(safe-area-inset-right, 0px);
+  --sar: env(safe-area-inset-right, 0px);
+  --sab: 0px;
+  --sab: constant(safe-area-inset-bottom, 0px);
+  --sab: env(safe-area-inset-bottom, 0px);
+  --sal: 0px;
+  --sal: constant(safe-area-inset-left, 0px);
+  --sal: env(safe-area-inset-left, 0px);
+
+  --ease-out: cubic-bezier(0.2, 0.9, 0.2, 1);
+}

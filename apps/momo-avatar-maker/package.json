@@ -1,0 +1,22 @@
+{
+  "name": "momo-avatar-maker",
+  "version": "0.1.0",
+  "private": true,
+  "description": "离线可用的 momo 风格头像生成器，可模板 DIY，也可上传图片装饰",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && minitool-pack",
+    "preview": "vite preview --port 5174",
+    "validate": "minitool-validate xhs-tool --strict"
+  },
+  "devDependencies": {
+    "vite": "^6.3.5",
+    "xhs-minitool-pack": "workspace:*",
+    "xhs-minitool-validate": "workspace:*",
+    "xhs-minitool-vite-config": "workspace:*"
+  },
+  "engines": {
+    "node": ">=18.17.0"
+  }
+}
