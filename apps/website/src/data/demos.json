@@ -29,9 +29,9 @@
   },
   {
     "id": "sony-shutter",
-    "title": "索尼快门",
+    "title": "快门查询",
     "name": "sony-shutter",
-    "description": "上传索尼相机原图，本地解析快门次数与拍摄信息。",
+    "description": "上传索尼相机原图，本地解析快门次数、机身型号与拍摄参数。",
     "path": "/preview/sony-shutter/index.html"
   }
 ]
