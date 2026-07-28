@@ -21,7 +21,6 @@ body {
   letter-spacing: 0.02em;
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
 }
 
 body {
@@ -182,6 +181,9 @@ button {
   margin: 0;
   aspect-ratio: 1;
   object-fit: cover;
+  -webkit-touch-callout: default;
+  -webkit-user-select: auto;
+  user-select: auto;
 }
 
 .result-tip {
