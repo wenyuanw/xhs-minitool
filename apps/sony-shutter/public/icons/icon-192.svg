@@ -1,8 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" fill="none">
-  <rect width="192" height="192" rx="42" fill="#1F6B5C"/>
-  <circle cx="96" cy="96" r="62" stroke="#E8F4F0" stroke-width="6" opacity="0.35"/>
-  <circle cx="96" cy="96" r="44" stroke="#E8F4F0" stroke-width="6" opacity="0.55"/>
-  <circle cx="96" cy="96" r="26" stroke="#E8F4F0" stroke-width="6" opacity="0.8"/>
-  <circle cx="96" cy="96" r="10" fill="#F5E6B8"/>
-  <path d="M96 28v12M96 152v12M28 96h12M152 96h12" stroke="#E8F4F0" stroke-width="6" stroke-linecap="round" opacity="0.55"/>
+  <rect width="192" height="192" fill="#FAFAFA"/>
+  <circle cx="96" cy="96" r="78" stroke="#111111" stroke-width="4"/>
+  <circle cx="96" cy="96" r="50" fill="#D90915"/>
+  <path d="M96 60l17 10-16 29H77L96 60Z" fill="#ffffff"/>
+  <path d="M130 78v20l-31-1-10-16 41-3Z" fill="#ffffff"/>
+  <path d="M129 111l-17 10-16-29 10-16 23 35Z" fill="#ffffff"/>
+  <path d="M96 132l-17-10 16-29h20L96 132Z" fill="#ffffff"/>
+  <path d="M62 111V91l31 1 10 16-41 3Z" fill="#ffffff"/>
+  <path d="M63 78l17-10 16 29-10 16-23-35Z" fill="#ffffff"/>
+  <path d="M96 84l10 6v12l-10 6-10-6V90l10-6Z" fill="#D90915"/>
 </svg>
