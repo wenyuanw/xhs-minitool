@@ -12,6 +12,7 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
     小红书小工具不是普通网站，它运行在一个<strong>受限制的 App 内置浏览器</strong>里。可以把它理解成：一个必须<strong>完全离线、所有文件都打包在 zip 里</strong>的手机网页。
   </p>
   <p>设计功能前，先确认你的核心流程在「不能联网」的前提下是否还能跑通。</p>
+  <p>以下内容于 2026-09-16 对照 <a href="https://miniapp-sandbox.xiaohongshu.com/minitool/doc" target="_blank" rel="noopener">官方开发者文档与能力清单</a> 更新。容器另外提供保存图片、发笔记和本地缓存的端 API。</p>
 
   <h2>必须遵守的规则</h2>
   <ul>
@@ -29,6 +30,7 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
       <strong>允许的文件类型有限</strong>：html、css、js、常见图片、字体、json 等。别的格式可能被拒绝。
     </li>
     <li><strong>不支持</strong> Service Worker、PWA、后台联网更新这类能力。</li>
+    <li><strong>兼容基线</strong>：Android 8.1 / Chrome 61、ES2017，iOS 最低 18.4。新语法需转译，新 Web API 和现代 CSS 需检测或降级。</li>
   </ul>
 
   <h2>通常做不到的事</h2>
@@ -36,7 +38,7 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
   <ul>
     <li>访问你自己的服务器 API（需要联网拉数据）</li>
     <li>打开外部网页、嵌入 iframe</li>
-    <li>下载文件到手机、唤起系统分享</li>
+    <li>通过浏览器下载任意文件、唤起通用系统分享；保存图片和发笔记请用下方官方端 API</li>
     <li>使用 WebAssembly、Web Worker 等高级能力</li>
     <li>实时聊天、多人协作等需要持续联网的功能</li>
   </ul>
@@ -46,14 +48,29 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
   <p>下面这些在离线容器里通常没问题，适合大多数小工具：</p>
   <ul>
     <li>页面展示、按钮交互、表单输入</li>
-    <li>用 <code>localStorage</code> 或 <code>IndexedDB</code> 在本地保存数据</li>
+    <li>使用符合客户端版本要求的 Storage API 保存业务数据</li>
     <li>Canvas 绘图、简单动画</li>
-    <li>读取 zip 包内的图片、音频等资源</li>
+    <li>读取 zip 包内受支持的图片、字体等资源；选择图片／视频</li>
   </ul>
+
+  <h2>保存图片与发笔记</h2>
+  <p>容器自动注入 <code>window.xhs.miniTool</code>，无需引入 SDK 脚本。调用前检查对象和方法是否存在；普通浏览器预览可能没有这些能力。</p>
+  <ul>
+    <li><code>saveImageToPhotosAlbum</code>：用户点击后保存图片到相册，处理拒绝授权等失败状态。</li>
+    <li><code>writeTempFile</code>：把 base64 写成临时文件，得到供保存／发布使用的路径。大图建议先转换；临时路径不要长期保存。</li>
+    <li><code>postNote</code>：带入标题、正文与媒体，唤起笔记发布页，用户可编辑或取消。成功回调不代表审核通过，也不能承诺断网发布。</li>
+  </ul>
+  <p>媒体参数只接受 base64 data URI 或本地文件路径，不接受网络地址；用于页面预览的 blob URL 不能直接作为端 API 的文件路径。<code>postNote</code> 至少需要一种媒体，标题最多 20 字、正文最多 1000 字、图片最多 18 张；<code>pageType</code> 与实况照片要求 9.43+。</p>
+
+  <h2>Storage 本地缓存</h2>
+  <p>客户端 <strong>9.46.0+</strong> 推荐使用 <code>setStorage</code>、<code>getStorage</code>、<code>getStorageInfo</code>、<code>removeStorage</code>、<code>clearStorage</code>。单个 key 最大 1 MB，整个工具最大 10 MB；<code>encrypt</code> 默认 false，读写须保持一致。</p>
+  <p>版本从启动参数的 <code>miniToolEnv.buildVersion</code> 获取，必要时调用 <code>getLaunchOptions</code>。判断时去掉最后 3 位编译序号，例如 9462004 对应 9.46.2；版本缺失按不支持处理，并检查具体方法是否存在。</p>
+  <p>低版本或版本未知时，才按需降级到 <code>localStorage</code> / <code>IndexedDB</code> 等浏览器存储。容器不保证它们可用或持久，读写都要处理异常和数据丢失。升级后的数据迁移与一致性由开发者维护，不能假设平台自动迁移。</p>
+  <p>端 API 不传回调时返回 Promise；传入 success / fail / complete 任一回调则返回 undefined。两种调用方式择一，并为失败提供反馈。参数细节见 <a href="https://miniapp-sandbox.xiaohongshu.com/minitool/doc#s3" target="_blank" rel="noopener">官方端 API 文档</a>。</p>
 
   <h2>怎么判断「能不能做」</h2>
   <ol>
-    <li>断网后，你的核心流程还能完成吗？</li>
+    <li>断网后，本地创作／计算流程还能完成吗？发笔记等 App 流程需单独验证。</li>
     <li>所有素材和代码都在 zip 里吗？</li>
     <li>有没有依赖登录、实时数据、外部链接？</li>
   </ol>

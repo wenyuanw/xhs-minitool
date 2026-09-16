@@ -15,7 +15,7 @@
 
 ## 1. 目录结构与打包
 
-**唯一硬性要求：`index.html` 位于 zip 根目录作为入口。** 其余文件 / 文件夹随你组织 —— 可平铺，也可按需分目录（`assets/`、`images/`、`audios/` 等），用相对路径引用即可。
+**唯一硬性要求：`index.html` 位于 zip 根目录作为入口。** 其余文件 / 文件夹随你组织 —— 可平铺，也可按需分目录（`assets/`、`images/` 等），用相对路径引用即可。
 
 平铺示例：
 
@@ -42,7 +42,7 @@ tool.zip
 | 路径 | 要求 | 说明 |
 | --- | --- | --- |
 | `index.html` | **必须在 zip 根目录** | 唯一入口；不可改名、不可放进子目录 |
-| 其余文件 / 文件夹 | 自由 | JS / CSS / 图片 / 音频等，平铺或分目录皆可，相对路径引用 |
+| 其余文件 / 文件夹 | 自由 | 白名单中的 JS / CSS / 图片等，平铺或分目录皆可，相对路径引用 |
 
 ### 禁止出现在 zip 内
 
@@ -77,7 +77,7 @@ zip 内仅允许以下类型：
 | `.js` | 脚本文件 |
 | `.png` / `.jpg` / `.jpeg` / `.gif` / `.webp` / `.svg` | 图片资源 |
 | `.woff` / `.woff2` | 字体文件 |
-| `.json` | 静态数据 / 配置 |
+| `.json` | 小型静态数据 / 配置；不得作为大型内置数据库，体积门禁见 [performance-budget.md](./performance-budget.md) |
 
 ---
 
@@ -91,14 +91,17 @@ zip 内仅允许以下类型：
 | 样式 `<style>` / `<link>` | 内联 `<style>`、行内 `style="..."`、包内样式表 | 外部域名样式表 |
 | 图片 `<img>` / CSS 背景图 | 包内图片 `<img src="./a.png">`；`data:` URI（base64 内嵌）；`blob:`（`createObjectURL` 内存对象，如选图预览） | 外部域名图片 |
 | 字体 `@font-face` | 包内字体文件 | 外部域名字体 |
-| 音视频 `<video>` / `<audio>` | 包内媒体文件 | 外部域名媒体、`data:` / `blob:` 媒体 |
+| 音视频 `<video>` / `<audio>` | 支持内联播放，具体来源须实机验证 | 外部域名媒体；不得据播放能力扩展文件类型白名单 |
 | iframe / object | — | 全部禁止 |
 
 关键点：
 
 - **脚本必须外置**：容器 CSP 的 `script-src` 不含 `unsafe-inline`，内联 `<script>...</script>`、行内事件 `onclick="..."`、`javascript:` URI 均不可用。JS 写进包内 `.js` 用 `<script src>` 引入，事件用 `addEventListener` 绑定。
+- **脚本必须是经典脚本**：只用 `<script src="./app.js">`，**不要 `type="module"`**，JS 里也不要 `import` / `export`。zip 离线加载、无目录服务，module 的相对 `import` 解析不可靠，典型症状是「页面渲染出来但 JS 完全不执行」。要拆多个 JS 文件时按依赖顺序写多个 `<script src>`，靠 `window` 命名空间协作，并避免 top-level `await`。
+- **脚本须兼容目标 WebView**：直接交付的 JS 可使用 ES2017；已有构建链可使用更新语法，但最终须转译为面向 Chrome 61 的 ES2017 产物，见 [js-compatibility.md](./js-compatibility.md)。
 - **样式可内联**：`<style>` 与 `style="..."` 都能用，无需外置。
-- **选图预览**：`<img src>` 配 `data:`（`FileReader.readAsDataURL`）或 `blob:`（`URL.createObjectURL`）均可显示。
+- **样式须兼容目标 WebView**：使用 Chrome 61 基线层保证核心布局，并通过能力检测启用现代 CSS 增强；只做功能点级回退，不维护两套完整 CSS，见 [css-compatibility.md](./css-compatibility.md)。
+- **选图预览**：`<img src>` 配 `data:`（`FileReader.readAsDataURL`）或 `blob:`（`URL.createObjectURL`）均可显示；大图优先 `blob:` 并及时 `URL.revokeObjectURL()`。静态资源不得转成长 Base64 塞进源码，见 [performance-budget.md](./performance-budget.md)。
 - 外部 CDN 一律加载不到，所有资源全部打包进小工具。
 
 ---
@@ -173,23 +176,31 @@ zip 内仅允许以下类型：
 - [ ] viewport 含 `width=device-width, initial-scale=1.0, viewport-fit=cover`
 - [ ] 全部资源为相对路径，无 `http(s)://` 外部引用（图片、第三方库、字体等已打进 zip）
 - [ ] 脚本全部外置：无内联 `<script>`、无 `onclick=` 等行内事件、无 `javascript:` / `eval` / `new Function`
-- [ ] 图片可用包内文件 / `data:` / `blob:`；音视频、字体仅用包内文件
+- [ ] 脚本为经典脚本：无 `type="module"`，JS 内无 `import` / `export`
+- [ ] JS 兼容 [js-compatibility.md](./js-compatibility.md)：直接交付代码不超出 ES2017，或已有构建链生成面向 Chrome 61 的 ES2017 产物
+- [ ] CSS 兼容 [css-compatibility.md](./css-compatibility.md)：Chrome 61 基线可用，现代 CSS 通过合适的能力检测启用，并已检查最终构建产物
+- [ ] 图片可用包内文件 / `data:` / `blob:`，字体用包内文件；播放／临时文件支持不等于 zip 可包含音视频扩展名
 - [ ] 无 `<base href>`、无 `<iframe>` / `<object>`、无自建 CSP `<meta>`
 
 ### 端能力（见 [device-capabilities.md](./device-capabilities.md)）
 
 - [ ] 未使用不可用能力（网络请求、定位、剪贴板、传感器、Worker、WebRTC 等）
 - [ ] 相机 / 麦克风 / 选图用法符合「用户手势触发 + 授权」
+- [ ] 若使用 JSBridge：仅调用 [jsbridge-api.md](./jsbridge-api.md) 列出的 API，参数符合 schema
 
-### 改写正确性（静态自查）
+### 正确性（静态自查）
 
-- [ ] 已删除 / 替换的被禁能力**无残留调用**（按 device-capabilities.md 扫描清单逐项 grep）
+- [ ] 被禁能力**无调用 / 残留**（按 device-capabilities.md 扫描清单逐项 grep）
 - [ ] JS 无语法错误；关键逻辑通读无明显运行时报错（如调用未定义函数、引用 `null` DOM）
 - [ ] 多文件 JS 依赖关系 / 加载顺序正确
-- [ ] 页面引用的每个资源（脚本 / 样式 / 图片 / 音频）都已打进 zip，且路径正确
-- [ ] 改写**仅替换被禁能力**，未顺手改动其余业务逻辑与 UI
+- [ ] 页面引用的每个资源（脚本 / 样式 / 图片 / 字体）都已打进 zip，且路径正确
+- [ ] 改写场景：仅替换被禁能力，未顺手改动其余业务逻辑与 UI
 - [ ] 核心交互在代码层面自洽：事件有绑定、依赖的 DOM 存在、回调闭环完整
 
 ### 体积
 
-- [ ] 推荐总包 < 2MB；单图 < 500KB
+- [ ] 总包（zip）不超过 10MB（上限）；为获得更好的加载体验，建议控制在 2MB 以内
+- [ ] 单条 Base64 解码后不超过 1MiB；超过 100KiB 时优先改为独立包内文件
+- [ ] 单个 HTML / CSS / JS / JSON 超过 2MiB、文本合计超过 5MiB 时已人工检查，确认没有把大型数据库 / 生成内容塞进代码包
+- [ ] 已按 [performance-budget.md](./performance-budget.md) 的环境分支审计产物目录与最终 zip；无运行时时已完成人工门禁并明确记录
+- [ ] 明显超出建议值时已按 [performance-budget.md](./performance-budget.md) 优化，而不是依赖高压缩率掩盖解压后的大源码 / 大数据

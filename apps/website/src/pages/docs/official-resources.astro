@@ -24,13 +24,13 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
   </p>
 
   <h2>能力清单</h2>
-  <p>官方列出的「能用 / 不能用」能力对照表。做功能设计前建议先看这里。</p>
+  <p>官方列出的 Web 能力边界和端 API：保存图片到相册、唤起笔记发布页、临时文件、Storage 本地缓存，以及客户端版本要求。做功能设计前建议先看这里。</p>
   <p>
     <a
-      href="https://fe.xiaohongshu.com/ditto/vincent/9e60cefbd7024e1cb783383308cb1aa5?naviHidden=yes&fullscreen=true&source=splash"
+      href="https://miniapp-sandbox.xiaohongshu.com/minitool/doc"
       target="_blank"
       rel="noopener"
-      >打开：小工具能力清单</a
+      >打开：小工具开发者文档与能力清单</a
     >
   </p>
 
@@ -44,17 +44,22 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
 
   <h2>官方打包规范 Skill</h2>
   <p>
-    小红书还提供了一份「打包规范」指引（Skill），主要给 AI 编程工具或自动化流程使用，用来按官方要求检查并打包 zip。
+    已核验的官方包：
+    <a href="https://fe-static.xhscdn.com/mini-tool/20260831163932/minitool-zip-builder-1.6.0.skill" target="_blank" rel="noopener">minitool-zip-builder 1.6.0.skill</a>。
+    下载后按使用的工具解压：Codex 放到 <code>.codex/</code>，Cursor / Claude Code 放到 <code>.claude/</code>，其他工具放到 <code>.skill/</code>。
   </p>
   <p>
-    下载：
+    官方文档要求从上传页「第一步：调整为符合小红书规范的代码格式」复制当前完整改写口令，交给 AI 助手获取对应版本 Skill，再按其要求校验、修复和打包。
+  </p>
+  <p>
     <a
-      href="https://fe-static.xhscdn.com/mini-tool/1.2.0/minitool-zip-builder.zip"
+      href="https://creator.xiaohongshu.com/new/red-app"
       target="_blank"
       rel="noopener"
-      >minitool-zip-builder.zip</a
+      >前往上传页获取当前改写口令与 Skill</a
     >
   </p>
-  <p>下载后解压到项目里，按里面的 <code>SKILL.md</code> 操作即可。如果你用 Cursor 或 Claude Code，也可以直接读项目自带的 <code>.agents/skills/minitool-zip-builder/</code>，内容和官方 Skill 一致。</p>
-  <p>普通用户用 <code>pnpm build</code> + <code>pnpm validate</code> 通常就够了，不必手动处理 Skill，除非你想同步官方最新指引。</p>
+  <p>项目自带的 <code>.agents/skills/minitool-zip-builder/</code> 以官方 1.6.0 为基线，并于 2026-09-16 按现行能力网页补充 API 指引。官方原包尚未包含 Storage API，部分媒体字段也与网页不同；仓库维护版保留网页中的存储与版本要求，并记录差异，不与官方原包混称。</p>
+  <p>1.6.0 是已核验的下载版本，不代表已确认没有更新版本。正式上传仍请核对上传页的最新要求。</p>
+  <p><code>pnpm build</code> + <code>pnpm validate</code> 可用于本地构建与静态检查；相册、笔记发布和原生存储仍需在小红书容器中验证。</p>
 </DocsLayout>

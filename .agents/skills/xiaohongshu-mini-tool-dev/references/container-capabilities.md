@@ -2,13 +2,14 @@
 
 使用本参考判断需求可行性、选择技术方案和解释兼容性问题。页面将小工具描述为运行在受限沙箱中的纯 Web 应用；应将其视为“能力受限的浏览器页面”，并按完全离线、自包含方式开发。[1]
 
-> 本参考最后核验于 **2026-07-15**。涉及边界能力、版本差异或正式发布时，重新打开文末官方清单确认规则未更新；若官方内容与本参考冲突，以官方内容为准。
+> 本参考最后核验于 **2026-09-16**（官方页面标注更新日期 2026-09-10）。涉及边界能力、版本差异或正式发布时，重新打开文末官方清单确认规则未更新；若官方内容与本参考冲突，以官方内容为准。
 
 ## 运行模型
 
 | 维度 | 约束 |
 |---|---|
-| 技术栈 | 使用标准 HTML、CSS、JavaScript 和标准 Web API；没有额外原生桥接接口。 |
+| 技术栈 | 标准 HTML / CSS / JavaScript；Android 8.1 / Chrome 61、ES2017 基线，iOS 最低 18.4。 |
+| 端能力 | 容器自动注入 `window.xhs.miniTool`；仅开放文档列出的方法，无需引入 SDK 脚本。 |
 | 沙箱 | 敏感 Web 能力受限；文件选择、页面跳转等行为由容器统一管控。 |
 | 隔离 | 每个小工具具有独立存储和运行环境；不同小工具不能访问彼此数据或通信。 |
 | 网络 | 本期纯本地运行；页面、脚本、图片、字体和数据必须全部打包。 |
@@ -24,10 +25,16 @@
 | 媒体采集 | `getUserMedia({video})`、`getUserMedia({audio})`，需系统授权。 |
 | 文件选择 | `<input type="file">` 接入系统选择器，但只开放图片和视频类别。 |
 | 播放 | `<video>`、`<audio>` 支持内联播放。 |
-| 存储 | localStorage、sessionStorage、IndexedDB、Cookie、Cache API，按小工具隔离。 |
+| 存储 | 9.46.0+ 使用 Storage JS API；浏览器存储仅作不满足版本条件时的降级。 |
+| 图片保存／笔记 | `saveImageToPhotosAlbum` 保存相册，`postNote` 唤起发布页；媒体只接受本地路径或 base64 data URI。 |
+| 临时文件 | `writeTempFile` 将 base64 写成临时文件供端 API 使用，不开放任意文件系统访问。 |
 | 基础对话 | `alert()`、`confirm()` 可用；`window.prompt` 禁用。 |
 
-不要假设本地数据永久持久化。Cookie 只能作为本地存储，不能随网络请求传给服务端，也不能用于服务端登录态或鉴权透传；优先使用 localStorage 或 IndexedDB。[1]
+存储按工具隔离，不承诺永久有效。浏览器的 localStorage、sessionStorage、IndexedDB、Cookie、Cache API 不保证可用或持久；仅兼容降级时使用，并容忍异常、缺失和清理。Cookie 不能提供服务端登录态。Storage 的版本判断、容量、迁移和端 API 参数见 [native-apis.md](native-apis.md)。[1]
+
+## 兼容基线
+
+最终脚本须满足 ES2017 / Chrome 61；高版本语法需构建转译。新 Web API 必须检测并提供降级；转译不能补齐浏览器 API。CSS 也须兼容 Chrome 61：先提供基础布局，再增强现代特性，例如在 `env()`、`max()`、`clamp()`、`dvh` 前保留可用的普通声明；Flex gap 不能成为唯一间距来源。真实最低版本验证不能用现代桌面浏览器代替。[1]
 
 ## 资源加载白名单
 
@@ -39,7 +46,7 @@
 | 字体 | 包内 `.woff` / `.woff2`。 | 外部域名字体。 |
 | iframe / object | 无。 | 全部禁止。 |
 
-`<img>` 加载 `data:` / `blob:` 自 9.37 版本起支持。兼容 9.37 之前版本时，使用 `createImageBitmap` 加 Canvas 绘制作为替代。[1]
+当前官方文档允许图片预览使用 `data:` / `blob:`。这不等同于端 API 接受 `blob:` URL；保存／发布请传 base64 data URI 或本地文件路径。[1]
 
 ## 支持的包内文件类型
 
@@ -69,7 +76,7 @@
 
 ## 禁用的行为
 
-禁止网络加载、iframe 嵌入、被外部页面嵌入、`<form>` 跳转提交、Flash 等插件、`a[download]` 或 blob 下载、`target="_blank"`、站外跳转、跨小工具跳转和长按菜单。移动端 WebView 还不支持 PaymentRequest、系统通知／推送、NFC、MIDI、XR / AR / VR、后台同步／下载、PWA 安装、窗口管理以及指针／键盘锁定。[1]
+禁止网络加载、iframe 嵌入、被外部页面嵌入、`<form>` 跳转提交、Flash 等插件、`a[download]` 或 blob 下载、`target="_blank"`、站外跳转、跨小工具跳转和长按菜单。保存图片应改用官方 `saveImageToPhotosAlbum`；笔记发布使用 `postNote`，不通过页面跳转或下载规避限制。移动端 WebView 还不支持 PaymentRequest、系统通知／推送、NFC、MIDI、XR / AR / VR、后台同步／下载、PWA 安装、窗口管理以及指针／键盘锁定。[1]
 
 ## WebGL 边界
 
@@ -82,11 +89,12 @@
 | 纯本地界面、计算、表单、编辑、静态内容 | 可实现。 |
 | Canvas 或使用本地纹理的轻量 WebGL | 可实现。 |
 | 摄像头、麦克风、图片／视频选择 | 可实现，但需授权并受类别限制。 |
-| 本地数据库和偏好保存 | 可实现，但不保证永久持久化。 |
+| 本地数据库和偏好保存 | 使用符合版本条件的 Storage API；旧版兼容存储可能失败或丢失。 |
+| 生成图片存相册／携带媒体发笔记 | 使用官方端 API；处理权限、取消、无 SDK 和版本差异。 |
 | 在线 API、账号登录、实时同步、远程资源 | 当前不可实现。 |
 | WASM、Worker、多线程、系统级 Web API | 当前不可实现。 |
-| 下载文件、打开外链、iframe、跨工具导航 | 当前不可实现。 |
+| 任意文件下载、打开外链、iframe、跨工具导航 | 当前不可实现。 |
 
 ## References
 
-[1]: https://fe.xiaohongshu.com/ditto/vincent/9e60cefbd7024e1cb783383308cb1aa5?naviHidden=yes&fullscreen=true&source=splash "小红书小工具能力清单"
+[1]: https://miniapp-sandbox.xiaohongshu.com/minitool/doc "小红书小工具能力清单"

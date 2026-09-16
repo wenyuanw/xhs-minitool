@@ -41,4 +41,5 @@ pnpm validate  # 上传前检查（推荐）
 ## 更多说明
 
 - 平台能做什么 / 不能做什么：看项目里的 `.agents/skills/xiaohongshu-mini-tool-dev/`
-- 官方文档：https://xhs-minitool.wenyuanw.me/docs/getting-started/
+- [官方开发者文档与能力清单](https://miniapp-sandbox.xiaohongshu.com/minitool/doc)：保存图片、发笔记、Storage API 与版本限制
+- [脚手架使用文档](https://xhs-minitool.wenyuanw.me/docs/getting-started/)

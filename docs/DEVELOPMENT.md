@@ -70,6 +70,27 @@ pnpm site:deploy     # 需已 wrangler login
 - [`.agents/AGENTS.md`](../.agents/AGENTS.md) — 项目级 Agent 规范（顶部避让、Logo/标题居中等布局约定）
 - `.agents/skills/minitool-zip-builder/` — zip 产物规范
 - `.agents/skills/xiaohongshu-mini-tool-dev/` — 容器能力与审查清单
+- [官方开发者文档与能力清单](https://miniapp-sandbox.xiaohongshu.com/minitool/doc) — Web 约束与保存图片、发笔记、Storage API 的来源
+
+维护 skills 时同时同步 `packages/create-minitool/template/.agents/skills/` 及已有的 `apps/*/.agents/skills/` 副本，确保新建项目获得相同指引。端 API 参数、版本检测和存储迁移见 `xiaohongshu-mini-tool-dev/references/native-apis.md`；文档站的「容器约束」与「官方资源」也应同步更新。正式上传从平台上传页取得当前改写口令及对应版本官方 Skill，不将仓库副本称为官方最新版本。
+
+### 官方 1.6.0 与仓库维护版
+
+- [已核验的官方 1.6.0 下载包](https://fe-static.xhscdn.com/mini-tool/20260831163932/minitool-zip-builder-1.6.0.skill)解压在 `.codex/minitool-zip-builder/`，保留原始内容。其 `SKILL.md` 和 `skill-package.json` 均标注 1.6.0；这不能证明它是当前唯一最新版本。
+- `.agents/skills/minitool-zip-builder/` 为基于 1.6.0 的维护版，补充现行能力网页契约；来源 URL、原包 SHA-256 和本地修订标识保存在 `skill-package.json`，不要把它当作官方原包。
+- JS / CSS 兼容规范、性能预算与 `audit_artifact.mjs` / `audit_artifact.py` 已从官方包同步。体积审计只检查体积，不替代 CSP、API、兼容性和真机测试。
+
+2026-09-16 核验到的差异：
+
+| 项目 | 官方 1.6.0 原包 | 当天能力网页／维护版处理 |
+|---|---|---|
+| Storage / getLaunchOptions | 未列出，仍推荐浏览器存储 | 按网页补充，Storage 要求 9.46.0+；旧版／未知版本才降级。 |
+| 实况字段 | `live_photo_resources` | 使用网页中的 `live_photo_sources`，不同时传两种字段。 |
+| 原生跳转与标签 | 列出 `openRedPage`、`tags` | 当前网页未列出；维护版不宣称支持，需再核对目标客户端契约。 |
+| 笔记媒体地址 | 文本允许网络地址 | 网页仅允许本地路径／base64；维护版不传网络地址。 |
+| writeTempFile | 要求完整 data URI，拒绝裸 base64 | 网页写 base64 可带前缀；维护版统一传完整 data URI，兼容两者。 |
+
+重新获取官方包时，先检查包内版本与变更，再核对网页；不要无条件覆盖 Storage 等较新补充，也不要依据 URL 中日期推断发布先后。
 
 ## 发版（版本 + Changelog + npm）
 

@@ -58,6 +58,10 @@ pnpm validate  # 上传前检查（推荐）
 - [打包与校验](https://xhs-minitool.wenyuanw.me/docs/packaging/) — zip 怎么打、怎么检查
 - [容器约束](https://xhs-minitool.wenyuanw.me/docs/container-limits/) — 哪些功能能做、不能做
 - [官方资源](https://xhs-minitool.wenyuanw.me/docs/official-resources/) — 小红书平台官方说明
+- [官方开发者文档与能力清单](https://miniapp-sandbox.xiaohongshu.com/minitool/doc) — 保存图片、发笔记、Storage API 与容器限制
+- [官方打包 Skill 1.6.0](https://fe-static.xhscdn.com/mini-tool/20260831163932/minitool-zip-builder-1.6.0.skill) — 已核验下载版本；仓库维护版另按现行能力网页补充 API 差异
+
+容器通过 `window.xhs.miniTool` 提供保存图片、唤起笔记发布页和临时文件等能力；客户端 9.46.0+ 使用 Storage API 保存业务数据，低版本才按需降级到不保证持久性的浏览器存储。网页网络请求和任意文件下载仍被禁用。开发前请核对官方版本要求，端能力需在小红书容器中验证。
 
 ## 参与开发
 

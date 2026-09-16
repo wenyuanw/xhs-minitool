@@ -1,16 +1,17 @@
 # 小工具能力清单
 
 > 小工具运行在受限容器中：**纯本地、不联网**，把它当作一个能力受限的浏览器页面。
-> 改写时**以本文为基线**：命中「不可用」项必须移除或改用替代写法。
+> 基于官方 1.6.0，并于 2026-09-16 对照[官方能力网页](https://miniapp-sandbox.xiaohongshu.com/minitool/doc)修正端 API 与存储；未开放的能力不得使用。
 
 ## 目录
 
 - §1 可用能力
-- §2 不可用能力（Web API）
-- §3 不可用行为
-- §4 WebGL / 图形计算边界
-- §5 常见交互怎么实现
-- §6 改写扫描清单
+- §2 Native 能力（JSBridge）
+- §3 不可用能力（Web API）
+- §4 不可用行为
+- §5 WebGL / 图形计算边界
+- §6 常见交互怎么实现
+- §7 能力扫描清单
 
 ---
 
@@ -18,7 +19,7 @@
 
 ### 页面与渲染
 
-标准 HTML / CSS / JS 完整可用：Flexbox / Grid / 动画 / 媒体查询、Canvas 2D（`getContext('2d')`）、WebGL（`getContext('webgl'/'webgl2')`，边界见 §4）、文本选择不限制。
+标准 HTML / CSS / JS 可用，但最终产物须满足目标内核基线：JS 见 [js-compatibility.md](./js-compatibility.md)，CSS 见 [css-compatibility.md](./css-compatibility.md)。可使用基线内的 Flexbox / Grid / 动画 / 媒体查询、Canvas 2D（`getContext('2d')`）、WebGL（`getContext('webgl'/'webgl2')`，能力边界见 §5、性能与低端机降级见 [performance-budget.md](./performance-budget.md) §4–5），文本选择不限制。
 
 ### 媒体与文件
 
@@ -27,13 +28,23 @@
 | 摄像头 | `navigator.mediaDevices.getUserMedia({ video: true })` | 用户手势触发 + 系统弹窗授权 |
 | 麦克风 | `navigator.mediaDevices.getUserMedia({ audio: true })` | 用户手势触发 + 系统弹窗授权 |
 | 选择图片 / 拍照 | `<input type="file">` | 系统选择器接管，**仅能选图片和视频**（无论 `accept` 如何设置） |
-| 音视频播放 | `<video>` / `<audio>` | 内联播放，媒体文件须打包在内 |
+| 音视频播放 | `<video>` / `<audio>` | 支持内联播放；具体来源须实机验证，不扩展 zip 文件白名单 |
 
 ### 数据存储
 
-`localStorage` / `sessionStorage` / `IndexedDB` / `Cookie` / `Cache API` 均可用，按小工具独立隔离，其他小工具与外部无法访问。
+客户端 9.46.0+ 使用 `window.xhs.miniTool` 的 Storage API，先检查所需方法存在。浏览器 localStorage / sessionStorage / IndexedDB / Cookie / Cache API 仅用于不满足版本条件时降级；不保证可用或持久，所有读写与解析须捕获异常。Cookie 不用于服务端登录／鉴权。存储按工具隔离，不承诺永久有效。
 
-Cookie 仅作本地存储：可读写、按 origin 隔离，但因不联网**不会随请求发往服务端**，不能用于登录态 / 鉴权。需要本地存储优先用 `localStorage` / `IndexedDB`。数据不保证永久持久化。
+版本先逐级判空读取 `window.xhs.launchOptions.miniToolEnv.buildVersion`；缺失时检查并调用 `miniTool.getLaunchOptions()` 获取同结构数据。都失败按未知版本降级。**去掉末 3 位编译序号**：`Math.floor(Number(buildVersion) / 1000) >= 9460`；例如 `9462004` 对应 9.46.2。不要只判断 SDK 对象存在，也不要直接比较原始 buildVersion。
+
+| API | 参数 | 结果／限制 |
+|---|---|---|
+| `setStorage` | `{ key, data, encrypt? }` | data 可 JSON 序列化；单 key 1 MB，全工具 10 MB。 |
+| `getStorage` | `{ key, encrypt? }` | 返回 `{ data }`；encrypt 默认 false，须与写入一致。 |
+| `getStorageInfo` | 无业务参数 | 返回 `{ keys, currentSize, limitSize }`，容量单位 KB。 |
+| `removeStorage` | `{ key }` | 删除单项。 |
+| `clearStorage` | 无业务参数 | 清空当前工具全部缓存；仅整个工具重置时使用。 |
+
+读写后端保持一致，原生调用失败不要悄悄改写浏览器副本。初始化和异步写入应避免覆盖竞争；升级时自行迁移旧数据，确认原生目标不存在且写入成功后才标记迁移／清理旧副本。读取失败不能视为 key 不存在。
 
 ### 交互
 
@@ -41,21 +52,39 @@ Cookie 仅作本地存储：可读写、按 origin 隔离，但因不联网**不
 
 ---
 
-## 2. 不可用能力（Web API）
+## 2. Native 能力（JSBridge）
+
+容器会注入 **`window.xhs.miniTool.*`**，通过它调用 Native 能力（发笔记、存相册、临时文件、本地缓存）。
+
+| 规则 | 说明 |
+| --- | --- |
+| 唯一入口 | 只用 `window.xhs.miniTool.<apiName>(options)`，**禁止**自行 `postMessage` 到 bridge |
+| 契约来源 | 以 [`jsbridge-api.md`](./jsbridge-api.md) 为准 |
+| 参数校验 | 必填项、长度、数组上限等以 [`jsbridge-api.md`](./jsbridge-api.md) 为准 |
+| 本地路径 | `saveImageToPhotosAlbum.filePath` 不支持网络 URL；base64 可先 `writeTempFile` 换 `filePath` |
+| data:uri | `writeTempFile.data` 必须是完整 `data:<mime>;base64,...`（`canvas.toDataURL()` 原样传），裸 base64 会失败 |
+| 发笔记 | `postNote.mediaInfo` 必填；图片走 `image_resources[].url`，视频走 `video_resources` |
+| 版本与存储 | `getLaunchOptions` 辅助获取版本；9.46.0+ 使用 Storage API，详情见下方 API 文档 |
+
+完整 API 列表、字段表与示例 → **[jsbridge-api.md](./jsbridge-api.md)**。
+
+---
+
+## 3. 不可用能力（Web API）
 
 以下 API 已禁用，调用会抛异常、返回空值或被拦截，必须移除或改用替代写法。
 
 | 分类 | 涉及 API | 替代方案 |
 | --- | --- | --- |
 | 定位 | `navigator.geolocation.getCurrentPosition` / `watchPosition` | 移除 |
-| 剪贴板 | `navigator.clipboard.readText` / `writeText`、`document.execCommand('copy'/'cut'/'paste')` | 展示可选中文本，引导用户长按 / 选中手动复制 |
+| 剪贴板 | `navigator.clipboard.readText` / `writeText`、`document.execCommand('copy'/'cut'/'paste')` | 展示可选中文本，不承诺容器禁用的长按菜单 |
 | 硬件连接 | `navigator.bluetooth` / `navigator.usb` / `navigator.hid` / `navigator.serial` | 移除 |
 | 传感器 | `new Accelerometer()` / `new Gyroscope()` / `new Magnetometer()`、环境光、`DeviceMotionEvent` / `DeviceOrientationEvent` | 改用触摸 / 指针手势（见 §5），摇一摇类移除 |
 | 实时通信 | `new WebSocket()`、`new EventSource()`、`new RTCPeerConnection()` | 移除（不联网，无轮询替代） |
 | 后台运行 | Web Worker、SharedWorker、Service Worker（`navigator.serviceWorker.register`） | 移除，逻辑放主线程 |
 | 屏幕 | `getDisplayMedia`（屏幕共享）、`Element.requestFullscreen`（全屏由容器统一管理） | 全屏用 CSS 沉浸式布局实现视觉全屏 |
 | 设备信息 | `navigator.getBattery`、`navigator.connection`、`navigator.mediaDevices.enumerateDevices` | 移除 |
-| 存储进阶 | `navigator.storage.persist`（持久化）、跨域存储访问 | 移除，本地缓存用 `localStorage` / `IndexedDB` |
+| 存储进阶 | `navigator.storage.persist`（持久化）、跨域存储访问 | 移除浏览器持久化请求，本地缓存按版本使用 Storage API |
 | 凭据 | `navigator.credentials.get` / `create`（WebAuthn）、`navigator.locks` | 移除 |
 | 窗口 | `window.open`（弹新窗口）、`window.prompt` | 单页内 JS 切换视图 DOM；输入用页内 Modal |
 
@@ -63,16 +92,16 @@ Cookie 仅作本地存储：可读写、按 origin 隔离，但因不联网**不
 
 ---
 
-## 3. 不可用行为
+## 4. 不可用行为
 
 | 行为 | 说明 | 替代方案 |
 | --- | --- | --- |
-| 网络请求 | `fetch` / `XMLHttpRequest`、加载外部图片 / 字体 / 媒体等一切联网请求 | 所有资源打包在内，改本地相对引用；数据用包内 `.json` 或写死在 JS |
+| 网络请求 | `fetch` / `XMLHttpRequest`、加载外部图片 / 字体 / 媒体等一切联网请求 | 所有资源打包在内，改本地相对引用；仅小型配置 / 数据可随包提供，大型只读数据集不适合小工具，见 [performance-budget.md](./performance-budget.md) §2 |
 | 动态执行代码 | `eval()`、`new Function()` | 改写为静态逻辑 |
 | WebAssembly | WASM 编译执行（依赖 WASM 的库无法运行） | 移除或改用纯 JS 实现 |
 | iframe / object | 内嵌 iframe / object，或被外部页面嵌入 | 内容直接写进页面 |
 | 表单跳转提交 | `<form>` 提交跳转 | `addEventListener('submit', e => e.preventDefault())` 后用 JS 处理 |
-| 文件下载 | `a[download]`、blob 下载 | 移除 |
+| 文件下载 | `a[download]`、blob 下载 | 图片改用 saveImageToPhotosAlbum；任意文件下载仍不支持 |
 | 打开外链 / 新窗口 | `target="_blank"`、`window.open`、跳转站外 URL | 单页内 JS 切换视图 DOM |
 | 跳转其他小工具 | 小工具间互相跳转 | 移除 |
 | 长按菜单 | 系统长按菜单已禁用 | 用自定义交互替代 |
@@ -80,7 +109,7 @@ Cookie 仅作本地存储：可读写、按 origin 隔离，但因不联网**不
 
 ---
 
-## 4. WebGL / 图形计算边界
+## 5. WebGL / 图形计算边界
 
 纯 WebGL 渲染可用，组合能力受限：
 
@@ -92,27 +121,30 @@ Cookie 仅作本地存储：可读写、按 origin 隔离，但因不联网**不
 | 依赖 Worker 的离屏渲染（OffscreenCanvas + Worker） | 🔴 |
 | SharedArrayBuffer 多线程 | 🔴 |
 
-WebGL 适合用包内资源做本地渲染；AI 图像处理等重计算（需联网或 WASM 模型）无法支持。
+WebGL 适合用包内资源做本地渲染；AI 图像处理等重计算（需联网或 WASM 模型）无法支持。WebGL 可用不等于低端真机性能足够：DPR、像素、纹理、draw call、几何预算、动态降档与兜底必须遵守 [performance-budget.md](./performance-budget.md) §4–5。
 
 ---
 
-## 5. 常见交互怎么实现
+## 6. 常见交互怎么实现
 
 | 需求 | 实现 |
 | --- | --- |
 | 手势 / 拖拽 / 滑动 | `addEventListener('touchstart'/'touchmove'/'touchend')` 或 Pointer Events（`pointerdown`/`move`/`up`） |
 | 拍照 / 录音 | `getUserMedia(...)`，由按钮点击等用户手势触发 + 授权 |
 | 选择图片 / 视频 | `<input type="file">` |
-| 复制文本 | 展示可选中文本，引导用户长按 / 选中复制 |
+| 复制文本 | 展示可选中文本，不依赖剪贴板或长按菜单 |
 | 视觉全屏 | CSS 布局（`100vh` / flex + 隐藏滚动） |
 | 页面跳转 | 单页内用 JS 切换视图 DOM |
 | 输入弹窗 | 页内 Modal 组件 |
+| 保存图片到相册 | `writeTempFile({ data: canvas.toDataURL(...) })`（须完整 data:uri）→ `saveImageToPhotosAlbum({ filePath })`，见 [jsbridge-api.md](./jsbridge-api.md) |
+| 发布笔记 | `postNote({ mediaInfo, title?, content? })` |
+| 本地业务缓存 | 按版本使用 Storage，低版本／未知版本才按需降级浏览器存储 |
 
 ---
 
-## 6. 改写扫描清单
+## 7. 能力扫描清单
 
-扫描原代码，命中下列模式则**必须删除或改用替代写法**：
+扫描代码，命中下列模式则**必须删除或改用替代写法**：
 
 ```
 fetch( / XMLHttpRequest / new WebSocket( / new EventSource( / new RTCPeerConnection(
@@ -140,7 +172,8 @@ location.href = / location.assign(   （跳转站外 URL）
 ```
 navigator.mediaDevices.getUserMedia({ video / audio })   // 用户手势 + 授权
 <input type="file">                                       // 选图片 / 视频
-localStorage / sessionStorage / IndexedDB / Cookie / Cache API   // 独立隔离
+window.xhs.miniTool.*                                     // 仅现行 API 文档列出的方法
+localStorage / sessionStorage / IndexedDB / Cookie / Cache API   // 仅旧版／未知版本降级，不保证可用或持久
 alert() / confirm()
 touch / pointer events                                    // 手势交互
 标准 DOM / CSS / Canvas 2D / WebGL 渲染

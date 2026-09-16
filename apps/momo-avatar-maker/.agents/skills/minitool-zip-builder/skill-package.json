@@ -1,0 +1,9 @@
+{
+  "name": "minitool-zip-builder",
+  "version": "1.6.0",
+  "format": "cursor-skill-zip-v1",
+  "upstreamVersion": "1.6.0",
+  "localRevision": "2026-09-16-web-api-update",
+  "upstreamUrl": "https://fe-static.xhscdn.com/mini-tool/20260831163932/minitool-zip-builder-1.6.0.skill",
+  "upstreamSha256": "29c04115fd89d7eab7b81775f4287ae20c569ad3794d25d8404dc0ec3ec3b65e"
+}

@@ -41,4 +41,8 @@ pnpm validate  # 上传前检查（推荐）
 ## 更多说明
 
 - 平台能做什么 / 不能做什么：看项目里的 `.agents/skills/xiaohongshu-mini-tool-dev/`
-- 官方文档：https://xhs-minitool.wenyuanw.me/docs/getting-started/
+- [官方开发者文档与能力清单](https://miniapp-sandbox.xiaohongshu.com/minitool/doc)：保存图片、发笔记、Storage API 与版本限制
+- [官方打包 Skill 1.6.0](https://fe-static.xhscdn.com/mini-tool/20260831163932/minitool-zip-builder-1.6.0.skill)：已核验下载版本；本项目技能基于它并补充现行网页的 API 差异
+- [脚手架使用文档](https://xhs-minitool.wenyuanw.me/docs/getting-started/)
+
+端能力由容器自动注入 `window.xhs.miniTool`；客户端 9.46.0+ 优先使用 Storage API，浏览器存储仅作低版本／未知版本降级。普通浏览器没有 SDK 时应提供明确反馈，保存相册、笔记发布和原生存储须在小红书容器验证。
