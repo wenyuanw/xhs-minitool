@@ -25,6 +25,7 @@ const hearts = n => [0, 1, 2].map(i => `<span class="${i < n ? 'heart-full' : 'h
 app.innerHTML = `<div id="screen"></div><button id="sound-toggle" class="sound-fab" data-action="sound" aria-label="开启声音" aria-pressed="false" hidden>${icon('soundOff')}</button><div id="notice" role="status" hidden></div><div id="modal" class="overlay" hidden></div><div id="rotation" class="overlay rotation" hidden><div class="paper"><div class="rotate-icon">${icon('board')}</div><h2 data-pixel-title>竖起手机</h2><p>已暂停，转回后继续。</p></div></div>`;
 const screen = document.querySelector('#screen'), notice = document.querySelector('#notice'), modal = document.querySelector('#modal'), soundToggle = document.querySelector('#sound-toggle');
 let noticeTimer, state, run, view = 'loading', result, heroCanvas, gameCanvas, gameContext, cardData, gesture;
+let storageDebugTaps = 0, storageDebugTapStarted = 0;
 let last = 0, lastDraw = 0, animation = 0, low = false, samples = [], hudAt = 0, pausedFocus;
 const sprites = (() => { try { return makeSprites(); } catch { return null; } })(), audio = createAudio();
 function toast(message) { notice.textContent = message; notice.hidden = false; clearTimeout(noticeTimer); noticeTimer = setTimeout(() => { notice.hidden = true; }, 4500); }
@@ -80,7 +81,7 @@ function wardrobe() {
   screen.querySelectorAll('[data-character]').forEach(c => { const ctx = c.getContext('2d'); ctx.imageSmoothingEnabled = false; ctx.drawImage(sprites['character' + c.dataset.character], 10, 0, 80, 96); });
 }
 function settings() {
-  screen.innerHTML = `<main class="page">${header('漂流设置')}${backBar()}<section class="setting-card"><h2>天色</h2><div class="theme-options">${[['auto','随水域','leaf'],['day','白昼','sun'],['sunset','黄昏','sun'],['night','夜晚','moon']].map(t => `<button class="${state.settings.theme === t[0] ? 'selected' : ''}" aria-pressed="${state.settings.theme === t[0]}" data-action="theme" data-theme="${t[0]}">${icon(t[2])}<span>${t[1]}</span></button>`).join('')}</div></section><button class="setting-link" data-action="help">${icon('board')} 怎么漂 ${icon('arrow')}</button><button class="setting-link" data-action="storage-info">${icon('book')} 旅程存档 ${icon('arrow')}</button><button class="text-button danger" data-action="reset">重新开始</button></main>`;
+  screen.innerHTML = `<main class="page">${header('漂流设置')}${backBar()}<section class="setting-card"><h2>天色</h2><div class="theme-options">${[['auto','随水域','leaf'],['day','白昼','sun'],['sunset','黄昏','sun'],['night','夜晚','moon']].map(t => `<button class="${state.settings.theme === t[0] ? 'selected' : ''}" aria-pressed="${state.settings.theme === t[0]}" data-action="theme" data-theme="${t[0]}">${icon(t[2])}<span>${t[1]}</span></button>`).join('')}</div></section><button class="setting-link" data-action="help">${icon('board')} 怎么漂 ${icon('arrow')}</button><button class="setting-link" data-action="storage-info">${icon('book')} 旅程存档 ${icon('arrow')}</button><button class="text-button danger" data-action="reset">重新开始</button><footer class="settings-footer"><span>作者</span><button class="author-credit" data-action="storage-debug-tap">AI专属打字员</button></footer></main>`;
 }
 function startRun(id, mode = 'level') {
   if (mode === 'level' && (id > state.completed || id < 0 || id > 5)) return;
@@ -116,6 +117,15 @@ function openModal(html) {
   const first = modal.querySelector('button'); if (first) first.focus();
 }
 function closeModal() { modal.hidden = true; modal.innerHTML = ''; if (pausedFocus && document.contains(pausedFocus)) pausedFocus.focus(); }
+function renderStorageDebug() {
+  const output = document.querySelector('#storage-debug-output');
+  if (output) output.textContent = storage.debugText();
+}
+function showStorageDebug() {
+  clearTimeout(noticeTimer); notice.hidden = true;
+  openModal(`<div class="dialog-icon">${icon('book')}</div><h2>存储调试日志</h2><p class="debug-note">仅保留本次打开期间最近 80 条记录。写入失败后请立即打开并截图。</p><pre id="storage-debug-output" class="storage-debug-output"></pre><div class="result-actions"><button class="secondary" data-action="storage-debug-refresh">刷新</button><button class="secondary" data-action="storage-debug-clear">清空日志</button></div><button class="text-button" data-action="close-modal">返回</button>`);
+  renderStorageDebug();
+}
 function pause() {
   if (view !== 'game' || !run || run.status !== 'running') return;
   run.status = 'paused'; run.accumulator = 0; gesture.cancel(); audio.stop();
@@ -201,7 +211,18 @@ async function handleAction(button) {
   } else if (action === 'help') {
     openModal(`<div class="dialog-icon">${icon('board')}</div><h2>怎么漂</h2><div class="help-steps"><p>左右拖动，转向</p><p>靠近或轻点，拾取</p><p>轻点小桨，划水</p><p>在发光水流里划桨，顺流滑行</p><p>挑战漂流有三颗心，硬碰撞扣一颗</p></div><button class="secondary" data-action="close-modal">知道了</button>`);
   } else if (action === 'storage-info') {
-    openModal(`<div class="dialog-icon">${icon('book')}</div><h2>旅程存档</h2><p id="storage-state">${storage.writable ? '进度自动保存在本机。<br>关闭后从路线图出发。<br>清理缓存可能丢失记录。' : '暂时无法读取存档。<br>旧记录未被覆盖。'}</p><button class="secondary" data-action="retry-storage">${storage.writable ? '重试保存' : '重新读取'}</button><button class="text-button" data-action="close-modal">返回</button>`);
+    const storageState = storage.backend === 'browser-fallback' ? '原生存储暂时不可用。<br>当前已改用兼容存储。<br>清理缓存可能丢失记录。' : storage.writable ? '进度自动保存在本机。<br>关闭后从路线图出发。<br>清理缓存可能丢失记录。' : '暂时无法读取存档。<br>旧记录未被覆盖。';
+    openModal(`<div class="dialog-icon">${icon('book')}</div><h2>旅程存档</h2><p id="storage-state">${storageState}</p><button class="secondary" data-action="retry-storage">${storage.writable ? '重试保存' : '重新读取'}</button><button class="text-button" data-action="close-modal">返回</button>`);
+  } else if (action === 'storage-debug-tap') {
+    const now = Date.now();
+    if (!storageDebugTapStarted || now - storageDebugTapStarted > 4000) { storageDebugTaps = 0; storageDebugTapStarted = now; }
+    storageDebugTaps++;
+    if (storageDebugTaps === 5) toast('再点 2 次查看存储日志。');
+    if (storageDebugTaps >= 7) { storageDebugTaps = 0; storageDebugTapStarted = 0; showStorageDebug(); }
+  } else if (action === 'storage-debug-refresh') {
+    renderStorageDebug();
+  } else if (action === 'storage-debug-clear') {
+    storage.clearDebugLog(); renderStorageDebug();
   } else if (action === 'trip-details') {
     openModal(`<h2>漂流手记</h2><p>${result.unlock}</p><p>${result.weatherName} · 最高连拾 ${result.bestChain} · 潮汐奖励 ${result.chainBonuses} 次</p><p>收进 ${result.count} 份图鉴 · 带回 ${result.shells} 枚贝壳 · ${result.seconds} 秒</p><p>${WISHES[result.wish].label} ${result.wishDone ? '已达成' : ''}<br>顺流 ${result.glides} 次 · 轻碰 ${result.collisions} 次</p>${result.mode === 'level' ? '<p>抵达一星 · 拾获六成一星<br>轻碰不超过两次一星</p>' : ''}${result.stories.map(i => `<p>${ENCOUNTERS[i].story}</p>`).join('')}<button class="secondary" data-action="close-modal">收好</button>`);
   } else if (action === 'item') {

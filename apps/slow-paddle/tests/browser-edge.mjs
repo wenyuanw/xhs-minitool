@@ -16,7 +16,8 @@ const server=createServer(async(req,res)=>{
  }catch{res.writeHead(404);res.end();}
 });
 await new Promise(r=>server.listen(0,'127.0.0.1',r));const url=`http://127.0.0.1:${server.address().port}/`;
-const browser=await chromium.launch({headless:true});const checks=[],errors=[];
+const launchOptions={headless:true};if(process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH)launchOptions.executablePath=process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH;
+const browser=await chromium.launch(launchOptions);const checks=[],errors=[];
 try{
  const context=await browser.newContext({viewport:{width:390,height:844},hasTouch:true});const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text())});
  await page.clock.install({time:new Date('2026-09-16T12:00:00Z')});await page.clock.pauseAt(new Date('2026-09-16T12:00:01Z'));
@@ -56,6 +57,8 @@ try{
  await np.goto(url);await np.locator('.route-map').waitFor();assert.equal(await np.locator('.route-stop:disabled').count(),0);
  await np.locator('[data-action="atlas"]').click();await np.screenshot({path:resolve(artifacts,'07-atlas.png')});
  await np.locator('[data-action="map"]').click();await np.locator('[data-action="settings"]').click();await np.locator('[data-action="storage-info"]').click();assert.match(await np.locator('#storage-state').textContent(),/保存在本机/);await np.locator('[data-action="close-modal"]').click();
+ for(let i=0;i<7;i++)await np.locator('[data-action="storage-debug-tap"]').click();
+ await np.locator('#storage-debug-output').waitFor();const debugText=await np.locator('#storage-debug-output').textContent();assert.match(debugText,/buildVersion：9462004/);assert.match(debugText,/实际后端：native/);assert.match(debugText,/setStorage：可用/);await np.screenshot({path:resolve(artifacts,'storage-debug.png')});await np.locator('[data-action="close-modal"]').click();checks.push('seven taps on author credit reveal native storage diagnostics');
  await np.locator('[data-theme="night"]').click();assert.equal(await np.evaluate(key=>window.__store[key].settings.theme,KEY),'night');
  await np.locator('[data-action="map"]').click();await np.locator('[data-action="free"]').click();await np.locator('[data-action="resume"]').click();await np.waitForTimeout(2000);await np.screenshot({path:resolve(artifacts,'08-free-night.png')});
  await np.setViewportSize({width:320,height:568});await np.screenshot({path:resolve(artifacts,'viewport-320x568.png')});

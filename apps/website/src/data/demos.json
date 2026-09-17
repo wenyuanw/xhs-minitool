@@ -28,6 +28,13 @@
     "path": "/preview/shu-emoji/index.html"
   },
   {
+    "id": "slow-paddle",
+    "title": "慢桨 · 把日子，划慢一点",
+    "name": "slow-paddle",
+    "description": "在像素水域里，收集一段慢时光。",
+    "path": "/preview/slow-paddle/index.html"
+  },
+  {
     "id": "sony-shutter",
     "title": "快门查询",
     "name": "sony-shutter",

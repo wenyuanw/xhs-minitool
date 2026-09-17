@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { KEY, defaults, validate, createStorage, clientVersion } from '../src/lib/storage.js';
+import { KEY, FALLBACK_KEY, defaults, validate, createStorage, clientVersion } from '../src/lib/storage.js';
 import { sendCard } from '../src/lib/media.js';
 function memory(initial={}) { const data=new Map(Object.entries(initial));return {data,getItem:k=>data.has(k)?data.get(k):null,setItem:(k,v)=>data.set(k,v),removeItem:k=>data.delete(k)}; }
 function native(initial={}) {const data=new Map(Object.entries(initial));return {data,getStorageInfo:async()=>({keys:[...data.keys()]}),getStorage:async({key})=>({data:data.get(key)}),setStorage:async({key,data:v})=>{data.set(key,v)},removeStorage:async({key})=>{data.delete(key)}};}
@@ -25,7 +25,7 @@ test('migrate only confirmed missing key, clear old copy only after successful n
  const old=defaults();old.discovered=[3];const local=memory({[KEY]:JSON.stringify(old)}),api=native();
  const store=createStorage(env(api,local));assert.deepEqual((await store.load()).discovered,[3]);assert.equal(local.getItem(KEY),null);assert.deepEqual(api.data.get(KEY).discovered,[3]);
  const other=memory({[KEY]:JSON.stringify(old)}),fail=native();fail.setStorage=async()=>{throw Error('quota')};
- const broken=createStorage(env(fail,other));await broken.load();assert.equal(broken.writable,false);assert.notEqual(other.getItem(KEY),null);
+ const fallback=createStorage(env(fail,other));assert.deepEqual((await fallback.load()).discovered,[3]);assert.equal(fallback.writable,true);assert.equal(fallback.backend,'browser-fallback');assert.notEqual(other.getItem(FALLBACK_KEY),null);
 });
 test('native read failure cannot fall back and overwrite either old copy',async()=>{
  const old=defaults();old.discovered=[5];const local=memory({[KEY]:JSON.stringify(old)}),api=native({[KEY]:old});let writes=0;
@@ -55,9 +55,16 @@ test('writes snapshot caller data and execute strictly in order',async()=>{
  const store=createStorage(env(api));const save=await store.load();save.discovered=[1];const first=store.write(save);save.discovered=[1,2];const second=store.write(save);save.discovered.push(3);
  await Promise.resolve();assert.deepEqual(seen,[[1]]);release();await Promise.all([first,second]);assert.deepEqual(seen,[[1],[1,2]]);assert.deepEqual(api.data.get(KEY).discovered,[1,2]);
 });
-test('write quota errors are visible and can be retried on same backend',async()=>{
- const api=native(),notices=[];const original=api.setStorage;api.setStorage=async()=>{throw Error('quota')};const store=createStorage(env(api),m=>notices.push(m));const save=await store.load();
- assert.equal(await store.write(save),false);assert.equal(notices.length,1);api.setStorage=original;assert.equal(await store.write(save),true);
+test('native write failures fall back visibly and sync back on the next load',async()=>{
+ const api=native(),local=memory(),notices=[];const original=api.setStorage;api.setStorage=async()=>{throw Error('quota')};const store=createStorage(env(api,local),m=>notices.push(m));const save=await store.load();save.discovered=[4];
+ assert.equal(await store.write(save),true);assert.equal(store.backend,'browser-fallback');assert.equal(notices.length,1);assert.notEqual(local.getItem(FALLBACK_KEY),null);
+ api.setStorage=original;const recovered=createStorage(env(api,local));assert.deepEqual((await recovered.load()).discovered,[4]);assert.equal(recovered.backend,'native');assert.equal(local.getItem(FALLBACK_KEY),null);assert.deepEqual(api.data.get(KEY).discovered,[4]);
+});
+test('storage diagnostics expose backend, build version and native error details',async()=>{
+ const api=native(),store=createStorage(env(api));await store.load();api.setStorage=async()=>{throw {errMsg:'setStorage:fail denied',errCode:401}};
+ assert.equal(await store.write(defaults()),true);const report=store.debugText();
+ assert.match(report,/buildVersion：9460000/);assert.match(report,/实际后端：browser-fallback/);assert.match(report,/write\.fail/);assert.match(report,/fallback\.write\.ok/);assert.match(report,/errCode=401/);assert.match(report,/setStorage:fail denied/);
+ store.clearDebugLog();const cleared=store.debugText();assert.match(cleared,/log\.cleared/);assert.doesNotMatch(cleared,/write\.fail/);
 });
 test('reset affects only game key in native and fallback storage',async()=>{
  const api=native({[KEY]:defaults(),other:1}),local=memory({[KEY]:'old',other:'keep'}),store=createStorage(env(api,local));await store.load();assert.equal(await store.reset(),true);assert.equal(api.data.has(KEY),false);assert.equal(api.data.get('other'),1);assert.equal(local.getItem('other'),'keep');
