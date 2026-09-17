@@ -1,0 +1,20 @@
+{
+  "checks": [
+    "actual CDP multitouch cancels collection, single touch collects",
+    "closing incomplete first run returns to route map without unlocking",
+    "revised settlement postcard action fits 390x844",
+    "final bundle runs under restrictive CSP without inline/eval permission",
+    "corrupt-save UI protects old data; reset cancellation and game-key-only reset verified",
+    "native 9.46.2 async-version mock restores all collections and persists settings",
+    "Canvas unavailability shows a readable fallback",
+    "real Web Audio enable/start/pause/resume; simulated page-visibility handler suspends sound and requires manual resume"
+  ],
+  "errors": [],
+  "pacing": {
+    "samples": 180,
+    "medianMs": 16.699999999999818,
+    "p95Ms": 16.799999999999727,
+    "estimatedFps": 60.22483940045829
+  },
+  "notes": "Native bridge is mocked. Pacing measured on desktop Chromium, not a phone."
+}

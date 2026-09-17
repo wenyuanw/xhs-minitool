@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <title>小红书小工具</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="hero">
+      <p class="eyebrow">小红书小工具</p>
+      <h1>离线任务清单</h1>
+      <p class="subtitle">所有数据仅保存在当前小工具的本地存储中。</p>
+    </header>
+
+    <section class="panel" aria-labelledby="create-title">
+      <h2 id="create-title">添加任务</h2>
+      <div class="input-row">
+        <label class="sr-only" for="task-input">任务内容</label>
+        <input id="task-input" type="text" maxlength="60" placeholder="输入一项任务">
+        <button id="add-button" type="button">添加</button>
+      </div>
+      <p id="input-error" class="error" role="alert" hidden></p>
+      <p id="storage-error" class="error" role="alert" hidden></p>
+    </section>
+
+    <section class="panel" aria-labelledby="list-title">
+      <div class="section-heading">
+        <h2 id="list-title">任务列表</h2>
+        <button id="clear-button" class="text-button" type="button">清空已完成</button>
+      </div>
+      <ul id="task-list" class="task-list"></ul>
+      <p id="empty-state" class="empty-state">还没有任务，先添加一项吧。</p>
+    </section>
+  </main>
+
+  <template id="task-template">
+    <li class="task-item">
+      <label class="task-label">
+        <input class="task-checkbox" type="checkbox">
+        <span class="task-text"></span>
+      </label>
+      <button class="delete-button" type="button" aria-label="删除任务">删除</button>
+    </li>
+  </template>
+
+  <script src="./app.js"></script>
+</body>
+</html>

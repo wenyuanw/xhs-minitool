@@ -1,0 +1,47 @@
+{
+  "checks": [
+    "visible item tap collects",
+    "pause freezes simulation",
+    "six levels played using drag/paddle; progression unlocked sequentially",
+    "reload returns to map and retains stars, atlas, skin and theme",
+    "landscape pauses and manual free-drift settlement has no stars; no-SDK media keeps preview",
+    "UI invokes current media contract and handles post cancellation",
+    "320x568, 390x844, 430x932, 1024x768: controls fit and no horizontal overflow"
+  ],
+  "levels": [
+    {
+      "level": "湖心初漂",
+      "seconds": 44,
+      "summary": "漂 流 手 记\nNO. 01\n湖心初漂\n★☆☆\n3\n份小美好\n44秒\n慢下来的时光\n\n抵达终点 ✓ · 收集六成 ○ · 轻碰不超过两次 ○\n\n下一段水域已点亮，风景继续。"
+    },
+    {
+      "level": "芦苇缓湾",
+      "seconds": 46,
+      "summary": "漂 流 手 记\nNO. 02\n芦苇缓湾\n★★☆\n1\n份小美好\n45秒\n慢下来的时光\n\n抵达终点 ✓ · 收集六成 ○ · 轻碰不超过两次 ✓\n\n下一段水域已点亮，风景继续。"
+    },
+    {
+      "level": "林间双溪",
+      "seconds": 51,
+      "summary": "漂 流 手 记\nNO. 03\n林间双溪\n★★☆\n3\n份小美好\n51秒\n慢下来的时光\n\n抵达终点 ✓ · 收集六成 ○ · 轻碰不超过两次 ✓\n\n下一段水域与落日珊瑚桨板已解锁。"
+    },
+    {
+      "level": "峡谷回声",
+      "seconds": 53,
+      "summary": "漂 流 手 记\nNO. 04\n峡谷回声\n★★☆\n1\n份小美好\n53秒\n慢下来的时光\n\n抵达终点 ✓ · 收集六成 ○ · 轻碰不超过两次 ✓\n\n下一段水域已点亮，风景继续。"
+    },
+    {
+      "level": "落日风岸",
+      "seconds": 59,
+      "summary": "漂 流 手 记\nNO. 05\n落日风岸\n★★☆\n9\n份小美好\n59秒\n慢下来的时光\n\n抵达终点 ✓ · 收集六成 ○ · 轻碰不超过两次 ✓\n\n下一段水域已点亮，风景继续。"
+    },
+    {
+      "level": "星光入海",
+      "seconds": 61,
+      "summary": "漂 流 手 记\nNO. 06\n星光入海\n★★☆\n4\n份小美好\n61秒\n慢下来的时光\n\n抵达终点 ✓ · 收集六成 ○ · 轻碰不超过两次 ✓\n\n六段水域都已抵达，星河蓝桨板已解锁。"
+    }
+  ],
+  "errors": [],
+  "networkRequests": [],
+  "method": "Chromium; offline file entry; virtual clock; actual pointer and button input",
+  "device": "desktop emulation, not native container"
+}

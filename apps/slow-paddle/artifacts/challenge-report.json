@@ -1,0 +1,33 @@
+{
+  "date": "2026-09-17",
+  "tests": {
+    "passed": 40,
+    "failed": 0
+  },
+  "browser": {
+    "realTimeRun": {
+      "distance": 689,
+      "seconds": 65,
+      "lives": 0
+    },
+    "manualShoreDistances": [
+      41,
+      171
+    ],
+    "persistedBest": 689,
+    "viewports": [
+      "390x844",
+      "320x568",
+      "700x320"
+    ],
+    "errors": 0,
+    "warnings": 0,
+    "nativeContainerVerified": false,
+    "legacyBrowserScriptsRerun": false
+  },
+  "artifact": {
+    "zipBytes": 31911,
+    "unpackedBytes": 87372,
+    "sha256": "a5160af0650aeca87046b5eac22ad40f1426256b5488f18d9f5e1d603032b43f"
+  }
+}

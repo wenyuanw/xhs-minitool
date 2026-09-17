@@ -1,0 +1,42 @@
+{
+  "date": "2026-09-17",
+  "scope": "all-page pixel style and concise copy",
+  "logicTests": 33,
+  "build": "pass",
+  "strictErrors": 0,
+  "strictWarnings": 0,
+  "zipBytes": 30033,
+  "uncompressedBytes": 80464,
+  "sha256": "59bf6bfec4e4db4064963eed3904ca89608d7e23474073b825cc7f4fed5d2511",
+  "browser": {
+    "viewports": [
+      "390x844",
+      "320x568"
+    ],
+    "screens": [
+      "home",
+      "map",
+      "atlas",
+      "wardrobe",
+      "dock",
+      "settings",
+      "game",
+      "result"
+    ],
+    "dialogs": [
+      "pause",
+      "help",
+      "storage",
+      "reset cancel",
+      "postcard no SDK"
+    ],
+    "completeLevel": "湖心初漂",
+    "consoleErrors": 0,
+    "consoleWarnings": 0
+  },
+  "notRun": [
+    "standalone legacy browser scripts",
+    "Xiaohongshu iOS/Android device acceptance",
+    "Chrome 61 real device"
+  ]
+}

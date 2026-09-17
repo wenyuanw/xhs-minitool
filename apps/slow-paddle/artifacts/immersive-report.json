@@ -1,0 +1,10 @@
+{
+  "checks": [
+    "fresh save: home launches free drift; icon-only paddle boosts without collecting through canvas; one-time instruction dismisses on use",
+    "water fills 100% height on 320/390/430/460 widths; safe controls do not overlap title; no horizontal overflow",
+    "110px injected top and 34px bottom safe-area respected while water stays full-screen",
+    "fresh free drift survives first segment, ends normally, keeps level progression locked and remembers tutorial",
+    "second level rendered and inspected; rotate/pause/resume remains functional"
+  ],
+  "errors": []
+}

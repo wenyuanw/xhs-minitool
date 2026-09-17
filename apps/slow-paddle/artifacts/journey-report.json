@@ -1,0 +1,52 @@
+{
+  "date": "2026-09-17",
+  "logicTests": {
+    "passed": 33,
+    "failed": 0
+  },
+  "build": "pass",
+  "strictScan": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "zipBytes": 28922,
+  "uncompressedBytes": 75133,
+  "sha256": "0debfaa36e8fbeec4cedaf3f000c86717e15d813737236279ca4bb6127b8c0bd",
+  "browser": {
+    "environment": "Codex in-app desktop browser; final local preview",
+    "viewports": [
+      "320x700",
+      "390x844",
+      "390x932",
+      "700x320 landscape"
+    ],
+    "verified": [
+      "free drift",
+      "duck reunion",
+      "bottle letter reward",
+      "firefly encounter",
+      "wish reward",
+      "current glide and settlement count",
+      "dock toggle and reload persistence",
+      "postcard with personal dock",
+      "landscape pause prompt"
+    ],
+    "notManuallyCompleted": [
+      "secret dock route"
+    ],
+    "consoleErrors": 0,
+    "consoleWarnings": 0
+  },
+  "pending": [
+    "Xiaohongshu iOS/Android real devices",
+    "native storage/photos/postNote real container acceptance",
+    "Chrome 61 device performance"
+  ],
+  "screenshots": [
+    "journey-glide.png",
+    "journey-320.png",
+    "journey-dock.png",
+    "journey-result.png",
+    "journey-postcard.png"
+  ]
+}
