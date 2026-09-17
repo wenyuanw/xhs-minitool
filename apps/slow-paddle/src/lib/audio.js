@@ -33,11 +33,13 @@ export function createAudio(env = window) {
   function effect(kind) {
     if (kind === 'collect') { tone(660, 0.16, 0, 0.24, 'triangle'); tone(880, 0.2, 0.09, 0.2, 'triangle'); }
     else if (kind === 'currency') { tone(880, 0.08, 0, 0.22, 'square'); tone(1175, 0.13, 0.07, 0.18, 'square'); }
+    else if (kind === 'chain') { tone(784, 0.08, 0, 0.22, 'square'); tone(988, 0.1, 0.07, 0.2, 'square'); tone(1319, 0.22, 0.14, 0.18, 'triangle'); }
     else if (kind === 'discover') { tone(523, 0.18, 0, 0.2); tone(659, 0.2, 0.1, 0.2); tone(784, 0.26, 0.2, 0.18); }
     else if (kind === 'bump' || kind === 'damage') { tone(kind === 'damage' ? 110 : 160, 0.2, 0, 0.3, 'sawtooth'); }
     else if (kind === 'bird') { tone(1200, 0.07, 0, 0.16, 'triangle'); tone(1500, 0.07, 0.13, 0.14, 'triangle'); }
     else if (kind === 'paddle') { tone(220, 0.08, 0, 0.18, 'triangle'); tone(330, 0.15, 0.06, 0.12, 'sine'); }
     else if (kind === 'unlock') { tone(392, 0.15); tone(523, 0.18, 0.12); tone(784, 0.32, 0.25); }
+    else if (kind === 'stamp') { tone(523, 0.12, 0, 0.18, 'square'); tone(659, 0.16, 0.1, 0.18); tone(1047, 0.3, 0.22, 0.18, 'triangle'); }
     else if (kind === 'select') { tone(440, 0.1, 0, 0.16, 'triangle'); }
     else if (kind === 'finish') { tone(440, 0.3); tone(550, 0.3, 0.15); tone(660, 0.45, 0.3); }
     else tone(280, 0.12, 0, 0.18, 'triangle');

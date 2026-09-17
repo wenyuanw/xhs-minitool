@@ -3,6 +3,7 @@ import { icon, starRow, decorateTitles } from './ui/pixel.js';
 import { ENCOUNTERS, WISHES, DECOR, decorUnlocked, syncJourney, wishProgress } from './game/journey.js';
 import './styles/app.css';
 import { CHARACTERS, LEVELS, ITEMS, SKINS } from './game/data.js';
+import { STAMPS, syncStamps } from './game/stamps.js';
 import { createRun, advance, paddle, tapCollect, finish } from './game/engine.js';
 import { makeSprites, drawHero, drawRun, drawItem, drawDecoration, postcard } from './game/render.js';
 import { bindInput } from './game/input.js';
@@ -69,7 +70,7 @@ function atlas() {
 }
 function dock() {
   const j = state.journey;
-  screen.innerHTML = `<main class="page dock-page">${header('我的码头')}${backBar()}<canvas id="hero" class="dock-scene" width="480" height="420" aria-label="我的像素小码头，展示已摆放的六种装饰"></canvas><div class="dock-summary">${j.equipped.filter(Boolean).length} / 6 件小美好</div><div class="decor-grid">${DECOR.map((d,i) => { const unlocked = decorUnlocked(j,i); return `<button class="decor-card ${j.equipped[i] ? 'selected' : ''}" data-action="decor" data-id="${i}" aria-pressed="${j.equipped[i]}" ${unlocked ? '' : 'disabled'}><canvas class="decor-sprite" width="64" height="72" data-decor="${i}" aria-hidden="true"></canvas><strong>${d.name}</strong><small>${unlocked ? j.equipped[i] ? '已摆放' : '摆上' : d.hint}</small></button>`; }).join('')}</div><div class="story-shelf" aria-label="奇遇手记">${ENCOUNTERS.map((e,i) => `<button class="story-token" data-action="story" data-id="${i}" aria-label="${e.name}" ${j.encounters[i] ? '' : 'disabled'}>${icon(['duck','bottle','sun','dock'][i])}<span>${j.encounters[i] ? e.name : '未遇见'}</span></button>`).join('')}</div><button class="primary dock-depart" data-action="free">挑战更远 ${icon('arrow')}</button></main>`;
+  screen.innerHTML = `<main class="page dock-page">${header('我的码头')}${backBar()}<canvas id="hero" class="dock-scene" width="480" height="420" aria-label="我的像素小码头，展示已摆放的六种装饰"></canvas><div class="dock-summary">${j.equipped.filter(Boolean).length} / 6 件小美好</div><div class="decor-grid">${DECOR.map((d,i) => { const unlocked = decorUnlocked(j,i); return `<button class="decor-card ${j.equipped[i] ? 'selected' : ''}" data-action="decor" data-id="${i}" aria-pressed="${j.equipped[i]}" ${unlocked ? '' : 'disabled'}><canvas class="decor-sprite" width="64" height="72" data-decor="${i}" aria-hidden="true"></canvas><strong>${d.name}</strong><small>${unlocked ? j.equipped[i] ? '已摆放' : '摆上' : d.hint}</small></button>`; }).join('')}</div><div class="story-shelf" aria-label="奇遇手记">${ENCOUNTERS.map((e,i) => `<button class="story-token" data-action="story" data-id="${i}" aria-label="${e.name}" ${j.encounters[i] ? '' : 'disabled'}>${icon(['duck','bottle','sun','dock'][i])}<span>${j.encounters[i] ? e.name : '未遇见'}</span></button>`).join('')}</div><section class="stamp-shelf"><h2>漂流印章 <small>${state.stamps.length} / ${STAMPS.length}</small></h2><div class="stamp-grid">${STAMPS.map(stamp => { const unlocked = state.stamps.includes(stamp.id); return `<button class="stamp-card ${unlocked ? 'unlocked' : ''}" data-action="stamp" data-stamp="${stamp.id}">${icon(unlocked ? stamp.icon : 'lock')}<strong>${unlocked ? stamp.name : '未盖印'}</strong><small>${unlocked ? '已珍藏' : stamp.hint}</small></button>`; }).join('')}</div></section><button class="primary dock-depart" data-action="free">挑战更远 ${icon('arrow')}</button></main>`;
   heroCanvas = document.querySelector('#hero');
   screen.querySelectorAll('[data-decor]').forEach(canvas => { const c = canvas.getContext('2d'); c.imageSmoothingEnabled = false; c.scale(2, 2); drawDecoration(c, Number(canvas.dataset.decor), 15, 28); });
 }
@@ -100,7 +101,7 @@ function completeTutorial() {
 }
 function game() {
   if (run.mode === 'free') screen.classList.add('challenge');
-  screen.innerHTML = `<main class="game-page"><div class="water-stage"><canvas id="water" aria-label="漂流水域，在水面左右拖动控制桨板"></canvas></div><header class="game-heading"><span class="journey-number" aria-label="${run.mode === 'free' ? '挑战漂流' : '第 ' + (run.levelId + 1) + ' 段'}">${run.mode === 'free' ? icon('wave') : String(run.levelId + 1).padStart(2, '0')}</span><h1>${run.level.name}</h1></header><div class="game-hud"><button class="hud-button pixel-control" aria-label="暂停漂流" data-action="pause">${pixelIcon('pause')}</button><span class="collect-count" aria-label="本局拾取的贝壳">${pixelIcon('shell')}<b id="shell-count">0</b><b id="count" class="sr-only">0</b></span></div>${run.mode === 'free' ? `<div class="life-hud" id="lives" role="status" aria-label="剩余 3 颗心">${hearts(3)}</div>` : ''}<div id="wish" class="wish-hud" role="status">${icon('leaf')}<span id="wish-text"></span></div><div id="journey-message" class="journey-message" role="status" hidden></div><div id="tutorial" class="tutorial" ${run.showTutorial ? '' : 'hidden'}>左右轻拖，跟着水流走<span>拾贝壳解锁搭档，轻点收藏小物</span></div><footer class="game-bottom"><div class="journey-progress" aria-label="漂流进度"><span id="progress-text">${run.mode === 'free' ? '0 米' : '0%'}</span>${run.mode === 'free' ? `<small id="distance-target">下一站 250 米</small>` : ''}<div class="progress-track" ${run.mode === 'free' ? 'hidden' : ''}><i id="progress-fill"></i></div></div><div class="paddle-dock"><div id="paddle-hint" ${run.showTutorial ? '' : 'hidden'}>轻点小桨，向前划一下<span>↓</span></div><button class="paddle-button pixel-control" data-action="paddle" aria-label="划一桨">${pixelIcon('paddle')}<span class="paddle-charge" aria-hidden="true"><i id="paddle-charge-fill"></i></span></button></div></footer></main>`;
+  screen.innerHTML = `<main class="game-page"><div class="water-stage"><canvas id="water" aria-label="漂流水域，在水面左右拖动控制桨板"></canvas></div><header class="game-heading"><span class="journey-number" aria-label="${run.mode === 'free' ? '挑战漂流' : '第 ' + (run.levelId + 1) + ' 段'}">${run.mode === 'free' ? icon('wave') : String(run.levelId + 1).padStart(2, '0')}</span><h1>${run.level.name}</h1><small class="weather-label">${icon(run.weather.icon)}${run.weather.name}</small></header><div class="game-hud"><button class="hud-button pixel-control" aria-label="暂停漂流" data-action="pause">${pixelIcon('pause')}</button><span class="collect-count" aria-label="本局拾取的贝壳">${pixelIcon('shell')}<b id="shell-count">0</b><b id="count" class="sr-only">0</b></span></div><div id="combo" class="combo-hud" role="status" hidden>水纹 <b id="combo-count">0</b> 连</div>${run.mode === 'free' ? `<div class="life-hud" id="lives" role="status" aria-label="剩余 3 颗心">${hearts(3)}</div>` : ''}<div id="wish" class="wish-hud" role="status">${icon('leaf')}<span id="wish-text"></span></div><div id="journey-message" class="journey-message" role="status" hidden></div><div id="tutorial" class="tutorial" ${run.showTutorial ? '' : 'hidden'}>左右轻拖，跟着水流走<span>沿贝壳水纹连拾 5 枚，会得到潮汐奖励</span></div><footer class="game-bottom"><div class="journey-progress" aria-label="漂流进度"><span id="progress-text">${run.mode === 'free' ? '0 米' : '0%'}</span>${run.mode === 'free' ? `<small id="distance-target">下一站 250 米</small>` : ''}<div class="progress-track" ${run.mode === 'free' ? 'hidden' : ''}><i id="progress-fill"></i></div></div><div class="paddle-dock"><div id="paddle-hint" ${run.showTutorial ? '' : 'hidden'}>轻点小桨，向前划一下<span>↓</span></div><button class="paddle-button pixel-control" data-action="paddle" aria-label="划一桨">${pixelIcon('paddle')}<span class="paddle-charge" aria-hidden="true"><i id="paddle-charge-fill"></i></span></button></div></footer></main>`;
   gameCanvas = document.querySelector('#water'); gameContext = gameCanvas.getContext('2d');
   if (!gameContext) { setView('home'); toast('当前环境无法绘制水域，请更新客户端后重试。'); return; }
   gesture = bindInput(gameCanvas, () => run, () => gameCanvas.height);
@@ -126,6 +127,9 @@ function endRun() {
   const oldCompleted = state.completed, previousBest = state.challengeBest;
   result = Object.assign(completed, { name: completed.mode === 'free' ? '挑战漂流' : LEVELS[completed.levelId].name, theme: themeFor(run.level), skin: state.skin, character: state.character, dock: JSON.parse(JSON.stringify(state.journey)) });
   applyResult(state, result);
+  const stampUpdate = syncStamps(state, result);
+  result.stampUnlocks = stampUpdate.unlocked;
+  result.stampReward = stampUpdate.reward;
   if (result.mode === 'free') { result.bestDistance = state.challengeBest; result.newRecord = result.distance > previousBest; }
   storage.write(state);
   result.unlock = completed.mode === 'free' ? result.endReason === 'lives' ? '三颗心用完了，下次再向前一点。' : '主动靠岸，距离已记下。' : state.completed > oldCompleted ? state.completed === 6 ? '六段水域都已抵达，星河蓝桨板已解锁。' : state.completed === 3 ? '下一段水域与落日珊瑚桨板已解锁。' : '下一段水域已点亮，风景继续。' : '熟悉的水域，也有新的小美好。';
@@ -142,7 +146,7 @@ function settlement() {
     ['dock', '码头'],
     ['card', '留张纪念'],
   ];
-  screen.innerHTML = `<main class="page result-page ${result.mode === 'free' ? 'challenge-result' : ''}">${header(result.mode === 'free' ? result.newRecord ? '新纪录' : '这次漂了多远' : '靠岸了')}<div class="result-ticket ${result.mode === 'free' ? 'challenge-ticket' : ''}"><canvas id="result-scene" width="480" height="360" aria-label="本次漂流的像素水域"></canvas>${result.mode === 'level' ? `<h2>${result.name}</h2>` : ''}${result.mode === 'level' ? `<div class="result-stars" aria-label="获得 ${result.stars} 星">${stars(result.stars)}</div>` : `<div class="challenge-score"><b>${result.distance}</b><span>米</span></div><p class="challenge-best">${result.newRecord ? '刷新纪录 · ' : ''}本机最佳 ${result.bestDistance} 米</p><div class="result-hearts" aria-label="剩余 ${result.lives} 颗心">${hearts(result.lives)}</div>`}<div class="result-metrics"><div><b>${result.count}</b><span>图鉴</span></div><div><b>+${result.shells}</b><span>贝壳</span></div><div><b>${result.seconds}<small>秒</small></b><span>时光</span></div></div>${result.wishDone ? `<p class="wish-keepsake">${icon('leaf')} 小心愿达成</p>` : ''}</div><button class="primary" data-action="${primaryAction}">${primaryLabel}${icon('arrow')}</button><div class="result-actions actions-${secondaryActions.length}">${secondaryActions.map(([action, label]) => `<button class="secondary" data-action="${action}">${icon({map:'map',again:'wave',dock:'dock',card:'share'}[action])}<span>${label}</span></button>`).join('')}</div><button class="text-button result-detail" data-action="trip-details">查看手记 ${icon('book')}</button></main>`;
+  screen.innerHTML = `<main class="page result-page ${result.mode === 'free' ? 'challenge-result' : ''}">${header(result.mode === 'free' ? result.newRecord ? '新纪录' : '这次漂了多远' : '靠岸了')}<div class="result-ticket ${result.mode === 'free' ? 'challenge-ticket' : ''}"><canvas id="result-scene" width="480" height="360" aria-label="本次漂流的像素水域"></canvas>${result.mode === 'level' ? `<h2>${result.name}</h2>` : ''}<p class="result-weather">${icon(run.weather.icon)} ${result.weatherName} · ${run.weather.note}</p>${result.mode === 'level' ? `<div class="result-stars" aria-label="获得 ${result.stars} 星">${stars(result.stars)}</div>` : `<div class="challenge-score"><b>${result.distance}</b><span>米</span></div><p class="challenge-best">${result.newRecord ? '刷新纪录 · ' : ''}本机最佳 ${result.bestDistance} 米</p><div class="result-hearts" aria-label="剩余 ${result.lives} 颗心">${hearts(result.lives)}</div>`}<div class="result-metrics"><div><b>${result.count}</b><span>图鉴</span></div><div><b>+${result.shells}</b><span>贝壳</span></div><div><b>${result.bestChain}</b><span>最高连拾</span></div></div>${result.stampUnlocks.length ? `<div class="new-stamp">${icon('star')} 新印章「${result.stampUnlocks.map(stamp => stamp.name).join('、')}」· 奖励 ${result.stampReward} 贝壳</div>` : ''}${result.wishDone ? `<p class="wish-keepsake">${icon('leaf')} 小心愿达成</p>` : ''}</div><button class="primary" data-action="${primaryAction}">${primaryLabel}${icon('arrow')}</button><div class="result-actions actions-${secondaryActions.length}">${secondaryActions.map(([action, label]) => `<button class="secondary" data-action="${action}">${icon({map:'map',again:'wave',dock:'dock',card:'share'}[action])}<span>${label}</span></button>`).join('')}</div><button class="text-button result-detail" data-action="trip-details">查看手记 ${icon('book')}</button></main>`;
   const c = document.querySelector('#result-scene'); drawHero(c.getContext('2d'), c.width, c.height, result.theme, sprites, result.skin, 2, result.dock, result.character);
 }
 function showCard() {
@@ -151,7 +155,7 @@ function showCard() {
   document.querySelector('#card-preview').src = cardData;
 }
 async function handleAction(button) {
-  const action = button.dataset.action, id = Number(button.dataset.id);
+  const action = button.dataset.action, id = Number(button.dataset.id), stampId = button.dataset.stamp;
   if (action === 'sound') {
     button.disabled = true;
     const next = !state.settings.sound;
@@ -184,17 +188,22 @@ async function handleAction(button) {
   } else if (action === 'confirm-character') {
     const character = CHARACTERS[id];
     if (!character || state.characters.includes(id) || state.shells < character.cost) { closeModal(); setView('wardrobe'); return; }
-    state.shells -= character.cost; state.characters.push(id); state.character = id; await storage.write(state); closeModal(); if (state.settings.sound) audio.effect('unlock'); setView('wardrobe'); toast(character.name + '已加入这趟旅程。');
+    state.shells -= character.cost; state.characters.push(id); state.character = id;
+    const stampUpdate = syncStamps(state); await storage.write(state); closeModal(); if (state.settings.sound) audio.effect(stampUpdate.unlocked.length ? 'stamp' : 'unlock'); setView('wardrobe'); toast(stampUpdate.unlocked.length ? character.name + '已加入，还盖下了「' + stampUpdate.unlocked[0].name + '」。' : character.name + '已加入这趟旅程。');
   }
   else if (action === 'theme') { state.settings.theme = button.dataset.theme; storage.write(state); setView('settings'); }
   else if (action === 'story') {
     if (state.journey.encounters[id]) openModal(`<div class="dialog-icon">${icon(['duck','bottle','sun','dock'][id])}</div><h2>${ENCOUNTERS[id].name}</h2><p>${ENCOUNTERS[id].story}</p><button class="secondary" data-action="close-modal">收好</button>`);
+  } else if (action === 'stamp') {
+    const stamp = STAMPS.find(item => item.id === stampId); if (!stamp) return;
+    const unlocked = state.stamps.includes(stamp.id);
+    openModal(`<div class="dialog-icon">${icon(unlocked ? stamp.icon : 'lock')}</div><h2>${unlocked ? stamp.name : '尚未盖印'}</h2><p>${stamp.hint}<br>${unlocked ? '这枚印章已经收进码头手记。' : '完成后会获得 ' + stamp.reward + ' 枚贝壳。'}</p><button class="secondary" data-action="close-modal">收好</button>`);
   } else if (action === 'help') {
     openModal(`<div class="dialog-icon">${icon('board')}</div><h2>怎么漂</h2><div class="help-steps"><p>左右拖动，转向</p><p>靠近或轻点，拾取</p><p>轻点小桨，划水</p><p>在发光水流里划桨，顺流滑行</p><p>挑战漂流有三颗心，硬碰撞扣一颗</p></div><button class="secondary" data-action="close-modal">知道了</button>`);
   } else if (action === 'storage-info') {
     openModal(`<div class="dialog-icon">${icon('book')}</div><h2>旅程存档</h2><p id="storage-state">${storage.writable ? '进度自动保存在本机。<br>关闭后从路线图出发。<br>清理缓存可能丢失记录。' : '暂时无法读取存档。<br>旧记录未被覆盖。'}</p><button class="secondary" data-action="retry-storage">${storage.writable ? '重试保存' : '重新读取'}</button><button class="text-button" data-action="close-modal">返回</button>`);
   } else if (action === 'trip-details') {
-    openModal(`<h2>漂流手记</h2><p>${result.unlock}</p><p>收进 ${result.count} 份图鉴 · 带回 ${result.shells} 枚贝壳 · ${result.seconds} 秒</p><p>${WISHES[result.wish].label} ${result.wishDone ? '已达成' : ''}<br>顺流 ${result.glides} 次 · 轻碰 ${result.collisions} 次</p>${result.mode === 'level' ? '<p>抵达一星 · 拾获六成一星<br>轻碰不超过两次一星</p>' : ''}${result.stories.map(i => `<p>${ENCOUNTERS[i].story}</p>`).join('')}<button class="secondary" data-action="close-modal">收好</button>`);
+    openModal(`<h2>漂流手记</h2><p>${result.unlock}</p><p>${result.weatherName} · 最高连拾 ${result.bestChain} · 潮汐奖励 ${result.chainBonuses} 次</p><p>收进 ${result.count} 份图鉴 · 带回 ${result.shells} 枚贝壳 · ${result.seconds} 秒</p><p>${WISHES[result.wish].label} ${result.wishDone ? '已达成' : ''}<br>顺流 ${result.glides} 次 · 轻碰 ${result.collisions} 次</p>${result.mode === 'level' ? '<p>抵达一星 · 拾获六成一星<br>轻碰不超过两次一星</p>' : ''}${result.stories.map(i => `<p>${ENCOUNTERS[i].story}</p>`).join('')}<button class="secondary" data-action="close-modal">收好</button>`);
   } else if (action === 'item') {
     const item = ITEMS[id], known = state.discovered.includes(id);
     openModal(`<canvas id="item-detail" class="item-detail-sprite ${known ? '' : 'unknown'}" width="80" height="80" aria-hidden="true"></canvas><h2>${known ? item.name : '还未遇见'}</h2><p>${known ? item.note : '去第 ' + (item.area + 1) + ' 段水域漂一漂吧。'}</p><button class="secondary" data-action="close-modal">收好</button>`);
@@ -246,6 +255,7 @@ function resize() {
   }
 }
 window.addEventListener('resize', resize);
+screen.addEventListener('scroll', () => { soundToggle.classList.toggle('scrolled-away', view !== 'game' && screen.scrollTop > 32); });
 document.addEventListener('visibilitychange', () => {
   if (document.hidden) { pause(); audio.stop(); cancelAnimationFrame(animation); animation = 0; }
   else { last = 0; ensureAnimation(); }
@@ -262,6 +272,7 @@ function frame(now) {
         const isNewItem = event.type === 'collect' && !state.discovered.includes(event.item);
         if (state.settings.sound) audio.effect(isNewItem ? 'discover' : event.type);
         if (event.type === 'damage' && event.lives) toast('剩下 ' + event.lives + ' 颗心 · 暂时受到保护');
+        if (event.type === 'chain') toast(event.chain + ' 连水纹 · 潮汐奖励 +' + event.bonus + ' 贝壳');
         if (isNewItem) { state.discovered.push(event.item); storage.write(state); toast('图鉴新增「' + ITEMS[event.item].name + '」'); }
         if (event.type === 'region') { toast('慢慢漂进了「' + event.name + '」'); document.querySelector('.game-heading h1').textContent = event.name; }
       });
@@ -290,6 +301,7 @@ function frame(now) {
       message.hidden = !message.textContent || run.showTutorial;
       document.querySelector('[data-action="paddle"]').classList.toggle('in-current', !!j.current || j.glide > 0);
       document.querySelector('#shell-count').textContent = run.shells;
+      const combo = document.querySelector('#combo'); combo.hidden = run.shellChain < 2; document.querySelector('#combo-count').textContent = run.shellChain;
       document.querySelector('#count').textContent = run.count;
       const progress = Math.min(100, Math.floor(run.distance / run.segmentEnd * 100));
       document.querySelector('#progress-text').textContent = run.mode === 'free' ? meters(run.distance) + ' 米' : progress + '%';
@@ -308,4 +320,4 @@ function frame(now) {
 if (sprites) decorateTitles(document.querySelector('#rotation'));
 screen.innerHTML = '<main class="loading"><span class="loading-leaf">≈</span><h1>慢桨</h1><p>准备出发…</p></main>';
 if (!sprites) screen.innerHTML = '<main class="loading"><h1>暂时无法展开水域</h1><p>当前环境不支持 Canvas 绘制。请更新客户端后重新进入。</p></main>';
-else storage.load().then(data => { state = data; setView(state.visited ? 'map' : 'home'); });
+else storage.load().then(data => { state = data; const update = syncStamps(state); if (update.unlocked.length) storage.write(state); setView(state.visited ? 'map' : 'home'); if (update.unlocked.length) toast('补盖了 ' + update.unlocked.length + ' 枚漂流印章，奖励 ' + update.reward + ' 枚贝壳。'); });

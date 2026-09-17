@@ -189,6 +189,7 @@ export function drawRun(c, width, height, run, themeName, sprites, skin, charact
     if (r.island && r.island.radius > 20 && j % 3 === 0) pine(c, r.island.x, y, 0.55, t);
   }
   drawJourney(c, height, run, t, low);
+  drawWeather(c, width, height, run, t, low);
   run.entities.forEach(e => {
     const x = e.x, y = anchor - (e.y - distance);
     if (e.taken || y < -40 || y > height + 40) return;
@@ -229,9 +230,9 @@ export function drawRun(c, width, height, run, themeName, sprites, skin, charact
       rect(c, '#f7d88e', 211, y - 42, 8, 7); rect(c, '#567d70', 208, y - 45, 14, 3);
     }
   }
-  if (run.journey.glide > 0) for (let i = 0; i < (low ? 5 : 12); i++) {
+  if (run.journey.glide > 0 || run.tideBoost > 0) for (let i = 0; i < (low ? 5 : 12); i++) {
     const offset = (run.time * 50 + i * 11) % 70;
-    rect(c, i % 2 ? '#f9e9b0' : '#c9f1d6', run.x + Math.sin(i * 3) * (9 + offset / 3), anchor + 15 + offset, 2, 4);
+    rect(c, run.tideBoost > 0 && i % 2 ? '#fff0a9' : '#c9f1d6', run.x + Math.sin(i * 3) * (9 + offset / 3), anchor + 15 + offset, 2, 4);
   }
   for (let i = 0; i < 5; i++) line(c, t.light, run.x - 5 - i * 2, anchor + 21 + i * 5 + Math.sin(run.time * 3) * 2, 10 + i * 4);
   c.save(); c.translate(Math.round(run.x), Math.round(anchor)); c.rotate(run.vx * 0.002);
@@ -239,6 +240,40 @@ export function drawRun(c, width, height, run, themeName, sprites, skin, charact
   c.drawImage(sprites['board' + skin], -20, -26); c.drawImage(sprites['character' + character], -20, -26); c.restore();
   if (run.mode === 'free' && run.cooldown > 1.65) { c.globalAlpha = (run.cooldown - 1.65) * 0.45; rect(c, '#d79171', 0, 0, width, height); c.globalAlpha = 1; }
   if (!low) run.particles.forEach(p => rect(c, '#fff2bf', p.x, anchor - (p.y - distance) - (0.7 - p.life) * 20, 2, 2));
+}
+
+function drawWeather(c, width, height, run, theme, low) {
+  if (!run.weather) return;
+  const amount = low ? 5 : 11;
+  if (run.weather.id === 'clear') {
+    for (let i = 0; i < amount; i++) {
+      const x = noise(i + 501) * width, y = (noise(i + 611) * height + run.time * 7) % height;
+      if (Math.sin(run.time * 2 + i) > 0.35) rect(c, '#fff2b8', x, y, 2, 1);
+    }
+  } else if (run.weather.id === 'breeze') {
+    c.globalAlpha = 0.45;
+    for (let i = 0; i < amount; i++) {
+      const x = (noise(i + 701) * width + run.time * 22 + i * 17) % (width + 30) - 15;
+      const y = noise(i + 721) * height;
+      line(c, theme.light, x, y, 10 + i % 3 * 5);
+    }
+    c.globalAlpha = 1;
+  } else if (run.weather.id === 'drizzle') {
+    c.globalAlpha = 0.38;
+    for (let i = 0; i < amount + 4; i++) {
+      const x = (noise(i + 801) * width + run.time * 13) % width;
+      const y = (noise(i + 851) * height + run.time * 38) % height;
+      rect(c, '#d9eee1', x, y, 1, 6);
+    }
+    c.globalAlpha = 1;
+  } else if (run.weather.id === 'mist') {
+    c.globalAlpha = low ? 0.08 : 0.13;
+    for (let i = 0; i < 4; i++) {
+      const y = (i * 91 + run.time * (i % 2 ? 3 : -3)) % (height + 50) - 25;
+      rect(c, '#eef1d7', -12, y, width + 24, 18);
+    }
+    c.globalAlpha = 1;
+  }
 }
 
 export function postcard(result, theme, sprites, skin, character) {

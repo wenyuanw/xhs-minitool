@@ -1,7 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { CHARACTERS, ITEMS, LEVELS, SPEED, riverAt, generateLevel } from '../src/game/data.js';
+import { CHARACTERS, ITEMS, LEVELS, WEATHERS, SPEED, riverAt, generateLevel } from '../src/game/data.js';
 import { createRun, advance, step, paddle, collect, tapCollect, rate, finish } from '../src/game/engine.js';
+import { STAMPS, syncStamps } from '../src/game/stamps.js';
 import { createGesture } from '../src/game/input.js';
 import { defaults, applyResult } from '../src/lib/storage.js';
 
@@ -27,6 +28,29 @@ test('expanded atlas gives every route four unique keepsakes plus shell currency
     assert.deepEqual(keepsakes.map(e => e.item), [0,1,2,3].map(i => level.id * 4 + i));
     assert.ok(shells.length >= 8); assert.ok(shells.every(e => e.amount === 1));
   }
+});
+test('shell curves form five-pickup combos with one bounded tide reward', () => {
+  const r=createRun(0);r.entities=[];
+  for(let i=0;i<5;i++){const shell={kind:'currency',id:'c'+i,x:120,y:0,amount:1};r.entities.push(shell);assert.equal(collect(r,shell),true);r.time+=0.5;}
+  assert.equal(r.shellChain,5);assert.equal(r.bestChain,5);assert.equal(r.chainBonuses,1);assert.equal(r.shells,8);assert.equal(r.tideBoost,1.25);
+  r.time+=3.3;step(r);assert.equal(r.shellChain,0);
+  const next={kind:'currency',id:'next',x:120,y:r.distance,amount:1};collect(r,next);assert.equal(r.shellChain,1);
+});
+test('four deterministic weathers each apply their advertised positive bonus', () => {
+  assert.equal(WEATHERS.length,4);
+  const seen=new Set();for(let seed=0;seed<4;seed++)seen.add(createRun(0,'level',1,seed).weather.id);assert.equal(seen.size,4);
+  const clear=createRun(0,'level',1,3,2);paddle(clear);assert.equal(clear.boost,2.3);
+  const breeze=createRun(0,'level',1,0);const neutral=createRun(0,'level',1,2);breeze.entities=[];neutral.entities=[];step(breeze);step(neutral);assert.ok(breeze.distance>neutral.distance);
+  const drizzle=createRun(0,'level',1,1);for(let i=0;i<3;i++)collect(drizzle,{kind:'currency',id:'r'+i,amount:1});assert.equal(drizzle.shells,4);
+  const mist=createRun(0,'level',1,2);const far={kind:'currency',id:'m',x:139,y:0,amount:1};mist.entities=[far];assert.equal(tapCollect(mist,120,0),true);
+});
+test('drift stamps reward once and track persistent run achievements', () => {
+  const save=defaults();
+  const first=syncStamps(save,{mode:'level',collisions:0,shells:8,bestChain:5});
+  assert.deepEqual(first.unlocked.map(s=>s.id),['shore','gentle','ripple']);assert.equal(first.reward,21);assert.equal(save.shells,21);
+  const again=syncStamps(save);assert.equal(again.reward,0);assert.equal(save.stamps.length,3);
+  save.discovered=ITEMS.map(item=>item.id);save.completed=LEVELS.length;save.challengeBest=500;save.characters=CHARACTERS.map((_,i)=>i);
+  const rest=syncStamps(save);assert.equal(save.stamps.length,STAMPS.length);assert.equal(rest.reward,88);
 });
 test('simulation is identical at 30, 60 and 120 fps', () => {
   const simulations = [30,60,120].map(fps => { const r = createRun(3); for(let i=0;i<fps*20;i++) advance(r,1/fps); return r; });

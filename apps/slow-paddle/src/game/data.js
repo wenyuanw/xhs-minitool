@@ -33,6 +33,12 @@ export const CHARACTERS = [
   { name: '月湾龟', cost: 68, shape: 'turtle', color: '#708d78', accent: '#e7d39a', ability: '稳航·碰撞减速时间减半', boost: 1.6, turn: 1, slow: 0.4, speed: 1, shellValue: 1 },
   { name: '星光鲸', cost: 88, shape: 'whale', color: '#607f9e', accent: '#d8dfba', ability: '追星·基础航速提升 8%', boost: 1.6, turn: 1, slow: 0.8, speed: 1.08, shellValue: 1 },
 ];
+export const WEATHERS = [
+  { id: 'clear', name: '晴波', icon: 'sun', note: '划桨余韵 +0.3 秒', boost: 0.3, speed: 1, pickup: 0, drizzle: false },
+  { id: 'breeze', name: '顺风', icon: 'leaf', note: '水流航速提升 6%', boost: 0, speed: 1.06, pickup: 0, drizzle: false },
+  { id: 'drizzle', name: '细雨', icon: 'wave', note: '每拾 3 枚贝壳多得 1 枚', boost: 0, speed: 1, pickup: 0, drizzle: true },
+  { id: 'mist', name: '薄雾', icon: 'moon', note: '拾取范围扩大', boost: 0, speed: 1, pickup: 8, drizzle: false },
+];
 export const THEMES = {
   day: { water: '#67b9ad', deep: '#49a99d', light: '#b3ddc7', land: '#b9c58d', sand: '#dbe0a6', tree: '#477e61', shade: '#326c59', sky: '#e7edcf' },
   sunset: { water: '#b5b996', deep: '#929f85', light: '#f7d8a2', land: '#bcb185', sand: '#efcd94', tree: '#7d8660', shade: '#596e55', sky: '#f4d6ad' },
@@ -76,7 +82,15 @@ export function generateLevel(level, segment = 0) {
     const y = Math.round(length * (i + 1) / 5);
     add('collect', y, position(y, 0.16 + rng() * 0.68), { item: level.id * 4 + i, radius: 7 });
   }
-  for (let y = 120; y < length - 70; y += 145) add('currency', y, position(y, 0.12 + rng() * 0.76), { amount: 1, radius: 7 });
+  // Five-shell curves make a readable mini-route and support the water-ripple combo.
+  for (let start = 120; start < length - 100; start += 470) {
+    const middle = 0.22 + rng() * 0.56;
+    for (let i = 0; i < 5; i++) {
+      const y = start + i * 48;
+      if (y >= length - 65) break;
+      add('currency', y, position(y, clamp(middle + Math.sin(i / 4 * Math.PI) * 0.18 - 0.09, 0.08, 0.92)), { amount: 1, radius: 7, chain: Math.floor(start / 470) });
+    }
+  }
   if (level.fork) {
     for (let i = 0; i < 4; i++) {
       const y = length * 0.38 + 35 + i * 42;

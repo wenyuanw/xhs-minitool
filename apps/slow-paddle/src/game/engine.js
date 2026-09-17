@@ -1,13 +1,15 @@
 import { MAX_LIVES, HIT_SHIELD, meters, challengeSpeed, setupChallenge } from './challenge.js';
 import { createJourney, setupJourneySegment, stepJourney, tryGlide, tapEncounter } from './journey.js';
-import { CHARACTERS, LEVELS, SPEED, STEP, clamp, riverAt, generateLevel } from './data.js';
+import { CHARACTERS, LEVELS, WEATHERS, SPEED, STEP, clamp, riverAt, generateLevel } from './data.js';
 
 export function createRun(levelId, mode = 'level', unlocked = 1, seed = 0, characterId = 0) {
   const level = LEVELS[levelId];
   const entities = generateLevel(level);
   const character = CHARACTERS[characterId] || CHARACTERS[0];
+  const weather = WEATHERS[Math.abs((seed + levelId * 3 + 1) % WEATHERS.length)];
   const run = { lives: mode === 'free' ? MAX_LIVES : null, endReason: null, journey: createJourney(seed), levelId, level, mode, unlocked, distance: 0, time: 0, x: 120, vx: 0, target: 120,
-    characterId: CHARACTERS.indexOf(character), character, boost: 0, boostMax: character.boost, cooldown: 0, slow: 0, collisions: 0, count: 0, shells: 0, found: [], entities,
+    characterId: CHARACTERS.indexOf(character), character, weather, boost: 0, boostMax: character.boost + weather.boost, cooldown: 0, slow: 0, collisions: 0, count: 0, shells: 0, found: [], entities,
+    currencyPicked: 0, shellChain: 0, shellChainUntil: 0, bestChain: 0, chainBonuses: 0, tideBoost: 0,
     total: entities.filter(e => e.kind === 'collect').length, segment: 0, segmentStart: 0,
     segmentEnd: level.duration * SPEED, status: 'running', particles: [], events: [], accumulator: 0 };
   setupChallenge(run); setupJourneySegment(run); return run;
@@ -20,9 +22,16 @@ export function collect(run, entity) {
   if (run.status !== 'running' || !['collect', 'currency'].includes(entity.kind) || entity.taken) return false;
   entity.taken = true;
   if (entity.kind === 'currency') {
-    const amount = (entity.amount || 1) * run.character.shellValue;
+    run.currencyPicked++;
+    run.shellChain = run.time <= run.shellChainUntil ? run.shellChain + 1 : 1;
+    run.shellChainUntil = run.time + 3.2;
+    run.bestChain = Math.max(run.bestChain, run.shellChain);
+    const rainBonus = run.weather.drizzle && run.currencyPicked % 3 === 0 ? 1 : 0;
+    const chainBonus = run.shellChain > 0 && run.shellChain % 5 === 0 ? 3 : 0;
+    const amount = (entity.amount || 1) * run.character.shellValue + rainBonus + chainBonus;
     run.shells += amount;
-    run.events.push({ type: 'currency', amount });
+    if (chainBonus) { run.chainBonuses++; run.tideBoost = Math.max(run.tideBoost, 1.25); }
+    run.events.push({ type: chainBonus ? 'chain' : 'currency', amount, chain: run.shellChain, bonus: chainBonus + rainBonus });
     for (let i = 0; i < 4 && run.particles.length < 40; i++) run.particles.push({ x: entity.x, y: entity.y, life: 0.7, vx: (i - 1.5) * 12 });
     return true;
   }
@@ -33,7 +42,7 @@ export function collect(run, entity) {
   return true;
 }
 export function tapCollect(run, x, worldY) {
-  const entity = run.entities.find(e => ['collect', 'currency'].includes(e.kind) && !e.taken && Math.hypot(e.x - x, e.y - worldY) < 16);
+  const entity = run.entities.find(e => ['collect', 'currency'].includes(e.kind) && !e.taken && Math.hypot(e.x - x, e.y - worldY) < 16 + run.weather.pickup);
   return entity ? collect(run, entity) : tapEncounter(run, x, worldY);
 }
 export function rate(count, total, collisions) { return 1 + (total > 0 && count >= Math.ceil(total * 0.6) ? 1 : 0) + (collisions <= 2 ? 1 : 0); }
@@ -43,6 +52,7 @@ export function finish(run) {
   return { mode: run.mode, levelId: run.levelId, count: run.count, total: run.total, collisions: run.collisions,
     seconds: Math.round(run.time), distance: meters(run.distance), lives: run.lives, endReason: run.endReason || 'shore', found: run.found.slice(), shells: run.shells,
     wish: run.journey.wish, wishDone: run.journey.wishDone, glides: run.journey.glides, stories: run.journey.stories.slice(),
+    weather: run.weather.id, weatherName: run.weather.name, bestChain: run.bestChain, chainBonuses: run.chainBonuses,
     stars: run.mode === 'level' ? rate(run.count, run.total, run.collisions) : 0 };
 }
 export function step(run, dt = STEP) {
@@ -51,6 +61,8 @@ export function step(run, dt = STEP) {
   run.cooldown = Math.max(0, run.cooldown - dt);
   run.slow = Math.max(0, run.slow - dt);
   run.boost = Math.max(0, run.boost - dt);
+  run.tideBoost = Math.max(0, run.tideBoost - dt);
+  if (run.shellChain && run.time > run.shellChainUntil) run.shellChain = 0;
   stepJourney(run, dt);
   const localY = run.distance - run.segmentStart;
   const river = riverAt(localY, run.level);
@@ -63,7 +75,7 @@ export function step(run, dt = STEP) {
     }
     const dy = Math.abs(e.y - run.distance), dx = run.x - e.x;
     if (e.kind === 'collect' || e.kind === 'currency') {
-      if (dy < 17 && Math.abs(dx) < 15) collect(run, e);
+      if (dy < 17 + run.weather.pickup && Math.abs(dx) < 15 + run.weather.pickup) collect(run, e);
       return;
     }
     if (e.kind === 'duck') {
@@ -73,7 +85,7 @@ export function step(run, dt = STEP) {
     }
     const nearby = dy < e.radius + 12 && Math.abs(dx) < e.radius + 6;
     if ((e.kind === 'rock' || e.kind === 'log') && nearby && run.cooldown === 0 && !(run.mode === 'free' && e.hit)) {
-      run.journey.glide = 0; run.collisions++; run.cooldown = run.mode === 'free' ? HIT_SHIELD : 1.2; run.slow = run.character.slow;
+      run.journey.glide = 0; run.tideBoost = 0; run.shellChain = 0; run.shellChainUntil = 0; run.collisions++; run.cooldown = run.mode === 'free' ? HIT_SHIELD : 1.2; run.slow = run.character.slow;
       if (run.mode === 'free') {
         e.hit = true; run.lives = Math.max(0, run.lives - 1);
         run.events.push({ type: 'damage', lives: run.lives });
@@ -100,7 +112,7 @@ export function step(run, dt = STEP) {
   if (run.x < river.left + 8) run.x += (river.left + 8 - run.x) * Math.min(1, dt * 5);
   if (run.x > river.right - 8) run.x -= (run.x - river.right + 8) * Math.min(1, dt * 5);
   run.x = clamp(run.x, river.left - 4, river.right + 4);
-  run.distance += SPEED * run.character.speed * (run.mode === 'free' ? challengeSpeed(run.distance) : 1) * Math.max(0.5, factor) * (run.journey.glide > 0 ? 1.35 : run.boost > 0 ? 1.2 : 1) * dt;
+  run.distance += SPEED * run.character.speed * run.weather.speed * (run.mode === 'free' ? challengeSpeed(run.distance) : 1) * Math.max(0.5, factor) * (run.journey.glide > 0 ? 1.35 : run.tideBoost > 0 ? 1.28 : run.boost > 0 ? 1.2 : 1) * dt;
   run.particles.forEach(p => { p.life -= dt; p.x += p.vx * dt; });
   run.particles = run.particles.filter(p => p.life > 0);
   if (run.distance >= run.segmentEnd) {

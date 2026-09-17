@@ -1,7 +1,8 @@
 import { journeyDefaults, sanitizeJourney } from '../game/journey.js';
 import { CHARACTERS, ITEMS, SKINS } from '../game/data.js';
+import { STAMPS, stampStats } from '../game/stamps.js';
 export const KEY = 'slow-paddle-save-v1';
-export function defaults() { return { version: 1, challengeBest: 0, challengeSeen: false, journey: journeyDefaults(), visited: false, tutorialSeen: false, completed: 0, best: [null, null, null, null, null, null], discovered: [], shells: 0, character: 0, characters: [0], skin: 0, settings: { sound: false, theme: 'auto' } }; }
+export function defaults() { return { version: 1, challengeBest: 0, challengeSeen: false, journey: journeyDefaults(), visited: false, tutorialSeen: false, completed: 0, best: [null, null, null, null, null, null], discovered: [], shells: 0, character: 0, characters: [0], stamps: [], stats: stampStats(), skin: 0, settings: { sound: false, theme: 'auto' } }; }
 export function validate(data) {
   if (!data || data.version !== 1 || !Number.isInteger(data.completed) || data.completed < 0 || data.completed > 6 || !Array.isArray(data.best) || data.best.length !== 6 || !Array.isArray(data.discovered)) throw new Error('存档格式无法读取');
   const result = defaults();
@@ -21,6 +22,8 @@ export function validate(data) {
   result.characters = Array.isArray(data.characters) ? data.characters.filter((v, i, a) => Number.isInteger(v) && v >= 0 && v < CHARACTERS.length && a.indexOf(v) === i) : [0];
   if (!result.characters.includes(0)) result.characters.unshift(0);
   result.character = result.characters.includes(data.character) ? data.character : 0;
+  result.stamps = Array.isArray(data.stamps) ? data.stamps.filter((v, i, a) => typeof v === 'string' && STAMPS.some(stamp => stamp.id === v) && a.indexOf(v) === i) : [];
+  result.stats = stampStats(data.stats);
   result.skin = Number.isInteger(data.skin) && data.skin >= 0 && data.skin < SKINS.length && data.completed >= SKINS[data.skin].unlock ? data.skin : 0;
   if (data.settings) {
     result.settings.sound = data.settings.sound === true;
