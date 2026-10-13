@@ -1,5 +1,12 @@
 [
   {
+    "id": "gegetu",
+    "title": "格格图",
+    "name": "gegetu",
+    "description": "多图拼成一张，教程文字直接发笔记",
+    "path": "/preview/gegetu/index.html"
+  },
+  {
     "id": "football-catch",
     "title": "绿茵门神",
     "name": "football-catch",

@@ -1,0 +1,22 @@
+{
+  "name": "gegetu",
+  "version": "0.1.0",
+  "private": true,
+  "description": "多图拼成一张，教程文字直接发笔记",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && minitool-pack",
+    "preview": "vite preview --port 5174",
+    "validate": "minitool-validate xhs-tool --strict"
+  },
+  "devDependencies": {
+    "vite": "^6.3.5",
+    "xhs-minitool-pack": "workspace:*",
+    "xhs-minitool-validate": "workspace:*",
+    "xhs-minitool-vite-config": "workspace:*"
+  },
+  "engines": {
+    "node": ">=18.17.0"
+  }
+}

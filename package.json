@@ -12,6 +12,7 @@
     "dev:slow-paddle": "pnpm --filter slow-paddle dev",
     "dev:momo-avatar-maker": "pnpm --filter momo-avatar-maker dev",
     "dev:sony-shutter": "pnpm --filter sony-shutter dev",
+    "dev:gegetu": "pnpm --filter gegetu dev",
     "build": "pnpm -r --filter \"./apps/**\" --filter \"!website\" build",
     "validate": "pnpm -r --filter \"./apps/**\" --filter \"!website\" validate",
     "create-minitool": "node ./packages/create-minitool/bin/create-minitool.mjs",

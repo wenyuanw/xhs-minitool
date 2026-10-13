@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#FF2442" />
+  <meta name="description" content="多图拼成一张，教程文字直接发笔记" />
+  <link rel="icon" type="image/svg+xml" href="./assets/logo.svg" />
+  <title>格格图</title>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="i-dl" viewBox="0 0 24 24"><path d="M12 4v12M7 11l5 5 5-5M4 20h16"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+<symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></symbol>
+<symbol id="i-type" viewBox="0 0 24 24"><path d="M5 6V5h14v1M12 5v14M9 19h6"/></symbol>
+<symbol id="i-pal" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1.1 0 1.5-.8 1.5-1.5 0-1.2-1-1.5-1-2.5s.8-1.5 2-1.5H17a4 4 0 0 0 4-4c0-4.7-4-8.5-9-8.5z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10" cy="7" r="1"/><circle cx="15" cy="7.5" r="1"/></symbol>
+<symbol id="i-exp" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M12 8v8M8.5 12.5L12 16l3.5-3.5"/></symbol>
+<symbol id="i-hand" viewBox="0 0 24 24"><path d="M9 11V5a1.5 1.5 0 0 1 3 0v5M12 10V4a1.5 1.5 0 0 1 3 0v6M15 10V6a1.5 1.5 0 0 1 3 0v7a7 7 0 0 1-7 7h-.5a6 6 0 0 1-4.6-2.2L4 15.5a1.5 1.5 0 0 1 2.3-2L9 16V11"/></symbol>
+</svg>
+<div class="page" id="page">
+<header class="brand">
+  <div class="brand-row">
+    <img class="logo" src="./assets/logo.svg" width="28" height="28" alt="" />
+    <h1>格格图</h1>
+  </div>
+  <p>多图拼成一张，教程文字直接发笔记</p>
+</header>
+<main>
+<div class="wrap">
+<section aria-label="图片">
+<div class="imghead"><span>最多 12 张，从相册选择</span><button type="button" id="sample">示例</button></div>
+<div class="strip" id="strip"></div>
+<div class="emptyrow" id="emptyrow"><span>图片只在本机拼图</span><button type="button" class="lk" id="sample2">用示例试试</button></div>
+<div class="mvbar" id="mvbar" hidden><span id="mvTxt"></span><button type="button" id="mvL" aria-label="向前移"><svg class="i"><use href="#i-chev"/></svg>前移</button><button type="button" id="mvR" aria-label="向后移">后移<svg class="i"><use href="#i-chev"/></svg></button><button type="button" id="mvOk" class="ok">完成</button></div>
+<div class="striphint" id="striphint" hidden>长按拖动可调整顺序，或点一下图片再用前移 / 后移</div>
+</section>
+<section class="ed" aria-label="文字">
+<textarea id="caps" aria-label="配图文字，每行对应一张图" placeholder="每行一句，自动配到对应图片上…&#10;用 / 换行，写 - 跳过这张图"></textarea>
+<p class="hint">发笔记时，这段文字会作为笔记正文。</p>
+<div class="lc" id="lc"></div>
+</section>
+<section aria-label="风格">
+<div class="tpls" id="tpls" role="listbox" aria-label="拼图模板"></div>
+<div class="chips" id="chips">
+<button type="button" class="chip" data-t="recipe">菜谱风</button>
+<button type="button" class="chip" data-t="band">简约风</button>
+<button type="button" class="chip" data-t="xhs">小红书风</button>
+<button type="button" class="chip" data-t="warm">暖调手账</button>
+<button type="button" class="chip" data-t="mono">黑白杂志</button>
+</div>
+<div class="rows">
+<button type="button" class="rowi" data-g="g-layout"><svg class="i"><use href="#i-grid"/></svg>布局与比例<span class="v" id="v-layout"></span><svg class="i cv"><use href="#i-chev"/></svg></button>
+<button type="button" class="rowi" data-g="g-text"><svg class="i"><use href="#i-type"/></svg>文字样式<span class="v" id="v-text"></span><svg class="i cv"><use href="#i-chev"/></svg></button>
+<button type="button" class="rowi" data-g="g-color"><svg class="i"><use href="#i-pal"/></svg>颜色<span class="v" id="v-color"></span><svg class="i cv"><use href="#i-chev"/></svg></button>
+<button type="button" class="rowi" data-g="g-exp"><svg class="i"><use href="#i-exp"/></svg>导出设置<span class="v" id="v-exp"></span><svg class="i cv"><use href="#i-chev"/></svg></button>
+</div>
+</section>
+<section class="sec" aria-labelledby="h-pv">
+<h2 id="h-pv">预览<small id="info"></small></h2>
+<article class="note">
+<div class="ph" id="ph"><div class="pe" id="pempty"><svg class="i"><use href="#i-grid"/></svg><br>添加图片后自动生成拼图</div><canvas id="cv" role="img" aria-label="拼图预览"></canvas></div>
+<div class="meta"><b id="mtitle">我的拼图</b><span><svg class="i"><use href="#i-hand"/></svg>点击图片查看大图，点格子改文字</span></div>
+</article>
+</section>
+</div>
+</main>
+</div>
+<input type="file" id="file" accept="image/*" multiple hidden />
+<div class="bar"><div class="in">
+<button type="button" class="ibt" id="clear"><svg class="i"><use href="#i-trash"/></svg>清空</button>
+<button type="button" class="ibt" id="pvbtn" disabled><svg class="i"><use href="#i-eye"/></svg>预览</button>
+<button type="button" class="act" id="dl" disabled>保存</button>
+<button type="button" class="act primary" id="post" disabled>发笔记</button>
+</div></div>
+<div class="view" id="view"><div class="vt"><button type="button" id="vclose" aria-label="关闭"><svg class="i"><use href="#i-x"/></svg></button><span id="vinfo"></span><button type="button" id="vsave" aria-label="保存" disabled><svg class="i"><use href="#i-dl"/></svg></button></div>
+<div class="vs"><canvas id="vcv"></canvas></div><div class="vb"><svg class="i"><use href="#i-hand"/></svg>点任意格子修改这张图的文字</div></div>
+<div class="mask" id="mask"></div>
+<div class="sheet" id="sheetSet" role="dialog" aria-label="更多设置"><div class="hd"><i></i><b>更多设置</b><button type="button" class="done" id="setDone">完成</button></div><div class="bd">
+<div class="grp" id="g-layout"><h3>布局与比例</h3>
+<div class="f"><label>列数</label><div class="seg" data-k="cols"><button type="button" data-v="0">智能</button><button type="button" data-v="1">1</button><button type="button" data-v="2">2</button><button type="button" data-v="3">3</button><button type="button" data-v="4">4</button></div></div>
+<div class="f"><label>末行不满时</label><div class="seg" data-k="stretch"><button type="button" data-v="1">拉伸铺满</button><button type="button" data-v="0">保持留白</button></div></div>
+<div class="f"><label>格子比例</label><div class="seg" data-k="ratio"><button type="button" data-v="1">1:1</button><button type="button" data-v="0.75">3:4</button><button type="button" data-v="1.3333">4:3</button></div></div>
+<div class="f"><label>间距 <output id="o-gap"></output></label><input type="range" id="gap" min="0" max="40" aria-label="间距"></div>
+<div class="f"><label>圆角 <output id="o-rad"></output></label><input type="range" id="rad" min="0" max="40" aria-label="圆角"></div></div>
+<div class="grp" id="g-text"><h3>文字样式</h3>
+<div class="f"><label>位置</label><div class="seg" data-k="pos"><button type="button" data-v="bottom">底部</button><button type="button" data-v="center">居中</button><button type="button" data-v="top">顶部</button></div></div>
+<div class="f"><label>大小 <output id="o-fs"></output></label><input type="range" id="fs" min="3" max="14" step="0.5" aria-label="文字大小"></div>
+<div class="f"><label>底条</label><div class="seg" data-k="band"><button type="button" data-v="0">无</button><button type="button" data-v="1">白色底条</button></div></div></div>
+<div class="grp" id="g-color"><h3>颜色</h3>
+<div class="f"><label>文字</label><div class="sw" data-k="tc"></div></div>
+<div class="f"><label>描边</label><div class="sw" data-k="oc"></div></div>
+<div class="f"><label>背景 / 间距</label><div class="sw" data-k="bg"></div></div></div>
+<div class="grp" id="g-exp"><h3>导出设置</h3>
+<div class="f"><label>宽度 <output id="o-ow"></output></label><input type="range" id="ow" min="720" max="4096" step="16" aria-label="导出宽度"></div>
+<div class="f"><label>格式</label><div class="seg" data-k="fmt"><button type="button" data-v="png">PNG 高清</button><button type="button" data-v="jpeg">JPG 体积小</button></div></div></div>
+</div></div>
+<div class="sheet" id="sheetEd" role="dialog" aria-label="编辑文字"><div class="hd"><i></i><b id="edTitle">编辑文字</b></div><div class="bd">
+<textarea id="editT" placeholder="写一句话，回车换行（最多 3 行）"></textarea>
+<div class="ft"><div class="mvbar edmv"><span>调整顺序</span><button type="button" id="edL"><svg class="i"><use href="#i-chev"/></svg>前移</button><button type="button" id="edR">后移<svg class="i"><use href="#i-chev"/></svg></button></div><button type="button" class="save" id="edOk">完成</button></div></div></div>
+<div class="toast" id="toast" role="status"></div>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
